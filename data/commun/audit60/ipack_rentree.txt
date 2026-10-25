@@ -1,9 +1,9 @@
 ### iPackEPS : rentrée, classes, élèves et collègue
 Portée : configuration technique iPackEPS ; procédures reprises du corpus des articles 14 et 13, sans création de boutons supplémentaires.
 Réponse courte : dans [Dossiers] > [Dossier EPS] > [Classes], réaliser [Configuration des classes] puis [Organisation des classes] AVANT l’import des élèves.
-Dans un établissement alimenté par les bases du rectorat, configurer les classes remontées ; ne pas inventer une création manuelle de classe SIECLE dans iPackEPS. Pour CFA, établissements particuliers ou à l’étranger non alimentés, l’article 14 prévoit une création dans [Dossiers] > [Dossier EPS] > [Groupes].
+Dans un établissement alimenté par les bases du rectorat, configurer les classes remontées ; iPackEPS ne permet pas de créer à la main une classe de la base élèves. Pour CFA, établissements particuliers ou à l’étranger non alimentés, l’article 14 prévoit une création dans [Dossiers] > [Dossier EPS] > [Groupes].
 Liste vide : vérifier les deux étapes ci-dessus. Si le message est « Votre administration n’a pas encore déclaré les élèves », établissement public : contacter le correspondant iPackEPS ; établissement privé : faire vérifier la remontée SIECLE par la direction et l’éditeur du logiciel administratif.
-Changement de classe : [gestion Classes] > [Actualiser], puis [importation élèves] > [Actualiser]. Les notes de classe sont dans un autre logiciel.
+Changement de classe : une fois le changement fait dans la base élèves par l'administration, [Dossier EPS] > [Classes] > [Configuration des Classes] > [Actualiser], puis [Classes] > [Importation des Élèves] > [Importer]. Les notes de classe sont dans un autre logiciel.
 Un import ONDE n’est pas documenté dans ces articles : ne pas le présenter comme identique à l’import SIECLE de collège.
-Ajout d’un collègue : distinguer sa présence dans l’équipe (remontée STSWeb selon l’article 13) et son affectation à une classe dans [Organisation des classes]. Ne pas inventer de délai garanti ou de droit administrateur.
+Ajout d’un collègue : il doit d’abord apparaître dans l’équipe EPS (remontée des bases des personnels selon l’article 13 ; [Équipe EPS et Intervenants Extérieurs] > [Membres de l’équipe] > [Actualiser]), puis être attribué à la classe dans [Organisation des Classes] (« Professeurs attribués à la classe »). Il n’y a pas de droit administrateur à donner.
 Le passage d’année n’établit pas à lui seul la conservation d’un historique de résultats : iPackEPS ne conserve pas les notes de classe.

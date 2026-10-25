@@ -12,3 +12,4 @@
 
 
 Sources : article 27, « Dépôt des projets et Configuration des Axes des Projets » ; procédure « Évolutions majeures interface et modules (2026) », section 3 (dépôts multiples) ; corpus de rentrée article 51 pour la seule reconduction des axes. Le chemin historique Tableau de bord > Les Dossiers et Projets > Les Projets correspond à l’intitulé de l’article 27 ; le chemin ci-dessus est celui donné par la procédure 2026.
+- Libellés dans la version 2026.2.1.1 (relevé à l'écran le 18 octobre 2026) : [Dossier Section Sportive Scolaire] et [Dossier Sport-Études] dans [Les Dossiers et Projets] ; « Dossier SSS » et « Dossier Sports-Études » sont les anciens libellés.

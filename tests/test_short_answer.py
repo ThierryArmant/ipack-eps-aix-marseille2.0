@@ -355,3 +355,14 @@ class CitationDeLaQuestion(unittest.TestCase):
     def test_citation_inventee_toujours_refusee(self):
         src = "Un bug d'iPackEPS : le correspondant académique iPackEPS."
         self.assertTrue(any(r.startswith('citation:') for r in sa.unsupported("Cliquez sur « Réparer ».", src, "Qui contacter ?")))
+
+
+class ConsignesInternes(unittest.TestCase):
+    SRC = "Ajout d'un collègue : distinguer sa présence dans l'équipe et son affectation à une classe. Ne pas inventer de délai garanti ou de droit administrateur."
+
+    def test_consigne_au_redacteur_refusee(self):
+        self.assertIn('forme:consigne_interne', sa.unsupported("Il est important de ne pas inventer de délai garanti ou de droit administrateur.", self.SRC))
+        self.assertIn('forme:consigne_interne', sa.unsupported("Le corpus ne documente pas de délai.", "Le corpus ne documente pas de délai."))
+
+    def test_conseil_utile_accepte(self):
+        self.assertEqual(sa.unsupported("Distinguez sa présence dans l'équipe et son affectation à une classe.", self.SRC), [])

@@ -55,6 +55,8 @@ _CONDITION = r"\b(?:si|s.il|s.ils|lorsque|lorsqu|quand|en cas|dans le cas|des qu
 
 
 # Outils et documents : une phrase ne peut pas appliquer la règle à un objet que ses passages ne citent pas.
+# Consignes adressées au rédacteur dans les fiches (« ne pas inventer… », « le corpus ») : jamais à recopier au collègue.
+_CONSIGNE_INTERNE = r"\binvent\w*|ne (?:pas|jamais) (?:promettre|annoncer|attribuer|presenter)\b|\bcorpus\b|\bcette fiche\b|\bces fiches\b|\bce releve\b|\bil est important de ne pas\b"
 _OBJETS = (r"\bbulletins?\b", r"\blivret", r"\blsu\b", r"\blsl\b", r"pronote", r"\bcyclades\b", r"santorin",
            r"ipack", r"imag.?in", r"esterel", r"\barena\b", r"releve de notes", r"carnet de notes", r"\bent\b")
 
@@ -132,6 +134,8 @@ def unsupported(phrase, cited_text, question='', titles=''):
         reasons.append('modalite:condition_perdue')
     if re.search(_CONSEQUENCE, p) and not re.search(_CONSEQUENCE_SOURCE, source):
         reasons.append('modalite:consequence_ajoutee')
+    if re.search(_CONSIGNE_INTERNE, p):
+        reasons.append('forme:consigne_interne')
     target = _words(phrase)
     pieces = [x for x in re.split(r'(?<=[.;!?])\s+|\n', cited_text) if x.strip()]
     best = max((len(target & _words(x)) for x in pieces), default=0)
@@ -190,6 +194,7 @@ et ses marqueurs de moment (« au préalable », « avant », « d'abord »).
 Plusieurs moyens ou cas alternatifs se présentent comme des alternatives (« soit… soit… »,
 « selon votre cas »), jamais comme des étapes à enchaîner.
 Recopie les menus entre crochets exactement comme dans les passages.
+Ne recopie jamais les consignes écrites pour le rédacteur (« ne pas inventer… », « ne pas promettre… », « le corpus », « cette fiche ») : traduis-les en conseil utile au collègue ou laisse-les de côté.
 ''' + ref_rule + '''
 Chaque élément de « phrases » contient UNE seule phrase (pas plusieurs phrases dans un même élément).
 Si les passages ne répondent pas à la question, renvoie {"phrases":[]}.

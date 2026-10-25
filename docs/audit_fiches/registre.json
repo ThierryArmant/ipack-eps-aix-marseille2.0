@@ -7263,7 +7263,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_080_article_28_dossiers_dossier_sss_ouverture_demande_d_ouverture_de_section_sportive_scolaire.txt",
-      "sha256": "cd3ffcdeee86f015dc7895717eda7e1def1c9df03263e8ac34d74cb582c7f1ef",
+      "sha256": "8a47870c33f7dcad47235a91fdb588026687f4c52aa2115e129eae79e0ed5be0",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -7329,7 +7329,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
-      "sha256": "0749cbd1f8821e4ccf63af879d2aa7a6d45a6e91bb8f52892ff8de7212701665",
+      "sha256": "6bb2a457170ee1d1c7e2556165c1f3a2191adb6ab8990a2e78029a532eab4e2e",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",

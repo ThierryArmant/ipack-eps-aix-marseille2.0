@@ -3212,3 +3212,20 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
 - I « texte des HSE des coordos » : le hub donne l'IMP sans nommer les textes et sans corriger la prémisse. La fiche IMP commence maintenant par : pas de HSE mais une IMP ; décret 2015-475, arrêté du 27/04/2015, circulaire 2015-058 II.2.
 - F « protocole Ultimate (académique) + Danse + aquagym (établissement) refusé » : le hub n'a pas trouvé la vraie raison (une seule activité de la liste nationale, il en faut deux). Ajouté à protocole_refuse_par_la_commission.txt : règle 2.a et cas « académique + établissement = non conforme ».
 - Registres et tests à jour (1242 OK).
+
+## 2026-10-25 — Revue des fiches iPackEPS et Examens (297 fiches), demandée par Thierry
+Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des menus 2026.2.1.1, visites collège et lycée) et les textes officiels. Pas de connexion à iPackEPS ni à Santorin depuis ici.
+- Menus : 266 libellés relevés ; 86 absents des relevés, presque tous issus des tutoriels Santorin/Cyclades (non relevés) ou d'articles anciens de l'assistance.
+- Corrigés :
+  - ipack_rentree : changement de classe [Importation des Élèves] > [Importer] (et non [Actualiser]) ; ligne « ajout d'un collègue » réécrite en conseil utile.
+  - EPI : [Gestion du Matériel] > [Inventaire EPI].
+  - Programmation : [Mes Documents] > [Documents].
+  - SSS : [Dossier Section Sportive Scolaire] et ses 4 modules.
+  - Sport-Études.
+  - Dossier Certificatif : [Dépôt Référentiels Certificatifs], [Dépôt de Documents pour la CAHPN].
+  - ipack_000 : fiche Établissement avant fiche professeur (même contradiction que la question 126).
+  - Crochets imbriqués dans ipack_065.
+- Contradictions recherchées (droits 2026.2.x, déverrouillage, arrondis par diplôme, liste académique ≤ 5, délais de deux mois) : rien de contradictoire trouvé.
+- Consignes au rédacteur : 159 phrases dans 111 fiches (« ne pas inventer », « le corpus », « cette fiche »…). La réponse courte les refuse désormais (raison forme:consigne_interne) et le prompt l'interdit. GPT : elles restent visibles dans les extraits affichés ; à filtrer à l'affichage si tu le juges utile.
+- Reste à vérifier à l'écran par Thierry : droits « Professeurs attribués à la classe » en 2026 ; manipulation de la classe partagée ; [Ajouter un créneau] par clic droit pour superposer deux groupes.
+- Registres et suite de tests à jour (1246 OK).

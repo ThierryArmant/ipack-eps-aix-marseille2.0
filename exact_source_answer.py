@@ -266,7 +266,8 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
     return result
 
 
-def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False, selector_llm=None):
+def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False, selector_llm=None,
+                 common_pool=True):
     packets = reviewer.source_packets(documents)
     audit.update(documents=packets, context_exact=documents,
                  context_sha256=hashlib.sha256(documents.encode()).hexdigest(),
@@ -410,7 +411,8 @@ DONNEES :
             report['focus_status'] = 'selected_by_model_not_semantically_proven'
             answer = render_focused_sources(selected, focus, reviewer, report)
             if synthesis:
-                if selector_llm is not None:
+                # common_pool=False : un sélecteur distinct choisit, le rédacteur écrit la réponse courte sans pool.
+                if selector_llm is not None and common_pool:
                     answer = with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
                                               reviewer, report, answer, public, mode, academy)
                 else:

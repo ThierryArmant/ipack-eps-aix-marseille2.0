@@ -1278,6 +1278,10 @@ if st.session_state.get("is_admin", False):
         st.session_state["admin_mini_albert"] = False
         st.session_state["admin_albert_only"] = False
         st.session_state["admin_mini_redige"] = True
+        # Essai comparatif réservé à l'admin : Mini choisit les passages, Albert rédige la réponse courte
+        # (même chaîne que Mini seul, sans pool commun). Décoché par défaut ; les collègues restent en Mini seul.
+        st.checkbox("Essai : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
+                    key="admin_albert_redige")
         st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
                    + (" · version " + _sha if _sha else ""))
 
@@ -1682,6 +1686,11 @@ if prompt_a_traiter:
             from openai_test_adapter import test_clients
             _test_selector, _generation_llm = test_clients(_test_model, openai_api_key)
         if _albert_only_trial or _mixed_trial:
+            _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
+                st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
+                temperature=0.0, allow_paused_test=True)
+        _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and st.session_state.get("admin_albert_redige"))
+        if _albert_redige_trial:
             _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
                 temperature=0.0, allow_paused_test=True)
@@ -2663,6 +2672,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                          'test_model': _test_model,
                                          'albert_only_trial': _albert_only_trial,
                                          'mini_albert_trial': _mixed_trial,
+                                         'albert_redige_trial': _albert_redige_trial,
                                          'faithful_sources_only': _faithful_trial,
                                          'test_api_call_limit': 2 if _test_model else None,
                                          'normalisation_question': normalise_question(prompt),
@@ -2679,7 +2689,8 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                 academy=academie_reponse, mode=mode, synthesis=True,
                                 selector_llm=OpenAI(model='gpt-4o-mini', temperature=0.0,
                                     api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20)
-                                    if _mixed_trial else None)
+                                    if (_mixed_trial or _albert_redige_trial) else None,
+                                common_pool=not _albert_redige_trial)
                             usage_ia['calls'] = diagnostic_ia.get('calls', [])
                             _doc_utilises = set(diagnostic_ia.get('exact_extracts', {}).get('selected_ids', []))
                         else:

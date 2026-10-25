@@ -11,6 +11,7 @@ COL, GT, PRO = 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP'
 
 # (question, public, onglet, début du titre attendu, débuts de titres interdits)
 CAS = [
+    ('Après la commission d\'harmonisation, qui peut encore corriger une note dans Santorin ?', GT, 'examens', 'Santorin : verrouillage, correction', []),
     ('Les profs d\'EPS sont-ils payés pour les CCF qu\'ils font passer dans leur lycée ?', PRO, 'examens', "CCF d'EPS : pas d'indemnité spécifique", []),
     ('Quand iPackEPS envoie-t-il automatiquement les protocoles vers Cyclades, à quelle heure ?', GT, 'ipack', 'iPackEPS et Cyclades : pas de synchronisation', ['[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL']),
     ('Dans quelle ville ou sur quel site un candidat libre passe-t-il son examen ponctuel d\'EPS ?', GT, 'examens', "Examen ponctuel d'EPS : lieu des épreuves", []),

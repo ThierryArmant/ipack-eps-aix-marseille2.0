@@ -54,6 +54,11 @@ _BRANCHE = r"^\s*(?:[-*•]\s*)?(?:si|lorsque|lorsqu|quand|en cas|dans le cas|de
 _CONDITION = r"\b(?:si|s.il|s.ils|lorsque|lorsqu|quand|en cas|dans le cas|des que|une fois|selon|pour les? .{0,40}(?:deja|pas encore|non) |deja valide)"
 
 
+# Outils et documents : une phrase ne peut pas appliquer la règle à un objet que ses passages ne citent pas.
+_OBJETS = (r"\bbulletins?\b", r"\blivret", r"\blsu\b", r"\blsl\b", r"pronote", r"\bcyclades\b", r"santorin",
+           r"ipack", r"imag.?in", r"esterel", r"\barena\b", r"releve de notes", r"carnet de notes", r"\bent\b")
+
+
 def _academies():
     try:
         from .academie import ACADEMIES
@@ -82,6 +87,9 @@ def unsupported(phrase, cited_text):
         quote = (quote[0] or quote[1]).strip()
         if quote and quote not in source:
             reasons.append('citation:' + quote)
+    for objet in _OBJETS:
+        if re.search(objet, p) and not re.search(objet, source):
+            reasons.append('objet:' + objet)
     for actor in _ACTEURS:
         if re.search(actor, p) and not re.search(actor, source):
             reasons.append('interlocuteur:' + actor)
@@ -202,7 +210,8 @@ def short_answer(llm, *, tracer, audit, question, passages):
         def _renvoi(match):
             cited = {int(n) for n in re.findall(r'\d+', match.group(0))}
             return '' if cited <= set(refs) else match.group(0)
-        text = re.sub(r'\s*[\(\[]\s*\d+(?:\s*(?:,|;|et)\s*\d+)*\s*[\)\]]', _renvoi, text).strip()
+        text = re.sub(r'\s*[\(\[]\s*(?:(?:passages?|extraits?|sources?|n°)\s*)?\d+(?:\s*(?:,|;|et)\s*\d+)*\s*[\)\]]',
+                      _renvoi, text, flags=re.I).strip()
         reasons = unsupported(text, '\n'.join(passages[r - 1][1] for r in refs))
         if reasons:
             report['rejected'].append(dict(texte=text, raisons=reasons))

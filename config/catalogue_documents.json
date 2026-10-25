@@ -3842,7 +3842,8 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "santorin.*(valid|verrouill|corrig)|valid.*santorin|note.*ccf.*(corrig|validation)|trompe.*note.*ccf"
+      "santorin.*(valid|verrouill|corrig)|valid.*santorin|note.*ccf.*(corrig|validation)|trompe.*note.*ccf",
+      "(?=.*(?:modifi|corrig|chang|rectifi))(?=.*\\bnotes?\\b)(?=.*(?:apres|une fois|termine|fini))(?=.*(?:harmonis|commission|jury|cloture|verrouill))"
     ],
     "exclure_motifs": [
       "(?=.*protocoles?)(?=.*(?:dans quel ordre|ordre des etapes|jusqu.a la saisie))(?!.*(?:erreur|corrig|verrouill|deverrouill))"
@@ -5055,7 +5056,8 @@
     "prioritaire": true,
     "priorite": 300,
     "motifs": [
-      "(?=.*certificat)(?=.*(?:arriv|remis|recu|transmis))(?=.*(?:apres|retard|tard|semaine))(?=.*(?:ccf|epreuve|evalu))"
+      "(?=.*certificat)(?=.*(?:arriv|remis|recu|transmis))(?=.*(?:apres|retard|tard|semaine))(?=.*(?:ccf|epreuve|evalu))",
+      "(?=.*certificat)(?=.*(?:posteriori|retroacti|apres coup|annul\\w* (?:une|la|sa) note|note deja|deja (?:saisie|notee|attribuee|donnee)))"
     ],
     "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
     "date_verification": "2026-10-12"
@@ -7117,7 +7119,8 @@
     ],
     "motifs": [
       "^(?=.*(?:remplac|substitu|a change|changement d.(?:apsa|activite)|a la place|au lieu d|changer (?:une |d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|transmis|depose|envoye|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))",
-      "(?=.*(?:modifier|changer|remplacer))(?=.*apsa)(?=.*protocole)(?=.*(?:verrouillage|verrouille|apres la date))(?!.*(?:inapt|blesse|adapte))"
+      "(?=.*(?:modifier|changer|remplacer))(?=.*apsa)(?=.*protocole)(?=.*(?:verrouillage|verrouille|apres la date))(?!.*(?:inapt|blesse|adapte))",
+      "(?=.*(?:ferm|indispon|travaux|inutilisable|inaccessible))(?=.*(?:installation|plateau|gymnase|piscine|stade|equipement|salle))(?=.*(?:epreuve|ccf|dispens|evalu|examen|protocole))"
     ],
     "exclusif_motifs": [
       "^(?=.*(?:remplac|substitu|a la place|au lieu d|changer (?:d.|l.)(?:apsa|activite)|changer .{0,40}(?:par|pour|contre)|nouvelle (?:apsa|activite)|modifier (?:une|l.|notre|le) (?:apsa|activite|protocole)))(?=.*(?:protocole|apsa|activite|ccf|ensemble certificatif))(?=.*(?:valid|commission|inspection|deja|en cours d.annee|travaux|ferm|indispon|gymnase|piscine|installation))"

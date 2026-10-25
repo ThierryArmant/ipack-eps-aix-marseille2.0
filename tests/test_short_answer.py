@@ -181,5 +181,17 @@ class PhraseTropLongue(unittest.TestCase):
         self.assertEqual(sa._split_long([{'texte': phrase, 'passages': [1]}])[0]['texte'], phrase)
 
 
+class ObjetEtRenvoisNommes(unittest.TestCase):
+    def test_renvoi_passage_n_retire(self):
+        out, rep = ControlesPhrases.run_sa(ControlesPhrases(), [{'texte': "Le nouvel enseignant doit avoir sa mission dans Imag'in (passage 2).", 'passages': [2]}])
+        self.assertEqual(rep['status'], 'rendered')
+        self.assertNotIn('passage 2', out)
+
+    def test_regle_appliquee_a_un_autre_document_refusee(self):
+        src = "Trop peu d'éléments pour noter : ne pas proposer de note et mentionner « dispensé de l'épreuve d'EPS »."
+        self.assertIn('objet:\\bbulletins?\\b', sa.unsupported("Ne proposez pas de note et indiquez « dispensé de l'épreuve d'EPS » sur le bulletin.", src))
+        self.assertEqual(sa.unsupported("Ne proposez pas de note et indiquez « dispensé de l'épreuve d'EPS ».", src), [])
+
+
 if __name__ == '__main__':
     unittest.main()

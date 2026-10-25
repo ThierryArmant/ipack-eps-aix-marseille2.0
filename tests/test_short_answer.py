@@ -311,3 +311,23 @@ class PorteeAcademiquePhraseVoisine(unittest.TestCase):
     def test_academie_nommee_dans_la_question_suffit(self):
         self.assertEqual(sa.unsupported("Précisez l'établissement et son UAI, le menu concerné et le message d'erreur exact.",
                                         self.SRC, question="À qui m'adresser dans l'académie d'Aix-Marseille si j'ai un bug ?"), [])
+
+
+class AcademieUtilisateur(unittest.TestCase):
+    P = [('Inscription', "À Aix-Marseille, cochez « APTE » dans Cyclades, y compris si un certificat médical atteste une inaptitude.")]
+    PH = [{'texte': "Cochez « APTE » dans Cyclades, y compris si un certificat médical atteste une inaptitude.", 'passages': [1]}]
+
+    def run_sa(self, academy):
+        audit = {}
+        sa.short_answer(_llm({'phrases': self.PH}), tracer=lambda l, a, stage: l, audit=audit,
+                        question='Comment inscrire un élève inapte ?', passages=self.P, academy=academy)
+        return audit['short_answer']
+
+    def test_collegue_d_aix_recoit_la_consigne_d_aix(self):
+        self.assertEqual(len(self.run_sa('Aix-Marseille')['kept']), 1)
+
+    def test_collegue_d_une_autre_academie_reste_protege(self):
+        self.assertIn('portee:aix-marseille', self.run_sa('Lille')['rejected'][0]['raisons'])
+
+    def test_exemple_json_montre_plusieurs_phrases(self):
+        self.assertGreaterEqual(sa.build_prompt('q', self.P).count('"texte"'), 3)

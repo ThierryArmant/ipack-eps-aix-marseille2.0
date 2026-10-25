@@ -3161,3 +3161,14 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
   - nouvelle consigne : après un oui/non, dire quoi faire ou les possibilités.
   - 3 tests ajoutés, suite complète OK (1231).
 - Encore à faire : 121 (condition_perdue sur des vérifications utiles), 127 (stats natation des années passées : la fiche reste ambiguë).
+
+## 2026-10-25 — Lot Examens B (25 questions, Mini seul, version dbcb343)
+- J 17 (68 %), I 8, F 0, É 0, B 0.
+- I : 73, 76, 85, 119, 129, 149, 173, 192.
+- 149 : faux refus de portée. La consigne d'Aix (inscrire « APTE ») a été refusée à un collègue d'Aix parce que la question ne nommait pas l'académie.
+- Les 7 autres : Mini répond toujours en une seule phrase (oui/non ou premier point), malgré la consigne ajoutée en dbcb343. Les extraits affichés en dessous contiennent la suite.
+- Cause probable : l'exemple JSON du prompt ne montrait qu'UN élément « phrases », et Mini le recopie.
+- Correctifs short_answer (version suivante) :
+  - l'exemple JSON montre trois phrases (réponse, ce qu'il faut faire, condition) ;
+  - l'académie de l'utilisateur vaut académie nommée pour le contrôle de portée (un collègue de Lille reste protégé).
+  - 3 tests ajoutés, suite complète OK (1234).

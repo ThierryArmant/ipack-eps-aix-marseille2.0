@@ -144,11 +144,15 @@ def build_prompt(question, passages, context=None):
                     'ne les écris pas dans le texte. Les passages « propose_par_mini » sont une proposition, '
                     'pas une obligation : retiens le passage qui répond à l\'action demandée, même non proposé, '
                     'et écarte un passage proposé qui traite une autre opération, un autre diplôme ou une autre académie.')
-        example = '{"phrases":[{"texte":"…","passages":["D1P2","D2P1"]}]}'
+        example = ('{"phrases":[{"texte":"Réponse à la question.","passages":["D1P2"]},'
+                   '{"texte":"Ce qu\'il faut faire.","passages":["D1P3"]},'
+                   '{"texte":"Condition ou limite.","passages":["D2P1"]}]}')
     else:
         data = [dict(n=n, situation=section, texte=text) for n, (section, text) in enumerate(passages, 1)]
         ref_rule = 'Chaque phrase indique dans « passages » les numéros n qui la justifient ; ne les écris pas dans le texte.'
-        example = '{"phrases":[{"texte":"…","passages":[1,2]}]}'
+        example = ('{"phrases":[{"texte":"Réponse à la question.","passages":[1]},'
+                   '{"texte":"Ce qu\'il faut faire.","passages":[1]},'
+                   '{"texte":"Condition ou limite.","passages":[2]}]}')
     payload = dict(question=question, passages=data)
     if context:
         payload['contexte'] = context
@@ -303,7 +307,8 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
                           lambda m: '' if set(re.findall(r'D\d+P\d+', m.group(1))) <= cited_ids else m.group(0), text).strip()
         cited_text = '\n'.join((passages[r - 1]['texte'] if pool else passages[r - 1][1]) for r in refs)
         cited_titles = ' '.join((passages[r - 1].get('section', '') if pool else passages[r - 1][0]) for r in refs)
-        reasons = unsupported(text, cited_text, question, cited_titles)
+        # L'académie de l'utilisateur vaut académie nommée : une consigne d'Aix répond à un collègue d'Aix.
+        reasons = unsupported(text, cited_text, question + (' ' + academy if academy else ''), cited_titles)
         if pool:
             reasons += scope_reasons(text, [passages[r - 1].get('portee') or {} for r in refs], public, academy)
         if reasons:

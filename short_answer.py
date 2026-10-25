@@ -158,6 +158,7 @@ Plusieurs moyens ou cas alternatifs se présentent comme des alternatives (« so
 « selon votre cas »), jamais comme des étapes à enchaîner.
 Recopie les menus entre crochets exactement comme dans les passages.
 ''' + ref_rule + '''
+Chaque élément de « phrases » contient UNE seule phrase (pas plusieurs phrases dans un même élément).
 Si les passages ne répondent pas à la question, renvoie {"phrases":[]}.
 JSON uniquement : ''' + example + '''
 DONNEES :
@@ -189,6 +190,11 @@ def _split_long(phrases):
     for item in phrases:
         text = item.get('texte') if isinstance(item, dict) else None
         if isinstance(text, str) and len(text) > MAX_CHARS:
+            # Plusieurs phrases complètes dans un seul élément (fréquent avec gpt-4o-mini) : une par élément.
+            sentences = [x.strip() for x in re.split(r'(?<=[.!?])\s+(?=[A-ZÀÂÉÈÊÎÔÛÇ«]|i[A-Z])', text) if x.strip()]
+            if len(sentences) > 1 and all(len(x) <= MAX_CHARS for x in sentences):
+                out.extend(dict(item, texte=x) for x in sentences)
+                continue
             # Ne jamais couper à l'intérieur d'une citation « … » ni d'un menu […].
             protected = re.sub(r'«[^»]*»|\[[^\]]*\]', lambda m: m.group(0).replace(';', '\x00'), text)
             parts = [x.replace('\x00', ';').strip(' ,;\u202f') for x in re.split(r'\s*[;\u202f]+;?\s*|,?\s+tandis que\s+', protected)]

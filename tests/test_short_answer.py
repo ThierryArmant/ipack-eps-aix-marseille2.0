@@ -273,5 +273,16 @@ class ToleranceContexte(unittest.TestCase):
         self.assertIn('modalite:incertitude_effacee', sa.unsupported("Utilisez le bouton « dupliquer » du support.", src))
 
 
+class PhrasesMultiples(unittest.TestCase):
+    def test_element_contenant_plusieurs_phrases_redecoupe(self):
+        texte = ("Pour suivre les résultats sur plusieurs années, utilisez le logiciel de vie scolaire pour les notes et les bulletins. "
+                 "Le suivi pluriannuel n'est pas une fonction de l'onglet Scolarité d'iPackEPS, qui décrit la scolarité et non un historique de notes. "
+                 "iPackEPS ne calcule pas les moyennes de classe et ne conserve pas de carnet de notes.")
+        self.assertGreater(len(texte), sa.MAX_CHARS)
+        parts = sa._split_long([{'texte': texte, 'passages': [1]}])
+        self.assertEqual(len(parts), 3)
+        self.assertTrue(parts[2]['texte'].startswith('iPackEPS ne calcule'))
+
+
 if __name__ == '__main__':
     unittest.main()

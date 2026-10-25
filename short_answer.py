@@ -311,6 +311,8 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
             raise ValueError('schema')
     except Exception as exc:
         report.update(status='invalid_no_retry', error_type=type(exc).__name__)
+        if getattr(exc, 'code', None):
+            report['error_code'] = exc.code
         return ''
     kept = []
     for item in _split_long(phrases)[:MAX_PHRASES + 2]:

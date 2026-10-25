@@ -22,13 +22,14 @@ class AlbertPausedTests(unittest.TestCase):
             gpt=object()
             self.assertIs(generation_llm(openai_llm=gpt,api_key='placeholder',provider='albert'),gpt)
 
-    def test_authorized_admin_service_failure_is_not_retried(self):
+    def test_authorized_admin_service_failure_retried_once_only(self):
         from urllib.error import URLError
-        with patch('albert_adapter.ALBERT_PAUSED',True), patch('albert_adapter.build_opener') as network:
+        with patch('albert_adapter.ALBERT_PAUSED',True), patch('albert_adapter.build_opener') as network, \
+                patch('albert_adapter._sleep', lambda seconds: None):
             network.return_value.open.side_effect=URLError('unavailable')
             with self.assertRaises(AlbertServiceError):
                 AlbertLLM('placeholder','gpt-oss-120b',allow_paused_test=True).complete('question')
-            network.return_value.open.assert_called_once()
+            self.assertEqual(network.return_value.open.call_count, 2)
 
     def test_no_network_for_discovery_or_generation(self):
         self.assertTrue(ALBERT_PAUSED)

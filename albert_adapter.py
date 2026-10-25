@@ -1,5 +1,6 @@
 """Accès serveur à Albert ; aucune clé dans les résultats ou les erreurs."""
 import re
+import time
 from types import SimpleNamespace
 import json
 from urllib.request import Request, build_opener, HTTPRedirectHandler
@@ -33,11 +34,40 @@ def _http_error(status):
     return AlbertServiceError(notices.get(status, 'Service Albert indisponible (HTTP ' + str(status) + ').'), 'http_' + str(status))
 
 
+# Codes passagers : un seul nouvel essai après une pause (quota par minute, serveur saturé, coupure).
+_RETRY_CODES = {'http_429', 'http_502', 'http_503', 'http_504', 'connection_unavailable'}
+_RETRY_DEFAULT_SECONDS = 15
+_RETRY_MAX_SECONDS = 30
+_sleep = time.sleep
+
+
+def _retry_delay(retry_after):
+    try:
+        value = float(retry_after)
+    except (TypeError, ValueError):
+        return _RETRY_DEFAULT_SECONDS
+    return max(1.0, min(value, _RETRY_MAX_SECONDS))
+
+
 def _request(api_key, method, route, payload=None, timeout=90, *, allow_paused_test=False):
     if ALBERT_PAUSED and not allow_paused_test:
         raise AlbertServiceError('Albert temporairement désactivé pour les essais.', 'temporarily_disabled')
     if not isinstance(api_key, str) or not api_key.strip() or any(c in api_key for c in '\r\n'):
         raise AlbertServiceError('Clé Albert absente ou non conforme dans les secrets Streamlit.', 'key_unavailable')
+    try:
+        return _request_once(api_key, method, route, payload, timeout)
+    except AlbertServiceError as exc:
+        if exc.code not in _RETRY_CODES:
+            raise
+        _sleep(_retry_delay(getattr(exc, 'retry_after', None)))
+    try:
+        return _request_once(api_key, method, route, payload, timeout)
+    except AlbertServiceError as exc:
+        exc.retried = True
+        raise
+
+
+def _request_once(api_key, method, route, payload, timeout):
     request = Request(BASE_URL + route, method=method,
                       headers={'Authorization': 'Bearer ' + api_key.strip(), 'Content-Type': 'application/json'},
                       data=json.dumps(payload).encode() if payload is not None else None)
@@ -48,8 +78,11 @@ def _request(api_key, method, route, payload=None, timeout=90, *, allow_paused_t
             data = response.read()
     except HTTPError as exc:
         status = exc.code
+        retry_after = exc.headers.get('Retry-After') if exc.headers is not None else None
         exc.close()
-        raise _http_error(status) from None
+        error = _http_error(status)
+        error.retry_after = retry_after
+        raise error from None
     except (URLError, TimeoutError, OSError):
         raise AlbertServiceError('Connexion Albert indisponible ou délai dépassé.', 'connection_unavailable') from None
     try:

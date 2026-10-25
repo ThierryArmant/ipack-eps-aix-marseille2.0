@@ -6,6 +6,8 @@ import re
 import unicodedata
 from pathlib import Path
 
+from albert_adapter import AlbertServiceError
+
 
 def complete_selection_contracts(candidates, selected, focus, question, report):
     """Contrats documentaires bornés : sélection de preuves, jamais de texte ajouté."""
@@ -423,6 +425,12 @@ DONNEES :
         audit['effective_selection_policy'] = 'exact_sources_only'
         return answer
     except Exception as exc:
+        if isinstance(exc, AlbertServiceError):
+            # Panne ou quota du fournisseur : ne pas la confondre avec une sélection mal formée.
+            report.update(status='service_unavailable_no_retry', error_type=type(exc).__name__,
+                          error_code=exc.code)
+            return ('<p>Modèle indisponible (' + ('quota par minute atteint' if exc.code == 'http_429'
+                    else 'service momentanément inaccessible') + ') : aucune réponse générée.</p>')
         report.update(status='invalid_selection_no_retry', error_type=type(exc).__name__)
         return '<p>Sélection non exploitable : aucune procédure générée et aucun nouvel appel automatique.</p>'
 

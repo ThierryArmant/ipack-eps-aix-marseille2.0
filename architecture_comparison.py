@@ -279,8 +279,12 @@ def run_model_comparison(*, mini, albert, retrieve, question, public, mode, acad
                 mode=mode, academy=academy, audit=audit, synthesis=True)
             short = audit.get('short_answer', {})
             item['state'] = short.get('status') or audit.get('exact_extracts', {}).get('status')
-            if short.get('status') == 'invalid_no_retry':
-                item['error'] = 'Rédaction indisponible : ' + short.get('error_type', 'erreur fournisseur ou format')
+            extracts = audit.get('exact_extracts', {})
+            if extracts.get('status') == 'service_unavailable_no_retry':
+                item['error'] = 'Modèle indisponible : ' + str(extracts.get('error_code', 'service'))
+            elif short.get('status') == 'invalid_no_retry':
+                item['error'] = ('Rédaction indisponible : ' + short.get('error_type', 'erreur fournisseur ou format')
+                                 + (' (' + str(short['error_code']) + ')' if short.get('error_code') else ''))
         except Exception as exc:
             item['error'] = str(exc) if isinstance(exc, AlbertError) else 'Traitement interrompu ; aucun secours automatique.'
         item['usage'] = usage_summary(audit)

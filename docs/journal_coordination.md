@@ -3336,3 +3336,13 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Albert rédige un peu mieux (plus complet, nuances justes : n136, n144, n162, n73), mais sa sélection des passages échoue dans 40 % des cas. Le défaut lui est propre : une fuite de consigne interne (n135).
 - Conclusion : Mini reste seul en production. Si on reprend Albert, ce sera uniquement comme rédacteur, après une sélection faite par Mini (essai `admin_albert_redige`, désactivé par défaut, publié ce jour).
 - Publié depuis la branche d'attente, après la fin du lot : l'essai Albert rédacteur (case admin, désactivée), la ligne « candidat individuel » du CAP, et la fiche Textes evaluation_classe_absence_zero.
+
+## 2026-10-26 — Claude : les blocages d'Albert venaient du quota (HTTP 429), pas de sa sélection
+
+- Correction de l'entrée d'hier : sur les 21 blocages d'Albert, 20 sont des refus HTTP 429 (quota par minute), visibles dans diagnostic_ia avec error_code. Ces questions ont échoué en environ 0,6 s, sans aucun jeton consommé. Le seul vrai échec de sélection est la question n76.
+- Sur les 30 questions réellement traitées, Albert a donné 22 réponses justes, 6 imprécises et 1 fausse, et a eu 1 échec de sélection. Il est au niveau de Mini.
+- albert_adapter.py : un seul nouvel essai sur 429, 502, 503, 504 et les coupures de connexion. La pause suit le Retry-After, plafonné à 30 s (15 s par défaut). Les erreurs 401, 403, 404 et 500 ne sont pas retentées.
+- exact_source_answer.py : une erreur fournisseur passe au statut `service_unavailable_no_retry` avec son error_code, et affiche « Modèle indisponible (quota par minute atteint) » au lieu de « Sélection non exploitable ».
+- short_answer.py : error_code noté. architecture_comparison.py : la colonne erreur_* du rejeu comparatif affiche le code.
+- Tests mis à jour : tests/test_albert_adapter.py et tests/test_albert_paused.py suivent la nouvelle règle (un seul nouvel essai, codes passagers uniquement). Nouveau fichier tests/test_albert_retry.py.
+- Suite : relancer le comparatif sur les 20 questions bloquées (lot transmis à l'utilisateur, hors dépôt).

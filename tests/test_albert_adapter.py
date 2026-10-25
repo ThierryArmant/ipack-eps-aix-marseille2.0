@@ -14,6 +14,9 @@ class AlbertAdapterTests(unittest.TestCase):
         switch = patch("albert_adapter.ALBERT_PAUSED", False)
         switch.start()
         self.addCleanup(switch.stop)
+        pause = patch("albert_adapter._sleep", lambda seconds: None)
+        pause.start()
+        self.addCleanup(pause.stop)
 
     def response(self, payload, status=200):
         result=io.BytesIO(json.dumps(payload).encode());result.status=status
@@ -44,17 +47,18 @@ class AlbertAdapterTests(unittest.TestCase):
         self.assertIsNone(factory.call_args.args[0].redirect_request(None,None,302,'',None,'https://other.example'))
 
     def test_errors_never_echo_response_body_or_secret(self):
-        for status in (401,403,429,500,302):
-            with self.subTest(status=status),patch('albert_adapter.build_opener') as factory, patch.object(factory.return_value, 'open', return_value=self.response({'error':'private-placeholder'},status)) as request:
+        # Seuls les codes passagers (quota 429, serveur saturé) ont droit à un unique nouvel essai.
+        for status, calls in ((401,1),(403,1),(429,2),(500,1),(302,1)):
+            with self.subTest(status=status),patch('albert_adapter.build_opener') as factory, patch.object(factory.return_value, 'open', side_effect=lambda *a, **k: self.response({'error':'private-placeholder'},status)) as request:
                 with self.assertRaises(AlbertError) as exc:available_models('private-placeholder')
                 self.assertNotIn('private-placeholder',str(exc.exception))
-                self.assertEqual(request.call_count,1)
+                self.assertEqual(request.call_count,calls)
 
-    def test_transport_error_has_no_retry_or_secret(self):
+    def test_transport_error_single_retry_without_secret(self):
         with patch('albert_adapter.build_opener') as factory, patch.object(factory.return_value,'open',side_effect=URLError('private-placeholder')) as request:
             with self.assertRaises(AlbertError) as exc:available_models('private-placeholder')
         self.assertNotIn('private-placeholder',str(exc.exception))
-        self.assertEqual(request.call_count,1)
+        self.assertEqual(request.call_count,2)
 
     def test_truncated_response_is_not_accepted(self):
         payload={'choices':[{'message':{'content':'partial'},'finish_reason':'length'}]}

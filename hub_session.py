@@ -2,19 +2,19 @@
 def allowed_modules(public):
     if not public:
         return ()
-    return ('textes',) if public == '1er degré' else ('ipack', 'examens', 'textes')
+    return ('textes',) if public in ('1er degré', 'Tous publics') else ('ipack', 'examens', 'textes')
 
 
 def select_public(state, public):
     state['public_valide'] = bool(public)
     state['messages_hub'] = []
     state.pop('current_prompt', None)
-    if public == '1er degré':
+    if public in ('1er degré', 'Tous publics'):
         select_module(state, 'textes')
 
 
 def select_module(state, module):
-    if state.get('niveau_actif_form') == '1er degré':
+    if state.get('niveau_actif_form') in ('1er degré', 'Tous publics'):
         module = 'textes'
     state['active_module'] = module
     state['contexte_valide'] = True

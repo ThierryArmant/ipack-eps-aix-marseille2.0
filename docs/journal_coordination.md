@@ -2847,3 +2847,13 @@ Fichier privé utilisateur inspecté pour sa structure uniquement, aucun contenu
 Autre problème distinct :7 publics vides et1 « Candidats libres » (statut, pas niveau scolaire). Aucun niveau deviné ; le défaut commun de niveau existant peut servir pour les cellules vides avec choix explicite de Thierry. Le statut candidat libre seul reste insuffisant pour choisir collège/GT/pro. Ne pas annoncer que le CSV complet est prêt à rejouer tant que ces niveaux ne sont pas explicités.
 
 Tests :16 import existants +2 nouveaux alias/niveaux =18 réussis ; 100 modes du fichier validés sur une copie structurelle (questions remplacées par un texte neutre, public factice réservé à ce test, jamais utilisé pour un rejeu). Aucun fichier privé publié, aucun appel IA. Le lecteur accepte maintenant ipack, examen(s), texte(s), casse et espaces externes.
+
+
+### 25 octobre 2026 — GPT : « Tous publics » dans Textes, accord explicite de Thierry
+Journal et HEAD relus avant modification, copie isolée hub-tous-publics. Ajout du public Tous publics dans le choix initial du Hub ; comme 1er degré, il n'ouvre que Textes. Navigation/session protège aussi les anciens états et refuse de basculer ce public vers Examens/iPackEPS. public_label conserve ce libellé sans niveau implicite ; effective_context garde Tous publics pour une question générale et reconnaît toujours un diplôme explicitement formulé. Les filtres existants de recherche n'ont pas de cible collège/GT/pro par défaut pour cette valeur ; aucun élargissement de portée d'un document n'est affirmé.
+
+Import : accepte Tous publics/tout public seulement dans Textes ; cellule de niveau vide en Textes devient Tous publics si aucun public commun explicite n'a été choisi. Un niveau explicite ou défaut choisi par Thierry reste prioritaire. Examens/iPack conservent l'obligation de niveau ; aucun statut Candidats libres transformé en diplôme. Public commun propose aussi Tous publics.
+
+Précision après contrôle des colonnes seules du CSV privé : parmi les7 cellules vides,5 sont Textes (lignes7,10,62,87,93),1 Examens (67),1 iPack (78). Ligne82 Examens : Candidats libres. Ces3dernières lignes restent à préciser ; le fichier complet n'est pas annoncé prêt. Aucun contenu de question ni réponse analysé pour cette modification, aucun fichier privé publié.
+
+Tests :4 nouveaux Tous publics (import, niveaux explicites, refus hors Textes, navigation et contexte effectif),16 import existants,2 alias,12 navigation,2 contexte spécifique =36 réussis ; syntaxe app vérifiée. Test alias antérieur ajusté : une cellule Textes vide n'est plus une erreur depuis l'accord utilisateur. Aucun appel IA ni rejeu lancé.

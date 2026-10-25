@@ -1352,7 +1352,7 @@ label_titres = {
 }
 
 # Le premier degré ouvre exclusivement les textes, même dans une session existante.
-if st.session_state.get("niveau_actif_form") == "1er degré" and st.session_state.get("active_module") != "textes":
+if st.session_state.get("niveau_actif_form") in ("1er degré", "Tous publics") and st.session_state.get("active_module") != "textes":
     select_module(st.session_state, "textes")
 
 # On lit l'état actuel de la session (sécurisé)
@@ -1446,7 +1446,7 @@ with st.container(key="parcours"):
         st.markdown('<div class="hub-field">🎯 Public</div>', unsafe_allow_html=True)
         niveau_scolaire = st.radio(
             "Public cible",
-            ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP"],
+            ["1er degré", "Collège", "Lycée Général & Techno", "Lycée Pro / CAP", "Tous publics"],
             index=None, horizontal=True, key="niveau_actif_form", format_func=public_label,
             label_visibility="collapsed", on_change=valider_public,
         )

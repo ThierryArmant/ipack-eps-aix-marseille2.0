@@ -58,7 +58,8 @@ def _parse_csv(data, default_mode=None, default_public=None):
              'examens': 'examens', 'examen': 'examens', 'examens & santorin': 'examens',
              'texte': 'textes', 'textes': 'textes', 'texte officiel': 'textes', 'textes officiels': 'textes',
              'securite & responsabilite juridique (textes officiels)': 'textes'}
-    publics = {'college': 'Collège (DNB)', 'college (dnb)': 'Collège (DNB)',
+    publics = {'tous publics': 'Tous publics', 'tout public': 'Tous publics',
+               'college': 'Collège (DNB)', 'college (dnb)': 'Collège (DNB)',
                'college dnb': 'Collège (DNB)', '1er degre': '1er degré', 'premier degre': '1er degré',
                'lycee voie generale': 'Lycée Général & Techno', 'lycee general & techno': 'Lycée Général & Techno',
                'lycee general et technologique': 'Lycée Général & Techno',
@@ -81,6 +82,10 @@ def _parse_csv(data, default_mode=None, default_public=None):
         if mode not in modes:
             value = row.get('mode') or '(vide)'
             raise ValueError(f"Ligne {line} : Mode inconnu : {value!r}. Valeurs acceptées : ipack, examen(s), texte(s). Pour une cellule vide, choisissez le contexte commun ci-dessous.")
+        if not public and modes[mode] == 'textes':
+            public = 'tous publics'
+        if public in ('tous publics', 'tout public') and modes[mode] != 'textes':
+            raise ValueError(f"Ligne {line} : Tous publics est réservé au contexte Textes ; précisez le niveau pour iPackEPS ou Examens.")
         if public not in publics:
             raise ValueError(f"Ligne {line} : public absent ou non reconnu. Indiquez le niveau ou choisissez le public commun ci-dessous.")
         rows.append(dict(row, n=ident, mode=modes[mode], public=publics[public],
@@ -96,7 +101,7 @@ def import_defaults(st, key):
                             [None, 'ipack', 'examens', 'textes'],
                             format_func=lambda x: {None: 'À préciser dans le fichier', 'ipack': 'iPackEPS', 'examens': 'Examens', 'textes': 'Textes'}[x], key=key+'_mode')
         public = st.selectbox("Public commun aux lignes non renseignées",
-                              [None, '1er degré', 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP'],
+                              [None, '1er degré', 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP', 'Tous publics'],
                               format_func=lambda x: x or 'À préciser dans le fichier', key=key+'_public')
     return mode, public
 

@@ -15,7 +15,7 @@ class CsvModeAliasesTests(unittest.TestCase):
     def test_unknown_mode_and_unspecified_level_are_not_inferred(self):
         with self.assertRaisesRegex(ValueError,'inconnu'):
             parse_csv(b'mode;public;question\ninconnu;College;Question\n')
-        for level in ['', 'Candidats libres']:
+        for level in ['Candidats libres']:
             with self.assertRaisesRegex(ValueError,'public absent ou non reconnu'):
                 parse_csv(('mode;public;question\ntexte;'+level+';Question\n').encode())
 

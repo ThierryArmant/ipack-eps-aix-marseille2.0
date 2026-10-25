@@ -7822,7 +7822,7 @@
       "ipack"
     ],
     "prioritaire": true,
-    "priorite": 270,
+    "priorite": 300,
     "motifs": [
       "(?:extraire|exporter|recuperer|sortir|fichier|tableau|imprimer).{0,50}notes?.{0,60}(?:santorin|saisies|commission)|recapitulatif.{0,30}notes"
     ],
@@ -7902,7 +7902,7 @@
       "ipack"
     ],
     "prioritaire": true,
-    "priorite": 270,
+    "priorite": 300,
     "motifs": [
       "option (?:eps|facultative)|enseignement optionnel"
     ],

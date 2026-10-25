@@ -104,7 +104,8 @@ def unsupported(phrase, cited_text, question='', titles=''):
         if re.search(objet, p) and not re.search(objet, source + ' ' + _compact(titles)):
             reasons.append('objet:' + objet)
     for actor in _ACTEURS:
-        if re.search(actor, p) and not re.search(actor, source):
+        # Un interlocuteur déjà nommé dans la question (« avec l'accord du chef ») n'est pas un ajout.
+        if re.search(actor, p) and not re.search(actor, source + ' ' + _compact(question)):
             reasons.append('interlocuteur:' + actor)
     nearest = _compact(_closest_sentence(phrase, cited_text))
     if (any(re.search(m, nearest) for m in _INCERTAIN)

@@ -284,5 +284,14 @@ class PhrasesMultiples(unittest.TestCase):
         self.assertTrue(parts[2]['texte'].startswith('iPackEPS ne calcule'))
 
 
+
+class InterlocuteurDeLaQuestion(unittest.TestCase):
+    def test_interlocuteur_present_dans_la_question_admis(self):
+        src = "La neutralisation exige une absence justifiée à chacune des deux épreuves, validée par l'autorité académique."
+        q = "On peut neutraliser une absence sans certificat avec l'accord du chef d'établissement ?"
+        self.assertEqual(sa.unsupported("Non, même avec l'accord du chef d'établissement, sans absence justifiée validée par l'autorité académique.", src, q), [])
+        self.assertTrue(sa.unsupported("Demandez à la DEC.", src, q))
+
+
 if __name__ == '__main__':
     unittest.main()

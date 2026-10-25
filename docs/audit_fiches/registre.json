@@ -182,7 +182,7 @@
     },
     {
       "path": "data/commun/audit355/aix_marche_adaptee.txt",
-      "sha256": "b55d5b3769a2bcc243b129ae807b1a36b88ab7aaa4e8e8bdacc06c27cc4ad9f2",
+      "sha256": "25aa3209cb52677d04f390b02ac33d85d100b53a747f72d19dbd8b6bd8d7183c",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-11_portee_session_2026 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -331,7 +331,7 @@
     },
     {
       "path": "data/commun/audit60/aix_certificats_2026.txt",
-      "sha256": "0fcd6b12a21eec5b40719e9000eddad61c7aebc8be3ff559280fcdaf32c43caa",
+      "sha256": "774b6569f7028582eafc9b5113c8ab024d1e9e6c9447d5ea0074d2c40f39d951",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_academique_2026_relue_2026-10-11",

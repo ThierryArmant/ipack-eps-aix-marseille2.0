@@ -259,10 +259,89 @@ def run_comparison(*, llm, retrieve, question, public, mode, academy, version, e
     return result
 
 
+
+def run_model_comparison(*, mini, albert, retrieve, question, public, mode, academy, version):
+    """Deux modèles, un contexte documentaire partagé, sans pool ni secours fournisseur."""
+    documents, sources, diagnostics, error = retrieve(question, public, mode, None)
+    if error:
+        raise ValueError('Recherche documentaire indisponible : aucun appel de comparaison lancé.')
+    result = dict(version=version, question=question, public=public, mode=mode,
+                  academy=academy, protocol='documented-models-v1',
+                  context_sha256=hashlib.sha256(documents.encode()).hexdigest(), branches={})
+    for name, client in [('Mini', mini), ('Albert', albert)]:
+        audit = {}
+        start = time.monotonic()
+        item = dict(model=getattr(client, 'model', ''), audit=audit)
+        result['branches'][name] = item
+        try:
+            item['answer'] = exact_answer(client, reviewer=_runtime.documentary_review,
+                tracer=TracedLLM, documents=documents, question=question, public=public,
+                mode=mode, academy=academy, audit=audit, synthesis=True)
+        except Exception as exc:
+            item['error'] = str(exc) if isinstance(exc, AlbertError) else 'Traitement interrompu ; aucun secours automatique.'
+        item['usage'] = usage_summary(audit)
+        item['elapsed_seconds'] = round(time.monotonic() - start, 2)
+    return result
+
+
+def render_model_comparison(st, *, retrieve, version, albert_api_key, albert_model):
+    with st.expander('🧪 Comparatif simple — Mini / Albert', expanded=False):
+        st.caption('Même question, même recherche documentaire, mêmes contrôles. Chaque modèle sélectionne puis rédige, sans pool. Le hub et le rejeu restent sur Mini seul.')
+        st.caption('Au maximum 2 appels Mini et 2 appels Albert, hors recherche documentaire. Aucun appel au chargement, aucun secours si Albert échoue.')
+        with st.form('simple_model_comparison'):
+            question = st.text_area('Question pour Mini et Albert', max_chars=4000)
+            public = st.selectbox('Public du test Mini / Albert', ['Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP', 'Tous publics'])
+            mode = st.selectbox('Onglet du test Mini / Albert', ['ipack', 'examens', 'textes'])
+            academy = st.text_input('Académie du test Mini / Albert', value='Aix-Marseille')
+            identifier = st.text_input('Identifiant du modèle Albert', value=albert_model or 'gpt-oss-120b')
+            submitted = st.form_submit_button('Comparer Mini et Albert — une question', disabled=not bool(albert_api_key))
+        if not albert_api_key:
+            st.info('Clé ALBERT_API_KEY absente des secrets : aucun essai Albert possible.')
+        if submitted:
+            st.session_state.pop('simple_model_comparison_result', None)
+            if not question.strip():
+                st.error('Saisissez une question.')
+            elif public == 'Tous publics' and mode != 'textes':
+                st.error('Tous publics est réservé aux Textes : précisez le niveau pour iPackEPS ou Examens.')
+            else:
+                try:
+                    from llama_index.llms.openai import OpenAI
+                    mini = OpenAI(model='gpt-4o-mini', temperature=0, max_tokens=900, max_retries=0, timeout=30)
+                    albert = AlbertLLM(albert_api_key, identifier.strip(), temperature=0, allow_paused_test=True)
+                    with st.spinner('Comparaison Mini / Albert sur les mêmes documents…'):
+                        st.session_state['simple_model_comparison_result'] = run_model_comparison(
+                            mini=mini, albert=albert, retrieve=retrieve, question=question.strip(),
+                            public=public, mode=mode, academy=academy.strip() or 'Non précisée', version=version)
+                except (AlbertError, ValueError) as exc:
+                    st.error(str(exc))
+        result = st.session_state.get('simple_model_comparison_result')
+        if result:
+            st.write(result['question'])
+            st.caption('Version ' + result['version'] + ' · contexte documentaire partagé · sans pool')
+            for col, name in zip(st.columns(2), ['Mini', 'Albert']):
+                with col:
+                    item = result['branches'][name]
+                    st.subheader(name)
+                    st.caption('Modèle : ' + str(item['model']))
+                    if item.get('error'):
+                        st.error(item['error'])
+                    if item.get('answer'):
+                        st.markdown(item['answer'], unsafe_allow_html=True)
+                    usage = item['usage']
+                    st.caption(str(usage['calls']) + ' appel(s) · ' + str(item['elapsed_seconds']) + ' s')
+                    with st.expander('Trace des appels et passages'):
+                        st.json(item)
+            st.download_button('Télécharger le comparatif Mini / Albert',
+                json.dumps(result, ensure_ascii=False), file_name='comparatif_mini_albert_prive.json',
+                mime='application/json', key='simple_model_comparison_download')
+
+
 def render(st, *, llm, retrieve, version, model, albert_api_key=None, albert_model=""):
     if not st.session_state.get('is_admin', False):
         return
     albert_api_key = albert_api_key if isinstance(albert_api_key, str) else None
+    render_model_comparison(st, retrieve=retrieve, version=version,
+                            albert_api_key=albert_api_key, albert_model=albert_model)
     with st.expander('🧪 Comparateur — architectures et modèles', expanded=False):
         st.caption('A : recherche actuelle → rédaction. B : interprétation IA → même recherche → rédaction. '
                    'C : recherche → détection du doute → précision éventuelle. D : modèle Albert, mêmes fiches et contrôles que A. '

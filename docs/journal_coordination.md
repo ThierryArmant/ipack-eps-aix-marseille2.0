@@ -3105,3 +3105,14 @@ Thierry repasse en **Mini seul** et demande pourquoi des erreurs reviennent à c
 4. **Consignes d'Aix demandées depuis une autre académie** (31, 52, 41, 33) : le rédacteur ne connaissait pas l'académie de l'utilisateur ; transmis depuis c59ac8a, consigne « nomme l'académie propre à la règle et conseille de vérifier dans la sienne ». Non encore mesuré.
 Restent hors de ces familles : 45 (contrainte d'AFLP bac pro), 50 (EPPCS droit à l'image, non documenté), 60 (changement de groupe dans le même établissement).
 Projection prudente sur les 50 si ces correctifs tiennent : **≈ 43–45 J (86–90 %)**. À vérifier en rejouant les mêmes lots, Mini seul. Tests + suite complète OK.
+
+### 25 octobre 2026 16 h 45 — Claude : mêmes lots, Mini seul, version ebc4b79 — 76 % justes
+Fichiers (12) iPackEPS et (13) Examens, ebc4b79, Mini sélectionne et rédige, sans pool. Notation Claude, même grille.
+| Lot | J | I | F | É | B |
+|---|---:|---:|---:|---:|---:|
+| iPackEPS | 20 | 5 | 0 | 0 | 0 |
+| Examens | **18** | 5 | 1 | 1 | 0 |
+| **Total (50)** | **38 (76 %)** | 10 | 1 | 1 | **0** |
+Évolution sur les mêmes 50 : 60 % (Albert rédige, 9ad91a7) → 72 % (Mini seul, b2d0239) → **76 %** ; J+I 96 % ; **plus aucune question bloquée** (49 désormais juste : identifiants inventés écartés).
+- Examens 12 → 18 J : 35, 36, 39, 46, 49, 33 passent (les quatre familles corrigées à 16 h 30). Restent : 31 et 52 (consignes d'Aix demandées depuis Poitiers : Mini ne nomme toujours pas Aix, phrase refusée — comportement voulu, extraits étiquetés affichés), 41 (annexe du BA 549 donnée à Nantes sans « Aix »), 34 et 43 (réponses vagues), F 45 (AFLP bac pro), É 50 (EPPCS image, non documenté).
+- iPackEPS 24 → 20 J : **variabilité de Mini**, plus laconique (une seule phrase en 62, 95, 97, 99) et deux phrases justes refusées pour « sinon » alors que la source dit « tant qu'un seul candidat n'a rien, la clôture est impossible » (59, 106). Correctifs publiés avec cette entrée : la source « tant que… / impossible / croix rouge » compte comme alternative ; consigne : ne pas répondre en une seule phrase quand les passages donnent une condition, une limite ou des étapes. Tests + suite complète OK.

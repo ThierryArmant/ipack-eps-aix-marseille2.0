@@ -8418,7 +8418,7 @@
       "textes"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*(?:indemn|remuner|\\bpaye|\\bpaie|retribu|heures? sup|vacation|argent))(?=.*(?:ccf|evaluat|examen|imag.?in|epreuve|notation))"
@@ -8437,7 +8437,7 @@
       "examens"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*synchro)(?=.*(?:ipack|cyclades))",
@@ -8460,7 +8460,7 @@
       "textes"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*ponctuel)(?=.*(?:\\bou (?:se|ont|a|sont|passe|doivent)|\\blieux?\\b|\\bsites?\\b|centre d.examen|\\bcommunes?\\b|littoral|isolee?s?\\b|se deroul))"
@@ -8479,7 +8479,7 @@
       "ipack"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*(?:\\botp\\b|code (?:de connexion|a usage unique|par sms|de securite)|pas de reseau|sans reseau|reseau (?:mobile|telephon)|hors.?ligne|sans connexion|sans internet|pas de connexion|pas d.internet))(?=.*(?:santorin|saisi|not|epreuve|terrain|ccf|grilles?|stade|gymnase))"
@@ -8501,7 +8501,7 @@
       "examens"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*(?:ordre|intervert|inverser|permuter|deplacer|decaler|changer|modifier))(?=.*(?:sequences?|calendrier des (?:epreuves|ccf)|ordre de passage|periodes? des? (?:epreuves|ccf)))"
@@ -8523,7 +8523,7 @@
       "textes"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*(?:rattrapage|differee?s?|epreuves? de remplacement))(?=.*(?:date limite|jusqu.(?:a|au)|avant (?:la|le)|delai|quand|calendrier|derniere date))"
@@ -8542,7 +8542,7 @@
       "textes"
     ],
     "prioritaire": true,
-    "priorite": 290,
+    "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
       "fiche de synthese|(?=.*(?:modele|document|fiche|bilan|compte.?rendu|analyse))(?=.*(?:commission d.harmonisation|jury|cahpn|commission academique))(?=.*(?:transmettre|envoyer|trouver|presenter|fournir|deposer))"

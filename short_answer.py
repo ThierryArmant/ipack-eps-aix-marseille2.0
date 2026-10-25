@@ -180,6 +180,12 @@ def _split_long(phrases):
             if len(parts) > 1 and all(len(x) <= MAX_CHARS for x in parts):
                 out.extend(dict(item, texte=x) for x in parts)
                 continue
+            # Énumération de gestes à l'infinitif séparés par des virgules (« adapter …, renvoyer …, permettre … »).
+            parts = [x.strip(' ,') for x in re.split(r',\s+(?=(?:ne pas |n.|soit |puis )?[a-zàâçéèêëîïôûù]+(?:er|ir|re)\b)', text)]
+            parts = [x[0].upper() + x[1:] + ('' if x.endswith(('.', '!', '?')) else '.') for x in parts if x]
+            if len(parts) > 1 and all(len(x) <= MAX_CHARS for x in parts):
+                out.extend(dict(item, texte=x) for x in parts)
+                continue
         out.append(item)
     return out
 

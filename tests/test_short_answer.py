@@ -242,5 +242,16 @@ class PoolCommun(unittest.TestCase):
         self.assertIn('"academie": "Paris"', prompt)
 
 
+class EnumerationInfinitifs(unittest.TestCase):
+    def test_liste_de_gestes_a_l_infinitif_coupee(self):
+        t = ("Adapter l'épreuve si l'inaptitude est partielle, renvoyer le candidat à une évaluation différée si l'inaptitude l'empêche de terminer, "
+             "permettre une certification sur deux épreuves si la troisième est impossible, permettre une certification sur une seule épreuve si deux sont impossibles, "
+             "ne pas formuler de proposition de note si les éléments sont trop réduits.")
+        self.assertGreater(len(t), sa.MAX_CHARS)
+        parts = sa._split_long([{'texte': t, 'passages': [1]}])
+        self.assertEqual(len(parts), 5)
+        self.assertTrue(parts[4]['texte'].startswith('Ne pas formuler'))
+
+
 if __name__ == '__main__':
     unittest.main()

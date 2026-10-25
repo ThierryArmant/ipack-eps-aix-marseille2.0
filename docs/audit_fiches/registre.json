@@ -13340,6 +13340,86 @@
       "statut_audit": "a_relire",
       "statut_catalogue": "redige_2026-10-25_sources_citees",
       "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/sortie_assurance_parents_accompagnateurs.txt",
+      "sha256": "26da5900b72bf14a2076a51e82235351af97fc588d4e2bd39ce570a63c75c6fd",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/sss_ouverture_encadrement_horaire.txt",
+      "sha256": "196a50320881e2c8f9ce600c6f20f74440c66efddfbfb59b56548c65e2f788cd",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/surveillance_continue_eleve_seul.txt",
+      "sha256": "8c497b2b9fcccae8267988ee68d4f280084b69bb41f8244f3ce9041ac4a10e3a",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/remplacement_courte_duree_pacte.txt",
+      "sha256": "431795b1f760a92da4e32ec354f9793bb2d3cb0ea245a89d8ba20479b1ba7848",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/conge_maladie_fonctionnaire.txt",
+      "sha256": "fc6ba43103e26e2b331236850e19b5666a98bb254dc911f549db97b694b3232c",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/greve_enseignant_second_degre.txt",
+      "sha256": "9329207873b8194240d99e18effe3ef953ade0eb8f35c56bf2ae0fa22218f15d",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/droit_syndical_reunion_information.txt",
+      "sha256": "9c6c247d3027a69080a2640d1ea5dcbad15c0f11042a7fb4a0d1776b1c147803",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/programme_eps_voie_professionnelle_2019.txt",
+      "sha256": "bbac49aa44652296fa62ffbb518a397b6128f833f0714025e8556cf49064adaa",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/droit_image_eleves_photos_videos.txt",
+      "sha256": "2af08fc79787220906ca6c62ebeb046c9d92163886a28f6b1706c3773a953821",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/fiches/apq_30_minutes_premier_degre.txt",
+      "sha256": "c7435a63ae3f3d8ce7a5ef044ec5483b4bb6068826473989800ff42f54ebc7b5",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "texte_officiel_lu_2026-10-25",
+      "signaux": []
     }
   ],
   "revue_structurelle": {

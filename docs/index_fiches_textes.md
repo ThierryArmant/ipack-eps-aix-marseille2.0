@@ -1,10 +1,10 @@
 # Index ordonné des fiches Textes
 
-84 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+94 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
-## Service, statuts, rémunération et qualifications EPS (12)
+## Service, statuts, rémunération et qualifications EPS (16)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -16,9 +16,13 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: PROTOCOLE TECHNIQUE DE L'ÉPREUVE (100 MÈTRES EN CONTINU)]](../data/textes/fiches/base_textes_officiels_011_situation_protocole_technique_de_l_epreuve_100_metres_en_continu.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: MOTIFS D'ÉLIMINATION IMMÉDIATE (TEST NON VALIDÉ)]](../data/textes/fiches/base_textes_officiels_012_situation_motifs_d_elimination_immediate_test_non_valide.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Coordination EPS : conditions et montant de l’IMP](../data/textes/fiches/base_textes_officiels_061_situation_textes_de_reference_et_role_du_coordonnateur_eps.txt) | Non balisé | 3 | Références présentes ; statut détaillé au catalogue |
+| [Congé de maladie ordinaire d'un enseignant titulaire](../data/textes/fiches/conge_maladie_fonctionnaire.txt) | primaire, dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 | [Cumul : activité accessoire et emploi public](../data/textes/fiches/cumul_activite_accessoire.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
+| [Droit syndical : réunion d'information syndicale](../data/textes/fiches/droit_syndical_reunion_information.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
+| [Grève : préavis, déclaration et retenue](../data/textes/fiches/greve_enseignant_second_degre.txt) | primaire, dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 | [IMP : attribution, temps partiel, partage et versement](../data/textes/fiches/imp_attribution_temps_partiel_remplacement.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)](../data/textes/fiches/obligations_service_premier_degre_2013.txt) | primaire | 3 | Références présentes ; statut détaillé au catalogue |
+| [Remplacement de courte durée (RCD) et pacte](../data/textes/fiches/remplacement_courte_duree_pacte.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [TZR : zone, rattachement, emploi du temps, service et heures (décret n° 99-823, note n° 99-152)](../data/textes/fiches/tzr_decret_99_823_remplacement.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 
 ## Carrière, recrutement, mobilité et recours (5)
@@ -31,7 +35,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Professeur d’EPS : mutation, vérification du barème et recours](../data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]](../data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt) | Non balisé | 0 | Relecture à poursuivre |
 
-## Responsabilité et protection des personnels (4)
+## Responsabilité et protection des personnels (5)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -39,6 +43,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: LE DOUBLE RÉGIME DE RESPONSABILITÉ (CIVILE ET PÉNALE)]](../data/textes/fiches/base_textes_officiels_032_situation_le_double_regime_de_responsabilite_civile_et_penale.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Accident de service ou de trajet : déclaration de l’agent](../data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Violences, discriminations et harcèlement envers les personnels](../data/textes/fiches/signalement_violences_personnels.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
+| [Surveillance des élèves en EPS : continuité, élève laissé seul](../data/textes/fiches/surveillance_continue_eleve_seul.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 
 ## Vie scolaire, direction, laïcité et égalité (8)
 
@@ -63,7 +68,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Élève inapte ou dispensé : présence en cours d'EPS](../data/textes/fiches/dispense_inaptitude_presence_cours.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 | [PAI : pratique EPS, adaptation et sorties](../data/textes/fiches/pai_pratique_eps_sorties.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 
-## Sorties, voyages, transports et accompagnateurs (15)
+## Sorties, voyages, transports et accompagnateurs (16)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -76,6 +81,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[ARTICLE 114] CADRE RÉGLEMENTAIRE DES SORTIES ET ENSEIGNEMENTS APPN (BO & CIRCULAIRES)](../data/textes/fiches/base_textes_officiels_062_article_114_cadre_reglementaire_des_sorties_et_enseignements_appn_bo_circulaires.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Déplacements réguliers vers les installations : collège et lycée](../data/textes/fiches/deplacements_reguliers_college_lycee.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 | [EPS à l’école : intervenant bénévole professeur d’EPS, agrément et autorisation](../data/textes/fiches/intervenants_eps_ecole_agrement_reputation.txt) | primaire | 1 | Références présentes ; statut détaillé au catalogue |
+| [Sortie scolaire : assurance des élèves et parents accompagnateurs](../data/textes/fiches/sortie_assurance_parents_accompagnateurs.txt) | primaire, dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 | [Sortie au musée à vélo ou VTT : obligations et prévention au second degré](../data/textes/fiches/sortie_musee_velo_second_degre.txt) | dnb, gt, pro, cap | 4 | Références présentes ; statut détaillé au catalogue |
 | [Sortie commune CM2–6e : exception du groupe mixte cycle 3](../data/textes/fiches/sorties_mixte_cycle3_encadrement.txt) | primaire, dnb | 2 | Références présentes ; statut détaillé au catalogue |
 | [École : autorisation des sorties et voyages scolaires](../data/textes/fiches/sorties_premier_degre_autorisations.txt) | primaire | 1 | Références présentes ; statut détaillé au catalogue |
@@ -110,10 +116,11 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: 17E SECTION : PROTOCOLE ACADÉMIQUE D'URGENCE ET RAPPORT CIRCONSTANCIÉ]](../data/textes/fiches/base_textes_officiels_023_situation_17e_section_protocole_academique_d_urgence_et_rapport_circonstancie.txt) | primaire, dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: GESTION DES CRISES ET PROTOCOLES D'URGENCE]](../data/textes/fiches/base_textes_officiels_060_situation_gestion_des_crises_et_protocoles_d_urgence.txt) | primaire, dnb, gt, pro, cap | 2 | Doublon écarté de la recherche |
 
-## Programmes, horaires et ressources pédagogiques (7)
+## Programmes, horaires et ressources pédagogiques (9)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
+| [30 minutes d'activité physique quotidienne (APQ)](../data/textes/fiches/apq_30_minutes_premier_degre.txt) | primaire | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: 7E SECTION : PÉDAGOGIE, HORAIRES ET DISPOSITIFS DE SUIVI AU COLLÈGE (CYCLES 3 & 4)]](../data/textes/fiches/base_textes_officiels_013_situation_7e_section_pedagogie_horaires_et_dispositifs_de_suivi_au_college_cycles_3_4.txt) | Non balisé | 1 | Relecture à poursuivre |
 | [[SITUATION: Texte de référence : Programme fixé par le BO spécial n°2 du 26 mars 2015]](../data/textes/fiches/base_textes_officiels_033_situation_texte_de_reference_programme_fixe_par_le_bo_special_n_2_du_26_mars_2015.txt) | primaire | 2 | Références présentes ; statut détaillé au catalogue |
 | [Cycle 2 : calendrier des programmes EPS par classe](../data/textes/fiches/base_textes_officiels_034_situation_texte_de_reference_arrete_du_9_11_2015_bo_special_n_11_du_26_11_2015.txt) | primaire | 1 | Références présentes ; statut détaillé au catalogue |
@@ -121,6 +128,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]](../data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt) | Non balisé | 0 | Relecture à poursuivre |
 | [Demi-fond collège : VMA et exemples pédagogiques, sans barème national imposé](../data/textes/fiches/demifond_college_vma_exemples.txt) | dnb | 2 | Références présentes ; statut détaillé au catalogue |
 | [Programme EPS sixième : application à la rentrée 2027-2028](../data/textes/fiches/programme_eps_sixieme_calendrier_2026.txt) | dnb | 2 | Références présentes ; statut détaillé au catalogue |
+| [Programme d'EPS en CAP et baccalauréat professionnel (2019)](../data/textes/fiches/programme_eps_voie_professionnelle_2019.txt) | pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 
 ## Certification et aménagements des examens (5)
 
@@ -132,19 +140,21 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]](../data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]](../data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt) | gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 
-## Données personnelles, images et intelligence artificielle (2)
+## Données personnelles, images et intelligence artificielle (3)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
 | [Données des élèves : outils numériques, images et responsabilité](../data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
+| [Photographier ou filmer des élèves : droit à l'image](../data/textes/fiches/droit_image_eleves_photos_videos.txt) | primaire, dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Usage pédagogique d’un système automatisé : données et évaluation](../data/textes/fiches/ia_usages_pedagogiques.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 
-## Repères transversaux, dispositifs et circuits académiques (4)
+## Repères transversaux, dispositifs et circuits académiques (5)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
 | [[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]](../data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt) | Non balisé | 0 | Relecture à poursuivre |
 | [[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]](../data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt) | Non balisé | 0 | Relecture à poursuivre |
+| [Section sportive scolaire : ouverture, encadrement, horaire](../data/textes/fiches/sss_ouverture_encadrement_horaire.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 | [partenariats defense citoyennete](../data/textes/partenariats_defense_citoyennete.txt) | Non balisé | 0 | Relecture à poursuivre |
 | [premier degré](../data/textes/premier_degré.txt) | primaire | 7 | Références présentes ; statut détaillé au catalogue |
 

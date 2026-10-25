@@ -114,6 +114,22 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/fiches/apq_30_minutes_premier_degre.txt",
+      "title": "30 minutes d'activité physique quotidienne (APQ)",
+      "domaine": "09_programmes",
+      "publics_explicites": [
+        "primaire"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/22/Hebdo3/MENE2201330C.htm",
+        "https://eduscol.education.gouv.fr/5982/30-minutes-d-activite-physique-quotidienne-en-complement-de-l-eps"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/fiches/arrete_1989_certificat_inaptitude.txt",
       "title": "Certificat d'inaptitude : contenu, durée, reprise et médecin scolaire (arrêté du 13 septembre 1989)",
       "domaine": "05_sante",
@@ -864,6 +880,25 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/fiches/conge_maladie_fonctionnaire.txt",
+      "title": "Congé de maladie ordinaire d'un enseignant titulaire",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F490"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/fiches/correspondant_06_course_orientation_foret_chasse.txt",
       "title": "Réponse d'un IA-IPR EPS : course d'orientation en forêt et chasse",
       "domaine": "07_securite",
@@ -983,6 +1018,44 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/fiches/droit_image_eleves_photos_videos.txt",
+      "title": "Photographier ou filmer des élèves : droit à l'image",
+      "domaine": "11_numerique",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://cnil.fr/fr/cnil-direct/question/utilisation-des-photos-des-eleves-faut-il-laccord-des-parents",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/2024-consentement-parental-droit-limage-mineurpdf-97320.pdf"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/droit_syndical_reunion_information.txt",
+      "title": "Droit syndical : réunion d'information syndicale",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/14/Hebdo34/MENH1417839C.htm"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/fiches/escalade_relais_environnement_specifique.txt",
       "title": "Escalade au-delà du premier relais : environnement spécifique et cadre du projet",
       "domaine": "07_securite",
@@ -1010,6 +1083,25 @@
         "https://www.education.gouv.fr/bo/22/Hebdo26/MENE2219098C.htm"
       ],
       "statut": "source_officielle_lue_2026_10_17",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/greve_enseignant_second_degre.txt",
+      "title": "Grève : préavis, déclaration et retenue",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F499"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false
@@ -1103,6 +1195,42 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/fiches/programme_eps_voie_professionnelle_2019.txt",
+      "title": "Programme d'EPS en CAP et baccalauréat professionnel (2019)",
+      "domaine": "09_programmes",
+      "publics_explicites": [
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/19/Special5/MENE1908621A.htm",
+        "https://eduscol.education.gouv.fr/5880/programmes-et-ressources-en-education-physique-et-sportive-eps-voie-professionnelle"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/remplacement_courte_duree_pacte.txt",
+      "title": "Remplacement de courte durée (RCD) et pacte",
+      "domaine": "01_service_statuts",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://eduscol.education.gouv.fr/sites/default/files/document/remplacement-de-courte-duree-rcd-guide-l-usage-du-chef-d-etablissement-107223.pdf",
+        "https://www.education.gouv.fr/bo/2025/Hebdo37/MENH2525244N"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/fiches/signalement_violences_personnels.txt",
       "title": "Violences, discriminations et harcèlement envers les personnels",
       "domaine": "03_responsabilite",
@@ -1112,6 +1240,27 @@
         "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043596646"
       ],
       "statut": "sources_officielles_consultees_2026-10-16",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/sortie_assurance_parents_accompagnateurs.txt",
+      "title": "Sortie scolaire : assurance des élèves et parents accompagnateurs",
+      "domaine": "06_sorties_transports",
+      "publics_explicites": [
+        "primaire",
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
+        "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf",
+        "https://www.education.gouv.fr/les-assurances-scolaires-4214"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false
@@ -1184,6 +1333,42 @@
         "https://eduscol.education.gouv.fr/5037/sorties-et-voyages-scolaires-dans-le-second-degre"
       ],
       "statut": "source_officielle_relue_2026-10-11",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/sss_ouverture_encadrement_horaire.txt",
+      "title": "Section sportive scolaire : ouverture, encadrement, horaire",
+      "domaine": "12_reperes",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/20/Hebdo18/MENE2009073C.htm"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/fiches/surveillance_continue_eleve_seul.txt",
+      "title": "Surveillance des élèves en EPS : continuité, élève laissé seul",
+      "domaine": "03_responsabilite",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/sites/default/files/document/Fiche%2034%20-%20La%20surveillance-245838.pdf"
+      ],
+      "statut": "texte_officiel_lu_2026-10-25",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false

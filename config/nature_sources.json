@@ -6479,6 +6479,106 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "CCF d'EPS : protocole refusé ou non validé par la commission académique"
+  },
+  "data/textes/fiches/sortie_assurance_parents_accompagnateurs.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (circulaire 2024, guide 2025)",
+   "titre": "Sortie scolaire : assurance des élèves et parents accompagnateurs"
+  },
+  "data/textes/fiches/sss_ouverture_encadrement_horaire.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (circulaire 2020)",
+   "titre": "Section sportive scolaire : ouverture, encadrement, horaire"
+  },
+  "data/textes/fiches/surveillance_continue_eleve_seul.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "guide juridique national (2009)",
+   "titre": "Surveillance des élèves en EPS : continuité, élève laissé seul"
+  },
+  "data/textes/fiches/remplacement_courte_duree_pacte.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (décret 2023, guide 2024)",
+   "titre": "Remplacement de courte durée (RCD) et pacte"
+  },
+  "data/textes/fiches/conge_maladie_fonctionnaire.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (Service-Public 2026)",
+   "titre": "Congé de maladie ordinaire d'un enseignant titulaire"
+  },
+  "data/textes/fiches/greve_enseignant_second_degre.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (Service-Public 2026)",
+   "titre": "Grève : préavis, déclaration et retenue"
+  },
+  "data/textes/fiches/droit_syndical_reunion_information.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (circulaire 2014)",
+   "titre": "Droit syndical : réunion d'information syndicale"
+  },
+  "data/textes/fiches/programme_eps_voie_professionnelle_2019.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (arrêté 2019)",
+   "titre": "Programme d'EPS en CAP et baccalauréat professionnel (2019)"
+  },
+  "data/textes/fiches/droit_image_eleves_photos_videos.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (CNIL, code civil, RGPD)",
+   "titre": "Photographier ou filmer des élèves : droit à l'image"
+  },
+  "data/textes/fiches/apq_30_minutes_premier_degre.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "cadre national (circulaire 2022)",
+   "titre": "30 minutes d'activité physique quotidienne (APQ)"
   }
  }
 }

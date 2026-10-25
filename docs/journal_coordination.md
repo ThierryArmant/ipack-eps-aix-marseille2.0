@@ -3248,3 +3248,18 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
 - 9 fiches d'examen ouvertes aussi à l'onglet Textes (arrondis GT et pro, SHN, CAP ponctuel, verrouillage, protocoles Aix, absence DNB).
 - Résultat hors ligne : 26 des 31 questions Textes non raccordées le sont maintenant ; aucune question déjà raccordée n'a changé de fiche. Suite OK.
 - Restent des manques de contenu : assurance et refus d'un élève en sortie ; ouverture d'une SSS ; élève seul au gymnase ; pacte / RCD ; congés, grève, droit syndical ; programme de LP ; droit à l'image ; APQ.
+
+## 2026-10-25 — Onglet Textes : 10 fiches nouvelles, rédigées à partir des textes officiels relus
+- Fiches (data/textes/fiches/) :
+  - sortie_assurance_parents_accompagnateurs : circulaire du 16/07/2024, guide Éduscol 2025, page assurances.
+  - sss_ouverture_encadrement_horaire : circulaire MENE2009073C du 10/04/2020 ; le recteur décide.
+  - surveillance_continue_eleve_seul : guide juridique, fiche 34.
+  - remplacement_courte_duree_pacte : décret 2023-732, guide RCD 2024.
+  - conge_maladie_fonctionnaire : F490.
+  - greve_enseignant_second_degre : F499 ; pas de déclaration individuelle au second degré ; trentième indivisible.
+  - droit_syndical_reunion_information : circulaire 2014-120.
+  - programme_eps_voie_professionnelle_2019 : arrêté MENE1908621A.
+  - droit_image_eleves_photos_videos : CNIL, code civil art. 9, RGPD.
+  - apq_30_minutes_premier_degre : circulaire MENE2201330C.
+- Catalogue : priorité 310, onglet Textes. Classement : text_inventory (NAMED complété), classement_textes.json et index régénérés. Registres et portée à jour.
+- Routage hors ligne : les 5 dernières questions sans fiche ont maintenant leur fiche (assurance, SSS, élève seul, pacte/RCD) ; aucune question déjà raccordée n'a changé de fiche. Audit mécanique 0 erreur, suite OK.

@@ -1,0 +1,10 @@
+### Photographier ou filmer des élèves en EPS : droit à l'image et accord des familles
+[PORTEE: primaire,dnb,gt,pro,cap]
+Réponse directe : pour utiliser ou diffuser la photo ou la vidéo d'un élève (journal, site, réseau, trombinoscope), il faut l'accord écrit de ses représentants légaux s'il est mineur. Toute personne dispose sur son image et sur l'utilisation qui en est faite d'un droit exclusif (code civil, article 9, respect de la vie privée).
+Une image ou une vidéo d'élève identifiable est aussi une donnée personnelle (RGPD) : l'usage doit avoir une finalité définie, des destinataires limités et une durée de conservation fixée ; les familles peuvent demander l'accès, la rectification ou la suppression.
+Vidéo d'analyse en cours ou d'évaluation (par exemple à l'épreuve pratique d'EPPCS) : utiliser l'outil et le stockage validés par l'établissement et suivre la consigne de l'établissement ou de l'examen ; le hub ne dispose pas d'un formulaire national propre à l'EPS. Le modèle d'autorisation d'Éduscol (2024) concerne les publications des ministères, pas les usages de l'établissement.
+En cas de doute : chef d'établissement et délégué à la protection des données (DPD) académique.
+Nature de la source : position de la CNIL et modèle ministériel ; code civil, article 9 ; RGPD (application depuis le 25 mai 2018).
+Sources : CNIL, « Utilisation des photos des élèves : faut-il l'accord des parents ? » ; Éduscol, modèle d'autorisation de captation et d'utilisation de l'image et de la voix d'un mineur (2024). Consultés le 25 octobre 2026.
+https://cnil.fr/fr/cnil-direct/question/utilisation-des-photos-des-eleves-faut-il-laccord-des-parents
+https://eduscol.education.gouv.fr/sites/default/files/document/2024-consentement-parental-droit-limage-mineurpdf-97320.pdf

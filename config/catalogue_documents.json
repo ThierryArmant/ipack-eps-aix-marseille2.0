@@ -8621,5 +8621,159 @@
     "motifs": [
       "(?=.*protocole)(?=.*(?:refus|rejet|non valid|pas valid|invalid|retoqu))"
     ]
+  },
+  "data/textes/fiches/sortie_assurance_parents_accompagnateurs.txt": {
+    "title": "Sortie scolaire : assurance des élèves et parents accompagnateurs",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:sortie|voyage))(?=.*assur)",
+      "(?=.*parents?)(?=.*(?:accompagn|encadr|benevol))(?=.*(?:sortie|voyage|deplacement))",
+      "attestation d.assurance|assurance scolaire"
+    ],
+    "domaine_textes": "06_sorties_transports",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/sss_ouverture_encadrement_horaire.txt": {
+    "title": "Section sportive scolaire : ouverture, encadrement, horaire",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:section sportive|\\bsss\\b))(?=.*(?:ouvr|ferm|qui decide|recteur|cree|creer|creation|horaire|encadr|educateur|convention|bilan))"
+    ],
+    "domaine_textes": "12_reperes",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/surveillance_continue_eleve_seul.txt": {
+    "title": "Surveillance des élèves en EPS : continuité, élève laissé seul",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*(?:seul|seuls|sans surveillance|sans moi|sans adulte))(?=.*(?:gymnase|vestiaire|salle|terrain|stade|piscine|cours|classe|eleves?))(?=.*(?:laisser|rester|peut|puis|quitter|aller chercher|absenter))",
+      "surveillance (?:des eleves|continue)|obligation de surveillance"
+    ],
+    "domaine_textes": "03_responsabilite",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/remplacement_courte_duree_pacte.txt": {
+    "title": "Remplacement de courte durée (RCD) et pacte",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "\\brcd\\b|remplacement de courte duree|\\bpacte\\b|part fonctionnelle",
+      "(?=.*remplac)(?=.*(?:heure (?:de )?trou|heure libre|collegue absent|au pied leve|requisition|impos))"
+    ],
+    "domaine_textes": "01_service_statuts",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/conge_maladie_fonctionnaire.txt": {
+    "title": "Congé de maladie ordinaire d'un enseignant titulaire",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "conge (?:de )?maladie|arret (?:de travail|maladie)|jour de carence|\\bcmo\\b"
+    ],
+    "domaine_textes": "01_service_statuts",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/greve_enseignant_second_degre.txt": {
+    "title": "Grève : préavis, déclaration et retenue",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "\\bgreve|greviste|trentieme indivisible|preavis"
+    ],
+    "domaine_textes": "01_service_statuts",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/droit_syndical_reunion_information.txt": {
+    "title": "Droit syndical : réunion d'information syndicale",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "syndica|\\bris\\b|heure (?:mensuelle )?d.information|reunion d.information"
+    ],
+    "domaine_textes": "01_service_statuts",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/programme_eps_voie_professionnelle_2019.txt": {
+    "title": "Programme d'EPS en CAP et baccalauréat professionnel (2019)",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "(?=.*programme)(?=.*(?:voie pro|lycee pro|bac pro|baccalaureat professionnel|\\bcap\\b|\\blp\\b))"
+    ],
+    "domaine_textes": "09_programmes",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/droit_image_eleves_photos_videos.txt": {
+    "title": "Photographier ou filmer des élèves : droit à l'image",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "droit a l.image|(?=.*(?:photo|film|video|camera|tablette|filme))(?=.*(?:eleve|enfant|classe))(?=.*(?:autoris|accord|droit|diffus|publi|consent|rgpd|parents?))"
+    ],
+    "domaine_textes": "11_numerique",
+    "date_verification": "2026-10-25"
+  },
+  "data/textes/fiches/apq_30_minutes_premier_degre.txt": {
+    "title": "30 minutes d'activité physique quotidienne (APQ)",
+    "statut": "texte_officiel_lu_2026-10-25",
+    "examens": [],
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "textes"
+    ],
+    "motifs": [
+      "30 ?(?:minutes|min)\\b.{0,40}(?:activite|apq|quotidien)|activite physique quotidienne|\\bapq\\b"
+    ],
+    "domaine_textes": "09_programmes",
+    "date_verification": "2026-10-25"
   }
 }

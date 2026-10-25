@@ -1,0 +1,12 @@
+### Section sportive scolaire : qui décide de l'ouverture, encadrement et horaire
+[PORTEE: dnb,gt,pro,cap]
+Réponse directe : c'est le recteur d'académie qui décide de l'ouverture d'une section sportive scolaire, sur proposition du chef d'établissement, après avis du conseil d'administration. Le professeur porte le projet ; il ne décide pas.
+Les demandes sont examinées par un groupe de pilotage académique (les IA-DASEN y siègent) ; le recteur arrête ensuite la liste annuelle des sections. La section est un volet du projet d'établissement, validé par le recteur.
+Partenariat : un partenariat avec une fédération est recommandé ; il donne lieu à une convention écrite conforme au cahier des charges.
+Suivi : chaque année, le conseil pédagogique est consulté sur le bilan, transmis au conseil d'administration pour information. La section est évaluée après quatre ans au collège ou trois ans au lycée ; le recteur décide de son maintien ou de sa fermeture.
+Encadrement : un enseignant d'EPS ou un membre volontaire de l'équipe éducative est responsable de la section, sous l'autorité du chef d'établissement. Les enseignants d'EPS de l'établissement encadrent aussi souvent que possible ; à défaut, pour une partie des séances, des éducateurs sportifs agréés par la fédération, titulaires d'un brevet ou d'un diplôme d'État, nommés dans la convention.
+Horaire : au moins trois heures hebdomadaires de pratique par élève, si possible en deux séquences ; elles ne remplacent pas l'horaire obligatoire d'EPS.
+Dans iPackEPS, les dossiers de section (demande d'ouverture, projet annuel, bilan, évolution) se trouvent dans [Dossier Section Sportive Scolaire] ; la demande d'ouverture n'est saisissable que pendant la campagne académique.
+Nature de la source : texte national (circulaire).
+Source : circulaire du 10 avril 2020, « Sections sportives scolaires et sections d'excellence sportive », NOR MENE2009073C, BO n° 18 du 30 avril 2020, sections 1.2.1, 1.2.3, 1.2.4, 1.3.2 à 1.3.4, 1.6.1 et 1.6.2. Consultée le 25 octobre 2026.
+https://www.education.gouv.fr/bo/20/Hebdo18/MENE2009073C.htm

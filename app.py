@@ -1266,31 +1266,18 @@ if st.session_state.get("is_admin", False):
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
         st.checkbox("Mode documenté : réponse courte et extraits consultables", value=True, key="admin_faithful")
-        st.checkbox("Pool commun : Mini propose les passages, le rédacteur relit tout le pool puis rédige", value=True, key="admin_mini_albert")
-        # Accès Albert refusé le 25 octobre 2026 : Mini peut aussi rédiger la réponse courte (mêmes contrôles).
-        st.checkbox("Sans Albert : le rédacteur est Mini (sinon Albert)", value=True, key="admin_mini_redige")
-        st.caption("Deux appels au maximum : sélection des passages puis réponse courte. Les extraits et les contrôles restent conservés.")
-        st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
-        if st.session_state.get("admin_faithful", True) and st.session_state.get("admin_mini_albert", True):
-            st.caption("ESSAI MIXTE ACTIF : recherche par le code → gpt-4o-mini sélectionne → "
-                       + ("gpt-4o-mini rédige (sans Albert)" if st.session_state.get("admin_mini_redige", True) else "Albert rédige")
-                       + ". Le réglage Albert seul est ignoré dans ce mode. Aucun secours automatique ni réparation payante."
-                       + (" · version " + _sha if _sha else ""))
-        elif st.session_state.get("admin_albert_only"):
-            st.caption(("MODE FIDÈLE : Albert choisit les passages, le programme restitue le texte exact ("
-                        if st.session_state.get("admin_faithful") else "ESSAI DIRECT ACTIF : recherche par le code → Albert (") + (st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b")
-                       + "). Aucun appel de sélection ou rédaction Mini, aucun secours GPT, aucune réparation payante."
-                       + (" · version " + _sha if _sha else ""))
-        else:
-            st.caption("Modèle GPT configuré : " + modele_ia + " · Albert suspendu hors essais dédiés."
-                       + (" · version " + _sha if _sha else ""))
+        # Albert retiré des essais le 25 octobre 2026 (non mis à disposition par l'institution) :
+        # configuration unique « Mini seul » — gpt-4o-mini sélectionne puis rédige, sans pool ni Albert.
+        st.session_state["admin_mini_albert"] = False
+        st.session_state["admin_albert_only"] = False
+        st.session_state["admin_mini_redige"] = True
+        st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
+                   + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
         _test_model_choice = st.selectbox("Modèle pour la sélection ET la rédaction", TEST_MODELS, index=3)
         _test_question_count = st.number_input("Nombre de questions de test", min_value=1, max_value=10, value=1, step=1)
-        st.caption(("Les réglages GPT ci-dessous sont suspendus pendant l’essai Albert seul. "
-                    if st.session_state.get("admin_albert_only") else "")
-                   + "Pour les essais GPT : deux appels API maximum par question, sélection 600 jetons de sortie et rédaction 1 600. Recherche documentaire hors compteurs.")
+        st.caption("Pour les essais GPT : deux appels API maximum par question, sélection 600 jetons de sortie et rédaction 1 600. Recherche documentaire hors compteurs.")
         if st.button("Activer le modèle choisi pour les prochaines questions"):
             st.session_state["openai_test_model"] = _test_model_choice
             st.session_state["gpt41_once_pending"] = int(_test_question_count)

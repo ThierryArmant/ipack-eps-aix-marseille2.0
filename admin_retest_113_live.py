@@ -197,9 +197,8 @@ def render(st):
             selected_rows = rows[start-1:start-1+n]
             st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
         st.caption("Chaque question utilise son académie CSV ou celle déclarée dans la question ; une cellule vide reste Non précisée. Les réponses ne sont pas évaluées automatiquement.")
-        gpt_only = st.checkbox("Rejeu privé : GPT uniquement, sans appel à Albert", value=False,
-                               key="audit113_gpt_only")
+        st.caption("Rejeu en Mini seul (gpt-4o-mini) : aucun appel à Albert.")
         if st.button(f"Lancer {n} questions dans le moteur réel du HUB", type="primary", key="audit113_live_start"):
             state["audit113_batch"] = {"rows": selected_rows, "index": 0, "results": [],
-                                       "waiting": False, "stopped": False, "provider": "openai" if gpt_only else "configured"}
+                                       "waiting": False, "stopped": False, "provider": "openai"}
             st.rerun()

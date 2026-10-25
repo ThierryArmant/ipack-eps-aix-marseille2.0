@@ -3136,3 +3136,9 @@ Thierry reçoit tes deux nouveaux lots de 25 numéros ; je n'ai pas lu les quest
 - Sur les 18 réponses obtenues : J 16, I 1 (n60 : changement de groupe en mars, on donne la manip iPack mais pas qui refait quoi côté examen), É 1 (n58 : commission d'établissement avant remontée, rien de documenté pour Aix, aucune source retenue). F 0.
 - Soit 89 % de J sur les réponses obtenues, 64 % sur les 25 à cause des blocages.
 - Pistes : n58, une fiche honnête « non documenté pour Aix, demander la consigne DIEC » ; n60, relier la fiche Cyclades réaffecter.
+
+## 2026-10-25 — Albert retiré des essais et du rejeu (décision de Thierry)
+- Raison : l'institution ne met pas Albert à disposition (accès refusé puis quotas 429).
+- app.py, panneau admin : les cases « Pool commun », « Sans Albert : le rédacteur est Mini » et « Albert seul » sont supprimées. Les réglages sont forcés en Mini seul (gpt-4o-mini sélectionne puis rédige).
+- admin_retest_113_live.py : la case « GPT uniquement » est supprimée ; le rejeu passe toujours en openai.
+- Le code de routage Albert reste en place mais n'est plus atteignable depuis l'interface (tests inchangés, 1225 OK). GPT : ne pas réintroduire d'option Albert sans accord de Thierry.

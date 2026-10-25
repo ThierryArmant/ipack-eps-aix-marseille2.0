@@ -3229,3 +3229,15 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
 - Consignes au rédacteur : 159 phrases dans 111 fiches (« ne pas inventer », « le corpus », « cette fiche »…). La réponse courte les refuse désormais (raison forme:consigne_interne) et le prompt l'interdit. GPT : elles restent visibles dans les extraits affichés ; à filtrer à l'affichage si tu le juges utile.
 - Reste à vérifier à l'écran par Thierry : droits « Professeurs attribués à la classe » en 2026 ; manipulation de la classe partagée ; [Ajouter un créneau] par clic droit pour superposer deux groupes.
 - Registres et suite de tests à jour (1244 OK).
+
+## 2026-10-25 — Revue de l'onglet Textes (demande de Thierry)
+- Liste des textes couverts et analyse de couverture remises à Thierry dans un document à part (hors dépôt).
+- Cohérence : aucune contradiction entre les fiches Textes sur les règles vérifiées.
+  - Textes abrogés : 2011-117, 2017-127 et 88-977 bien signalés comme remplacés.
+  - Service 20 h / 17 h, AS comprise.
+  - Encadrement des sorties au second degré : décidé par le chef d'établissement.
+  - Minibus : règle 86-101.
+- Couverture : sur 140 questions Textes sauvegardées, 31 n'atteignent aucune fiche prioritaire.
+  - Vrais manques : AED seul avec une classe ; vacataire au-delà de 200 h ; pacte et RCD ; ouverture d'une SSS ; parents accompagnateurs et assurance ; congés, grève, droit syndical ; programme de LP ; droit à l'image ; APQ.
+  - Fiche existante non atteinte (motifs du catalogue à revoir) : chaleur, buts, zéro disciplinaire, heures d'AS, loi Fauchon, surveillance, CO, intervenants en escalade.
+- Prochaine étape proposée à Thierry : motifs du catalogue d'abord (sans nouveau contenu), puis fiches manquantes après relecture des textes sur Légifrance / BO.

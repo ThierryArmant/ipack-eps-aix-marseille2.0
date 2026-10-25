@@ -344,3 +344,14 @@ class ConditionDejaDansLaQuestion(unittest.TestCase):
     def test_condition_absente_de_la_question_toujours_refusee(self):
         self.assertIn('modalite:condition_perdue',
                       sa.unsupported("Ne créez pas un groupe sport-études pour contourner le blocage.", self.BR, "Comment créer un groupe ?"))
+
+
+class CitationDeLaQuestion(unittest.TestCase):
+    def test_expression_citee_par_la_question_acceptee(self):
+        src = "Un bug ou un blocage d'iPackEPS non résolu : le correspondant académique iPackEPS."
+        q = "iPackEPS indique que des fichiers sont « non importés » ou « non valides ». Qui contacter ?"
+        self.assertEqual(sa.unsupported("Pour des fichiers « non importés », contactez le correspondant académique iPackEPS.", src, q), [])
+
+    def test_citation_inventee_toujours_refusee(self):
+        src = "Un bug d'iPackEPS : le correspondant académique iPackEPS."
+        self.assertTrue(any(r.startswith('citation:') for r in sa.unsupported("Cliquez sur « Réparer ».", src, "Qui contacter ?")))

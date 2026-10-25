@@ -109,7 +109,8 @@ def unsupported(phrase, cited_text, question='', titles=''):
             reasons.append('adresse:' + link)
     for quote in re.findall(r'«\s*([^»]{2,120}?)\s*»|"([^"]{2,120})"', p):
         quote = (quote[0] or quote[1]).strip()
-        if quote and quote not in source:
+        # Une expression citée par la question elle-même (« non importés ») n'est pas une citation inventée.
+        if quote and quote not in source and _compact(quote) not in _compact(question):
             reasons.append('citation:' + quote)
     for objet in _OBJETS:
         if re.search(objet, p) and not re.search(objet, source + ' ' + context):

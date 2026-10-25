@@ -3191,6 +3191,6 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
 - Vidéos : 8 réponses en ont une. Toutes cohérentes sauf 135 (nouveautés → vidéo « axes du projet », motif [Projets] trop large).
 - Correctif short_answer (version suivante) : une branche « Si … » dont la question décrit déjà la condition n'est plus refusée pour « condition perdue » (107, 121). 2 tests ajoutés, suite OK (1240).
 - Restent :
-  - 144 : citation « non importés » refusée à cause des accents ; à regarder.
+  - 144 : citation « non importés » reprise de la question refusée → corrigé dans la même série (citation de la question acceptée, 2 tests).
   - 126 : ordre contradictoire (fiche professeur puis fiche établissement) ; deux fiches à harmoniser.
   - 146, 152 : réponses vagues ; fiches à revoir.

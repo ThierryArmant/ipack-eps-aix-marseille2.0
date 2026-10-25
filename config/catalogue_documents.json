@@ -8509,5 +8509,46 @@
     "exclure_motifs": [
       "lots?\\b|santorin"
     ]
+  },
+  "data/examens/situations_2026_10_25/rattrapage_ccf_date_limite.txt": {
+    "title": "CCF d'EPS : date limite des épreuves différées (rattrapage)",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*(?:rattrapage|differee?s?|epreuves? de remplacement))(?=.*(?:date limite|jusqu.(?:a|au)|avant (?:la|le)|delai|quand|calendrier|derniere date))"
+    ]
+  },
+  "data/examens/situations_2026_10_25/documents_apres_ccf_pv_fiche_synthese.txt": {
+    "title": "Après les CCF : fiche de synthèse et documents pour la commission",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "fiche de synthese|(?=.*(?:modele|document|fiche|bilan|compte.?rendu|analyse))(?=.*(?:commission d.harmonisation|jury|cahpn|commission academique))(?=.*(?:transmettre|envoyer|trouver|presenter|fournir|deposer))"
+    ],
+    "exclure_motifs": [
+      "proces.?verba|\\bpv\\b"
+    ]
   }
 }

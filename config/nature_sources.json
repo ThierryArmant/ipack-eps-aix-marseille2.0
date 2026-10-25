@@ -6425,6 +6425,37 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Ordre des séquences et calendrier des épreuves de CCF"
+  },
+  "data/examens/situations_2026_10_25/rattrapage_ccf_date_limite.txt": {
+   "nature": [
+    "texte_national",
+    "consigne_academique"
+   ],
+   "academie": "Aix-Marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Amiens",
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "CCF d'EPS : date limite des épreuves différées (rattrapage)"
+  },
+  "data/examens/situations_2026_10_25/documents_apres_ccf_pv_fiche_synthese.txt": {
+   "nature": [
+    "consigne_academique"
+   ],
+   "academie": "Aix-Marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [
+    "Amiens",
+    "Strasbourg"
+   ],
+   "portee_texte": null,
+   "titre": "Après les CCF : fiche de synthèse et documents pour la commission"
   }
  }
 }

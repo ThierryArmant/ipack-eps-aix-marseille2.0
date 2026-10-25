@@ -1002,6 +1002,18 @@
     }
    ]
   },
+  "data/examens/situations_2026_10_25/documents_apres_ccf_pv_fiche_synthese.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Après les CCF : fiche de synthèse et documents pour la commission d'harmonisation — où les trouver, comment les transmettre ?",
+     "lignes": [
+      "Réponse directe : le hub ne dispose d'aucun modèle officiel de procès-verbal de commission d'établissement ni de fiche de synthèse pour la commission d'harmonisation, et d'aucun canal de transmission vérifié pour Aix-Marseille. Ces documents, s'ils sont demandés, relèvent de la consigne de la session : la demander au chef d'établissement, à la DIEC ou à l'inspection pédagogique.",
+      "- les éléments justifiant l'attribution des notes sont conservés dans un dossier accessible au chef d'établissement (BA spécial 549, Aix-Marseille, session 2026)."
+     ]
+    }
+   ]
+  },
   "data/examens/situations_2026_10_25/ipack_cyclades_transfert_sans_synchronisation_horaire.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1009,6 +1021,18 @@
      "section": "### iPackEPS et Cyclades : y a-t-il une synchronisation automatique, à quelle heure ?",
      "lignes": [
       "Ce que décrit le circuit académique d'Aix-Marseille :"
+     ]
+    }
+   ]
+  },
+  "data/examens/situations_2026_10_25/rattrapage_ccf_date_limite.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### CCF d'EPS : jusqu'à quand organiser les épreuves différées (rattrapage) ?",
+     "lignes": [
+      "Repères publiés par d'autres académies pour la session 2026, à titre d'exemple seulement (ils ne valent pas pour Aix-Marseille) :",
+      "À Aix-Marseille : se référer au calendrier de la DIEC et du bulletin académique de la session (date limite de saisie dans Santorin) ; le hub ne dispose pas de la date de la session en cours."
      ]
     }
    ]

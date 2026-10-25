@@ -11,6 +11,9 @@ COL, GT, PRO = 'Collège (DNB)', 'Lycée Général & Techno', 'Lycée Pro / CAP'
 
 # (question, public, onglet, début du titre attendu, débuts de titres interdits)
 CAS = [
+    ('Jusqu\'à quand peut-on organiser un rattrapage de CCF avant la commission ?', GT, 'textes', "CCF d'EPS : date limite des épreuves différées", []),
+    ('Où trouver le modèle de fiche de synthèse pour la commission d\'harmonisation EPS ?', GT, 'textes', 'Après les CCF : fiche de synthèse', []),
+    ('Faut-il envoyer un procès-verbal des épreuves de CCF au service des examens ?', GT, 'textes', 'PV de CCF EPS : modèle local', ['Après les CCF']),
     ('Après la commission d\'harmonisation, qui peut encore corriger une note dans Santorin ?', GT, 'examens', 'Santorin : verrouillage, correction', []),
     ('Les profs d\'EPS sont-ils payés pour les CCF qu\'ils font passer dans leur lycée ?', PRO, 'examens', "CCF d'EPS : pas d'indemnité spécifique", []),
     ('Quand iPackEPS envoie-t-il automatiquement les protocoles vers Cyclades, à quelle heure ?', GT, 'ipack', 'iPackEPS et Cyclades : pas de synchronisation', ['[SITUATION: REFRESH ET SYNCHRONISATION ESTEREL']),

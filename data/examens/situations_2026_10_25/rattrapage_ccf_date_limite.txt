@@ -1,0 +1,10 @@
+### CCF d'EPS : jusqu'à quand organiser les épreuves différées (rattrapage) ?
+[PORTEE: gt,pro,cap]
+Réponse directe : aucun texte national vérifié dans le hub ne fixe une date limite des épreuves différées par rapport à la commission académique d'harmonisation. En pratique, la limite est la date de saisie des notes dans Santorin fixée par chaque académie : une épreuve différée doit être passée et sa note saisie avant cette date.
+Repères publiés par d'autres académies pour la session 2026, à titre d'exemple seulement (ils ne valent pas pour Aix-Marseille) :
+- Amiens : épreuves différées « au mieux au cours de la semaine qui suit l'évaluation ou en fin d'année scolaire » ; date de rattrapage renseignée dans le protocole saisi dans Cyclades ; saisie des notes CCF dans Santorin avant le 5 juin 2026 à 12 h (bac GT et CAP) et le 22 mai 2026 à 12 h (bac professionnel) ; commission le 22 juin 2026.
+- Strasbourg : remontée des notes sur Santorin au 4 juin 2026, commission le 19 juin 2026 ; pas de CCF ni de rattrapage les jours de l'examen ponctuel terminal.
+À Aix-Marseille : se référer au calendrier de la DIEC et du bulletin académique de la session (date limite de saisie dans Santorin) ; le hub ne dispose pas de la date de la session en cours.
+Qui peut bénéficier d'une épreuve différée (bac GT) : candidat blessé ou malade avec attestation médicale, ou cas de force majeure, avec l'accord du chef d'établissement (note de service du 20 février 2026). Une absence non justifiée ne donne pas droit à une épreuve différée.
+Nature de la source : texte national pour les cas d'épreuve différée ; calendriers : consignes académiques (exemples d'autres académies, non transposables).
+Sources : mémento EPS CCF session 2026, académie d'Amiens (pages 2 à 5) : https://eps.ac-amiens.fr/IMG/pdf/memento_eps_ccf_session_2026.pdf ; circulaire EPS CCF 2026, académie de Strasbourg (pages 2 et 4) : https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/examens/2026_Circulaire_EPS_CCF.pdf ; note de service du 20 février 2026 (fiche du hub). Documents consultés le 25 octobre 2026.

@@ -1403,7 +1403,7 @@ if st.session_state.get("is_admin", False):
                           max_tokens=900, max_retries=0, timeout=30)
             albert = _generation_runtime.albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), _comparison_batch["albert_model"],
-                temperature=0.0, allow_paused_test=True)
+                temperature=0.0, timeout=30, allow_paused_test=True)
             return load_comparison().run_model_comparison(
                 mini=mini, albert=albert, retrieve=_comparison_retrieve,
                 question=row["question"], public=row["public"], mode=row["mode"],

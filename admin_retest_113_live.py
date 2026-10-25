@@ -201,7 +201,10 @@ def render(st):
             finished = batch["index"] >= len(batch["rows"])
             partial = (not finished and batch["results"]
                        and st.button("Préparer un fichier des réponses déjà obtenues", key="audit113_partial"))
-            if batch["results"] and (finished or partial):
+            if partial:
+                batch["stopped"] = True
+                batch["stop_reason"] = "Lot mis en pause pour sauvegarder les résultats déjà obtenus."
+            if batch["results"] and (finished or partial or batch.get("stopped")):
                 output = io.StringIO()
                 writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine","videos"] + (COMPARISON_COLUMNS if batch.get("comparison") == "mini_albert" else []), delimiter=";", extrasaction="ignore")
                 writer.writeheader()
@@ -217,6 +220,7 @@ def render(st):
                 st.rerun()
             if st.button("Arrêter après la question en cours", key="audit113_stop"):
                 batch["stopped"] = True
+                st.rerun()
             if batch.get("comparison") == "mini_albert":
                 st.caption("Comparatif Mini / Albert : mêmes documents, réponses et traces séparées. Aucun envoi au journal Google Sheets par ce parcours.")
                 if batch.get("stop_reason"):

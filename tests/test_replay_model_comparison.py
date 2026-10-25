@@ -49,3 +49,24 @@ class ComparisonBatchTests(unittest.TestCase):
         rows=list(csv.DictReader(io.StringIO(ui.downloads[0].decode('utf-8-sig')),delimiter=';'))
         self.assertEqual(rows[0]['reponse_albert'],'Albert réponse')
         self.assertIn('branches',json.loads(rows[0]['diagnostic_ia']))
+
+class PartialExportTests(unittest.TestCase):
+    def test_partial_export_pauses_before_next_paid_question(self):
+        row=dict(n='1',mode='examens',public='Lycée Général & Techno',question='Q',academie='')
+        batch=dict(rows=[row,row],index=1,results=[dict(row,nouvelle_reponse='Mini',reponse_albert='Albert',diagnostic_ia='{}')],waiting=False,stopped=False,comparison='mini_albert')
+        class UI:
+            session_state=dict(is_admin=True,audit113_batch=batch)
+            downloads=[]
+            def __enter__(ui):return ui
+            def __exit__(ui,*args):pass
+            def markdown(ui,*args,**kwargs):pass
+            info=warning=write=caption=markdown
+            def container(ui,*args,**kwargs):return ui
+            def file_uploader(ui,*args,**kwargs):return None
+            def button(ui,*args,**kwargs):return kwargs.get('key')=='audit113_partial'
+            def download_button(ui,label,data,**kwargs):ui.downloads.append(data)
+        ui=UI();render(ui)
+        self.assertTrue(batch['stopped'])
+        self.assertEqual(len(ui.downloads),1)
+        runner=Mock();self.assertFalse(comparison_step(ui.session_state,runner,'v'))
+        runner.assert_not_called()

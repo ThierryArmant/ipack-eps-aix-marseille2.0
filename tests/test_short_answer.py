@@ -253,5 +253,25 @@ class EnumerationInfinitifs(unittest.TestCase):
         self.assertTrue(parts[4]['texte'].startswith('Ne pas formuler'))
 
 
+class ToleranceContexte(unittest.TestCase):
+    """Essai à l'aveugle : refus injustifiés corrigés, vrais refus maintenus."""
+    def test_nombre_present_dans_la_question_accepte(self):
+        src = "Définir en équipe les critères et les repères de conversion des niveaux de maîtrise."
+        q = "Comment obtenir une note sur 20 à partir de quatre niveaux ?"
+        self.assertEqual(sa.unsupported("Définissez en équipe les repères de conversion en note sur 20.", src, q), [])
+        self.assertIn('nombre:15', sa.unsupported("Définissez les repères en 15 jours.", src, q))
+
+    def test_outil_nomme_dans_l_intitule_du_passage_accepte(self):
+        src = "Ouvrir [Dossiers] > [Dossier EPS], préparer les APSA et les périodes."
+        self.assertEqual(sa.unsupported("Dans iPackEPS, ouvrez [Dossiers] > [Dossier EPS].", src, '', 'iPackEPS : programmation annuelle'), [])
+        self.assertTrue(sa.unsupported("Dans Pronote, ouvrez [Dossiers] > [Dossier EPS].", src, '', 'iPackEPS : programmation annuelle'))
+
+    def test_incertitude_jugee_sur_la_phrase_source_la_plus_proche(self):
+        src = ("Une partie des données est conservée à la rentrée : listes APSA, configuration des classes. "
+               "Un bouton « dupliquer » reste à vérifier auprès du support.")
+        self.assertEqual(sa.unsupported("Une partie des données, listes APSA et configuration des classes, est conservée à la rentrée.", src), [])
+        self.assertIn('modalite:incertitude_effacee', sa.unsupported("Utilisez le bouton « dupliquer » du support.", src))
+
+
 if __name__ == '__main__':
     unittest.main()

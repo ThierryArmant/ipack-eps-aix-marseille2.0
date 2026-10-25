@@ -15,7 +15,7 @@ MAX_PHRASES = 5
 MAX_CHARS = 320
 
 # Interlocuteurs : une phrase ne peut pas en nommer un que ses passages ne citent pas.
-_ACTEURS = (r"\bdec\b", r"\bdiec\b", r"\bdaf\b", r"\bdsden\b", r"\bdasen\b", r"\brectorat\b",
+_ACTEURS = (r"\bdec\b", r"\bdiec\b", r"\bdaf\b", r"\bdsden\b", r"\bdasen\b", r"\brectorat\b|\brecteur\b",
             r"inspect", r"\bipr\b", r"\bia-ipr\b", r"chef d.etablissement", r"\bproviseur",
             r"\bprincipal\b", r"coordonn", r"referent", r"correspondant", r"assistance",
             r"secretariat", r"service des examens", r"pole examens", r"\bunss\b", r"\bmaif\b",
@@ -40,11 +40,11 @@ _INCERTAIN = (r"ne suffit pas a confirmer", r"(?:reste|restent) a (?:verifier|co
               r"non confirme", r"pas confirme", r"n.est pas (?:documente|precise|indique)", r"ne (?:precise|dit|indique|documente) pas",
               r"aucune source", r"aucun (?:texte|document) ne", r"pas de (?:source|consigne) (?:connue|disponible|publiee)",
               r"ne permet pas de (?:confirmer|savoir|dire|conclure)", r"sous reserve", r"a confirmer")
-_PHRASE_INCERTAINE = (r"verifi", r"confirm", r"renseign", r"pas (?:precise|indique|documente)",
+_PHRASE_INCERTAINE = (r"verifi", r"confirm", r"documente", r"mentionn", r"renseign", r"pas (?:precise|indique|documente)",
                       r"ne (?:precise|dit|indique) pas", r"sous reserve", r"aucune source", r"pas certain", r"incertain")
 # Impossibilité ou interdiction : seulement si la source l'énonce elle-même.
 _IMPOSSIBLE = r"impossible|interdit|ne (?:peut|peuvent|pouvez|pourra|pourrez) (?:pas|plus)|n.est (?:pas|plus) (?:possible|autorise|permis|modifiable)|pas (?:le )?droit|ne (?:doit|doivent|devez) pas|jamais"
-_IMPOSSIBLE_SOURCE = _IMPOSSIBLE + r"|ne pas |n.est (?:pas|plus) modifiable|plus possible|aucun"
+_IMPOSSIBLE_SOURCE = _IMPOSSIBLE + r"|ne pas |n.est (?:pas|plus) modifiable|plus possible|aucun|\bpas d.|\bsans\b|non recevable|irrecevable|exclu"
 # Conséquence « sinon / à défaut » : seulement si la source pose elle-même l'alternative.
 _CONSEQUENCE = r"\bsinon\b|a defaut|faute de|sans quoi|a moins que"
 _CONSEQUENCE_SOURCE = _CONSEQUENCE + r"|\bsi\b.{0,80}\b(?:pas|plus|aucun)\b|en cas d.absence|lorsque .{0,60}pas"
@@ -70,15 +70,28 @@ def _academies():
     return [_norm(a) for a in ACADEMIES]
 
 
-def unsupported(phrase, cited_text):
-    """Raisons mécaniques de refuser une phrase (liste vide : phrase acceptée)."""
+def _words(text):
+    return {w for w in re.findall(r"[a-z]{4,}", _norm(text))}
+
+
+def _closest_sentence(phrase, text):
+    """Phrase de la source la plus proche (mots communs) : sert à juger la modalité au bon endroit."""
+    sentences = [x for x in re.split(r'(?<=[.;!?])\s+|\n', text) if x.strip()]
+    target = _words(phrase)
+    return max(sentences, key=lambda x: len(target & _words(x)), default=text)
+
+
+def unsupported(phrase, cited_text, question='', titles=''):
+    """Raisons mécaniques de refuser une phrase (liste vide : phrase acceptée).
+    question : nombres et objets déjà présents dans la demande ; titles : intitulés des passages cités."""
     source, p = _compact(cited_text), _compact(phrase)
+    context = _compact(question) + ' ' + _compact(titles)
     reasons = []
     for menu in re.findall(r'\[[^\]]{1,80}\]', p):
         if menu not in source:
             reasons.append('menu:' + menu)
     for number in re.findall(r'\d+(?:[.,]\d+)?', p):
-        if not re.search(r'(?<!\d)' + re.escape(number) + r'(?!\d)', source):
+        if not re.search(r'(?<!\d)' + re.escape(number) + r'(?!\d)', source + ' ' + context):
             reasons.append('nombre:' + number)
     for link in re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+|https?://\S+|www\.\S+', p):
         if link.rstrip('.,;)') not in source:
@@ -88,12 +101,13 @@ def unsupported(phrase, cited_text):
         if quote and quote not in source:
             reasons.append('citation:' + quote)
     for objet in _OBJETS:
-        if re.search(objet, p) and not re.search(objet, source):
+        if re.search(objet, p) and not re.search(objet, source + ' ' + _compact(titles)):
             reasons.append('objet:' + objet)
     for actor in _ACTEURS:
         if re.search(actor, p) and not re.search(actor, source):
             reasons.append('interlocuteur:' + actor)
-    if (any(re.search(m, source) for m in _INCERTAIN)
+    nearest = _compact(_closest_sentence(phrase, cited_text))
+    if (any(re.search(m, nearest) for m in _INCERTAIN)
             and not any(re.search(m, p) for m in _PHRASE_INCERTAINE)):
         reasons.append('modalite:incertitude_effacee')
     if re.search(_IMPOSSIBLE, p) and not re.search(_IMPOSSIBLE_SOURCE, source):
@@ -175,7 +189,9 @@ def _split_long(phrases):
     for item in phrases:
         text = item.get('texte') if isinstance(item, dict) else None
         if isinstance(text, str) and len(text) > MAX_CHARS:
-            parts = [x.strip(' ,;\u202f') for x in re.split(r'\s*[;\u202f]+;?\s*|,?\s+tandis que\s+', text)]
+            # Ne jamais couper à l'intérieur d'une citation « … » ni d'un menu […].
+            protected = re.sub(r'«[^»]*»|\[[^\]]*\]', lambda m: m.group(0).replace(';', '\x00'), text)
+            parts = [x.replace('\x00', ';').strip(' ,;\u202f') for x in re.split(r'\s*[;\u202f]+;?\s*|,?\s+tandis que\s+', protected)]
             parts = [x[0].upper() + x[1:] + ('' if x.endswith(('.', '!', '?')) else '.') for x in parts if x]
             if len(parts) > 1 and all(len(x) <= MAX_CHARS for x in parts):
                 out.extend(dict(item, texte=x) for x in parts)
@@ -261,7 +277,8 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
             text = re.sub(r'\s*[\(\[]\s*(D\d+P\d+(?:\s*[,;]\s*D\d+P\d+)*)\s*[\)\]]',
                           lambda m: '' if set(re.findall(r'D\d+P\d+', m.group(1))) <= cited_ids else m.group(0), text).strip()
         cited_text = '\n'.join((passages[r - 1]['texte'] if pool else passages[r - 1][1]) for r in refs)
-        reasons = unsupported(text, cited_text)
+        cited_titles = ' '.join((passages[r - 1].get('section', '') if pool else passages[r - 1][0]) for r in refs)
+        reasons = unsupported(text, cited_text, question, cited_titles)
         if pool:
             reasons += scope_reasons(text, [passages[r - 1].get('portee') or {} for r in refs], public, academy)
         if reasons:

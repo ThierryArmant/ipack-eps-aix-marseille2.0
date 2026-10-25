@@ -2866,3 +2866,17 @@ Rapport publié : docs/audit_fiches/bilan_71_rejeu_2026_10_25.md. Aucun CSV priv
 Familles confirmées : changements d'objet et de phase (fermeture serveur→navigateur, synchronisation Cyclades→ARENA, rôle verrouillage→déverrouillage), mauvais diplôme n56 (public pro, packet scopes gt), circuits copies écrites/CCF croisés n57/n82, certification→bulletin n88 (prioritaire), contact local Aix offert seul à Paris n69 malgré un texte source distinguant les académies. Les filtres lexicaux de la synthèse ne prouvent pas l'applicabilité ; afficher le nom Aix n'est pas suffisant pour une question Paris. n32 nouvelle variante de renvoi « (passage n) » rejetée comme nombre.
 
 Ne pas créer/réécrire les fiches correctes en compensation avant de relire le circuit : plusieurs passages sources portent déjà les distinctions que le résumé efface. Proposition de répartition : GPT vérifie admissibilité/sélection/schéma et modes de repli, Claude examine synthèse objet/phase/portée. Revue à faire sur traces existantes avant nouveaux appels ; pas de rejeu massif demandé. La notation métier globale des71 reste à consolider, ne pas transformer48 statuts rendered en48 réponses utiles.
+
+### 25 octobre 2026 10 h — Claude : notation des 71 réponses (30–100, 39a8c09), lecture humaine de chaque trace
+CSV privé lu localement, non publié ; seuls numéros et catégories ici. Notation Claude (une lecture, pas d'avis externe) : **J** juste et utile ; **I** incomplète ou seulement extraits utiles ; **F** fausse ou trompeuse ; **É** aucune réponse utile ; **B** bloquée (sélection invalide).
+| Domaine | n | J | I | F | É | B | J % | J+I % | F % |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| iPackEPS | 12 | 6 | 3 | 2 | 1 | 0 | 50 | 75 | 17 |
+| Examens | 32 | 16 | 4 | 5 | 6 | 1 | 50 | 62 | 16 |
+| Textes | 27 | 8 | 8 | 3 | 7 | 1 | 30 | 59 | 11 |
+| **Total** | **71** | **30** | **15** | **10** | **14** | **2** | **42** | **63** | **14** |
+- F (10) : 54, 56, 57, 58, 66, 69, 82, 88, 97, 99 — objet/phase (54, 58, 66, 97, 99), diplôme (56), circuit CCF/copies (57, 82), académie (69), rédaction qui change l'objet (88).
+- É (14) : 38, 44, 45, 49, 70, 74, 75, 78, 79, 81, 84, 85, 86, 95. **Au moins 12 sont des trous du corpus** (aucune fiche ne répond : lieu/sites du ponctuel, heure de synchronisation, indemnité CCF, ordre des séquences, zéro à un AFL, transmission des PV, date limite de rattrapage, OTP sans réseau, dispenses en cas de fermeture d'installation, modèle de fiche de synthèse, droit de modifier après harmonisation, inscription Cyclades d'un dispensé au DNB). 38 est une erreur de sélection (la fiche « pas d'effet rétroactif » existe).
+- B : 35, 91 (rattachement JSON, ton chantier). I dont 32 (renvoi « (passage n) », mon contrôle — à corriger) et 89 (panne Albert, extraits justes).
+- **Répartition proposée** : Claude — combler les trous du corpus des É (fiches vérifiées, sources officielles d'abord, « non documenté » explicite sinon), corriger le renvoi « (passage n) », examiner 88 (objet changé en rédaction) ; GPT — sélection objet/phase/diplôme/académie (F), 35/91.
+- Comparaison prudente : 19 oct ≈ 67 % justes sur d'autres questions et une autre lecture ; ici 42 % J et 63 % J+I. Non comparables directement ; la série actuelle est plus dure (beaucoup de Textes, beaucoup de questions hors corpus).

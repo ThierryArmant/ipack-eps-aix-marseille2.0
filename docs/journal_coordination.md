@@ -3263,3 +3263,9 @@ Méthode : contrôles hors ligne contre les relevés d'écran du 18/10 (plan des
   - apq_30_minutes_premier_degre : circulaire MENE2201330C.
 - Catalogue : priorité 310, onglet Textes. Classement : text_inventory (NAMED complété), classement_textes.json et index régénérés. Registres et portée à jour.
 - Routage hors ligne : les 5 dernières questions sans fiche ont maintenant leur fiche (assurance, SSS, élève seul, pacte/RCD) ; aucune question déjà raccordée n'a changé de fiche. Audit mécanique 0 erreur, suite OK.
+
+## 2026-10-25 — Question 152 (classe partagée) : fiche complétée
+- Thierry et son collègue indiquent les tutoriels officiels : « Configuration des classes » (tu8J1RBUTwk, vers 3 min 30, article 14) et « Gestion des groupes » (4mqx_sWqSbE, vers 1 min 45, article 17). Leurs transcriptions sont déjà dans le corpus.
+- Mode Seul ou Mixte : on coche le ou les enseignants de la classe (ex. un le mardi, un le jeudi).
+- Mode Groupe : on crée le groupe, et plusieurs enseignants peuvent être cochés sur un même groupe.
+- ajouter_collegue_a_une_classe.txt réécrit en conséquence. La réserve « droits 2026 à vérifier » est retirée.

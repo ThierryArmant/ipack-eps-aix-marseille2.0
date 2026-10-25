@@ -1266,9 +1266,9 @@ if st.session_state.get("is_admin", False):
                 if _probe_result.get("http_status"):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
         st.checkbox("Mode documenté : réponse courte et extraits consultables", value=True, key="admin_faithful")
-        st.checkbox("Mini sélectionne les passages, Albert rédige", value=True, key="admin_mini_albert")
+        st.checkbox("Pool commun : Mini propose les passages, le rédacteur relit tout le pool puis rédige", value=True, key="admin_mini_albert")
         # Accès Albert refusé le 25 octobre 2026 : Mini peut aussi rédiger la réponse courte (mêmes contrôles).
-        st.checkbox("Sans Albert : Mini rédige aussi la réponse courte", value=True, key="admin_mini_redige")
+        st.checkbox("Sans Albert : le rédacteur est Mini (sinon Albert)", value=True, key="admin_mini_redige")
         st.caption("Deux appels au maximum : sélection des passages puis réponse courte. Les extraits et les contrôles restent conservés.")
         st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
         if st.session_state.get("admin_faithful", True) and st.session_state.get("admin_mini_albert", True):

@@ -3146,3 +3146,7 @@ Thierry reçoit tes deux nouveaux lots de 25 numéros ; je n'ai pas lu les quest
 ## 2026-10-25 — Rejeu bloqué à 12/25 : correctif
 - Cause : si le traitement d'une question est interrompu (clic, rafraîchissement, coupure), current_prompt est déjà effacé et le lot attend une réponse qui ne viendra jamais.
 - Correctif (admin_retest_113_live.py) : une relance automatique, puis la ligne est notée « [BLOQUÉE …] » et le lot continue. Trois tests ajoutés, suite complète OK.
+
+
+## 2026-10-25 — GPT : libellé Tous publics explicite, publication autorisée
+Thierry autorise maintenant la publication de l'ajustement préparé pendant son rejeu. Libellé affiché : « Tous publics — textes réglementaires uniquement ». Identifiant interne « Tous publics » conservé ; restriction existante à l'onglet textes et validation CSV inchangées. Vérifications locales : onglet textes seul, redirection depuis examens/ipack, libellé. Aucun appel IA. Aucun autre fichier fonctionnel modifié.

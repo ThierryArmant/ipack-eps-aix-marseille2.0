@@ -7221,7 +7221,7 @@
     ]
   },
   "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt": {
-    "title": "iPackEPS : première connexion, fiche professeur d'abord (ordre à respecter)",
+    "title": "iPackEPS : première connexion, l'ordre à respecter (Établissement, puis fiche professeur, puis dossiers)",
     "statut": "reponse_correspondant_academique_2026-10-18",
     "examens": [],
     "prioritaire": true,
@@ -8550,6 +8550,42 @@
     ],
     "exclure_motifs": [
       "proces.?verba|\\bpv\\b"
+    ]
+  },
+  "data/ipack/situations_2026_10_25/ajouter_collegue_a_une_classe.txt": {
+    "title": "iPackEPS : donner accès à une classe à un collègue",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*(?:collegue|enseignant|professeur|prof\\b))(?=.*(?:classe))(?=.*(?:ajout|acces|attribu|rattach|associer|donner))"
+    ],
+    "exclure_motifs": [
+      "santorin|cyclades|lot"
+    ]
+  },
+  "data/examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt": {
+    "title": "CCF d'EPS : protocole refusé ou non validé par la commission académique",
+    "statut": "redige_2026-10-25_sources_citees",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-10-25",
+    "motifs": [
+      "(?=.*protocole)(?=.*(?:refus|rejet|non valid|pas valid|invalid|retoqu))"
     ]
   }
 }

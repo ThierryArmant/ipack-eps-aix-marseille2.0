@@ -5750,7 +5750,7 @@
    "sessions": [],
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS, commun aux académies",
-   "titre": "iPackEPS : première connexion, fiche professeur d'abord"
+   "titre": "iPackEPS : première connexion, l'ordre à respecter (Établissement, puis fiche professeur, puis dossiers)"
   },
   "data/ipack/situations_2026_10_17/projets_ou_les_trouver.txt": {
    "nature": [
@@ -6456,6 +6456,29 @@
    ],
    "portee_texte": null,
    "titre": "Après les CCF : fiche de synthèse et documents pour la commission"
+  },
+  "data/ipack/situations_2026_10_25/ajouter_collegue_a_une_classe.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : donner accès à une classe à un collègue"
+  },
+  "data/examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt": {
+   "nature": [
+    "texte_national",
+    "consigne_academique"
+   ],
+   "academie": "Aix-Marseille",
+   "sessions": [
+    "2026"
+   ],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "CCF d'EPS : protocole refusé ou non validé par la commission académique"
   }
  }
 }

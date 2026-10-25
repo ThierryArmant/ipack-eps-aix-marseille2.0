@@ -553,7 +553,7 @@
     },
     {
       "path": "data/commun/audit60/gt_regles_decisives.txt",
-      "sha256": "777d77fb4f70b3b7e95823b1b0508f7261e3eeb2528375d64df7d8c07d5740b5",
+      "sha256": "199ec5fc6dbdf4374924980f21a4ed369cbb58c73f948105799981a028b29f3a",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -1307,7 +1307,7 @@
     },
     {
       "path": "data/commun/gt_shn_eligibilite.txt",
-      "sha256": "2c8d7fec8eeecbe6a4558ae294b967035815c0c1ce0c1ffb68ad0aa5128bba0d",
+      "sha256": "de7c824762e2bc6de01545148d4f530aab8fd4edbc8dee8a85ab85e33219d7a5",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-10_eligibilite_trois_documents ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -10875,7 +10875,7 @@
     },
     {
       "path": "data/ipack/situations_2026_10_17/ordre_premiere_connexion_fiche_professeur.txt",
-      "sha256": "fdc0bad281e30deeb8fac44bb5339e5ddf18a39a3f3ff0ad1ad211bcf8348df1",
+      "sha256": "e5761e49518aa6b46781e489a7a1d099fdc42eab77d48a01e5623c0def0bf72c",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_correspondant_academique_2026-10-18",
@@ -13320,6 +13320,22 @@
     {
       "path": "data/examens/situations_2026_10_25/documents_apres_ccf_pv_fiche_synthese.txt",
       "sha256": "3b00b78f639f033cc56df0662efbba538a907e67ddef02172ff8e3773110f9bd",
+      "famille": "examens",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/situations_2026_10_25/ajouter_collegue_a_une_classe.txt",
+      "sha256": "5d289b3d0b53d0b0fedd56fd9050b0e9bef52af5d5f0465fbb40cca229a5f6a4",
+      "famille": "ipack",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-25_sources_citees",
+      "signaux": []
+    },
+    {
+      "path": "data/examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt",
+      "sha256": "2de0e75e508cd2f92fd935711fe20a3df18b9e9f71c38851b782bde62e0b1d7e",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "redige_2026-10-25_sources_citees",

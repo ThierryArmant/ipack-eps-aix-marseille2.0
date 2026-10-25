@@ -3194,3 +3194,11 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
   - 144 : citation « non importés » reprise de la question refusée → corrigé dans la même série (citation de la question acceptée, 2 tests).
   - 126 : ordre contradictoire (fiche professeur puis fiche établissement) ; deux fiches à harmoniser.
   - 146, 152 : réponses vagues ; fiches à revoir.
+
+## 2026-10-25 — Fiches reprises après le rejeu des lots B
+- 73 (SHN) — gt_shn_eligibilite.txt : la réponse courte commence maintenant par « oui, régime particulier » au lieu de « NON, l'absence sur une liste… ». La ligne « Aménagements de l'EPS obligatoire » devient « Pour l'enseignement commun d'EPS, les aménagements possibles… » (fin du contresens « aménagements obligatoires »). nature_passages.json et le test associé suivent.
+- 88 (CCF / ponctuel) — gt_regles_decisives.txt : réponse directe réécrite d'après MENE2531948N : qui passe quoi, activités du CCF, activités du ponctuel (annexe 2 + éventuellement une activité académique fixée par le recteur pour le ponctuel), pas d'épreuve de remplacement au ponctuel.
+- 126 (ordre de rentrée) : le titre disait « fiche professeur d'abord » alors que le contenu dit Établissement puis fiche professeur ; Mini a recopié le titre. Titre corrigé (fiche, catalogue, nature_sources).
+- 146 : nouvelle fiche examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt. Elle reprend le cadre national 2.b, ce que le hub ne documente pas (pas de bascule automatique vers le ponctuel), le circuit d'Aix et les interlocuteurs.
+- 152 : nouvelle fiche ipack/situations_2026_10_25/ajouter_collegue_a_une_classe.txt. Deux étapes : équipe EPS [Actualiser], puis [Organisation des Classes] « Professeurs attribués à la classe » ; ce qui n'a pas été vérifié à l'écran est signalé.
+- Registres mis à jour (catalogue, nature_sources, portee, registre sha). Routage hors ligne vérifié sur les 5 questions. Audit mécanique 0 erreur, suite OK (1242).

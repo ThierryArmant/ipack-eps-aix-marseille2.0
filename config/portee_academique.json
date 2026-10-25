@@ -1025,6 +1025,20 @@
     }
    ]
   },
+  "data/examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### CCF d'EPS : protocole refusé ou non validé par la commission académique",
+     "lignes": [
+      "Réponse directe : un protocole refusé est à corriger selon les remarques de la commission académique ; tant qu'il n'est pas validé, il ne peut pas être annexé au projet d'évaluation de l'établissement ni, à Aix-Marseille, remonter dans Cyclades. Pour connaître la marche à suivre et le calendrier, écrire à l'inspection pédagogique régionale d'EPS (IA-IPR), interlocutrice avec la commission académique pour la validation ou la réouverture des protocoles.",
+      "À Aix-Marseille : un protocole non valide (composition de l'ensemble certificatif, dates, co-évaluateur en voie générale, référentiel non déposé ou non validé) ne remonte pas dans Cyclades ; les candidats ne peuvent alors pas y être associés. Les motifs à vérifier sont donc ces quatre points.",
+      "À Aix-Marseille, après la validation des protocoles, un protocole standard corrigé se crée dans iPackEPS ([Dossiers] > [Dossier Certificatif]) en prévenant l'inspection pédagogique au préalable : c'est elle qui assure le transfert vers Cyclades. Les tutoriels d'autres académies (resoumission à la commission par l'établissement) ne s'appliquent pas tels quels à Aix-Marseille.",
+      "Interlocuteurs : l'IA-IPR d'EPS et la commission académique pour la validation ou la réouverture des protocoles ; à Aix-Marseille, le chargé de mission Examens pour un protocole absent de Cyclades ; l'assistance iPackEPS (ipackeps@ac-aix-marseille.fr) seulement pour un blocage technique du logiciel."
+     ]
+    }
+   ]
+  },
   "data/examens/situations_2026_10_25/rattrapage_ccf_date_limite.txt": {
    "academie": "aix-marseille",
    "sections": [

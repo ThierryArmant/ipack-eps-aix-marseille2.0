@@ -1,7 +1,11 @@
 ### Bac GT : ensemble certificatif, listes d'activités et commission académique
 [PORTEE: gt]
 Sigles : CCF = contrôle en cours de formation ; CAHPN = commission académique d’harmonisation et de proposition de notes.
-Réponse directe : le CCF comporte trois épreuves de trois champs d'apprentissage distincts, dont au moins deux activités de la liste nationale ; l'examen ponctuel terminal repose sur deux activités ; la limite de cinq activités concerne la liste académique, et un lycée peut proposer au maximum une activité établissement pour l'enseignement commun.
+Réponse directe : le CCF concerne les candidats scolaires et comporte trois épreuves sur trois activités de trois champs d'apprentissage distincts, évaluées en cours de formation dans l'établissement ; l'examen ponctuel terminal concerne notamment les candidats individuels et ceux du Cned, et comporte deux épreuves de deux champs d'apprentissage différents, si possible le même jour, en co-évaluation.
+Activités du CCF : au moins deux activités de la liste nationale du programme ; la troisième peut venir de la liste académique ou de l'activité établissement validée par la commission académique.
+Activités du ponctuel : les activités de l'annexe 2 de la note de service et, éventuellement, une des activités académiques fixées par le recteur pour l'examen ponctuel ; l'évaluation suit un référentiel propre au ponctuel (annexe 2).
+Au ponctuel, une absence justifiée aux deux épreuves, validée par l'autorité académique, neutralise le coefficient : il n'y a pas d'épreuve de remplacement.
+La limite de cinq activités concerne la liste académique, et un lycée peut proposer au maximum une activité établissement pour l'enseignement commun.
 Le CCF ne se confond pas avec une évaluation continue tout au long de l'enseignement.
 La limite de cinq activités ne s'applique pas au menu d'activités de l'établissement : elle concerne seulement la liste académique.
 Le protocole annuel est transmis sous couvert du chef d’établissement à la commission académique d’harmonisation et de proposition de notes (CAHPN) pour validation.

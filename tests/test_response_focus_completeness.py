@@ -44,7 +44,7 @@ class ResponseFocusTests(unittest.TestCase):
         self.assertIn('validation du recteur',text)
         self.assertIn('20 ne peut pas être l’unique note',text)
         self.assertIn('deux activités de deux champs différents',text)
-        span=next(s for s in packets[0]['passages'] if s['text'].startswith('Aménagements de l’EPS obligatoire'))
+        span=next(s for s in packets[0]['passages'] if s['text'].startswith("Pour l'enseignement commun d'EPS au bac GT, les aménagements"))
         self.assertEqual(span['scope']['nature'],['texte_national'])
         self.assertNotIn('academy',span['scope'])
         self.assertTrue(response_focus_notes('SHN au bac GT : quels aménagements ?',packets))

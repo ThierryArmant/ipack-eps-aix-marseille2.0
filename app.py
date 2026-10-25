@@ -1267,10 +1267,14 @@ if st.session_state.get("is_admin", False):
                     st.caption(f"HTTP {_probe_result['http_status']} · code : {_probe_result.get('error_code') or 'non précisé'}")
         st.checkbox("Mode documenté : réponse courte et extraits consultables", value=True, key="admin_faithful")
         st.checkbox("Mini sélectionne les passages, Albert rédige", value=True, key="admin_mini_albert")
+        # Accès Albert refusé le 25 octobre 2026 : Mini peut aussi rédiger la réponse courte (mêmes contrôles).
+        st.checkbox("Sans Albert : Mini rédige aussi la réponse courte", value=True, key="admin_mini_redige")
         st.caption("Deux appels au maximum : sélection des passages puis réponse courte. Les extraits et les contrôles restent conservés.")
         st.checkbox("Essai direct : Albert seul, sans Mini", value=True, key="admin_albert_only")
         if st.session_state.get("admin_faithful", True) and st.session_state.get("admin_mini_albert", True):
-            st.caption("ESSAI MIXTE ACTIF : recherche par le code → gpt-4o-mini sélectionne → Albert rédige. Le réglage Albert seul est ignoré dans ce mode. Aucun secours automatique ni réparation payante."
+            st.caption("ESSAI MIXTE ACTIF : recherche par le code → gpt-4o-mini sélectionne → "
+                       + ("gpt-4o-mini rédige (sans Albert)" if st.session_state.get("admin_mini_redige", True) else "Albert rédige")
+                       + ". Le réglage Albert seul est ignoré dans ce mode. Aucun secours automatique ni réparation payante."
                        + (" · version " + _sha if _sha else ""))
         elif st.session_state.get("admin_albert_only"):
             st.caption(("MODE FIDÈLE : Albert choisit les passages, le programme restitue le texte exact ("
@@ -1657,6 +1661,10 @@ if prompt_a_traiter:
             _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
                 temperature=0.0, allow_paused_test=True)
+        if _mixed_trial and st.session_state.get("admin_mini_redige", True):
+            # Rédacteur annoncé dans la trace (modèle de l'appel short_answer) : jamais de bascule silencieuse.
+            _generation_llm = OpenAI(model='gpt-4o-mini', temperature=0.0, api_key=openai_api_key,
+                                     max_tokens=900, max_retries=0, timeout=30)
         llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False

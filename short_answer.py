@@ -257,6 +257,9 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
     for item in _split_long(phrases)[:MAX_PHRASES + 2]:
         text = item.get('texte') if isinstance(item, dict) else None
         refs = item.get('passages') if isinstance(item, dict) else None
+        if pool and (not isinstance(refs, list) or not refs or any(not isinstance(r, str) or r not in ids for r in refs)):
+            report['rejected'].append(dict(texte=str(text)[:MAX_CHARS], raisons=['forme']))
+            continue
         if pool and isinstance(refs, list) and all(isinstance(r, str) and r in ids for r in refs):
             refs = [ids.index(r) + 1 for r in refs]  # identifiants du pool -> rangs internes
         if (not isinstance(text, str) or not text.strip() or len(text) > MAX_CHARS

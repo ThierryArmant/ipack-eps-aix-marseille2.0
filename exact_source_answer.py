@@ -98,7 +98,7 @@ def media_text(audit, fallback):
     return result
 
 
-def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False):
+def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False, positions=None):
     """Recopie des passages entiers ; le contexte source reste consultable."""
     spans = {s['id']: (p, s) for p in selected for s in p['passages']}
     blocks = [] if numbered else ['<h3>Réponse</h3>']
@@ -123,7 +123,7 @@ def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False
         ref = str(references[key])
         # Numéro d'extrait : c'est lui que cite la réponse courte.
         blocks.append('<p style="white-space:pre-wrap;line-height:1.85;margin:0.8rem 0 1.4rem">'
-                      + ('<strong>' + str(position) + '.</strong> ' if numbered else '')
+                      + ('<strong>' + str((positions or {}).get(passage_id, position)) + '.</strong> ' if numbered else '')
                       + html.escape(span['text']) + ' <sup>[' + ref + ']</sup></p>')
     blocks.append('<details><summary>Sources et portée (' + str(len(references)) + ')</summary>')
     for (document_id, label), number in references.items():
@@ -212,6 +212,57 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
             + numbered + '</details>')
 
 
+
+def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
+                     reviewer, report, fallback, public, mode, academy):
+    """Albert révise la proposition Mini sur le même contexte borné, sans nouvel appel Mini."""
+    try:
+        from .short_answer import short_answer, build_prompt
+    except ImportError:
+        from short_answer import short_answer, build_prompt
+    pool = []
+    for packet in candidates:
+        for span in packet['passages']:
+            if search_metadata(span) or span['id'] in report.get('excluded_non_business', []):
+                continue
+            scope = span.get('scope', {})
+            pool.append(dict(id=span['id'], section=section_label(packet, span)[0],
+                             texte=span['text'],
+                             portee=dict(examens=scope.get('examens', packet.get('scopes', [])),
+                                         academie=scope.get('academy')),
+                             propose_par_mini=span['id'] in focus))
+    context = dict(public=public, mode=mode, academie=academy)
+    size = len(build_prompt(question, pool, context))
+    report.update(pool_version='common-pool-v1', pool_passage_ids=[p['id'] for p in pool],
+                  pool_prompt_chars=size, mini_proposed_passage_ids=focus[:])
+    if size > 40000:
+        report['pool_status'] = 'budget_exceeded_no_writer_call'
+        return fallback
+    lead = short_answer(llm, tracer=tracer, audit=audit, question=question,
+                        passages=pool, public=public, academy=academy, context=context)
+    kept = audit.get('short_answer', {}).get('kept', [])
+    cited = list(dict.fromkeys(i for item in kept for i in item.get('ids', [])))
+    report.update(albert_cited_passage_ids=cited,
+                  recovered_from_pool=[i for i in cited if i not in focus],
+                  omitted_from_mini=[i for i in focus if i not in cited],
+                  pool_status='rendered' if lead else 'no_short_answer_kept')
+    if not lead:
+        return fallback
+    owners = [p for p in candidates if any(s['id'] in cited for s in p['passages'])]
+    positions = {p['id']: n for n, p in enumerate(pool, 1)}
+    extracts = render_focused_sources(owners, cited, reviewer, report, numbered=True, positions=positions)
+    report.update(selected_sources=owners, selected_ids=[p['id'] for p in owners],
+                  display_version_lead='common-pool-v1', no_business_rewriting=False)
+    # Les numéros sont les rangs stables du pool, jamais une réindexation des seuls cités.
+    result = '<h3>Réponse</h3>' + lead
+    result += '<details><summary>Voir les extraits cités (' + str(len(cited)) + ')</summary>' + extracts + '</details>'
+    missing = [i for i in focus if i not in cited]
+    if missing:
+        other = render_focused_sources(selected, missing, reviewer, {}, numbered=True, positions=positions)
+        result += '<details><summary>Autres passages proposés par Mini, non repris</summary>' + other + '</details>'
+    return result
+
+
 def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False, selector_llm=None):
     packets = reviewer.source_packets(documents)
     audit.update(documents=packets, context_exact=documents,
@@ -230,10 +281,12 @@ def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, ac
     sections, section_ids = {}, {}
     selectable = set()
     report['excluded_search_metadata'] = []
+    report['excluded_non_business'] = []
     for p in candidates:
         spans = []
         for span in p['passages']:
-            if search_metadata(span):
+            if search_metadata(span) or (len(span['text'].strip().splitlines()) == 1 and span['text'].strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:'))):
+                report['excluded_non_business'].append(span['id'])
                 report['excluded_search_metadata'].append(span['id'])
                 continue
             selectable.add(span['id'])
@@ -311,11 +364,17 @@ DONNEES :
         selected = [by_id[i] for i in [main] + extra]
         focus = choice.get('passages')
         if focus is not None:
-            allowed = {s['id']: s for p in selected for s in p['passages']}
+            allowed = {s['id']: s for p in candidates for s in p['passages']}
             if (not isinstance(focus, list) or not focus
                     or any(not isinstance(i, str) or i not in allowed or i not in selectable for i in focus)):
                 raise ValueError('passage_ids')
             focus = unique_ids(focus, 'passages', report)
+            for passage_id in focus:
+                owner = next(p for p in candidates if any(s['id'] == passage_id for s in p['passages']))
+                if owner['id'] not in [p['id'] for p in selected]:
+                    selected.append(owner)
+                    extra.append(owner['id'])
+                    report.setdefault('complement_ajoute_par_reference', []).append(dict(document_id=owner['id'], passage_id=passage_id))
             if any(len(allowed[i]['text'].strip().splitlines()) == 1
                    and allowed[i]['text'].strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:'))
                    for i in focus):
@@ -335,8 +394,12 @@ DONNEES :
             report['focus_status'] = 'selected_by_model_not_semantically_proven'
             answer = render_focused_sources(selected, focus, reviewer, report)
             if synthesis:
-                answer = with_short_answer(llm, tracer, audit, question, selected, focus,
-                                           reviewer, report, answer)
+                if selector_llm is not None:
+                    answer = with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
+                                              reviewer, report, answer, public, mode, academy)
+                else:
+                    answer = with_short_answer(llm, tracer, audit, question, selected, focus,
+                                               reviewer, report, answer)
         audit['rendered_answer'] = answer
         audit['model_document_ids'] = [p['id'] for p in candidates]
         audit['effective_selection_policy'] = 'exact_sources_only'

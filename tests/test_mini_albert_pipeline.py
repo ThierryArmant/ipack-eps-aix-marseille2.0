@@ -13,7 +13,7 @@ class MixedPipelineTests(unittest.TestCase):
             return_value=SimpleNamespace(text=json.dumps(choice))))
         albert=SimpleNamespace(model='gpt-oss-120b',temperature=0,complete=Mock(
             return_value=SimpleNamespace(text=json.dumps({'phrases':[
-                {'texte':'Ouvrez le menu [Dossier].','passages':[1]}]}))))
+                {'texte':'Ouvrez le menu [Dossier].','passages':['D1P1']}]}))))
         docs=dr.mark_excerpt('Ouvrez le menu [Dossier].',path='data/exemple.txt',title='Action')
         audit={}
         answer=exact_answer(albert,selector_llm=mini,synthesis=True,reviewer=dr,tracer=dr.TracedLLM,

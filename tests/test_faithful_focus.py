@@ -56,7 +56,7 @@ class FaithfulFocusTests(unittest.TestCase):
         self.assertEqual(audit['exact_extracts']['focused_passage_ids'], ['D1P1','D2P1','D2P2'])
 
     def test_foreign_empty_null_and_invented_ids_do_not_trigger_retry(self):
-        for focus in [['D2P1'], [], None, ['MENU_INVENTE']]:
+        for focus in [[], None, ['MENU_INVENTE']]:
             with self.subTest(focus=focus):
                 answer, audit, llm = self.run_case(['Action documentée.', 'Voisin.'],
                     lambda ps: dict(principal='D1', complements=[], passages=focus))

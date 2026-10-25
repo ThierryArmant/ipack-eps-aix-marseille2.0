@@ -2396,7 +2396,7 @@
     },
     {
       "path": "data/examens/audit_faq_2026_10_12/f1_procedure_verifiee.txt",
-      "sha256": "3f762f83765ecc276a71885051cbd06b18c85bbb05cf8539ee0548df5d07df88",
+      "sha256": "7d8e8ca741945669bf6f18e403793887d85e6337f21da9ba485283796c4f704c",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -2508,7 +2508,7 @@
     },
     {
       "path": "data/examens/audit_faq_2026_10_12/g1_procedure_verifiee.txt",
-      "sha256": "c30a44ab09ff961b31c1c8bccbcd376ec7422c0fb30e86d8b6095d4958918c20",
+      "sha256": "e14c5de2b48e835997c93e489e2a3ce58b32ab406db00f01d1c3134f73a4a103",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -2530,7 +2530,7 @@
     },
     {
       "path": "data/examens/audit_faq_2026_10_12/g2_procedure_verifiee.txt",
-      "sha256": "95cfec2363ecccf3f482dbf6d0bb87d5ad6f9e6fe884149a3e8a4b2cd1d0eed7",
+      "sha256": "4f2e6549a695d13a92f99d0d4509705da9bcd66202af356c1917652403d6a144",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -3702,7 +3702,7 @@
     },
     {
       "path": "data/examens/eduscol_2026_10_17/handicap_eps_code_education.txt",
-      "sha256": "da57febd3fa4bcd4c4e08181b6ee24173ff5f65a8b5856ae0725bb3f279dffef",
+      "sha256": "d2e0e011feaa5f924b20fdc9e2a12746b0b9c267377e661bb618991b95268f21",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_officielle_lue_2026_10_17",
@@ -4144,7 +4144,7 @@
     },
     {
       "path": "data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt",
-      "sha256": "c09c5c2bc55b7db6f1bd1d278736abde55559c32b50a11de00c8d86019ea0e7e",
+      "sha256": "9009b029aa60f8758f5b894cf77a09430dd97959972e90ebe1b828f560f251c4",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_sources",
@@ -5145,7 +5145,7 @@
     },
     {
       "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
-      "sha256": "c9ce1ec6a6a88819f9a633d427e95d6e4a8c8e39847ca613712dab9a85dfaf54",
+      "sha256": "6e1346524d5515ed4f9b716e788a1904f0ed6af8c5769fcdb614899b8dfc57e4",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -5296,7 +5296,7 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "4effd0615c6971dbddf975b5198cc54ca9926a61b34b531916ffadb765da23cf",
+      "sha256": "04408c9c92b375f44f57ab3b5d6457b803e7f6cedeba25d21281c6aeeca47ed1",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -6209,7 +6209,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_023_situation_non_certification_d_une_apsa_ex_cross_training.txt",
-      "sha256": "d2408becfb352d5b0c9f0f58d3c8772808cf970e826d02532e46d3702fa738cd",
+      "sha256": "07df00d309ba0084fadbf99e15e5705b1b8f5ed657de1d3c4e70dd450a6a833b",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "synthese_non_revalidee",
@@ -10059,7 +10059,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_209_article_112_gestion_des_sportifs_de_haut_niveau_shn_dans_ipackeps_cyclades_et_santorin.txt",
-      "sha256": "e3e3b784ce3ed5bbcd724d553623333ee31d69326962f6851fab138070259746",
+      "sha256": "b1dbbcf33103b4d2207ea7a8e572ef3e5c02797d253e57bba3980112739f7920",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",

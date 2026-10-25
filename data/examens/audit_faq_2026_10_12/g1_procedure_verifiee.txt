@@ -1,6 +1,7 @@
 ### FAQ EPS — Affectations : groupe importé sans protocole correspondant (Cyclades)
 [PORTEE: gt,pro,cap]
-Les noms de groupes du fichier importé ne correspondent pas à ceux des protocoles. À Aix, le fichier vient d'iPackEPS (Dossier certificatif > Cyclades) : vérifier les groupes, rejouer l'export, ou associer les élèves manuellement dans « Associer les élèves à un protocole ». Si un protocole manque, prévenir l'inspection (pas d'invalidation).
+Les noms de groupes du fichier importé ne correspondent pas à ceux des protocoles.
+À Aix, le fichier vient d'iPackEPS (Dossier certificatif > Cyclades) : vérifier les groupes, rejouer l'export, ou associer les élèves manuellement dans « Associer les élèves à un protocole ». Si un protocole manque, prévenir l'inspection (pas d'invalidation).
 Ce message vient de Cyclades, à l'import du fichier d'association des candidats : Imag'in (convocations) n'intervient pas à cette étape. L'export de la commission concerne les protocoles, pas ce fichier d'association : il n'y a pas lieu de demander un nouvel export à la commission.
 
 Le passage par iPackEPS est le circuit d’Aix-Marseille décrit par le guide du Pôle examens, pas une obligation du texte national ; le texte national ne traite pas de ce message.

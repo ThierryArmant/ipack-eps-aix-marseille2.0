@@ -2,7 +2,8 @@
 [PORTEE: gt,pro,cap]
 Sigles : CCF = contrôle en cours de formation.
 Menu EPS > Associer les élèves à un protocole : choisir le protocole dans la liste en bout de ligne ou glisser-déposer l'élève, puis enregistrer. Tant qu'un élève n'a pas de protocole, il n'entre pas dans un lot.
-Vérifier d'abord le compte rendu de l'import du fichier d'association : l'association manuelle sert ensuite pour les élèves restés sans protocole. À Aix, ce fichier vient d'iPackEPS (circuit académique décrit par le guide du Pôle examens) ; aucun texte national n'impose cet import.
+Vérifier d'abord le compte rendu de l'import du fichier d'association : l'association manuelle sert ensuite pour les élèves restés sans protocole.
+À Aix, ce fichier vient d'iPackEPS (circuit académique décrit par le guide du Pôle examens) ; aucun texte national n'impose cet import.
 
 Portée : Logiciel.
 Nature de la source : fonctionnement du logiciel (mémo, tutoriel ou guide) ; aucun texte du Bulletin officiel ne prescrit cette procédure. Ne pas la présenter comme une règle de la note de service.

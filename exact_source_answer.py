@@ -122,7 +122,7 @@ def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False
             references[key] = len(references) + 1
         ref = str(references[key])
         # Numéro d'extrait : c'est lui que cite la réponse courte.
-        blocks.append('<p style="white-space:pre-wrap;line-height:1.65;margin:0.6rem 0 1rem">'
+        blocks.append('<p style="white-space:pre-wrap;line-height:1.85;margin:0.8rem 0 1.4rem">'
                       + ('<strong>' + str(position) + '.</strong> ' if numbered else '')
                       + html.escape(span['text']) + ' <sup>[' + ref + ']</sup></p>')
     blocks.append('<details><summary>Sources et portée (' + str(len(references)) + ')</summary>')
@@ -165,7 +165,7 @@ def render_exact_sources(selected, reviewer, report):
             paragraphs.append((span, references[label]))
         for span, label_number in paragraphs:
             ref = str(index) + ('.'+str(label_number) if len(labels)>1 else '')
-            blocks.append('<p style="white-space:pre-wrap">' + html.escape(span['text'])
+            blocks.append('<p style="white-space:pre-wrap;line-height:1.85;margin:0.8rem 0 1.4rem">' + html.escape(span['text'])
                           + ' <sup>[' + ref + ']</sup></p>')
             rendered.append(span['id'])
         blocks.append('<details><summary>Référence et portée [' + str(index) + ']</summary>')

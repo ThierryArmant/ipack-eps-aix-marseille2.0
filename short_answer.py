@@ -143,6 +143,30 @@ def _split_long(phrases):
     return out
 
 
+def readable_text(text):
+    """Mise en page seule, après les contrôles : aucun mot ni signe supprimé."""
+    # Protéger menus, liens et citations : leurs séparateurs ne sont pas des étapes.
+    protected = r'(\[[^\]\n]+\]|https?://\S+|[\w.+-]+@[\w.-]+|«[^»]*»|"[^"\n]*")'
+    chunks = re.split(protected, text)
+    rendered = []
+    for i, chunk in enumerate(chunks):
+        escaped = html.escape(chunk)
+        if i % 2:
+            if chunk.startswith('['):
+                escaped = '<strong>' + escaped + '</strong>'
+        else:
+            escaped = re.sub(r';(?=\s+\S)', ';<br>', escaped)
+        rendered.append(escaped)
+    result = ''.join(rendered)
+    # Une condition est un repère visuel ; elle reste liée à toutes ses actions.
+    condition = re.match(r'^\s*(?:[-*•]\s*)?((?:Si|Lorsque|Quand|En cas de|Dans le cas|Pour les? )[^\n,;:]{8,170}[,:])', text)
+    if condition:
+        prefix = html.escape(text[:condition.end()])
+        if result.startswith(prefix):
+            result = '<strong>' + prefix + '</strong><br>' + result[len(prefix):]
+    return result
+
+
 def short_answer(llm, *, tracer, audit, question, passages):
     """passages : liste ordonnée de (intitulé de situation, texte exact) déjà affichés.
     Renvoie le HTML de la réponse courte, ou '' si rien n'est exploitable."""
@@ -188,5 +212,5 @@ def short_answer(llm, *, tracer, audit, question, passages):
     if not kept:
         return ''
     # Une phrase par paragraphe : chaque cas ou condition reste lisible séparément.
-    return ''.join('<p style="font-size:1.05rem;line-height:1.6;margin:0 0 0.7rem">' + html.escape(t)
+    return ''.join('<p style="font-size:1.05rem;line-height:1.85;margin:0 0 1.3rem;white-space:pre-wrap">' + readable_text(t)
                    + ' <sup>' + ','.join(str(r) for r in refs) + '</sup></p>' for t, refs in kept)

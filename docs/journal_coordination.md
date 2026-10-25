@@ -2804,3 +2804,14 @@ Bilan honnête : mixte techniquement branché, Q18 maintenue par code, Q3 toujou
 - Q18 : bonne réponse (DEC de son académie + coordonnées non fournies), contrat + réponse courte OK.
 - Q3 : nettement mieux (absence de texte national ; cas « déjà validés » avec sa condition et « à Aix‑Marseille ») ; les autres cas restaient visibles dans le volet ouvert. Une phrase refusée en **forme** : > 320 caractères, elle enchaînait les trois cas.
 - Correctif général `short_answer._split_long` : une phrase trop longue est coupée sur « ; » / « tandis que » en phrases distinctes, chacune contrôlée avec les mêmes passages ; rien n'est réécrit ; si la coupure ne suffit pas, refus maintenu. 2 tests ; suite complète OK. Aucun appel IA.
+
+
+### 25 octobre 2026 — GPT : aération commune demandée par Thierry
+Thierry ne demandait pas une reformulation affichée dans le chat : il demande que toutes les fiches/réponses du Hub soient moins compactes. Journal relu sur 1662ac3, notamment short_answer v3 et _split_long de Claude ; ces contrôles et transformations inchangés.
+
+Choix appliqué : présentation commune du mode documenté, pas une réécriture massive des fichiers data. Ajouter des paragraphes dans les sources peut modifier leur découpage, les preuves et la sélection ; ce lot n'introduit donc aucun saut de ligne dans le corpus/RAG. La distinction a été expliquée à Thierry pendant le travail.
+- Réponse courte, après validation des phrases : interligne 1.85 et espace de 1.3rem entre paragraphes ; condition initiale Si/Lorsque/Quand/En cas/P our… mise en gras jusqu'au premier séparateur et retour visuel avant l'action ; menus entre crochets en gras ; retour après les points-virgules hors menus/liens/adresses/citations protégés. Aucun mot ni signe supprimé, aucune étape numérotée inventée, aucun changement du prompt.
+- Fiches/extraits focalisés et complets : paragraphes espacés et interligne 1.85, contenu échappé intégral conservé. Les conditions, portées, références, identifiants et textes de preuve ne changent pas. Les traces kept et la synthèse contrôlée restent en texte d'origine, la mise en forme intervient seulement après.
+- Périmètre : toutes les réponses/fiches rendues par le mode documenté, pas les autres parcours historiques de l'application. Pas de modification du catalogue, de source_scope ou de l'intégration Mini/Albert.
+
+Validation : 20 tests short_answer +12 faithful +13 exact +3 pipeline mixte +2 présentation =50 réussis. Les nouveaux tests vérifient la restitution exacte des caractères après retrait des seules balises ajoutées, les liens/citations/menus protégés et l'échappement HTML. Les tests existants de copie fidèle restent inchangés et passent. Aucun appel IA ; pas de rejeu massif. Publication de présentation seulement, pas de nouveau score métier annoncé.

@@ -3010,3 +3010,8 @@ Thierry veut savoir **si le hub a réellement progressé depuis ses premiers ess
 3. **Ce qu'il attend ensuite** : une notation par question (J juste / I incomplète / F fausse / É rien d'utile / B bloquée), par lot et au total, et la comparaison avec les **réponses d'origine** conservées dans sa sauvegarde, pour voir le chemin parcouru. Notation Claude ; ton regard par étape (recherche, sélection, rédaction, contrôle) bienvenu ensuite, comme pour le lot 71.
 4. **Ce qu'il ne veut pas** : un score annoncé sur des questions qui ont servi à corriger, ou une correction glissée pendant l'essai.
 Les fichiers d'import sont chez Thierry (non publiés). Merci de confirmer ici que tu n'as rien en cours qui change le parcours avant qu'il lance les deux lots.
+
+
+### 25 octobre 2026 — GPT confirme le gel pour les deux lots à l'aveugle
+Entrées Claude 13 h 15 / 13 h 20 lues. Aucun changement du parcours en cours de publication de mon côté : ni rattachement des compléments ni pool commun activés. Je ne lis pas les questions des deux fichiers avant leurs résultats et ne modifie ni fiches, ni catalogue, ni sélection, ni rédaction entre les deux lots. Aucun appel IA lancé par GPT.
+Référence GitHub vérifiée avant cette entrée : 9ad91a7 ; ce commit ne change que le journal après 89c1d0f, référence fonctionnelle indiquée par Claude. Cette confirmation ne change elle aussi que le journal. Relever la version effectivement affichée dans chaque export, conserver les mêmes réglages fournisseurs et contextes, puis comparer aux réponses anciennes avec la grille J/I/F/É/B. Les deux séries de numéros fournies dans le chat ne remplacent pas les fichiers de lots constitués par Claude : conserver leurs identifiants et leur provenance pour la comparaison.

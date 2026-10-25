@@ -331,3 +331,16 @@ class AcademieUtilisateur(unittest.TestCase):
 
     def test_exemple_json_montre_plusieurs_phrases(self):
         self.assertGreaterEqual(sa.build_prompt('q', self.P).count('"texte"'), 3)
+
+
+class ConditionDejaDansLaQuestion(unittest.TestCase):
+    BR = ("Si le type de groupe « section sportive scolaire » n’est pas proposé alors que « sport-études » l’est, "
+          "ne pas créer un groupe sport-études pour contourner le blocage : les deux dispositifs sont distincts.")
+
+    def test_condition_decrite_par_la_question_acceptee(self):
+        q = "Je n'arrive pas à créer mes groupes de section sportive, je n'ai que « sport étude » dans la liste."
+        self.assertEqual(sa.unsupported("Ne créez pas un groupe sport-études pour contourner le blocage.", self.BR, q), [])
+
+    def test_condition_absente_de_la_question_toujours_refusee(self):
+        self.assertIn('modalite:condition_perdue',
+                      sa.unsupported("Ne créez pas un groupe sport-études pour contourner le blocage.", self.BR, "Comment créer un groupe ?"))

@@ -3181,3 +3181,16 @@ Thierry autorise maintenant la publication de l'ajustement préparé pendant son
   - admin_retest_113_live.py : nouvelle colonne « videos » dans le CSV du rejeu.
 - Simulation sur les lots B : 7 réponses gagnent une vidéo cohérente (108, 126, 136, 152, 153, 155, 132).
 - 4 tests ajoutés, suite complète OK (1238).
+
+## 2026-10-25 — Lots B rejoués ensemble (50 questions, Mini seul, mode documenté, version 7a2c517)
+- J 42 (84 %), I 8, F 0, É 0, B 0. Sur les mêmes 50 questions avant les correctifs du jour : 33 J (66 %).
+- iPack : 19 J / 25. I : 107, 121, 126, 144, 146, 152.
+- Examens : 23 J / 25. I : 73, 88.
+  - 73 : « les aménagements de l'EPS sont obligatoires » ; contresens sur « EPS obligatoire ».
+  - 88 : liste académique attribuée à tort au ponctuel.
+- Vidéos : 8 réponses en ont une. Toutes cohérentes sauf 135 (nouveautés → vidéo « axes du projet », motif [Projets] trop large).
+- Correctif short_answer (version suivante) : une branche « Si … » dont la question décrit déjà la condition n'est plus refusée pour « condition perdue » (107, 121). 2 tests ajoutés, suite OK (1240).
+- Restent :
+  - 144 : citation « non importés » refusée à cause des accents ; à regarder.
+  - 126 : ordre contradictoire (fiche professeur puis fiche établissement) ; deux fiches à harmoniser.
+  - 146, 152 : réponses vagues ; fiches à revoir.

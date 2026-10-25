@@ -81,6 +81,17 @@ def _closest_sentence(phrase, text):
     return max(sentences, key=lambda x: len(target & _words(x)), default=text)
 
 
+def _condition_in_question(branch, question):
+    """La condition d'une branche « Si … : » déjà décrite par la question n'a pas à être répétée."""
+    clause = re.sub(_BRANCHE, '', _norm(branch)).split(':')[0].split(',')[0]
+    words = [w for w in re.findall(r'[a-z0-9]{4,}', clause)]
+    asked = re.findall(r'[a-z0-9]{4,}', _norm(question or ''))
+    if not words or not asked:
+        return False
+    found = sum(1 for w in words if any(a[:5] == w[:5] for a in asked))
+    return found * 2 >= len(words)
+
+
 def unsupported(phrase, cited_text, question='', titles=''):
     """Raisons mécaniques de refuser une phrase (liste vide : phrase acceptée).
     question : nombres et objets déjà présents dans la demande ; titles : intitulés des passages cités."""
@@ -114,7 +125,8 @@ def unsupported(phrase, cited_text, question='', titles=''):
     if re.search(_IMPOSSIBLE, p) and not re.search(_IMPOSSIBLE_SOURCE, source):
         reasons.append('modalite:interdiction_ajoutee')
     branches = [b for b in cited_text.split('\n') if b.strip()]
-    if branches and all(re.match(_BRANCHE, _norm(b)) for b in branches) and not re.search(_CONDITION, p):
+    if (branches and all(re.match(_BRANCHE, _norm(b)) for b in branches) and not re.search(_CONDITION, p)
+            and not all(_condition_in_question(b, question) for b in branches)):
         # Tous les passages cités sont des branches « Si … » : la phrase garde sa condition.
         reasons.append('modalite:condition_perdue')
     if re.search(_CONSEQUENCE, p) and not re.search(_CONSEQUENCE_SOURCE, source):

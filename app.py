@@ -675,6 +675,13 @@ css_pur = f"""
     div[class*="st-key-etape2"] div[data-baseweb="select"] > div {{ border: 1px solid #CBD5E1 !important; }}
     div[class*="st-key-etape2"] div[data-baseweb="select"] > div:focus-within {{ border: 2px solid #F59E0B !important; }}
     .hub-field {{ color: #E2E8F0 !important; }}
+    /* Case « tous les publics » de l'onglet Textes : même lisibilité que le choix du public. */
+    .st-key-textes_tous_publics {{ background-color: rgba(15, 23, 42, 0.9) !important; border: 1px solid #334155 !important;
+        border-radius: 8px !important; padding: 10px 14px !important; margin-top: 10px !important; }}
+    .st-key-textes_tous_publics label, .st-key-textes_tous_publics label p,
+    .st-key-textes_tous_publics label span, .st-key-textes_tous_publics label div {{ color: #FFFFFF !important;
+        font-weight: 600 !important; font-size: 13.5px !important; }}
+    .st-key-textes_tous_publics label > span:first-child {{ border: 2px solid #CBD5E1 !important; }}
 
     .img-zoomable {{
         transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;

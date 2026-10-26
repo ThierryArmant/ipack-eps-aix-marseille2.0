@@ -3354,3 +3354,11 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Fichiers retirés du dépôt (ils restent dans l'historique git) : image_5.png, image_8.png, et deux images inutilisées, image_12.png et « Design sans titre (71).png ».
 - Rejeu comparatif : diagnostic_ia allégé de 10,5 Mo à 1,1 Mo pour 50 questions (sans prompts ni textes de sources). Les codes d'erreur et l'usage sont conservés.
 - Vérification des doublons : aucun fichier identique entre les bases, et les archives sont bien exclues de l'indexation. data/commun est volontairement indexé dans iPack, Examens et Textes.
+
+## 2026-10-26 — Claude : relance des 20 questions bloquées par le quota (version a384dd5)
+
+- Albert répond aux 20 questions, sans aucune erreur. Le nouvel essai après un quota a servi au moins trois fois : n54, n142 et n146 ont pris 20 à 24 s.
+- Sur ces 20 : Albert 14 J, 6 I, 0 F ; Mini 16 J, 4 I, 0 F. Pour n166, Albert n'a pas produit de réponse courte (extraits seuls).
+- Bilan Albert sur le lot B 50 complet : 36 J, 12 I, 1 F (n159), 1 échec de sélection (n76), soit 72 % de J. Mini : 76 % de J, 0 F.
+- Albert est plus détaillé, mais il se trompe plus souvent sur le cadrage : il répond « Oui » de façon ambiguë (n54), présente CCF et ponctuel comme successifs (n85) et a donné une réponse fausse (n159). Mini reste seul en production.
+- Prochain essai utile : Mini sélectionne et Albert rédige (case admin_albert_redige).

@@ -406,3 +406,53 @@ class EtapesNumerotees(unittest.TestCase):
         self.assertIn('<ol', out)
         self.assertEqual(out.count('<li'), 2)
         self.assertIn('<strong>[Dossier EPS]</strong>', out)
+
+
+class CorrectifsLotB26(unittest.TestCase):
+    """Lot de 50 rejoué au format pas à pas : derniers refus et dérapages corrigés."""
+    P = [('SHN', "Un sportif de haut niveau peut bénéficier d'un régime particulier, sur proposition du comité de pilotage "
+                 "et sous réserve de validation par le recteur. En CCF, trois épreuves de trois champs différents, avec 20/20 sur la spécialité.")]
+
+    def run_sa(self, phrases, question='Un sportif de haut niveau a-t-il un régime particulier ?', passages=None, academy=None):
+        audit = {}
+        out = sa.short_answer(_llm({'phrases': phrases}), tracer=lambda l, a, stage: l, audit=audit,
+                              question=question, passages=passages or self.P, academy=academy)
+        return out, audit['short_answer']
+
+    def test_phrase_longue_sans_coupure_acceptee_jusqu_a_la_limite(self):
+        long = ("Ce régime est accordé sur proposition du comité de pilotage et sous réserve de validation par le recteur, "
+                "le sportif devant justifier son statut au moment de l'inscription, en CCF avec trois épreuves de trois champs différents "
+                "et une note de 20/20 sur la spécialité, ce qui concerne l'enseignement commun d'EPS du baccalauréat général et technologique")
+        self.assertGreater(len(long), sa.MAX_CHARS)
+        self.assertLess(len(long), sa.MAX_CHARS_HARD)
+        out, rep = self.run_sa([{'texte': long, 'passages': [1]}])
+        self.assertNotIn(['forme'], [r['raisons'] for r in rep['rejected']])
+
+    def test_reserve_dite_dans_une_autre_phrase_suffit(self):
+        out, rep = self.run_sa([{'texte': "Oui, un sportif de haut niveau peut bénéficier d'un régime particulier.", 'passages': [1]},
+                                {'texte': "Ce régime est accordé sous réserve de validation par le recteur.", 'passages': [1]}])
+        self.assertEqual(len(rep['kept']), 2)
+        self.assertLess(out.index('peut bénéficier'), out.index('sous réserve'))
+
+    def test_reserve_absente_partout_reste_refusee(self):
+        out, rep = self.run_sa([{'texte': "Un sportif de haut niveau bénéficie d'un régime particulier.", 'passages': [1]}])
+        self.assertEqual(rep['status'], 'nothing_kept')
+        self.assertIn('modalite:incertitude_effacee', rep['rejected'][0]['raisons'])
+
+    def test_conclusion_appliquee_a_la_situation_refusee(self):
+        src = "L'enseignant apprécie la situation pour renvoyer l'élève à une évaluation différée ou noter sur une seule activité."
+        self.assertIn('modalite:conclusion_ajoutee', sa.unsupported(
+            "L'évaluation différée n'est possible que si la pratique reste possible, ce qui n'est pas le cas ici.", src))
+
+    def test_oui_retire_devant_une_generalisation(self):
+        P = [('Lot', "Seul le chef d'établissement peut déverrouiller un lot dans Santorin.")]
+        out, rep = self.run_sa([{'texte': "Oui, seul le chef d'établissement peut déverrouiller le lot dans Santorin.", 'passages': [1]}],
+                               question='Peut-on conclure que tous les chefs d’établissement peuvent toujours le déverrouiller ?', passages=P)
+        self.assertTrue(rep['kept'][0]['texte'].startswith('Seul le chef'))
+
+    def test_consigne_d_aix_situee_quand_l_academie_n_est_pas_precisee(self):
+        P = [('Remplacer', "À Aix-Marseille, créer le nouveau protocole dans [Dossiers] > [Dossier certificatif].")]
+        out, rep = self.run_sa([{'texte': "[Dossiers] > [Dossier certificatif] : créer le nouveau protocole.", 'passages': [1], 'etape': True}],
+                               question='Comment remplacer une APSA ?', passages=P)
+        self.assertEqual(rep['status'], 'rendered')
+        self.assertTrue(rep['kept'][0]['texte'].startswith('À Aix-Marseille, [Dossiers]'))

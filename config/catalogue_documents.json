@@ -7626,6 +7626,14 @@
     ],
     "centrer_motifs": [
       "(?=.*ipack)(?=.*(?:declinaison|referentiel))(?=.*(?:aflp|valider|validation|chef))"
+    ],
+    "reponses_directes": [
+      {
+        "motifs": [
+          "^(?=.*(?:\\bfca\\b|fiches? certificatives? d.activite))(?=.*(?:qu.est.ce|c.est quoi|a quoi (?:sert|servent)|signifi|veut dire|definition|\\bsert\\b|servent))(?!.*(?:depos|envo|remplac|corrig|supprim|erreur|bloqu|deux fca|plusieurs fca|liste academique))"
+        ],
+        "reponse": "Une FCA (fiche certificative d'activité) est la déclinaison, par l'établissement, du référentiel d'évaluation d'une APSA retenue pour la certification. Quand un référentiel d'établissement est attendu, la FCA se dépose APSA par APSA dans [Dossier Certificatif] > [Dépôt Référentiels Certificatifs] (bouton [Envoyer]) ; elle est ensuite examinée avec les protocoles par la commission académique (CAHPN). Pour une épreuve de la liste académique, la fiche est fournie par l'inspection pédagogique : l'établissement n'a pas de FCA à déposer. À ne pas confondre avec la fiche individuelle pour la commission, qui documente le cas particulier d'un élève (DI + DI + Note, 0/20, ABT)."
+      }
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt": {

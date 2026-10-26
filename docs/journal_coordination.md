@@ -3441,3 +3441,11 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
   - le prompt interdit de mettre entre crochets ce que les passages n'écrivent pas ;
   - `_CONSIGNE_INTERNE` ne vise plus que « ne pas attribuer à… » : « Ne pas attribuer zéro » (n66) était refusé à tort.
 - Nouveau test : tests/test_menus_libelles.py.
+
+## 2026-10-26 soir — correctifs après le lot B 50 rejoué en pas à pas (80 %)
+- Phrase longue non découpable acceptée jusqu'à 480 caractères (au-delà de 320 : découpe d'abord).
+- « Sous réserve de … » : une phrase qui l'omet est gardée si une autre phrase retenue énonce la réserve.
+- Nouveau garde-fou `modalite:conclusion_ajoutee` (« ce qui n'est pas le cas ») ; consigne au rédacteur : donner toutes les possibilités quand l'enseignant « apprécie la situation ».
+- « Oui » retiré en tête d'une réponse à une question de généralisation (« tous », « toujours », « peut-on conclure »).
+- Consigne propre à une académie, académie non précisée : gardée et située (« À Aix-Marseille, … ») au lieu d'être rejetée ; toujours refusée pour une autre académie.
+- Réponse directe « qu'est-ce qu'une FCA » (fiche Dossier certificatif) ; message sans réponse : « adressez-vous au service… ».

@@ -188,9 +188,9 @@ def render_exact_sources(selected, reviewer, report):
 
 
 _CONTACTS_SANS_REPONSE = {
-    'ipack': "le correspondant académique iPackEPS de votre académie (à Aix-Marseille : ipackeps@ac-aix-marseille.fr)",
-    'examens': "le service des examens de votre académie ou votre inspection EPS",
-    'textes': "votre chef d'établissement ou votre inspection EPS",
+    'ipack': "au correspondant académique iPackEPS de votre académie (à Aix-Marseille : ipackeps@ac-aix-marseille.fr)",
+    'examens': "au service des examens de votre académie ou à votre inspection EPS",
+    'textes': "à votre chef d'établissement ou à votre inspection EPS",
 }
 
 
@@ -208,7 +208,7 @@ def without_short_answer(extracts_html, audit, mode=None):
                 'ou reposez la question dans quelques minutes.</p>'
                 '<details open><summary>Passages trouvés</summary>' + body + '</details>')
     return ('<h3>Réponse</h3><p>Je n’ai pas trouvé, dans les fiches vérifiées du hub, de réponse directe à cette question. '
-            'Pour ce point, adressez-vous à ' + contact + '.</p>'
+            'Pour ce point, adressez-vous ' + contact + '.</p>'
             '<details><summary>Passages proches consultés (ils ne répondent peut-être pas à votre question)</summary>'
             + body + '</details>')
 

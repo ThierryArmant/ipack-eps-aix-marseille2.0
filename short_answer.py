@@ -14,6 +14,9 @@ import unicodedata
 
 MAX_PHRASES = 8
 MAX_CHARS = 320
+# Au-delà de MAX_CHARS une phrase est d'abord coupée ; si aucune coupure n'est possible, elle reste
+# acceptée jusqu'à cette longueur (phrases longues mais exactes d'un rédacteur bavard).
+MAX_CHARS_HARD = 480
 
 # Interlocuteurs : une phrase ne peut pas en nommer un que ses passages ne citent pas.
 _ACTEURS = (r"\bdec\b", r"\bdiec\b", r"\bdaf\b", r"\bdsden\b", r"\bdasen\b", r"\brectorat\b|\brecteur\b",
@@ -53,6 +56,10 @@ _IMPOSSIBLE = r"impossible|interdit|ne (?:peut|peuvent|pouvez|pourra|pourrez) (?
 _IMPOSSIBLE_SOURCE = _IMPOSSIBLE + r"|au moins|au maximum|uniquement|exclusivement|seule?s? |appartient|releve d|revient a|ne pas |n.est (?:pas|plus) modifiable|plus possible|aucun|\bpas d.|\bsans\b|non recevable|irrecevable|exclu"
 # Conséquence « sinon / à défaut » : seulement si la source pose elle-même l'alternative.
 _CONSEQUENCE = r"\bsinon\b|a defaut|faute de|sans quoi|a moins que"
+# Conclusion appliquée à la situation de la question (« ce qui n'est pas le cas ») : la source doit l'écrire.
+_CONCLUSION = r"ce qui (?:n.est pas|est bien|est) le cas|ce n.est pas le cas|ce qui exclut|ce qui ecarte"
+# Question qui demande de confirmer une généralisation : ne pas commencer par « Oui ».
+_GENERALISATION = r"\btous\b|\btoutes\b|\btoujours\b|peut.on conclure|systematiquement|dans tous les cas|forcement"
 _CONSEQUENCE_SOURCE = _CONSEQUENCE + r"|tant qu|impossible|croix rouge|ne .{0,30}pas .{0,20}tant|\bsi\b.{0,80}\b(?:pas|plus|aucun)\b|en cas d.absence|lorsque .{0,60}pas"
 
 
@@ -81,6 +88,20 @@ def _academies():
         except Exception:
             ACADEMIES = ['Aix-Marseille']
     return [_norm(a) for a in ACADEMIES]
+
+
+def _academy_label(norm_name):
+    try:
+        from .academie import ACADEMIES
+    except ImportError:
+        try:
+            from academie import ACADEMIES
+        except Exception:
+            ACADEMIES = ['Aix-Marseille']
+    for a in ACADEMIES:
+        if _norm(a) == norm_name:
+            return a
+    return norm_name.title()
 
 
 def _words(text):
@@ -170,6 +191,8 @@ def unsupported(phrase, cited_text, question='', titles=''):
         reasons.append('modalite:condition_perdue')
     if re.search(_CONSEQUENCE, p) and not re.search(_CONSEQUENCE_SOURCE, source):
         reasons.append('modalite:consequence_ajoutee')
+    if re.search(_CONCLUSION, p) and not re.search(_CONCLUSION, source):
+        reasons.append('modalite:conclusion_ajoutee')
     if re.search(_CONSIGNE_INTERNE, p):
         reasons.append('forme:consigne_interne')
     target = _words(phrase)
@@ -223,6 +246,11 @@ AUTRE QUESTION (règle, droit, situation) : 2 à 4 phrases courtes, claires et d
 Réponds UNIQUEMENT à la situation de la question : n'ajoute aucun cas particulier que la question n'évoque pas
 (après validation, ajout en cours d'année, élève blessé ou inapte, autre diplôme, autre académie),
 même s'il figure dans les passages.
+Quand un passage dit que l'enseignant « apprécie la situation » ou choisit entre plusieurs possibilités,
+donne toutes ces possibilités : n'en écarte aucune en l'appliquant toi-même à la situation
+(pas de « ce qui n'est pas le cas »).
+Si la question demande de confirmer une généralisation (« tous », « toujours », « peut-on conclure »),
+ne commence pas par « Oui » : dis ce que les passages établissent et ce qu'ils n'établissent pas.
 Commence par l'action demandée (ou la réponse à la question), puis la condition ou la limite essentielle.
 Ne réponds pas en une seule phrase si les passages donnent une condition, une limite ou des étapes :
 reprends-les (une phrase pour chacune).
@@ -352,14 +380,14 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         text = item.get('texte') if isinstance(item, dict) else None
         refs = item.get('passages') if isinstance(item, dict) else None
         if pool and (not isinstance(refs, list) or not refs or any(not isinstance(r, str) or r not in ids for r in refs)):
-            report['rejected'].append(dict(texte=str(text)[:MAX_CHARS], raisons=['forme']))
+            report['rejected'].append(dict(texte=str(text)[:MAX_CHARS_HARD], raisons=['forme']))
             continue
         if pool and isinstance(refs, list) and all(isinstance(r, str) and r in ids for r in refs):
             refs = [ids.index(r) + 1 for r in refs]  # identifiants du pool -> rangs internes
-        if (not isinstance(text, str) or not text.strip() or len(text) > MAX_CHARS
+        if (not isinstance(text, str) or not text.strip() or len(text) > MAX_CHARS_HARD
                 or not isinstance(refs, list) or not refs
                 or any(not isinstance(r, int) or isinstance(r, bool) or not 1 <= r <= len(passages) for r in refs)):
-            report['rejected'].append(dict(texte=str(text)[:MAX_CHARS], raisons=['forme']))
+            report['rejected'].append(dict(texte=str(text)[:MAX_CHARS_HARD], raisons=['forme']))
             continue
         refs = sorted(set(refs))
         # Renvoi écrit dans la phrase, « (1) », « [2, 3] », seulement s'il reprend les numéros de « passages » ;
@@ -377,13 +405,43 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         cited_titles = ' '.join((passages[r - 1].get('section', '') if pool else passages[r - 1][0]) for r in refs)
         # L'académie de l'utilisateur vaut académie nommée : une consigne d'Aix répond à un collègue d'Aix.
         reasons = unsupported(text, cited_text, question + (' ' + academy if academy else ''), cited_titles)
+        # Consigne propre à une académie, question sans académie : on garde la consigne en la situant
+        # (« À Aix-Marseille, … ») plutôt que de la perdre ; elle est recontrôlée telle quelle.
+        locales = [r for r in reasons if r.startswith('portee:') and r[7:] in _academies()]
+        if (locales and len(set(locales)) == 1 and set(reasons) == set(locales)
+                and (not academy or _norm(academy) in ('', 'non precisee', locales[0][7:]))):
+            label = _academy_label(locales[0][7:])
+            text = 'À ' + label + ', ' + (text if text[:1] in '[«' or text[:2].isupper() else text[:1].lower() + text[1:])
+            reasons = unsupported(text, cited_text, question + (' ' + academy if academy else ''), cited_titles)
         if pool:
             reasons += scope_reasons(text, [passages[r - 1].get('portee') or {} for r in refs], public, academy)
+        # « Oui » en tête d'une réponse à une généralisation (« tous », « toujours ») : retiré, la suite dit la portée.
+        if not kept and re.search(_GENERALISATION, _norm(question)):
+            text = re.sub(r'^\s*oui\s*[,.;:!]\s*', '', text, flags=re.I)
+            text = text[:1].upper() + text[1:]
+        if reasons == ['modalite:incertitude_effacee']:
+            # Réserve (« sous réserve de … ») absente de cette phrase : acceptable seulement si une autre
+            # phrase retenue l'énonce ; décidé après la boucle.
+            kept.append((text.strip(), refs, 'reserve'))
+            steps.append(bool(isinstance(item, dict) and item.get('etape') is True))
+            continue
         if reasons:
             report['rejected'].append(dict(texte=text, raisons=reasons))
             continue
         kept.append((text.strip(), refs))
         steps.append(bool(isinstance(item, dict) and item.get('etape') is True))
+    sure = [k[0] for k in kept if len(k) == 2]
+    hedged = any(re.search(m, _norm(t)) for t in sure for m in _PHRASE_INCERTAINE)
+    filtered = []
+    for k, st in zip(kept, steps):
+        if len(k) == 3:
+            if not hedged:
+                report['rejected'].append(dict(texte=k[0], raisons=['modalite:incertitude_effacee']))
+                continue
+            k = k[:2]
+        filtered.append((k, st))
+    kept = [k for k, _ in filtered]
+    steps = [st for _, st in filtered]
     report.update(status='rendered' if kept else 'nothing_kept', kept=[dict(texte=t, passages=r) for t, r in kept])
     if pool:
         for item in report['kept']:

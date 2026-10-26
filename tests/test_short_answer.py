@@ -511,3 +511,25 @@ class ObjetHorsFiche(unittest.TestCase):
 
     def test_corpus_reel_charge(self):
         self.assertIn('santor', sa._corpus_stems())
+
+
+class OngletTextesTextesVisibles(unittest.TestCase):
+    """Onglet Textes : passages lus et lien du texte affichés juste après la réponse, sans clic."""
+    selection = Integration.selection
+
+    def setUp(self):
+        self.rt = load_runtime()
+        dr = self.rt.documentary_review
+        self.docs = dr.mark_excerpt("Le sapin peut être installé à condition qu'il ne revête aucun caractère cultuel.",
+                                    path='data/exemple.txt', title='Laïcité et fêtes', url='https://www.conseil-etat.fr/x')
+
+    def test_textes_ouverts_avec_lien(self):
+        llm = _llm(self.selection(), {'phrases': [{'texte': "Le sapin peut être installé s'il ne revêt aucun caractère cultuel.", 'passages': [1]}]})
+        audit = {}
+        out = self.rt.exact_source_answer.exact_answer(llm, reviewer=self.rt.documentary_review,
+            tracer=lambda l, a, stage: l, documents=self.docs, question='Peut-on installer un sapin ?',
+            public='Collège (DNB)', mode='textes', academy='Aix-Marseille', audit=audit, synthesis=True)
+        self.assertIn('Textes en lien avec votre question', out)
+        self.assertIn('<details open><summary>Passages des textes (1)', out)
+        self.assertIn('lire le texte', out)
+        self.assertLess(out.index('caractère cultuel'), out.index('Textes en lien'))

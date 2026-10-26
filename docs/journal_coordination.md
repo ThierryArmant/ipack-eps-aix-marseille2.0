@@ -3465,3 +3465,8 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Constat : « ai-je le droit d'installer un sapin de Noël dans mon collège » recevait la règle des trajets vers les installations sportives (le mot « installer »).
 - Nouvelle fiche data/textes/situations_2026_10_26/laicite_fetes_noel.txt (domaine 04 vie d'établissement, priorité 345) : sapin admis sans caractère cultuel (vademecum « La laïcité à l'école », repris par l'académie d'Orléans-Tours) ; fête sécularisée ; crèche exclue d'un bâtiment public sauf circonstances particulières (loi 1905 art. 28 ; CE 9 nov. 2016, n° 395122 et 395223) ; décision du chef d'établissement, sécurité à vérifier. Pas de réponse en dur (limite des 12).
 - short_answer.py : garde-fou `objet_hors_fiche` — un mot de la question absent de toutes les fiches actives, repris dans une phrase sans figurer dans le passage cité, retire la réponse entière (« pas trouvé » + contact). Rejoué sur 971 phrases retenues des lots passés : 1 seule touchée.
+
+## 2026-10-26 21 h 30 — onglet Textes : textes lus visibles après la réponse
+- exact_source_answer.py : en mode `textes`, après la réponse, liste « Textes en lien avec votre question » (titre + lien « lire le texte », lien du catalogue sinon premier lien écrit dans la fiche) puis passages des textes dépliés (`<details open>`). Autres onglets inchangés (extraits repliés).
+- app.py : réponse directe de l'onglet Textes suivie du texte en lien et de son lien.
+- La réponse « pas trouvé » garde ses passages proches repliés (ils ne répondent pas à la question).

@@ -8704,6 +8704,9 @@
     "date_verification": "2026-10-25",
     "motifs": [
       "(?=.*protocole)(?=.*(?:refus|rejet|non valid|pas valid|invalid|retoqu))"
+    ],
+    "exclure_motifs": [
+      "(?:\\bmr\\b|\\bm\\.|\\bmme\\b|\\bmonsieur\\b|\\bmadame\\b|collegue|coordo\\w*|\\bil\\b|\\belle\\b)(?: [a-z'.-]+){0,2} (?:refuse|n.est pas d.accord|s.oppose)(?!.{0,60}(?:commission|cahpn|inspection|ipr|rectorat))"
     ]
   },
   "data/textes/fiches/sortie_assurance_parents_accompagnateurs.txt": {

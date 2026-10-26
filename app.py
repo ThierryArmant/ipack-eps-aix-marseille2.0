@@ -2613,6 +2613,10 @@ if prompt_a_traiter:
                     # Mais un collègue peut dire « course de durée » en pensant performance (c'est alors du demi-fond, CA1)
                     # ou entretien de soi (course en durée, CA5). Pour un dépôt, la fiche explique les deux objets.
                     _q_simple = _q_simple.replace("course de duree", "course en duree")
+                    # « CC5 » mis pour CA5 ; « la durée » pour le CA5 : c'est la course en durée.
+                    _q_simple = re.sub(r"\bcc ?([1-5])\b", r"ca\1", _q_simple)
+                    if re.search(r"\bca ?5\b|champ 5", _q_simple) and "course en duree" not in _q_simple:
+                        _q_simple = re.sub(r"\b(?:de la |la )?duree\b", "course en duree", _q_simple, count=1)
                     _trouvees = [(nom, ca) for nom, ca in _APSA_CHAMPS if re.search(r"\b" + re.escape(nom), _q_simple)]
                     if any(nom == "course en duree" for nom, _ca in _trouvees):
                         if re.search(r"performance|\bca ?1\b|champ 1|chrono", _q_simple) and not re.search(r"entretien|\bca ?5\b|champ 5", _q_simple):
@@ -2661,6 +2665,15 @@ if prompt_a_traiter:
                                                   "il ne peut pas retenir deux épreuves du même champ. Le protocole de l'établissement peut en revanche proposer "
                                                   "plusieurs ensembles certificatifs, et ces activités peuvent figurer dans des ensembles différents.</p>"
                                                   "<p>Champs des activités citées : " + _detail + ".</p>")
+                            elif re.search(r"pas d.accord|desaccord|refuse|conteste|s.oppose|veut (?:ajouter|mettre|remplacer)|prefere", _q_simple):
+                                # Deux collègues proposent chacun une activité : ce n'est pas un refus de la commission.
+                                verdict_champs = ("<p><strong>Les deux propositions sont compatibles :</strong> ces activités relèvent de champs d'apprentissage différents ; "
+                                                  "elles peuvent figurer ensemble dans l'ensemble certificatif d'un candidat, dont les trois épreuves relèvent de trois champs distincts au bac GT.</p>"
+                                                  "<p>Le protocole de l'établissement peut aussi proposer plusieurs ensembles certificatifs aux candidats, en tenant compte de leurs besoins, "
+                                                  "de leurs acquis et de l'offre de formation du lycée. C'est l'équipe d'EPS de l'établissement qui décline le référentiel national "
+                                                  "pour chaque activité proposée à la certification : le choix se fait en équipe, puis le protocole suit le circuit de validation de la commission académique.</p>"
+                                                  "<p>Champs des activités citées : " + _detail + ".</p>"
+                                                  "<p><small>Source : note de service du 20 février 2026, MENE2531948N, parties 1 et 2.</small></p>")
                             else:
                                 verdict_champs = ("<p><strong>OUI :</strong> ces activités relèvent de champs d'apprentissage différents, elles peuvent figurer dans le même protocole d'examen.</p>"
                                                   "<p>Champs des activités citées : " + _detail + ".</p>"

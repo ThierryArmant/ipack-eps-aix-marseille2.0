@@ -25,7 +25,7 @@ Ce référentiel sert uniquement à savoir de quel champ relève une activité e
 - Champ 3 (artistique ou acrobatique) : acrosport, gymnastique sportive (agrès).
 - Champ 4 (affrontement) : badminton, tennis de table, ultimate, handball, basketball.
 - Champ 5 (entretien de soi, lycée seulement) : musculation, step, course en durée (travail par blocs d'allures).
-- Deux activités d'un même champ ne peuvent pas figurer ensemble dans un protocole d'examen (exemple : badminton et tennis de table, tous deux en champ 4).
+- Dans l'ensemble certificatif ordinaire d'un candidat au bac GT, les trois épreuves relèvent de trois champs différents : badminton et tennis de table ne comptent donc pas comme deux champs. Le protocole de l'établissement peut comporter plusieurs ensembles distincts ; ne pas interdire pour autant deux activités d'un même champ dans l'ensemble du protocole. Les adaptations et situations particulières suivent leurs règles propres.
 - Le demi-fond (champ 1 : on cherche la meilleure performance) n'est pas la course en durée (champ 5 : on conduit un projet d'entretien de soi).
 
 ### [SITUATION: AFL DU LYCÉE — CHAMP D'APPRENTISSAGE 1 - CA1 : PERFORMANCE OPTIMALE]

@@ -253,6 +253,18 @@ def unsupported(phrase, cited_text, question='', titles=''):
         # Un interlocuteur déjà nommé dans la question (« avec l'accord du chef ») n'est pas un ajout.
         if re.search(actor, p) and not re.search(actor, source + ' ' + _compact(question)):
             reasons.append('interlocuteur:' + actor)
+    # Une opposition exprimée par un collègue ne prouve pas que la commission a refusé le protocole.
+    # Ne pas retirer les règles générales sur le rôle de la commission ni les hypothèses explicites « si ».
+    q = _compact(question)
+    collegue = r"\b(?:collegues?|enseignants?|professeurs?|profs?|monsieur|madame|mr|mme)\b"
+    opposition = r"refus|rejet|desaccord|pas d.accord|s.oppose|ne veut pas"
+    officiel = r"(?:commission|\bcahpn\b|inspection|\bia.?ipr\b|rectorat|recteur)"
+    rejet_officiel = (re.search(officiel + r"(?:\s+(?:academique|regionale|d.harmonisation|d.eps)){0,3}\s+(?:(?:a|avait|aurait|vient de|a deja)\s+(?:refus|rejet|invalid|retoqu)|(?:n.a pas|ne)\s+valid)", q)
+                      or re.search(r"(?:refus|rejet|non valid|pas valid|invalid|retoqu).{0,100}(?:par (?:la |l.)?|de la |de l.)" + officiel, q))
+    if (re.search(collegue, q) and re.search(opposition, q) and not rejet_officiel
+            and re.search(r"protocole.{0,35}(?:refus|rejet|non valid|pas valid|invalid|retoqu)", p)
+            and not re.match(r"^(?:si|lorsque|quand|en cas de)\b", p)):
+        reasons.append('premisse:refus_commission_non_etabli')
     nearest = _compact(_closest_sentence(phrase, cited_text))
     if (any(re.search(m, nearest) for m in _INCERTAIN)
             and not any(re.search(m, p) for m in _PHRASE_INCERTAINE)):
@@ -340,6 +352,8 @@ alors que les passages parlent d'installations sportives), ne force pas la répo
 Réponds UNIQUEMENT à la situation de la question : n'ajoute aucun cas particulier que la question n'évoque pas
 (après validation, ajout en cours d'année, élève blessé ou inapte, autre diplôme, autre académie),
 même s'il figure dans les passages.
+Une opposition ou un refus d'un collègue n'est pas une décision de la commission : n'affirme jamais un refus
+ou une non-validation officielle si la question ne l'indique pas. Réponds aux activités et conditions demandées.
 DATES : ne donne une date que si elle est écrite dans le passage, avec le même jour, le même mois et la même année.
 Une date passée, historique ou donnée en exemple n'est jamais une échéance à respecter : dis qu'elle concerne
 la session ou l'année indiquée par le passage. Ne transpose jamais une date d'une session à une autre ni

@@ -7544,7 +7544,7 @@
     "priorite": 305,
     "motifs": [
       "(?:ou|comment).{0,40}(?:saisir|declarer|indiquer|renseigner).{0,40}(?:epreuves?|dates? d.(?:evaluation|epreuve)|evaluateurs?)|transferer.{0,40}(?:groupes?|eleves?).{0,30}cyclades|(?:fiche|eleve).{0,30}cas particulier.{0,80}(?:depos|commission|harmonisation)|dossier certificatif",
-      "(?:ou|comment).{0,40}(?:saisir|declarer|deposer|renseigner|entrer).{0,30}(?:les )?protocoles?(?: d.evaluation)?",
+      "(?:ou|comment).{0,40}(?:saisir|declarer|deposer|renseigner|entrer|remplir|completer|creer|faire).{0,30}(?:les |mes |nos )?protocoles?(?: d.evaluation)?",
       "\\bfca\\b|fiches? certificatives? d.activite",
       "(?=.*ipack)(?=.*(?:declinaison|referentiel))(?=.*(?:aflp|valider|validation|chef))"
     ],

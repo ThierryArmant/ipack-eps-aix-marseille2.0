@@ -3870,7 +3870,8 @@
     "title": "Bac GT : ensemble certificatif, listes d'activités et commission académique",
     "motifs": [
       "ponctuel|commission|cahpn|harmonis|activites? (?:d.)?etablissement|liste (?:academique|nationale)|cinq activites|menu (?:d.)?(?:etablissement|des activites|apsa)|liste.*apsa|ensemble certificatif|combien d.(?:activites|apsa|epreuves)",
-      "(?=.*(?:nombre minimal|minimum|au minimum|minimal d.epreuves))(?=.*(?:epreuves|evaluations|apsa))(?=.*(?:bac|baccalaureat|ccf))(?!.*(?:ponctuel|option|eppcs|cap|bac pro))"
+      "(?=.*(?:nombre minimal|minimum|au minimum|minimal d.epreuves))(?=.*(?:epreuves|evaluations|apsa))(?=.*(?:bac|baccalaureat|ccf))(?!.*(?:ponctuel|option|eppcs|cap|bac pro))",
+      "(?=.*(?:protocole|ensemble certificatif))(?=.*(?:champ|\\b(?:ca|cc) ?[1-5]\\b))(?=.*(?:javelot|lancer|course|duree|demi.fond|saut))"
     ],
     "exclure_motifs": [
       "option|eppcs",
@@ -8703,7 +8704,7 @@
     "priorite": 300,
     "date_verification": "2026-10-25",
     "motifs": [
-      "(?=.*protocole)(?=.*(?:refus|rejet|non valid|pas valid|invalid|retoqu))"
+      "^(?=.*protocole)(?=.*(?:(?:commission|\\bcahpn\\b|inspection|\\bia.?ipr\\b|rectorat|recteur)(?:\\s+(?:academique|regionale|d.harmonisation|d.eps)){0,3}\\s+(?:(?:a|avait|aurait|vient de|a deja)\\s+(?:refus|rejet|invalid|retoqu)|(?:n.a pas|ne)\\s+valid)|(?:refus|rejet|non valid|pas valid|invalid|retoqu).{0,100}(?:par (?:la |l.)?|de la |de l.)(?:commission|\\bcahpn\\b|inspection|\\bia.?ipr\\b|rectorat|recteur)))"
     ],
     "exclure_motifs": [
       "(?:\\bmr\\b|\\bm\\.|\\bmme\\b|\\bmonsieur\\b|\\bmadame\\b|collegue|coordo\\w*|\\bil\\b|\\belle\\b)(?: [a-z'.-]+){0,2} (?:refuse|n.est pas d.accord|s.oppose)(?!.{0,60}(?:commission|cahpn|inspection|ipr|rectorat))"

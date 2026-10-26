@@ -553,7 +553,7 @@
     },
     {
       "path": "data/commun/audit60/gt_regles_decisives.txt",
-      "sha256": "199ec5fc6dbdf4374924980f21a4ed369cbb58c73f948105799981a028b29f3a",
+      "sha256": "0b17a9391abd0520980c1d61073c314271273da0275cc7bc3db8c9e5984ad09e",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-11_portee_explicite ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -1393,7 +1393,7 @@
     },
     {
       "path": "data/commun/referentiel_champs_activites_afl.txt",
-      "sha256": "68bb09db9a29fc5cd06e1bd15df381f56433ad6696301f697788dbfc9aba18af",
+      "sha256": "b33d201984c464b9264862637c1b9fba92df3b82ed397213fbb062fdcd6f7fb5",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "synthese_non_revalidee",
@@ -13335,7 +13335,7 @@
     },
     {
       "path": "data/examens/situations_2026_10_25/protocole_refuse_par_la_commission.txt",
-      "sha256": "71e2cb1d226c85756f473dc99526222b90e108c95b9c60d30324b4eb2c758ca2",
+      "sha256": "406a4e85748118556cd9f3631799cb1e36c53630351540f8031e3c46af8249ec",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "redige_2026-10-25_sources_citees",

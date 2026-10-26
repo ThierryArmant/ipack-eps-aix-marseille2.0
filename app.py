@@ -1286,12 +1286,12 @@ if st.session_state.get("is_admin", False):
         st.session_state["admin_mini_redige"] = True
         # Essai comparatif réservé à l'admin : Mini choisit les passages, Albert rédige la réponse courte
         # (même chaîne que Mini seul, sans pool commun). Décoché par défaut ; les collègues restent en Mini seul.
-        st.checkbox("Essai : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
-                    key="admin_albert_redige")
+        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
+                    key="admin_albert_redige",
+                    help="Sans effet sur le rejeu CSV : le moteur du rejeu se choisit dans son propre bloc.")
         if st.session_state.get("admin_albert_redige"):
-            st.caption("Essai Albert rédacteur : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
-                       "Un appel Mini et un appel Albert par question, extraits et contrôles conservés. "
-                       "Rejeu : mode « Mini seul ». Décocher après l'essai." + (" · version " + _sha if _sha else ""))
+            st.caption("Questions directes : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
+                       "Décocher après l'essai. Le rejeu CSV garde son propre choix de moteur." + (" · version " + _sha if _sha else ""))
         else:
             st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
                        + (" · version " + _sha if _sha else ""))
@@ -1705,7 +1705,11 @@ if prompt_a_traiter:
             _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
                 temperature=0.0, allow_paused_test=True)
-        _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and st.session_state.get("admin_albert_redige"))
+        # Pendant un rejeu, le moteur choisi dans le bloc du rejeu prime sur la case des questions directes.
+        _lot_moteur = (st.session_state.get("audit113_batch") or {}).get("moteur") if (
+            (st.session_state.get("audit113_batch") or {}).get("waiting")) else None
+        _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and (
+            _lot_moteur == "albert_redige" if _lot_moteur else st.session_state.get("admin_albert_redige")))
         if _albert_redige_trial:
             _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",

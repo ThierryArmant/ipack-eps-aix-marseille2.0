@@ -3362,3 +3362,11 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Bilan Albert sur le lot B 50 complet : 36 J, 12 I, 1 F (n159), 1 échec de sélection (n76), soit 72 % de J. Mini : 76 % de J, 0 F.
 - Albert est plus détaillé, mais il se trompe plus souvent sur le cadrage : il répond « Oui » de façon ambiguë (n54), présente CCF et ponctuel comme successifs (n85) et a donné une réponse fausse (n159). Mini reste seul en production.
 - Prochain essai utile : Mini sélectionne et Albert rédige (case admin_albert_redige).
+
+## 2026-10-26 — Claude : le bloc du rejeu choisit le moteur (demande de l'utilisateur : « tout au même endroit »)
+
+- Dans admin_retest_113_live.render, le bloc suit maintenant quatre étapes : ① fichier, ② qui répond (3 choix), ③ quelles questions, ④ lancer.
+- Les trois moteurs : `mini` (Mini cherche et rédige), `albert_redige` (Mini cherche, Albert rédige) et `comparaison` (l'ancien mode mini_albert, inchangé).
+- batch["moteur"] est enregistré, et une colonne « moteur » est ajoutée au CSV.
+- app.py : pendant un lot, le moteur du lot prime sur la case des questions directes (rebaptisée « Questions posées en direct : Albert rédige… »). Un lot `mini` n'appelle donc jamais Albert, même si cette case est restée cochée.
+- Par défaut, le nombre de questions vaut toutes les lignes du fichier à partir de la question de départ (auparavant 5).

@@ -128,6 +128,29 @@ def compact_comparison_diagnostic(result):
     return compact
 
 
+# Un seul endroit pour choisir qui répond pendant le rejeu (le choix vaut pour tout le lot).
+ENGINE_CHOICES = {
+    "Mini seul — Mini cherche et rédige (moteur habituel du HUB)": "mini",
+    "Mini cherche, Albert rédige": "albert_redige",
+    "Comparer Mini et Albert — chacun cherche et rédige, mêmes documents": "comparaison",
+}
+ENGINE_SHORT = {"mini": "Mini seul", "albert_redige": "Mini cherche, Albert rédige",
+                "comparaison": "comparaison Mini / Albert"}
+ENGINE_HELP = {
+    "mini": "gpt-4o-mini choisit les passages puis rédige. Aucun appel à Albert. C'est ce que voient les collègues.",
+    "albert_redige": "gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
+                     "Un appel à chacun par question. N'agit que sur ce lot.",
+    "comparaison": "Deux réponses par question dans le CSV : Mini fait tout d'un côté, Albert fait tout de l'autre. "
+                   "Au maximum 2 appels à chacun par question ; 50 questions par lot.",
+}
+
+
+def replay_engine(state):
+    """Moteur du lot en cours de traitement, sinon None (questions posées en direct)."""
+    batch = state.get("audit113_batch") or {}
+    return batch.get("moteur") if batch.get("waiting") and not batch.get("stopped") else None
+
+
 def comparison_step(state, runner, version):
     """Une question par rafraîchissement ; jamais de relance payante après interruption."""
     batch = state.get('audit113_batch') or {}
@@ -156,7 +179,7 @@ def comparison_step(state, runner, version):
     mini = result['branches'].get('Mini', {})
     albert = result['branches'].get('Albert', {})
     record = dict(n=row['n'], mode=row['mode'], public=row['public'], academie=row.get('academie',''),
-                  academie_effective=academy, question=row['question'], version=version,
+                  moteur='comparaison', academie_effective=academy, question=row['question'], version=version,
                   nouvelle_reponse=mini.get('answer',''), usage_ia=mini.get('usage',{}),
                   diagnostic_ia=json.dumps(compact_comparison_diagnostic(result), ensure_ascii=False, separators=(',',':')),
                   videos='')
@@ -186,6 +209,7 @@ def render(st):
             batch["results"].append({"n": row["n"], "mode": row["mode"],
                                      "public": row["public"], "academie": row.get("academie", ""),
                                      "question": row["question"], "nouvelle_reponse": answer,
+                                     "moteur": batch.get("moteur", "mini"),
                                      **replay_academy_details(state),
                                      "version": message.get("version", ""),
                                      "usage_ia": message.get("usage_ia") or {},
@@ -215,12 +239,13 @@ def render(st):
     st.markdown("""<style>.st-key-admin_retest_opaque{background:#fff!important;color:#14263d!important;border:2px solid #17365d!important;border-radius:14px;padding:20px!important}.st-key-admin_retest_opaque p,.st-key-admin_retest_opaque label{color:#14263d!important}.st-key-admin_retest_opaque [data-testid="stAlert"]{background:#eaf2fc!important;opacity:1!important}.st-key-admin_retest_opaque [data-testid="stFileUploader"]{background:#f1f5fb!important;opacity:1!important}.st-key-admin_retest_opaque button{background:#17365d!important;color:#fff!important;border:2px solid #17365d!important;opacity:1!important}.st-key-admin_retest_opaque button p,.st-key-admin_retest_opaque button span{color:#fff!important;font-weight:700!important}.st-key-admin_retest_opaque button:hover{background:#245b94!important}</style>""",unsafe_allow_html=True)
     st.markdown("""<div style="background:#17365d;color:#fff;border:3px solid #f6b73c;border-radius:12px;padding:16px 20px;margin:18px 0 8px 0;font-size:22px;font-weight:800">🧪 ADMINISTRATION — TESTS IA DU HUB<br><span style="font-size:15px;font-weight:500">Outil réservé à l’administrateur • nombre de questions au choix</span></div>""", unsafe_allow_html=True)
     with st.container(border=True, key="admin_retest_opaque"):
-        st.info("⬇️ IMPORTER LE FICHIER CSV, PUIS LANCER LES TESTS CI-DESSOUS")
+        st.info("① Importer le fichier CSV · ② choisir qui répond · ③ choisir les questions · ④ lancer — tout se règle ici.")
         st.warning("Les tests utilisent la clé IA du HUB et peuvent être facturés. "
                    "Les réponses sont envoyées au journal Google Sheets. Le CSV avec les traces reste à télécharger avant de quitter cette session.")
-        uploaded = st.file_uploader("Tableau CSV privé des questions", type=["csv"], key="audit113_live_csv")
+        uploaded = st.file_uploader("① Tableau CSV privé des questions", type=["csv"], key="audit113_live_csv")
         if batch:
-            st.write(f"Réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}")
+            st.write(f"Moteur du lot : **{ENGINE_SHORT.get(batch.get('moteur') or ('comparaison' if batch.get('comparison') == 'mini_albert' else 'mini'))}** · "
+                     f"réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}")
             # Mémoire : le fichier (plusieurs Mo) n'est fabriqué qu'une fois le lot terminé, ou sur demande ;
             # le recréer à chaque rafraîchissement pendant le lot accumulait des copies en mémoire.
             finished = batch["index"] >= len(batch["rows"])
@@ -231,7 +256,7 @@ def render(st):
                 batch["stop_reason"] = "Lot mis en pause pour sauvegarder les résultats déjà obtenus."
             if batch["results"] and (finished or partial or batch.get("stopped")):
                 output = io.StringIO()
-                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine","videos"] + (COMPARISON_COLUMNS if batch.get("comparison") == "mini_albert" else []), delimiter=";", extrasaction="ignore")
+                writer = csv.DictWriter(output, fieldnames=["n","mode","public","academie","question","moteur","nouvelle_reponse","version","usage_ia","diagnostic_ia","academie_effective","academie_origine","videos"] + (COMPARISON_COLUMNS if batch.get("comparison") == "mini_albert" else []), delimiter=";", extrasaction="ignore")
                 writer.writeheader()
                 for result in batch["results"]:
                     writer.writerow({**result, "usage_ia": json.dumps(result.get("usage_ia", {}), ensure_ascii=False),
@@ -280,10 +305,24 @@ def render(st):
         except ValueError as exc:
             st.error(str(exc))
             return
-        st.success(f"{len(rows)} questions reconnues. Vous choisissez combien en rejouer.")
-        numbers = st.text_input("Numéros des questions séparés par des virgules (facultatif)",
-                                key="audit113_question_numbers", placeholder="3,5,8,19,26,30,40,41,44,49")
-        st.caption("Utilise la colonne n du CSV, dans l'ordre saisi, sans rejouer les doublons. Laisser vide pour une plage consécutive.")
+        st.success(f"① Fichier chargé : {len(rows)} questions reconnues.")
+        st.markdown("**② Qui répond ?**")
+        engine_label = st.radio("Moteur du test", list(ENGINE_CHOICES), key="audit113_engine",
+                                label_visibility="collapsed")
+        engine = ENGINE_CHOICES[engine_label]
+        st.caption(ENGINE_HELP[engine])
+        albert_model = ""
+        if engine in ("albert_redige", "comparaison"):
+            if not st.secrets.get("ALBERT_API_KEY"):
+                st.error("Clé ALBERT_API_KEY absente : test avec Albert impossible.")
+                return
+            albert_model = st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b"
+        if engine == "albert_redige" and not state.get("admin_faithful", True):
+            st.error("Cochez « Mode documenté » dans les outils admin : Albert rédige la réponse courte de ce mode.")
+            return
+        st.markdown("**③ Quelles questions ?**")
+        numbers = st.text_input("Numéros précis, séparés par des virgules (sinon laisser vide)",
+                                key="audit113_question_numbers", placeholder="exemple : 3, 5, 8")
         if numbers.strip():
             try:
                 selected_rows = select_replay_numbers(rows, numbers)
@@ -295,31 +334,18 @@ def render(st):
         else:
             start = int(st.number_input("Commencer à la question", min_value=1, max_value=len(rows), value=1, step=1))
             remaining = len(rows) - start + 1
-            n = int(st.number_input("Nombre de questions à rejouer", min_value=1, max_value=remaining,
-                                    value=min(5, remaining), step=1))
+            n = int(st.number_input("Nombre de questions", min_value=1, max_value=remaining,
+                                    value=remaining, step=1))
             selected_rows = rows[start-1:start-1+n]
-            st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)} ; aucune autre ligne ne sera rejouée.")
-        st.caption("Chaque question utilise son académie CSV ou celle déclarée dans la question ; une cellule vide reste Non précisée. Les réponses ne sont pas évaluées automatiquement.")
-        comparison_choice = st.selectbox("Traitement du rejeu", ["Mini seul — moteur habituel du HUB", "Comparer Mini et Albert — mêmes documents"] , key="audit113_comparison_choice")
-        compare = comparison_choice.startswith("Comparer")
-        albert_model = ""
-        if compare:
-            st.warning("Comparaison documentée : au maximum 2 appels Mini + 2 appels Albert par question, hors recherche documentaire. 50 questions = au maximum 100 appels par modèle. Ce parcours compare les modèles et ne reproduit pas les réponses directes du moteur habituel.")
-            albert_model = st.text_input("Modèle Albert du lot", value=st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b", key="audit113_albert_model")
-            if n > 50:
-                st.error("Limitez le comparatif à 50 questions par lot.")
-                return
-            if not st.secrets.get("ALBERT_API_KEY"):
-                st.error("Clé ALBERT_API_KEY absente : aucun comparatif lancé.")
-                return
-            if not albert_model.strip():
-                st.error("Indiquez le modèle Albert.")
-                return
-        else:
-            st.caption("Rejeu en Mini seul (gpt-4o-mini) : aucun appel à Albert.")
-        if st.button((f"Comparer {n} questions — Mini et Albert" if compare else f"Lancer {n} questions dans le moteur réel du HUB"), type="primary", key="audit113_live_start"):
+            st.caption(f"Questions {start} à {start + n - 1} sur {len(rows)}.")
+        if engine == "comparaison" and n > 50:
+            st.error("Limitez le comparatif à 50 questions par lot.")
+            return
+        st.markdown("**④ Lancer**")
+        if st.button(f"Lancer {n} questions — {ENGINE_SHORT[engine]}", type="primary", key="audit113_live_start"):
             state["audit113_batch"] = {"rows": selected_rows, "index": 0, "results": [],
                                        "waiting": False, "stopped": False, "provider": "openai",
-                                       "comparison": "mini_albert" if compare else None,
-                                       "albert_model": albert_model.strip()}
+                                       "moteur": engine,
+                                       "comparison": "mini_albert" if engine == "comparaison" else None,
+                                       "albert_model": albert_model}
             st.rerun()

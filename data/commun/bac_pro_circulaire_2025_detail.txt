@@ -26,6 +26,7 @@ https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526357C
 - Formulations courantes des collègues : absent sans justificatif en bac pro ; il n'est venu à aucune épreuve ; zéro ou absent.
 - Absence sans justification valable à la situation de fin de séquence d'une APSA : note zéro pour cette APSA.
 - Absence sans justification à TOUTES les situations : le candidat est déclaré absent, ce qui entraîne la non-délivrance du diplôme. Ce n'est pas une moyenne de zéros.
+- Absence justifiée : pour les candidats qui attestent de blessures ou de problèmes de santé temporaires, authentifiés par l'autorité médicale scolaire, l'établissement prévoit des situations d'évaluation différées ; un candidat assidu absent pour un cas de force majeure peut en bénéficier avec l'accord du chef d'établissement, après consultation des équipes pédagogiques. Si l'inaptitude couvre l'année, appliquer les possibilités de l'inaptitude temporaire (B.3.2) : note unique si les éléments suffisent, sinon mention « dispensé de l'épreuve d'éducation physique et sportive ».
 
 ### [BAC PROFESSIONNEL — L'ÉTABLISSEMENT NE PEUT PAS OFFRIR UNE DES TROIS ACTIVITÉS (INSTALLATION, ENSEIGNANT, CRISE) : CE QUE PRÉVOIT LE TEXTE (B.1)]
 - Formulations courantes des collègues : nous n'avons plus de piscine ; une activité est impossible cette année ; peut-on certifier sur deux épreuves pour toute la classe ; base réglementaire du cas exceptionnel.
@@ -52,6 +53,7 @@ https://www.education.gouv.fr/bo/2025/Hebdo44/MENE2526357C
 ### [BAC PROFESSIONNEL — DISPENSE D'ÉPREUVE : QUI PEUT ÊTRE DISPENSÉ (B.4)]
 - Formulations courantes des collègues : dispense d'EPS en bac pro ; candidat de la formation continue ; candidat individuel dispensé.
 - Seuls les handicaps ne permettant pas une pratique adaptée (au sens de la circulaire n° 94-137 du 30 mars 1994) donnent lieu à une dispense d'épreuve.
+- À distinguer : un élève « dispensé » de pratique en cours sur certificat médical n'est pas, de ce seul fait, un candidat dispensé d'épreuve au sens de B.4 ; son cas relève de l'inaptitude en cours d'année (B.3.2), où l'enseignant apprécie la situation et peut, si les éléments sont trop réduits, mentionner « dispensé de l'épreuve d'éducation physique et sportive ». Le texte ne précise pas ici l'effet de cette mention sur le calcul du diplôme : le faire confirmer par le service des examens.
 - Les candidats de la formation professionnelle continue et les candidats individuels qui souhaitent être dispensés en font la demande auprès du service des examens du rectorat : ce n'est pas l'établissement qui décide.
 
 ### [BAC PROFESSIONNEL — SPORTIFS DE HAUT NIVEAU : QUI EST CONCERNÉ ET COMMENT ILS SONT ÉVALUÉS (B.5)]

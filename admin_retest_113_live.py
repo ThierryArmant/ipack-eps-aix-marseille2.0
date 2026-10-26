@@ -245,7 +245,9 @@ def render(st):
         uploaded = st.file_uploader("① Tableau CSV privé des questions", type=["csv"], key="audit113_live_csv")
         if batch:
             st.write(f"Moteur du lot : **{ENGINE_SHORT.get(batch.get('moteur') or ('comparaison' if batch.get('comparison') == 'mini_albert' else 'mini'))}** · "
-                     f"réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}")
+                     f"réponses obtenues : {len(batch['results'])}/{len(batch['rows'])}"
+                     + (f" · version de la dernière réponse : **{batch['results'][-1].get('version')}**"
+                        if batch['results'] and batch['results'][-1].get('version') else ""))
             # Mémoire : le fichier (plusieurs Mo) n'est fabriqué qu'une fois le lot terminé, ou sur demande ;
             # le recréer à chaque rafraîchissement pendant le lot accumulait des copies en mémoire.
             finished = batch["index"] >= len(batch["rows"])

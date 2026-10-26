@@ -116,7 +116,11 @@ def _objets_inconnus(question):
     stems = _corpus_stems()
     if not stems:
         return []
-    return [w for w in re.findall(r'[a-z]{4,}', _norm(question or '')) if w[:6] not in stems]
+    # Seuls les objets comptent : un mot inconnu précédé d'un déterminant (« un sapin », « une crèche »).
+    # Un verbe ou un participe absent des fiches (« admis ») n'est pas un objet hors fiche.
+    det = r"(?:un|une|le|la|les|des|du|l'|mon|ma|mes|ton|ta|tes|son|sa|ses|notre|nos|votre|vos|leur|leurs|ce|cet|cette|ces)"
+    objets = re.findall(r"(?:^|[\s(])" + det + r"\s*([a-z]{4,})", _norm(question or ''))
+    return [w for w in objets if w[:6] not in stems]
 
 
 def _academy_label(norm_name):

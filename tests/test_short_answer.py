@@ -510,7 +510,7 @@ class ObjetHorsFiche(unittest.TestCase):
         self.assertEqual(audit['short_answer']['status'], 'nothing_kept')
 
     def test_corpus_reel_charge(self):
-        self.assertIn('santor', sa._corpus_stems())
+        self.assertIn("santor", sa._corpus_stems())
 
 
 class OngletTextesTextesVisibles(unittest.TestCase):
@@ -568,3 +568,14 @@ class AutresCasEnBoutons(unittest.TestCase):
         src = open('app.py', encoding='utf-8').read()
         self.assertIn('Votre situation est différente ?', src)
         self.assertIn('" (situation : "', src)
+
+
+class ObjetsInconnusDeterminant(unittest.TestCase):
+    def test_participe_inconnu_n_est_pas_un_objet(self):
+        old = sa._CORPUS_STEMS
+        sa._CORPUS_STEMS = {'eleve', 'profes', 'absent', 'annee'}
+        try:
+            self.assertEqual(sa._objets_inconnus("Un élève absent toute l'année peut-il être admis au bac ?"), [])
+            self.assertEqual(sa._objets_inconnus("Puis-je installer un sapin ?"), ['sapin'])
+        finally:
+            sa._CORPUS_STEMS = old

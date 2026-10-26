@@ -3477,3 +3477,4 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Déclencheur : la règle « question sans situation précisée + passages décrivant plusieurs cas pour la même demande ». Albert rédige le cas le plus courant (avec sa condition) et renvoie `autres_cas` (libellés courts, 2 au plus).
 - Contrôle programme : libellé ≤ 60 caractères dont tous les mots significatifs figurent dans les passages ; aucun bouton si la question vient déjà d'un bouton (« (situation : …) ») : pas d'enchaînement.
 - app.py : sous la réponse, « Votre situation est différente ? » + 1 ou 2 boutons ; un clic repose la question avec « (situation : libellé) ».
+- 23 h 40 : faux positif du garde-fou `objet_hors_fiche` (« être admis » : mot absent des fiches → réponse juste retirée). Restreint aux objets : mot inconnu précédé d'un déterminant (« un sapin », « un drone »).

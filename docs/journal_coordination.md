@@ -3409,3 +3409,11 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
   - côté admin : la case « Albert rédige » est cochée par défaut (même affichage que les collègues), et « Mode documenté » décoché rend l'ancien moteur pour comparer.
 - Tests : tests/test_essai_albert_redige.py et tests/test_replay_engine_choice.py mis à jour ; nouveau tests/test_albert_secours_mini.py.
 - Mesure de référence (lot B 50, admin) : 82 % de J, 0 F. Lot « inconnu » de 111 questions : 68 % de J, avant la réponse honnête et la fiche hors périmètre.
+
+## 2026-10-26 — Claude : vidéos reliées aux réponses (84 vidéos sur 92 de la playlist)
+
+- Constat : 74 vidéos se trouvaient dans deux fiches de transcriptions (transcriptions_videos_tutoriels.txt, 57 vidéos ; videos_tutoriels_cyclades_santorin.txt, 18). supporting_tutorials ne retenait une vidéo de fiche que si la fiche n'en avait qu'une : ces vidéos ne sortaient presque jamais en mode documenté.
+- tutorial_links.py, nouvelle fonction `_section_video` : pour un passage affiché, le hub prend la vidéo de SA section « ### ». Il retrouve le passage dans le fichier, utilise le titre de section quand une ligne se répète dans plusieurs sections, et accepte aussi « Vidéos : » au pluriel. La règle « passage procédural » ne s'applique pas dans ce cas, puisque le passage est la transcription de la vidéo.
+- Contrôle : 228 passages de section testés, tous reçoivent la vidéo de leur section. Nouveau test : tests/test_videos_par_section.py.
+- Catalogue : `tutoriels` ajoutés pour 9 vidéos que les fiches ne citaient pas (distribution des lots, clôture par la commission, export vers Cyclades, ARENA, erreurs du navigateur, dépôt CAHPN des inaptes et des notes, équipements et emploi du temps, démonstration complète).
+- Non reliées volontairement : teaser, anciennes versions (2021.1.1, éditions de documents), replays de webinaires 2021, « tutoriels et assistance ».

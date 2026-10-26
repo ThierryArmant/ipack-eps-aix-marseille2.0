@@ -636,6 +636,20 @@
     ],
     "centrer_motifs": [
       "(?=.*(?:connect|connex|acced|acces))(?=.*(?:ipack|portail))(?=.*ordinateur (?:personnel|perso))"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/p3sESovUCp8",
+        "motifs": [
+          "(?i)\\b40[03]\\b|not found|erreur|navigateur"
+        ]
+      },
+      {
+        "url": "https://youtu.be/AhczBJAXG24",
+        "motifs": [
+          "(?i)arena|portail"
+        ]
+      }
     ]
   },
   "data/ipack/complement_cyclades_cas_pratiques.txt": {
@@ -1001,7 +1015,12 @@
     "title": "[PROCÉDURE : ORDRE CHRONOLOGIQUE DE DÉPLOIEMENT D'IPACKEPS (COLLÈGE & LYCÈE)]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/0YYinzmME8c"
+      }
+    ]
   },
   "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt": {
     "title": "[OPTION INTERACTIVE : SI VOUS ÊTES EN LYCÉE (CLIQUER ICI / MODE CERTIFICATION)]",
@@ -1025,7 +1044,12 @@
     "title": "[DOC_REF : DISTRIBUTION DES LOTS (SANTORIN)]",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/LbwvtkoaEcg"
+      }
+    ]
   },
   "data/ipack/fiches/ipack_007_erreur_aucun_lot_a_corriger.txt": {
     "title": "[ERREUR : AUCUN LOT À CORRIGER]",
@@ -1469,6 +1493,11 @@
     ],
     "exclure_motifs": [
       "fermee?|indisponib|travaux|inutilisable|hors service"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/1KJTsfyo6yg"
+      }
     ]
   },
   "data/ipack/fiches/ipack_068_article_20_dossiers_dossiereps_edt_saisie_et_gestion_des_emplois_du_temps_edt.txt": {
@@ -1523,6 +1552,11 @@
       "textes",
       "examens",
       "ipack"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/rUKz8xMU_Ls"
+      }
     ]
   },
   "data/ipack/fiches/ipack_072_article_83_dossiers_dossier_certificatif_depot_des_documents_cahpn_depot_de_la_fiche_etabl.txt": {
@@ -1755,13 +1789,23 @@
     "title": "3. Distribution automatique des candidats",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/LbwvtkoaEcg"
+      }
+    ]
   },
   "data/ipack/fiches/ipack_102_4_erreurs_de_distribution_et_distribution_manuelle.txt": {
     "title": "4. Erreurs de distribution et distribution manuelle",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/LbwvtkoaEcg"
+      }
+    ]
   },
   "data/ipack/fiches/ipack_103_5_saisie_des_notes_par_les_enseignants.txt": {
     "title": "5. Saisie des notes par les enseignants",
@@ -2576,7 +2620,15 @@
     "title": "5. Dossiers Certificatifs (CAHPN) et Examens (Cyclades)",
     "statut": "revu_2026-10-10_recoupement_tutoriels_correspondant",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/t7b1yl4ATcU",
+        "motifs": [
+          "(?i)export|cyclades"
+        ]
+      }
+    ]
   },
   "data/ipack/fiches/ipack_236_6_sections_sportives_scolaires_sss_et_dossiers_appn.txt": {
     "title": "6. Sections Sportives Scolaires (SSS) et Dossiers APPN",
@@ -3233,7 +3285,15 @@
     "title": "2. Logistique Santorin et Distribution des Lots",
     "statut": "revu_2026-10-10_recoupement_sources",
     "examens": [],
-    "origine": "data/archives/compilations/memoire_examens_santorin.txt"
+    "origine": "data/archives/compilations/memoire_examens_santorin.txt",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/LbwvtkoaEcg",
+        "motifs": [
+          "(?i)distribu"
+        ]
+      }
+    ]
   },
   "data/examens/fiches/memoire_examens_santorin_011_3_saisie_des_notes_et_cas_particuliers_santorin_ccf.txt": {
     "title": "3. Saisie des Notes et Cas Particuliers (Santorin / CCF)",
@@ -5856,6 +5916,14 @@
       "(?=.*santorin)(?=.*(?:serveur.{0,20}ferm|campagne.{0,20}ferm|saisie.{0,20}ferm|clotur))",
       "(?=.*cloture)(?=.*saisies?)(?=.*(?:etablissement|definitiv))",
       "(?=.*(?:harmonisation|commission|jury))(?=.*(?:note finale|note definitive|trancher.{0,20}note|arrete.{0,20}note))(?=.*(?:qui|role|competent|decision|desaccord|autorite))"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/v1fJI1zCRCM",
+        "motifs": [
+          "(?i)cl[oô]tur|verrouill|lots?\\b"
+        ]
+      }
     ]
   },
   "data/examens/audit_lot4_2026_10_13/eleve_parti_inscrit.txt": {
@@ -7415,6 +7483,14 @@
     ],
     "exclure_motifs": [
       "supprim|effac|restaur|recuper|reprendre|annee derniere|an dernier"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/1KJTsfyo6yg",
+        "motifs": [
+          "(?i)[ée]quipement"
+        ]
+      }
     ]
   },
   "data/ipack/visite_college_2026_10_18/natation_asns_diplomes_enquete.txt": {
@@ -7515,6 +7591,12 @@
           "[Pp]rotocole",
           "dates? d.[ée]valuation",
           "co-?[ée]valuateur"
+        ]
+      },
+      {
+        "url": "https://youtu.be/t7b1yl4ATcU",
+        "motifs": [
+          "(?i)export|cyclades"
         ]
       },
       {

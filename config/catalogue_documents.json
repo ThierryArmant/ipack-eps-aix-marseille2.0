@@ -612,7 +612,7 @@
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "reponse_directe_motifs": [
-      "^(?!.*(?:installations? sportive|installation (?:fermee|indisponible)|piscine|gymnase|fca|referentiel|fermeture)).*?(?:(?:install|telecharg|application.*(?:ordinateur|mac|windows)))"
+      "^(?!.*(?:installations? (?:sportive|municipale)|installations\\b|installation (?:fermee|indisponible)|piscine|gymnase|fca|referentiel|fermeture)).*?(?:(?:install|telecharg|application.*(?:ordinateur|mac|windows)))"
     ],
     "reponse_directe": "iPackEPS est une application en ligne : rien à installer sur l'ordinateur. À Aix-Marseille, ouvrez le portail ESTEREL avec votre compte professionnel, puis le bloc [Enquête et pilotage]. Si le lien iPackEPS n'apparaît pas : [Aide] > [Synchro manuelle] > [Rafraîchir la page]. Si l'accès reste absent, contactez le correspondant académique iPackEPS. Les rubriques ARENA des autres académies ne doivent pas être présentées comme le chemin ESTEREL d'Aix-Marseille.",
     "reponses_directes": [
@@ -631,7 +631,8 @@
       "(?:pas|plus) (?:d.)?acces.{0,30}(?:au |aux |a l.|a la )?(?:module|menu|dossier|onglet|certificati)|\\binstance\\b",
       "widget|pratic",
       "^(?!.*i ?pack).*(?:ordre de mission|convocation|imag.in|cyclades|santorin)",
-      "(?=.*(?:telecharg|imprim|edit))(?=.*(?:fichier|document|certificat|convocation|releve|bordereau|fiche|protocole|liste))"
+      "(?=.*(?:telecharg|imprim|edit))(?=.*(?:fichier|document|certificat|convocation|releve|bordereau|fiche|protocole|liste))",
+      "installations? municipales?"
     ],
     "centrer_motifs": [
       "(?=.*(?:connect|connex|acced|acces))(?=.*(?:ipack|portail))(?=.*ordinateur (?:personnel|perso))"
@@ -4100,10 +4101,10 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "recuper|restaur|recup|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
+      "(?:recuper|restaur|recup).{0,60}(?:supprim|efface|perdu|disparu)|(?:supprim|efface|perdu|disparu).{0,80}(?:recuper|restaur|recup)|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
     ],
     "exclusif_motifs": [
-      "recuper|restaur|recup|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
+      "(?:recuper|restaur|recup).{0,60}(?:supprim|efface|perdu|disparu)|(?:supprim|efface|perdu|disparu).{0,80}(?:recuper|restaur|recup)|annul.{0,30}supprim|supprim.{0,60}(?:erreur|accident|malencontre)|(?:j.ai|on a|nous avons|viens de).{0,35}supprim|apres.{0,30}suppression"
     ],
     "exclure_motifs": [
       "^(?!.*(?:supprim|efface|perdu|disparu)).*(?:programmation|an dernier|annee derniere|annee precedente)"

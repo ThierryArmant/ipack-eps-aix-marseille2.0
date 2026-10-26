@@ -3380,3 +3380,18 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
   2. n189 « 12,2 devient 13 » refusée pour `nombre:13` : un arrondi (inférieur ou supérieur) d'une moyenne écrite dans la question est maintenant accepté, si les passages cités parlent d'arrondi.
   3. n166 « Non, le 20/20… » refusée pour `modalite:*` et `citation:*` : non modifié (la citation n'était pas dans les passages retenus).
 - Nouveau test : tests/test_short_answer_arrondi_academie.py.
+
+## 2026-10-26 — Claude : lot « face à l'inconnu » (111 questions, version 9a068d9) et réponse honnête quand aucune réponse courte n'est retenue
+
+- Lot de 111 questions inédites : 60 tirées de la base du 19/10 et 51 questions réelles de FAQ académiques (Montpellier, Normandie, Besançon, Créteil, Poitiers, Nantes, Limoges). Les réponses ont été relues dans le journal Google Sheets, sans les traces techniques.
+- Résultat : 75 J, 26 I, 10 F (68 %). Sur la base : 75 % de J. Sur les FAQ : 59 % de J.
+- Défaut principal : 8 questions hors du champ des fiches se sont terminées sans réponse courte. Le hub affichait alors des extraits voisins sous le titre « Réponse » (avenir d'iPackEPS, I-Prof, webinaire, budget des installations…).
+- exact_source_answer.py, nouvelle fonction `without_short_answer` :
+  - si aucune phrase n'est retenue, le hub affiche « pas de réponse directe dans les fiches vérifiées » et le contact selon l'onglet (correspondant iPackEPS, service des examens ou inspection, chef d'établissement ou inspection). Les extraits restent visibles, repliés et présentés comme des passages proches ;
+  - si le rédacteur est en panne (`invalid_no_retry`), le hub affiche un message de panne et laisse les extraits ouverts ;
+  - aucune vidéo n'est tirée des passages voisins ;
+  - même traitement pour le pool commun.
+- Catalogue :
+  - la fiche « Suppression : ne pas conclure à une restauration impossible » était exclusive dès qu'une question contenait « récupérer ». Elle exige maintenant un contexte de suppression ou de perte (n606, SIECLE non validée, retombait dessus) ;
+  - la réponse directe « application en ligne » de la fiche d'accès ne se déclenche plus sur « installations municipales » (n566).
+- Nouveau test : tests/test_sans_reponse_courte.py.

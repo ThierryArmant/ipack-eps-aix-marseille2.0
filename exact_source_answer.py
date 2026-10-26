@@ -92,6 +92,10 @@ def media_text(audit, fallback):
     report = (audit or {}).get('exact_extracts', {})
     if report.get('display_version') != 'exact-focus-v1':
         return fallback
+    if report.get('no_short_answer_display') not in (None, 'invalid_no_retry'):
+        # Pas de réponse trouvée : pas de vidéo tirée de passages voisins.
+        report['automatic_media_passage_ids'] = []
+        return ''
     ids = report.get('focused_passage_ids', [])
     spans = {s['id']: s['text'] for p in report.get('selected_sources', [])
              for s in p.get('passages', [])}
@@ -183,8 +187,34 @@ def render_exact_sources(selected, reviewer, report):
     return '\n'.join(blocks)
 
 
+_CONTACTS_SANS_REPONSE = {
+    'ipack': "le correspondant académique iPackEPS de votre académie (à Aix-Marseille : ipackeps@ac-aix-marseille.fr)",
+    'examens': "le service des examens de votre académie ou votre inspection EPS",
+    'textes': "votre chef d'établissement ou votre inspection EPS",
+}
+
+
+def without_short_answer(extracts_html, audit, mode=None):
+    """Aucune réponse courte retenue : le dire honnêtement plutôt que présenter des extraits
+    voisins comme une réponse. Les extraits restent consultables, repliés."""
+    status = (audit.get('short_answer') or {}).get('status')
+    body = extracts_html.replace('<h3>Réponse</h3>', '', 1)
+    contact = _CONTACTS_SANS_REPONSE.get(mode, _CONTACTS_SANS_REPONSE['textes'])
+    (audit.get('exact_extracts') or audit.setdefault('exact_extracts', {}))['no_short_answer_display'] = status or 'none'
+    if status == 'invalid_no_retry':
+        # Panne ou réponse illisible du rédacteur : les passages trouvés peuvent être les bons.
+        return ('<h3>Réponse</h3><p>La réponse courte n’a pas pu être rédigée pour le moment. '
+                'Voici les passages des fiches trouvés pour votre question ; vérifiez qu’ils correspondent à votre cas, '
+                'ou reposez la question dans quelques minutes.</p>'
+                '<details open><summary>Passages trouvés</summary>' + body + '</details>')
+    return ('<h3>Réponse</h3><p>Je n’ai pas trouvé, dans les fiches vérifiées du hub, de réponse directe à cette question. '
+            'Pour ce point, adressez-vous à ' + contact + '.</p>'
+            '<details><summary>Passages proches consultés (ils ne répondent peut-être pas à votre question)</summary>'
+            + body + '</details>')
+
+
 def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, report, extracts_html,
-                      public=None, academy=None):
+                      public=None, academy=None, mode=None):
     """Réponse courte en tête, extraits fidèles numérotés repliés dessous ; sinon extraits seuls."""
     try:
         from .short_answer import short_answer
@@ -201,7 +231,7 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
                         public=public, academy=academy,
                         context=dict(public=public, academie=academy) if (public or academy) else None)
     if not lead:
-        return extracts_html
+        return without_short_answer(extracts_html, audit, mode)
     numbered = render_focused_sources(selected, focus, reviewer, {}, numbered=True)
     report['display_version_lead'] = 'short-answer-v3'
     # Couverture : un extrait retenu que la réponse courte ne reprend pas reste visible, ouvert.
@@ -254,7 +284,7 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
                   omitted_from_mini=[i for i in focus if i not in cited],
                   pool_status='rendered' if lead else 'no_short_answer_kept')
     if not lead:
-        return fallback
+        return without_short_answer(fallback, audit, mode)
     owners = [p for p in candidates if any(s['id'] in cited for s in p['passages'])]
     positions = {p['id']: n for n, p in enumerate(pool, 1)}
     extracts = render_focused_sources(owners, cited, reviewer, report, numbered=True, positions=positions)
@@ -421,7 +451,7 @@ DONNEES :
                                               reviewer, report, answer, public, mode, academy)
                 else:
                     answer = with_short_answer(llm, tracer, audit, question, selected, focus,
-                                               reviewer, report, answer, public, academy)
+                                               reviewer, report, answer, public, academy, mode)
         audit['rendered_answer'] = answer
         audit['model_document_ids'] = [p['id'] for p in candidates]
         audit['effective_selection_policy'] = 'exact_sources_only'

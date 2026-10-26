@@ -8816,7 +8816,8 @@
       "(?=.*(?:ipack|installations?|equipements?)).*\\bbudget",
       "(?:transferer|importer|reprendre|recuperer) (?:des |les |nos )?dossiers?.{0,40}(?:ipack|remplir|saisie)|passer moins de temps a remplir",
       "(?:curseurs?|reperes?).{0,60}(?:actualis|mis a jour|mise a jour|pas encore)",
-      "\\bi.?prof\\b"
+      "\\bi.?prof\\b",
+      "^(?!.*(?:adresse (?:mail|e.?mail|electronique|de messagerie)|@)).*adresse.{0,40}(?:college|lycee|etablissement|eple)"
     ],
     "exclure_motifs": [
       "santorin|cyclades|imag.?in|lot\\b"

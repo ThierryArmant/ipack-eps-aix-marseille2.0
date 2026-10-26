@@ -1887,7 +1887,8 @@
     {
      "section": "### iPackEPS et outils voisins : questions sans fiche vérifiée (avenir de l'outil, incidents ponctuels, fonctions non documentées)",
      "lignes": [
-      "Avenir d'iPackEPS (maintien, remplacement, abandon de l'outil) : aucune information vérifiée dans le hub. Interroger le correspondant académique iPackEPS ou l'inspection pédagogique régionale d'EPS (à Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+      "Avenir d'iPackEPS (maintien, remplacement, abandon de l'outil) : aucune information vérifiée dans le hub. Interroger le correspondant académique iPackEPS ou l'inspection pédagogique régionale d'EPS (à Aix-Marseille : ipackeps@ac-aix-marseille.fr).",
+      "Adresse postale de l'établissement affichée dans iPackEPS (fiche Établissement) : aucune fiche vérifiée n'indique si elle se modifie dans iPackEPS ni d'où elle provient. Les contacts de l'établissement (chef, adjoints, secrétaire général, agent comptable) viennent de RAMSESE, mais cela n'est pas établi pour l'adresse. Interroger le correspondant académique iPackEPS (à Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
      ]
     }
    ]

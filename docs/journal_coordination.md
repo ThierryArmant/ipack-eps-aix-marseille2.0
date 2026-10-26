@@ -3431,3 +3431,13 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
   - prompt de sélection : ne pas ajouter de passage sur un cas particulier que la question n'évoque pas.
 - Fiche dossier_certificatif_lycee_gt.txt : nouvelle « Réponse directe — remplir ses protocoles d'examen, dans l'ordre » en 5 étapes (APSA certificatives, Gérer les S.A., protocole, validité, soumission), reprise de l'article 42 et du relevé lycée du 18/10/2026.
 - Tests mis à jour : tests/test_short_answer.py (extrait non repris, étapes numérotées).
+
+## 2026-10-26 (soir) — Claude : lot B 50 au format pas à pas (version f06b5f5), 72 % de J, et correction des menus refusés
+
+- 50 questions en « Mini cherche, Albert rédige » : 36 J, 9 I, 2 F (n159 « Oui » erroné, n113), 3 sans réponse (n116, n126, n149). Soit 72 % de J, contre 82 % ce matin au format court.
+- Cause principale : avec la consigne « chaque étape commence par le chemin des menus », Albert met entre crochets des libellés que la fiche écrit sans crochets ([Tableau de bord]) ou qu'il invente ([Santorin] > [Saisie]). Le garde-fou `menu:` refusait alors les étapes, d'où des réponses tronquées ou vides (n126 : 8 étapes refusées ; n116, n113, n125, n127).
+- short_answer.py :
+  - un libellé présent dans la fiche sans crochets est accepté entre crochets s'il fait au moins deux mots, ou un seul mot portant sa majuscule dans la fiche. Un menu inventé reste refusé ;
+  - le prompt interdit de mettre entre crochets ce que les passages n'écrivent pas ;
+  - `_CONSIGNE_INTERNE` ne vise plus que « ne pas attribuer à… » : « Ne pas attribuer zéro » (n66) était refusé à tort.
+- Nouveau test : tests/test_menus_libelles.py.

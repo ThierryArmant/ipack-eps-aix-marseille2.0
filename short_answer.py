@@ -32,6 +32,11 @@ def _norm(text):
     return ''.join(c for c in text if not unicodedata.combining(c))
 
 
+def _strip_accents(text):
+    import unicodedata
+    return ''.join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
+
+
 def _compact(text):
     return re.sub(r'\s+', ' ', _norm(text)).strip()
 
@@ -57,7 +62,7 @@ _CONDITION = r"\b(?:si|s.il|s.ils|lorsque|lorsqu|quand|en cas|dans le cas|des qu
 
 # Outils et documents : une phrase ne peut pas appliquer la règle à un objet que ses passages ne citent pas.
 # Consignes adressées au rédacteur dans les fiches (« ne pas inventer… », « le corpus ») : jamais à recopier au collègue.
-_CONSIGNE_INTERNE = r"\binvent\w*|ne (?:pas|jamais) (?:promettre|annoncer|attribuer|presenter)\b|\bcorpus\b|\bcette fiche\b|\bces fiches\b|\bce releve\b|\bil est important de ne pas\b"
+_CONSIGNE_INTERNE = r"\binvent\w*|ne (?:pas|jamais) (?:promettre|annoncer|attribuer (?:a|au|aux)\b|presenter\b.{0,60}\bcomme\b)|\bcorpus\b|\bcette fiche\b|\bces fiches\b|\bce releve\b|\bil est important de ne pas\b"
 _NOMBRES_EN_LETTRES = {'1': 'une?', '2': 'deux', '3': 'trois', '4': 'quatre', '5': 'cinq', '6': 'six', '7': 'sept',
                        '8': 'huit', '9': 'neuf', '10': 'dix', '12': 'douze', '15': 'quinze', '20': 'vingt', '30': 'trente'}
 _SIGLES_COURANTS = {'eps', 'as', 'unss', 'ccf', 'dnb', 'cap', 'shn', 'tzr', 'aed', 'sss', 'appn', 'ca', 'gt', 'lp',
@@ -107,8 +112,17 @@ def unsupported(phrase, cited_text, question='', titles=''):
     context = _compact(question) + ' ' + _compact(titles)
     reasons = []
     for menu in re.findall(r'\[[^\]]{1,80}\]', p):
-        if menu not in source:
-            reasons.append('menu:' + menu)
+        if menu in source:
+            continue
+        label = menu[1:-1].strip()
+        # Libellé écrit dans la fiche sans crochets (« Tableau de bord », « Liste des lots ») : ce n'est pas un menu
+        # inventé. Un seul mot n'est accepté que s'il porte sa majuscule dans la fiche (Santorin, Classes).
+        if label and re.search(r'(?<!\w)' + re.escape(label) + r'(?!\w)', source) and (
+                len(label.split()) >= 2
+                or re.search(r'(?<!\w)' + re.escape(label[:1].upper()) + r'\w*', cited_text)
+                and re.search(r'(?<!\w)[A-ZÉÈÀÂÎÔÛÇ]' + re.escape(_compact(label)[1:]) + r'(?!\w)', _strip_accents(cited_text))):
+            continue
+        reasons.append('menu:' + menu)
     # Arrondi appliqué à une moyenne de la question (12,2 -> 13 ou 12) : seulement si les passages parlent d'arrondi.
     rounded = set()
     if 'arrondi' in source:
@@ -201,6 +215,9 @@ MANIPULATION DANS UN LOGICIEL (comment faire, où aller, saisir, remplir, compl�
 donne la marche à suivre PAS À PAS, une phrase par étape, dans l'ordre des passages, 8 étapes au plus.
 Chaque étape commence par le chemin des menus entre crochets exactement comme dans les passages
 ([Menu] > [Sous-menu]), dit ce qu'il faut faire, puis, si le passage l'explique, à quoi sert l'étape.
+Ne mets entre crochets QUE les menus, onglets et boutons écrits dans les passages : n'invente aucun menu
+(pas de [Santorin] > [Saisie] si le passage ne l'écrit pas). Si l'étape n'a pas de menu dans le passage,
+écris-la sans crochets.
 Mets "etape": true sur chacune de ces phrases ; n'écris pas de numéro, l'affichage numérote les étapes.
 AUTRE QUESTION (règle, droit, situation) : 2 à 4 phrases courtes, claires et directes.
 Réponds UNIQUEMENT à la situation de la question : n'ajoute aucun cas particulier que la question n'évoque pas

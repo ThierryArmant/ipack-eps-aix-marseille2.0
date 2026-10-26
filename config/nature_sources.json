@@ -6599,6 +6599,18 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "iPackEPS : questions sans fiche vérifiée (avenir, incidents, fonctions non documentées)"
+  },
+  "data/textes/situations_2026_10_26/laicite_fetes_noel.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Orléans-Tours"
+   ],
+   "portee_texte": null,
+   "titre": "Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement"
   }
  }
 }

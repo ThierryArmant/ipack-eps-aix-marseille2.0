@@ -488,3 +488,26 @@ class Dates(unittest.TestCase):
 
     def test_premier_du_mois(self):
         self.assertEqual(self.r("Session ouverte le 1er juin 2027.", "Ouverture le 1er juin 2027."), [])
+
+
+class ObjetHorsFiche(unittest.TestCase):
+    """« Installer un sapin » ne doit pas recevoir la réponse de la fiche des trajets vers les installations."""
+    P = [('Trajets', "Au collège, l'encadrement est la règle, un trajet individuel n'étant possible que si le règlement intérieur le prévoit et que les représentants légaux l'autorisent.")]
+
+    def test_reponse_entiere_retiree(self):
+        old = sa._CORPUS_STEMS
+        sa._CORPUS_STEMS = {'droit', 'instal', 'colleg', 'regle', 'encadr', 'trajet'}
+        try:
+            audit = {}
+            out = sa.short_answer(_llm({'phrases': [
+                {'texte': "Vous pouvez installer un sapin au collège si le règlement intérieur le prévoit.", 'passages': [1]},
+                {'texte': "L'encadrement est la règle au collège.", 'passages': [1]}]}),
+                tracer=lambda l, a, stage: l, audit=audit, question="Ai-je le droit d'installer un sapin dans mon collège ?",
+                passages=self.P)
+        finally:
+            sa._CORPUS_STEMS = old
+        self.assertEqual(out, '')
+        self.assertEqual(audit['short_answer']['status'], 'nothing_kept')
+
+    def test_corpus_reel_charge(self):
+        self.assertIn('santor', sa._corpus_stems())

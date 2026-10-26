@@ -90,6 +90,35 @@ def _academies():
     return [_norm(a) for a in ACADEMIES]
 
 
+_CORPUS_STEMS = None
+
+
+def _corpus_stems():
+    """Radicaux (6 lettres) de tous les mots des fiches actives : un mot de la question absent de toutes
+    les fiches désigne un objet dont le hub ne parle nulle part (un sapin, un minibus…)."""
+    global _CORPUS_STEMS
+    if _CORPUS_STEMS is None:
+        from pathlib import Path
+        stems = set()
+        root = Path(__file__).resolve().parent / 'data'
+        for f in root.rglob('*.txt'):
+            if 'archives' in f.parts:
+                continue
+            try:
+                stems |= {w[:6] for w in re.findall(r'[a-z]{4,}', _norm(f.read_text(encoding='utf-8')))}
+            except Exception:
+                continue
+        _CORPUS_STEMS = stems
+    return _CORPUS_STEMS
+
+
+def _objets_inconnus(question):
+    stems = _corpus_stems()
+    if not stems:
+        return []
+    return [w for w in re.findall(r'[a-z]{4,}', _norm(question or '')) if w[:6] not in stems]
+
+
 def _academy_label(norm_name):
     try:
         from .academie import ACADEMIES
@@ -285,6 +314,8 @@ Ne mets entre crochets QUE les menus, onglets et boutons écrits dans les passag
 écris-la sans crochets.
 Mets "etape": true sur chacune de ces phrases ; n'écris pas de numéro, l'affichage numérote les étapes.
 AUTRE QUESTION (règle, droit, situation) : 2 à 4 phrases courtes, claires et directes.
+Si la question porte sur un objet ou une situation dont les passages ne parlent pas (par exemple un sapin de Noël
+alors que les passages parlent d'installations sportives), ne force pas la réponse : renvoie {"phrases":[]}.
 Réponds UNIQUEMENT à la situation de la question : n'ajoute aucun cas particulier que la question n'évoque pas
 (après validation, ajout en cours d'année, élève blessé ou inapte, autre diplôme, autre académie),
 même s'il figure dans les passages.
@@ -423,6 +454,8 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         return ''
     kept = []
     steps = []
+    inconnus = _objets_inconnus(question)
+    hors_fiche = False
     for item in _split_long(phrases)[:MAX_PHRASES + 2]:
         text = item.get('texte') if isinstance(item, dict) else None
         refs = item.get('passages') if isinstance(item, dict) else None
@@ -462,6 +495,13 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
             reasons = unsupported(text, cited_text, question + (' ' + academy if academy else ''), cited_titles)
         if pool:
             reasons += scope_reasons(text, [passages[r - 1].get('portee') or {} for r in refs], public, academy)
+        # Objet de la question inconnu de toutes les fiches, repris dans la phrase : la fiche citée parle d'autre
+        # chose (« installer un sapin » appliqué à la fiche des trajets vers les installations sportives).
+        mots = {w[:6] for w in re.findall(r'[a-z]{4,}', _norm(text))}
+        for w in inconnus:
+            if w[:6] in mots and w[:6] not in {x[:6] for x in re.findall(r'[a-z]{4,}', _norm(cited_text))}:
+                reasons.append('objet_hors_fiche:' + w)
+                hors_fiche = True
         # « Oui » en tête d'une réponse à une généralisation (« tous », « toujours ») : retiré, la suite dit la portée.
         if not kept and re.search(_GENERALISATION, _norm(question)):
             text = re.sub(r'^\s*oui\s*[,.;:!]\s*', '', text, flags=re.I)
@@ -489,6 +529,11 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         filtered.append((k, st))
     kept = [k for k, _ in filtered]
     steps = [st for _, st in filtered]
+    if hors_fiche:
+        # Une phrase applique la fiche à un objet qu'elle ne traite pas : le reste de la réponse n'est pas fiable.
+        for t in kept:
+            report['rejected'].append(dict(texte=t[0], raisons=['objet_hors_fiche:reponse_entiere']))
+        kept, steps = [], []
     report.update(status='rendered' if kept else 'nothing_kept', kept=[dict(texte=t, passages=r) for t, r in kept])
     if pool:
         for item in report['kept']:

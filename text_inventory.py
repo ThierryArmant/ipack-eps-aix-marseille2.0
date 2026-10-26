@@ -23,7 +23,7 @@ NAMED = {
  'escalade_controles':7,'accident_eleve':8,'appn_moyens':7,'arrete_1989':5,
  'correspondant_06':7,'cumul_activite':1,'decret_2025':4,'decret_2026':4,
  'demifond_college':9,'deplacements_reguliers':6,'direction_ecole':4,
- 'dispense_inaptitude':5,'escalade_relais':7,'fournitures_neutralite':4,
+ 'dispense_inaptitude':5,'escalade_relais':7,'fournitures_neutralite':4,'laicite_fetes':4,
  'ia_usages':11,'imp_attribution':1,'intervenants_eps':6,'obligations_service_premier':1,
  'pai_pratique':5,'programme_eps_sixieme':9,'signalement_violences':3,
  'sortie_musee':6,'sorties_mixte':6,'sorties_premier':6,'sorties_second':6,'texte_transport':6,

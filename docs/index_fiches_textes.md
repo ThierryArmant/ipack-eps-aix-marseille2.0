@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-95 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+96 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -45,7 +45,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Violences, discriminations et harcèlement envers les personnels](../data/textes/fiches/signalement_violences_personnels.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Surveillance des élèves en EPS : continuité, élève laissé seul](../data/textes/fiches/surveillance_continue_eleve_seul.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 
-## Vie scolaire, direction, laïcité et égalité (9)
+## Vie scolaire, direction, laïcité et égalité (10)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -58,6 +58,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Direction d’école : autorité fonctionnelle et consignes](../data/textes/fiches/direction_ecole_autorite_fonctionnelle.txt) | primaire | 1 | Références présentes ; statut détaillé au catalogue |
 | [Absence à une évaluation de classe (6e à 4e) : pas de zéro automatique](../data/textes/fiches/evaluation_classe_absence_zero.txt) | dnb | 1 | Références présentes ; statut détaillé au catalogue |
 | [Fournitures et équipements demandés aux familles : neutralité commerciale](../data/textes/fiches/fournitures_neutralite_commerciale.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
+| [Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement](../data/textes/situations_2026_10_26/laicite_fetes_noel.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 
 ## Santé, inaptitudes et inclusion (5)
 

@@ -1435,6 +1435,25 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/situations_2026_10_26/laicite_fetes_noel.txt",
+      "title": "Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.conseil-etat.fr/site/actualites/installation-d-une-creche-de-noel",
+        "https://pedagogie.ac-orleans-tours.fr/documents/pdf/noel.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-26",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/sorties_encadrement_2024.txt",
       "title": "Sorties au second degré : autorisation et encadrement général",
       "domaine": "06_sorties_transports",

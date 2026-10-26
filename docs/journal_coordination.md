@@ -3460,3 +3460,8 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - config/echeances.json + echeances.py : bandeau « ⏰ Demain / Aujourd'hui » sous l'en-tête la veille et le jour même (académie d'Aix-Marseille ou non choisie) ; admin : liste des échéances passées à marquer dans les fiches (`fiche_revue`) et de celles des 14 prochains jours.
 - Échéances saisies : inscriptions voie pro 2027 (12, 20, 27 novembre 2026), AMEX bac GT 2027 (12 et 20 novembre, contradiction du BA signalée), changement de statut bac GT (31 mars 2027).
 - Fiche SSS Vaucluse : échéance du 17 octobre 2026 marquée passée.
+
+## 2026-10-26 21 h — sapin de Noël (question attendue des chefs d'établissement)
+- Constat : « ai-je le droit d'installer un sapin de Noël dans mon collège » recevait la règle des trajets vers les installations sportives (le mot « installer »).
+- Nouvelle fiche data/textes/situations_2026_10_26/laicite_fetes_noel.txt (domaine 04 vie d'établissement, priorité 345) : sapin admis sans caractère cultuel (vademecum « La laïcité à l'école », repris par l'académie d'Orléans-Tours) ; fête sécularisée ; crèche exclue d'un bâtiment public sauf circonstances particulières (loi 1905 art. 28 ; CE 9 nov. 2016, n° 395122 et 395223) ; décision du chef d'établissement, sécurité à vérifier. Pas de réponse en dur (limite des 12).
+- short_answer.py : garde-fou `objet_hors_fiche` — un mot de la question absent de toutes les fiches actives, repris dans une phrase sans figurer dans le passage cité, retire la réponse entière (« pas trouvé » + contact). Rejoué sur 971 phrases retenues des lots passés : 1 seule touchée.

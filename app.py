@@ -1288,8 +1288,13 @@ if st.session_state.get("is_admin", False):
         # (même chaîne que Mini seul, sans pool commun). Décoché par défaut ; les collègues restent en Mini seul.
         st.checkbox("Essai : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
                     key="admin_albert_redige")
-        st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
-                   + (" · version " + _sha if _sha else ""))
+        if st.session_state.get("admin_albert_redige"):
+            st.caption("Essai Albert rédacteur : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
+                       "Un appel Mini et un appel Albert par question, extraits et contrôles conservés. "
+                       "Rejeu : mode « Mini seul ». Décocher après l'essai." + (" · version " + _sha if _sha else ""))
+        else:
+            st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
+                       + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
         _test_model_choice = st.selectbox("Modèle pour la sélection ET la rédaction", TEST_MODELS, index=3)
@@ -1314,7 +1319,12 @@ if st.session_state.get("is_admin", False):
             st.session_state.pop("single_document_pending", None)
             st.session_state.pop("short_prompt_pending", None)
             st.session_state.pop("gpt41_once_pending", None)
-        if st.session_state.get("gpt41_once_pending"):
+        if st.session_state.get("gpt41_once_pending") and st.session_state.get("admin_faithful", True):
+            # Le mode documenté prime : l'essai de modèle serait consommé sans être appliqué.
+            st.warning(f"Essai {st.session_state.get('openai_test_model', 'gpt-4.1')} armé mais sans effet tant que « Mode documenté » est coché "
+                       "(les questions seraient décomptées sans utiliser ce modèle). Cliquez sur « Arrêter les essais de modèle » "
+                       "ou décochez « Mode documenté » pour cet essai.")
+        elif st.session_state.get("gpt41_once_pending"):
             st.info(f"ESSAI ACTIF : {st.session_state.get('openai_test_model', 'gpt-4.1')} pour la sélection ET la rédaction · {st.session_state['gpt41_once_pending']} question(s) restante(s) · sans Albert. Posez ensuite la question en direct, hors comparateur.")
 
 

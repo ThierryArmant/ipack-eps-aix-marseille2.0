@@ -153,6 +153,8 @@ def _textes_lus(selected, passage_ids):
     for packet in owners:
         title = re.sub(r'^\[SITUATION:\s*(.*?)\]$', r'\1', packet.get('title', 'Source')).lstrip('# ').strip()
         title = re.sub(r'^\[(.*)\]$', r'\1', title).strip()
+        # « [ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement… » : on garde l'intitulé lisible.
+        title = re.sub(r'^(?:\[[^\]]*\]\s*/?\s*)+', '', title).strip() or title
         url = packet.get('url', '')
         if not url.startswith(('https://', 'http://')):
             # Lien de la source écrit dans la fiche elle-même (« Source : https://… »).

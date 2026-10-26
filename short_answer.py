@@ -271,7 +271,15 @@ def unsupported(phrase, cited_text, question='', titles=''):
     if re.search(_CONSIGNE_INTERNE, p):
         reasons.append('forme:consigne_interne')
     target = _words(phrase)
-    pieces = [x for x in re.split(r'(?<=[.;!?])\s+|\n', cited_text) if x.strip()]
+    pieces = []
+    for x in re.split(r'(?<=[.;!?])\s+|\n', cited_text):
+        if not x.strip():
+            continue
+        # « (Source : guide Normandie 2025.) » qualifie la phrase qui précède : on les garde ensemble.
+        if pieces and re.match(r'\s*\(?\s*sources?\s*:', x, re.I):
+            pieces[-1] += ' ' + x
+        else:
+            pieces.append(x)
     best = max((len(target & _words(x)) for x in pieces), default=0)
     # Phrases sources dont la phrase rédigée reprend le contenu (au moins la moitié du meilleur recouvrement).
     near_scope = ' '.join(_compact(x) for x in pieces
@@ -280,9 +288,18 @@ def unsupported(phrase, cited_text, question='', titles=''):
         # Une consigne propre à une académie garde le nom de cette académie. Jugé sur la phrase
         # source la plus proche : une règle nationale voisine d'une adresse « à Aix-Marseille »
         # reste nationale ; une académie déjà nommée dans la question n'est pas à répéter.
-        if (re.search(r'\ba (?:l.academie d.)?' + re.escape(academy) + r'\b', near_scope)
-                and academy not in p and academy not in _compact(question)):
+        if academy in ('autre',) or academy.startswith('etablissement'):
+            continue
+        a = re.escape(academy)
+        # « à Strasbourg », « académie de Normandie », « guide Normandie 2025 », « - Amiens : … », « (Créteil) ».
+        local = (r'\ba (?:l.academie d.)?' + a + r'\b|academie d.\s?' + a + r'\b|(?:guide|circulaire|memento|faq|tutoriel|site)'
+                 r'(?: [a-z]+){0,4} (?:de |d.)?(?:l.academie d.)?' + a + r'\b|(?:^|[-(;] )' + a + r'\s*[:),]')
+        if (re.search(local, near_scope) and academy not in p and academy not in _compact(question)
+                and not re.search(r"autres? academies?", p)):
             reasons.append('portee:' + academy)
+        # « Oui » / « Non » appuyé sur la pratique d'une autre académie que celle de l'utilisateur.
+        if (academy in p and academy not in _compact(question) and re.match(r'\s*(?:oui|non)\b', p)):
+            reasons.append('portee:autre_academie_comme_reponse:' + academy)
     return reasons
 
 
@@ -328,6 +345,9 @@ Une date passée, historique ou donnée en exemple n'est jamais une échéance �
 la session ou l'année indiquée par le passage. Ne transpose jamais une date d'une session à une autre ni
 d'une académie à une autre ; si la date applicable n'est pas dans les passages, dis de la vérifier auprès
 du service indiqué.
+AUTRES ACADÉMIES : une pratique d'une autre académie (Strasbourg, Amiens, Normandie…) n'est jamais la réponse.
+Dis d'abord ce qui vaut pour l'académie de l'utilisateur, ou qu'aucune consigne écrite n'a été trouvée pour elle,
+puis cite l'autre académie en la nommant, comme exemple. Ne commence pas par « Oui » ou « Non » sur cette seule base.
 Quand un passage dit que l'enseignant « apprécie la situation » ou choisit entre plusieurs possibilités,
 donne toutes ces possibilités : n'en écarte aucune en l'appliquant toi-même à la situation
 (pas de « ce qui n'est pas le cas »).
@@ -499,7 +519,7 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         if (locales and len(set(locales)) == 1 and set(reasons) == set(locales)
                 and (not academy or _norm(academy) in ('', 'non precisee', locales[0][7:]))):
             label = _academy_label(locales[0][7:])
-            text = 'À ' + label + ', ' + (text if text[:1] in '[«' or text[:2].isupper() else text[:1].lower() + text[1:])
+            text = ('À ' if label == 'Aix-Marseille' else "Dans l'académie de ") + label + ', ' + (text if text[:1] in '[«' or text[:2].isupper() else text[:1].lower() + text[1:])
             reasons = unsupported(text, cited_text, question + (' ' + academy if academy else ''), cited_titles)
         if pool:
             reasons += scope_reasons(text, [passages[r - 1].get('portee') or {} for r in refs], public, academy)

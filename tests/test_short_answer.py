@@ -579,3 +579,24 @@ class ObjetsInconnusDeterminant(unittest.TestCase):
             self.assertEqual(sa._objets_inconnus("Puis-je installer un sapin ?"), ['sapin'])
         finally:
             sa._CORPUS_STEMS = old
+
+
+class AutresAcademiesNommees(unittest.TestCase):
+    def test_pratique_d_un_guide_d_une_autre_academie_doit_etre_nommee(self):
+        src = "On crée pour cet élève un protocole spécifique qui reprend l'APSA déjà évaluée. (Source : guide Normandie 2025.)"
+        self.assertIn('portee:normandie', sa.unsupported("Créez pour cet élève un protocole spécifique qui reprend l'APSA déjà évaluée.", src,
+                                                         'Un candidat change de lycée. Aix-Marseille'))
+        self.assertEqual([r for r in sa.unsupported("Dans l'académie de Normandie, on crée un protocole spécifique qui reprend l'APSA déjà évaluée.", src,
+                                                    'Un candidat change de lycée. Aix-Marseille') if r.startswith('portee')], [])
+
+    def test_non_appuye_sur_une_autre_academie_refuse(self):
+        src = "- Strasbourg : pas de CCF ni de rattrapage les jours de l'examen ponctuel terminal."
+        self.assertIn('portee:autre_academie_comme_reponse:strasbourg', sa.unsupported(
+            "Non, il n'est pas possible d'organiser un CCF pendant l'examen ponctuel terminal à Strasbourg.", src, 'Peut-on organiser un CCF ? Aix-Marseille'))
+        self.assertEqual([r for r in sa.unsupported("L'académie de Strasbourg demande de ne pas organiser de CCF pendant l'examen ponctuel terminal.",
+                                                    src, 'Peut-on organiser un CCF ? Aix-Marseille') if r.startswith('portee')], [])
+
+    def test_mise_en_garde_sur_les_autres_academies_acceptee(self):
+        src = "Exemple tiré du guide Normandie 2025 : appréciation pour les cas particuliers."
+        self.assertEqual([r for r in sa.unsupported("Les sources citées concernent d'autres académies ; vérifiez le circuit de la vôtre.", src, 'q Aix-Marseille')
+                          if r.startswith('portee')], [])

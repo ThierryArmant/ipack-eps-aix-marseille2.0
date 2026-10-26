@@ -529,7 +529,8 @@ class OngletTextesTextesVisibles(unittest.TestCase):
         out = self.rt.exact_source_answer.exact_answer(llm, reviewer=self.rt.documentary_review,
             tracer=lambda l, a, stage: l, documents=self.docs, question='Peut-on installer un sapin ?',
             public='Collège (DNB)', mode='textes', academy='Aix-Marseille', audit=audit, synthesis=True)
-        self.assertIn('Textes en lien avec votre question', out)
-        self.assertIn('<details open><summary>Passages des textes (1)', out)
+        self.assertIn('📄 Texte en lien : Laïcité et fêtes', out)
         self.assertIn('lire le texte', out)
-        self.assertLess(out.index('caractère cultuel'), out.index('Textes en lien'))
+        self.assertNotIn('<details open>', out)
+        self.assertIn('Voir les extraits des fiches (1)', out)
+        self.assertLess(out.index('caractère cultuel'), out.index('Texte en lien'))

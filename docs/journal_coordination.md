@@ -3467,6 +3467,7 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - short_answer.py : garde-fou `objet_hors_fiche` — un mot de la question absent de toutes les fiches actives, repris dans une phrase sans figurer dans le passage cité, retire la réponse entière (« pas trouvé » + contact). Rejoué sur 971 phrases retenues des lots passés : 1 seule touchée.
 
 ## 2026-10-26 21 h 30 — onglet Textes : textes lus visibles après la réponse
-- exact_source_answer.py : en mode `textes`, après la réponse, liste « Textes en lien avec votre question » (titre + lien « lire le texte », lien du catalogue sinon premier lien écrit dans la fiche) puis passages des textes dépliés (`<details open>`). Autres onglets inchangés (extraits repliés).
+- exact_source_answer.py : en mode `textes`, après la réponse, liste « Textes en lien avec votre question » (titre + lien « lire le texte »). Autres onglets inchangés (extraits repliés).
 - app.py : réponse directe de l'onglet Textes suivie du texte en lien et de son lien.
 - La réponse « pas trouvé » garde ses passages proches repliés (ils ne répondent pas à la question).
+- 21 h 40, demande de l'utilisateur : retour à l'affichage précédent (extraits repliés) ; seule reste, sous la réponse, la ligne « 📄 Texte en lien : titre — lire le texte ».

@@ -159,10 +159,10 @@ def _textes_lus(selected, passage_ids):
             url = found.group(0).rstrip('.,;') if found else ''
         link = (' — <a href="' + html.escape(url, quote=True) + '" target="_blank" rel="noopener noreferrer">lire le texte</a>'
                 if url.startswith(('https://', 'http://')) else '')
-        items.append('<li>' + html.escape(title) + link + '</li>')
+        items.append(html.escape(title) + link)
     if not items:
         return ''
-    return '<h4>Textes en lien avec votre question</h4><ul>' + ''.join(items) + '</ul>'
+    return '<p>📄 Texte en lien : ' + ' ; '.join(items) + '</p>'
 
 
 def render_exact_sources(selected, reviewer, report):
@@ -264,17 +264,11 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
         positions = {pid: n for n, pid in enumerate(focus, 1)}
         numbered = render_focused_sources(selected, kept_focus, reviewer, {}, numbered=True, positions=positions)
     shown = len(focus) - len(missing)
-    if mode == 'textes':
-        # Spécificité de l'onglet Textes : les passages lus et le lien vers chaque texte suivent la réponse,
-        # sans clic (demande de l'utilisateur, 26/10/2026).
-        cited_ids = [pid for n, pid in enumerate(focus, 1) if n in cited] or focus
-        return ('<h3>Réponse</h3>' + lead
-                + '<p><small>Réponse rédigée à partir des textes ci-dessous (numéros) : vérifiez votre cas.</small></p>'
-                + _textes_lus(selected, cited_ids)
-                + '<details open><summary>Passages des textes (' + str(shown) + ')</summary>'
-                + numbered + '</details>')
+    # Onglet Textes : une ligne avec le lien vers chaque texte lu, sous la réponse (extraits toujours repliés).
+    lien = _textes_lus(selected, [pid for n, pid in enumerate(focus, 1) if n in cited] or focus) if mode == 'textes' else ''
     return ('<h3>Réponse</h3>' + lead
             + '<p><small>Réponse rédigée à partir des fiches (numéros) : vérifiez votre cas.</small></p>'
+            + lien
             + '<details><summary>Voir les extraits des fiches (' + str(shown) + ')</summary>'
             + numbered + '</details>')
 
@@ -323,10 +317,8 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
     # Les numéros sont les rangs stables du pool, jamais une réindexation des seuls cités.
     result = '<h3>Réponse</h3>' + lead
     if mode == 'textes':
-        result += (_textes_lus(owners, cited)
-                   + '<details open><summary>Passages des textes (' + str(len(cited)) + ')</summary>' + extracts + '</details>')
-    else:
-        result += '<details><summary>Voir les extraits cités (' + str(len(cited)) + ')</summary>' + extracts + '</details>'
+        result += _textes_lus(owners, cited)
+    result += '<details><summary>Voir les extraits cités (' + str(len(cited)) + ')</summary>' + extracts + '</details>'
     missing = [i for i in focus if i not in cited]
     if missing:
         other = render_focused_sources(selected, missing, reviewer, {}, numbered=True, positions=positions)

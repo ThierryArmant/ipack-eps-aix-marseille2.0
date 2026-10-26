@@ -2122,8 +2122,8 @@ if prompt_a_traiter:
                     _url_doc = str(reference_url(source_documentee, prompt) or '')
                     _lien_doc = (' — <a href="' + html_lib.escape(_url_doc, quote=True) + '" target="_blank" rel="noopener noreferrer">lire le texte</a>'
                                  if _url_doc.startswith(('https://', 'http://')) else '')
-                    texte_brut += ('<h4>Textes en lien avec votre question</h4><ul><li>'
-                                   + html_lib.escape(source_documentee.get('title', '')) + _lien_doc + '</li></ul>')
+                    texte_brut += ('<p>📄 Texte en lien : '
+                                   + html_lib.escape(source_documentee.get('title', '')) + _lien_doc + '</p>')
                 badge, color_card = 'RÉPONSE DOCUMENTÉE', 'general-card'
             elif demande_precision:
                 texte_brut = '<p>' + demande_precision + '</p>'

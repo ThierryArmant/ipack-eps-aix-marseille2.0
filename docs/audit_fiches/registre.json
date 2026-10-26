@@ -917,7 +917,7 @@
     },
     {
       "path": "data/commun/bac_pro_circulaire_2025_detail.txt",
-      "sha256": "aaa3ed30ff168e39150bf83a0808eee705bb2b2fe49929e11dc3f961de22e2e0",
+      "sha256": "34d06aee8deaf5452c609c0774d2f82bd2a731a089ede78246189d5e0c92f491",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "texte_officiel_restitue_par_section_2026-10-11",

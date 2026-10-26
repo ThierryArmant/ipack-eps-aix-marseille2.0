@@ -1284,14 +1284,14 @@ if st.session_state.get("is_admin", False):
         st.session_state["admin_mini_albert"] = False
         st.session_state["admin_albert_only"] = False
         st.session_state["admin_mini_redige"] = True
-        # Essai comparatif réservé à l'admin : Mini choisit les passages, Albert rédige la réponse courte
-        # (même chaîne que Mini seul, sans pool commun). Décoché par défaut ; les collègues restent en Mini seul.
-        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
+        # Moteur des collègues : Mini choisit les passages, Albert rédige la réponse courte (Mini en secours).
+        # Cochée par défaut pour que l'admin voie la même chose que les collègues ; décocher = Mini seul.
+        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=True,
                     key="admin_albert_redige",
                     help="Sans effet sur le rejeu CSV : le moteur du rejeu se choisit dans son propre bloc.")
         if st.session_state.get("admin_albert_redige"):
-            st.caption("Questions directes : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
-                       "Décocher après l'essai. Le rejeu CSV garde son propre choix de moteur." + (" · version " + _sha if _sha else ""))
+            st.caption("Comme les collègues : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte, "
+                       "Mini rédige si Albert est indisponible. Le rejeu CSV garde son propre choix de moteur." + (" · version " + _sha if _sha else ""))
         else:
             st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
                        + (" · version " + _sha if _sha else ""))
@@ -1673,10 +1673,13 @@ if prompt_a_traiter:
             _test_model = "gpt-4o-mini"
         _test_gpt41 = bool(_test_model)
         _test_selector = None
-        _faithful_trial = (st.session_state.get("is_admin", False)
-            and st.session_state.get("admin_faithful", True)
-            and mode in ("examens", "ipack", "textes"))
-        _mixed_trial = (_faithful_trial and st.session_state.get("admin_mini_albert", True))
+        # Depuis le 26 octobre 2026, TOUS les utilisateurs ont le mode documenté (réponse courte + extraits
+        # fidèles), Mini cherche et Albert rédige (Mini rédige si Albert est indisponible). Les collègues avaient
+        # encore l'ancien moteur « Conditions / Démarches ». L'admin peut décocher « Mode documenté » pour comparer.
+        _is_admin = st.session_state.get("is_admin", False)
+        _faithful_trial = (mode in ("examens", "ipack", "textes")
+            and (not _is_admin or st.session_state.get("admin_faithful", True)))
+        _mixed_trial = (_is_admin and _faithful_trial and st.session_state.get("admin_mini_albert", True))
         _albert_only_trial = (st.session_state.get("is_admin", False)
             and st.session_state.get("admin_albert_only", True)
             and not _mixed_trial
@@ -1708,12 +1711,22 @@ if prompt_a_traiter:
         # Pendant un rejeu, le moteur choisi dans le bloc du rejeu prime sur la case des questions directes.
         _lot_moteur = (st.session_state.get("audit113_batch") or {}).get("moteur") if (
             (st.session_state.get("audit113_batch") or {}).get("waiting")) else None
-        _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and (
-            _lot_moteur == "albert_redige" if _lot_moteur else st.session_state.get("admin_albert_redige")))
+        if _lot_moteur:
+            _albert_redige_voulu = _lot_moteur == "albert_redige"
+        elif _is_admin:
+            _albert_redige_voulu = bool(st.session_state.get("admin_albert_redige", True))
+        else:
+            _albert_redige_voulu = True
+        _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and _albert_redige_voulu
+                                    and st.secrets.get("ALBERT_API_KEY"))
         if _albert_redige_trial:
-            _generation_llm = _generation_runtime.albert_adapter.AlbertLLM(
+            _albert_adapter = _generation_runtime.albert_adapter
+            _albert_redacteur = _albert_adapter.AlbertLLM(
                 st.secrets.get("ALBERT_API_KEY"), st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b",
                 temperature=0.0, allow_paused_test=True)
+            # Albert indisponible (quota, panne) : Mini rédige à sa place, sauf dans un lot de mesure d'Albert.
+            _generation_llm = (_albert_redacteur if _lot_moteur == "albert_redige"
+                               else _albert_adapter.AlbertWithFallback(_albert_redacteur, Settings.llm))
         if _mixed_trial and st.session_state.get("admin_mini_redige", True):
             # Rédacteur annoncé dans la trace (modèle de l'appel short_answer) : jamais de bascule silencieuse.
             _generation_llm = OpenAI(model='gpt-4o-mini', temperature=0.0, api_key=openai_api_key,

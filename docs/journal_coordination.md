@@ -3398,3 +3398,14 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Nouvelle fiche data/ipack/situations_2026_10_26/hors_perimetre_fiches.txt (modes ipack et textes, priorité 340). Elle couvre les questions sans fiche vérifiée : avenir d'iPackEPS, incident ponctuel ou serveur pendant un webinaire, vue à l'échelle d'une ville, budget des installations, transfert de dossiers, mise à jour des curseurs académiques, I-Prof.
 - La fiche dit « pas d'information vérifiée » et donne le contact. Elle ne rappelle que ce qui est déjà documenté (équipements déclarés par établissement avec leur code RES, données conservées d'une année sur l'autre).
 - Exclusions : Santorin, Cyclades, Imag'in et lot. Registres mis à jour (catalogue, nature_sources, portee_registre, registre d'audit).
+
+## 2026-10-26 — Claude : les collègues passent au mode documenté « Mini cherche, Albert rédige » (décision de l'utilisateur)
+
+- Constat : `_faithful_trial` était réservé à l'admin. Les collègues recevaient encore l'ancien moteur review_exam_answer (« Conditions / Démarches »). Tous les rejeux et corrections récents (garde-fous, réponse honnête sans réponse courte, fiche hors périmètre) ne les concernaient donc pas. Exemple réel « comment remplir mes protocoles » : une condition y contredisait sa propre source (« élèves importés nécessaires »).
+- app.py :
+  - non-admin : `_faithful_trial` vaut vrai pour ipack, examens et textes, `_mixed_trial` faux, `_albert_redige_trial` vrai si ALBERT_API_KEY est présente ;
+  - rédacteur = `AlbertWithFallback(AlbertLLM, Settings.llm)` : Mini rédige si Albert renvoie une erreur de service (quota après le nouvel essai, panne, réponse vide) ;
+  - dans un rejeu `albert_redige`, Albert reste seul, sans secours, pour mesurer sa fiabilité ;
+  - côté admin : la case « Albert rédige » est cochée par défaut (même affichage que les collègues), et « Mode documenté » décoché rend l'ancien moteur pour comparer.
+- Tests : tests/test_essai_albert_redige.py et tests/test_replay_engine_choice.py mis à jour ; nouveau tests/test_albert_secours_mini.py.
+- Mesure de référence (lot B 50, admin) : 82 % de J, 0 F. Lot « inconnu » de 111 questions : 68 % de J, avant la réponse honnête et la fiche hors périmètre.

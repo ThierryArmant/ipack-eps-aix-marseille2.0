@@ -18,7 +18,7 @@ class ReplayEngineChoiceTest(unittest.TestCase):
 
     def test_app_uses_batch_engine_before_direct_checkbox(self):
         source = open('app.py', encoding='utf-8').read()
-        self.assertIn('_lot_moteur == "albert_redige" if _lot_moteur else st.session_state.get("admin_albert_redige")', source)
+        self.assertIn('if _lot_moteur:\n            _albert_redige_voulu = _lot_moteur == "albert_redige"', source)
 
 
 if __name__ == '__main__':

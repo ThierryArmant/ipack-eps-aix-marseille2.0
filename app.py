@@ -286,7 +286,9 @@ nb_visites_reel = incrementer_et_obtenir_visites()
 # ======================================================================
 # 3. INTERFACE GRAPHIQUE ET CHARGEMENT LOCAL DES IMAGES (BASE64)
 # ======================================================================
+@st.cache_data(show_spinner=False)
 def get_base64_image(image_path):
+    # En cache : sans cela, chaque rafraîchissement relisait et réencodait les images (plusieurs Mo).
     if os.path.exists(image_path):
         with open(image_path, "rb") as f:
             data = f.read()
@@ -295,8 +297,8 @@ def get_base64_image(image_path):
 
 img_gauche = get_base64_image("image_7.png")
 img_eps = get_base64_image("image_6.png")
-img_droite = get_base64_image("image_5.png")
-img_fond = get_base64_image("image_8.png")
+img_droite = get_base64_image("logo_droite_hub.jpg")  # image_5.png allégée (affichée en 55 px)
+img_fond = get_base64_image("fond_hub.jpg")  # image_8.png allégée (6 Mo -> fond 1920 px)
 
 css_pur = f"""
     <style>
@@ -312,7 +314,7 @@ css_pur = f"""
         max-width: 920px !important; 
     }}
     
-    .stApp {{ background-image: url('data:image/png;base64,{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
+    .stApp {{ background-image: url('data:image/jpeg;base64,{img_fond}') !important; background-size: cover !important; background-attachment: fixed !important; }}
     header[data-testid="stHeader"] {{ display: none !important; }}
     /* Masquer l'aide automatique en anglais sous le champ de question. */
     [data-testid="stTextInput"] [data-testid="InputInstructions"] {{ display: none !important; }}
@@ -1239,7 +1241,7 @@ st.markdown(
         </div>
         <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
             <img src="data:image/png;base64,{img_eps}" height="55">
-            <img src="data:image/png;base64,{img_droite}" class="img-zoomable" height="55">
+            <img src="data:image/jpeg;base64,{img_droite}" class="img-zoomable" height="55">
         </div>
     </div>
 """,

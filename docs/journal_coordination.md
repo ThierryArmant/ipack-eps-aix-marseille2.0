@@ -3346,3 +3346,11 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - short_answer.py : error_code noté. architecture_comparison.py : la colonne erreur_* du rejeu comparatif affiche le code.
 - Tests mis à jour : tests/test_albert_adapter.py et tests/test_albert_paused.py suivent la nouvelle règle (un seul nouvel essai, codes passagers uniquement). Nouveau fichier tests/test_albert_retry.py.
 - Suite : relancer le comparatif sur les 20 questions bloquées (lot transmis à l'utilisateur, hors dépôt).
+
+## 2026-10-26 — Claude : mémoire Streamlit (dépassement des ressources)
+
+- app.py réencodait en base64, à chaque rafraîchissement, image_8.png (6 Mo, le fond) et image_5.png (2,5 Mo, affichée sur 55 px). Cela représentait environ 12 Mo de HTML envoyés à chaque relance, et plusieurs relances par question pendant un rejeu.
+- Remplacement par fond_hub.jpg (249 Ko, 1920 px) et logo_droite_hub.jpg (94 Ko, 500 px de haut, ce qui couvre le zoom ×4,5). get_base64_image est maintenant mis en cache (st.cache_data).
+- Fichiers retirés du dépôt (ils restent dans l'historique git) : image_5.png, image_8.png, et deux images inutilisées, image_12.png et « Design sans titre (71).png ».
+- Rejeu comparatif : diagnostic_ia allégé de 10,5 Mo à 1,1 Mo pour 50 questions (sans prompts ni textes de sources). Les codes d'erreur et l'usage sont conservés.
+- Vérification des doublons : aucun fichier identique entre les bases, et les archives sont bien exclues de l'indexation. data/commun est volontairement indexé dans iPack, Examens et Textes.

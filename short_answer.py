@@ -8,6 +8,7 @@ en cas d'échec, l'utilisateur garde les extraits fidèles seuls.
 """
 import html
 import json
+import math
 import re
 import unicodedata
 
@@ -108,10 +109,16 @@ def unsupported(phrase, cited_text, question='', titles=''):
     for menu in re.findall(r'\[[^\]]{1,80}\]', p):
         if menu not in source:
             reasons.append('menu:' + menu)
+    # Arrondi appliqué à une moyenne de la question (12,2 -> 13 ou 12) : seulement si les passages parlent d'arrondi.
+    rounded = set()
+    if 'arrondi' in source:
+        for value in re.findall(r'(?<![\d.,])(\d+[.,]\d+)(?![.,]?\d)', question):
+            x = float(value.replace(',', '.'))
+            rounded |= {str(math.floor(x)), str(math.ceil(x))}
     for number in re.findall(r'\d+(?:[.,]\d+)?', p):
         word = _NOMBRES_EN_LETTRES.get(number)
         if not re.search(r'(?<!\d)' + re.escape(number) + r'(?!\d)', source + ' ' + context) and not (
-                word and re.search(r'\b' + word + r'\b', source)):
+                word and re.search(r'\b' + word + r'\b', source)) and number not in rounded:
             reasons.append('nombre:' + number)
     # Sigle ou format repris de la question mais absent des passages (ex. « PDF/A ») : prémisse non vérifiée.
     # Seulement les formats et références techniques (barre oblique ou chiffre : PDF/A, ISO9001) ;

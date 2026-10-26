@@ -196,7 +196,9 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
         packet, span = spans[passage_id]
         passages.append((section_label(packet, span)[0], span['text']))
     # Public et académie de l'utilisateur : une consigne propre à une autre académie doit être présentée comme telle.
+    # academy aussi en paramètre : sans lui, une consigne d'Aix était refusée (« portée ») pour un collègue d'Aix.
     lead = short_answer(llm, tracer=tracer, audit=audit, question=question, passages=passages,
+                        public=public, academy=academy,
                         context=dict(public=public, academie=academy) if (public or academy) else None)
     if not lead:
         return extracts_html

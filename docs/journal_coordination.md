@@ -3370,3 +3370,13 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - batch["moteur"] est enregistré, et une colonne « moteur » est ajoutée au CSV.
 - app.py : pendant un lot, le moteur du lot prime sur la case des questions directes (rebaptisée « Questions posées en direct : Albert rédige… »). Un lot `mini` n'appelle donc jamais Albert, même si cette case est restée cochée.
 - Par défaut, le nombre de questions vaut toutes les lignes du fichier à partir de la question de départ (auparavant 5).
+
+## 2026-10-26 — Claude : lot B 50 « Mini cherche, Albert rédige » (version eca80c9) et deux garde-fous corrigés
+
+- 50/50 traitées, 0 erreur, 0 quota, 3 à 7 s par question. 3 réponses directes (n110, n142, n195).
+- Résultat : 41 J, 9 I, 0 F, soit 82 % de J. C'est le meilleur des trois moteurs sur ce lot (Mini seul 76 %, Albert seul 72 %).
+- Trois réponses imprécises venaient de bonnes phrases d'Albert refusées par les garde-fous :
+  1. n149 « Inscrivez l'élève APTE » refusée pour `portee:aix-marseille` : with_short_answer ne transmettait pas `academy` à short_answer (seulement dans context). Corrigé, ce qui vaut aussi pour Mini seul.
+  2. n189 « 12,2 devient 13 » refusée pour `nombre:13` : un arrondi (inférieur ou supérieur) d'une moyenne écrite dans la question est maintenant accepté, si les passages cités parlent d'arrondi.
+  3. n166 « Non, le 20/20… » refusée pour `modalite:*` et `citation:*` : non modifié (la citation n'était pas dans les passages retenus).
+- Nouveau test : tests/test_short_answer_arrondi_academie.py.

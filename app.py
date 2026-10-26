@@ -1252,6 +1252,23 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Rappel d'échéance la veille et le jour même (config/echeances.json).
+try:
+    import echeances as _echeances
+    for _rappel in _echeances.rappels(academie=st.session_state.get("academie_utilisateur")):
+        st.warning("⏰ " + _rappel["libelle"])
+    if st.session_state.get("is_admin", False):
+        _a_revoir = _echeances.a_mettre_a_jour()
+        _bientot = _echeances.prochaines()
+        if _a_revoir or _bientot:
+            with st.expander(f"📅 Échéances : {len(_a_revoir)} passée(s) à marquer dans les fiches, {len(_bientot)} dans les 14 jours"):
+                for _e in _a_revoir:
+                    st.markdown(f"- **Passée le {_echeances.date_fr(_e['_date'])}** : {_e['texte']} — fiche `{_e['fiche']}` à marquer « échéance passée », puis `fiche_revue: true` dans config/echeances.json.")
+                for _e in _bientot:
+                    st.markdown(f"- {_echeances.date_fr(_e['_date'])} : {_e['texte']}")
+except Exception:
+    pass
+
 def _version_deployee():
     # Permet de savoir, pendant un retest, quel commit et quel modèle ont répondu.
     try:

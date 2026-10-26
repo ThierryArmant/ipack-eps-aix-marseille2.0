@@ -1,0 +1,23 @@
+{
+  "_aide": "Échéances rappelées sur le hub : bandeau la veille (J-1) et le jour même. Chaque échéance cite sa fiche. Une échéance passée apparaît à l'administrateur dans « Échéances à mettre à jour » tant que la fiche n'a pas été revue (champ fiche_revue à true).",
+  "echeances": [
+    {"date": "2026-11-12", "heure": "18 h", "academie": "Aix-Marseille",
+     "texte": "Inscriptions bac professionnel, CAP et BMA, session 2027 : clôture.",
+     "fiche": "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt", "fiche_revue": false},
+    {"date": "2026-11-12", "academie": "Aix-Marseille",
+     "texte": "Aménagements de terminale (AMEX), bac général et technologique, session 2027 : date indiquée page 1 du bulletin académique, à confirmer (le calendrier page 24 indique le 20 novembre à 18 h).",
+     "fiche": "data/commun/audit60/aix_inscriptions_2027_gt.txt", "fiche_revue": false},
+    {"date": "2026-11-20", "heure": "18 h", "academie": "Aix-Marseille",
+     "texte": "Bac professionnel, CAP et BMA, session 2027 : pièces justificatives au plus tard. BP et CS : clôture des inscriptions.",
+     "fiche": "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt", "fiche_revue": false},
+    {"date": "2026-11-20", "heure": "18 h", "academie": "Aix-Marseille",
+     "texte": "Aménagements de terminale (AMEX), bac général et technologique, session 2027 : date du calendrier page 24 du bulletin académique (la page 1 indique le 12 novembre).",
+     "fiche": "data/commun/audit60/aix_inscriptions_2027_gt.txt", "fiche_revue": false},
+    {"date": "2026-11-27", "heure": "18 h", "academie": "Aix-Marseille",
+     "texte": "BP et CS, session 2027 : pièces justificatives.",
+     "fiche": "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt", "fiche_revue": false},
+    {"date": "2027-03-31", "academie": "Aix-Marseille",
+     "texte": "Bac général et technologique, session 2027 : dernier jour de prise en compte d'un changement de statut du candidat.",
+     "fiche": "data/commun/audit60/aix_inscriptions_2027_gt.txt", "fiche_revue": false}
+  ]
+}

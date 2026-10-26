@@ -3455,3 +3455,8 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - short_answer.py `_date_reasons` : une date (jour + mois, avec année si écrite) doit figurer telle quelle dans le passage cité ; année changée refusée ; date d'un passage historique ou d'exemple refusée si la phrase ne le dit pas ; échéance déjà passée (« avant le », « au plus tard », « date limite »…) refusée si elle est présentée comme à venir.
 - Consigne DATES ajoutée au prompt du rédacteur : pas de transposition d'une session ou d'une académie à une autre.
 - Réponses directes du catalogue relues : les deux dates passées (BA 549) sont déjà présentées comme historiques.
+
+## 2026-10-26 20 h 45 — rappels d'échéances
+- config/echeances.json + echeances.py : bandeau « ⏰ Demain / Aujourd'hui » sous l'en-tête la veille et le jour même (académie d'Aix-Marseille ou non choisie) ; admin : liste des échéances passées à marquer dans les fiches (`fiche_revue`) et de celles des 14 prochains jours.
+- Échéances saisies : inscriptions voie pro 2027 (12, 20, 27 novembre 2026), AMEX bac GT 2027 (12 et 20 novembre, contradiction du BA signalée), changement de statut bac GT (31 mars 2027).
+- Fiche SSS Vaucluse : échéance du 17 octobre 2026 marquée passée.

@@ -7510,33 +7510,23 @@
     ],
     "tutoriels": [
       {
-        "url": "https://youtu.be/T_-j01ovoA4",
+        "url": "https://youtu.be/Bq7_ooQuZtU",
         "motifs": [
-          "[Rr][ée]f[ée]rentiel"
+          "[Pp]rotocole",
+          "dates? d.[ée]valuation",
+          "co-?[ée]valuateur"
         ]
       },
       {
         "url": "https://youtu.be/-Rkgq18uZjI",
         "motifs": [
-          "[Pp]rotocole d.[ÉE]valuation|[Cc]o.?[ée]valuateur|[Dd]ate (?:d.[ée]valuation|de rattrapage)"
-        ]
-      },
-      {
-        "url": "https://youtu.be/t7b1yl4ATcU",
-        "motifs": [
-          "[Ee]xport(?:er)? (?:les )?[ÉEé]l[èe]ves|Cyclades"
-        ]
-      },
-      {
-        "url": "https://youtu.be/FZ1KSuuKkEA",
-        "motifs": [
-          "CAHPN"
+          "[ÉE]preuves? [Cc]ertificatives?|ensemble certificatif|[Gg][ée]rer les S\\.A\\."
         ]
       },
       {
         "url": "https://youtu.be/ToTBgO_nMAI",
         "motifs": [
-          "soumettons pour validation|[Ss]oumettre"
+          "soum|validation"
         ]
       }
     ],

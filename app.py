@@ -2667,8 +2667,10 @@ if prompt_a_traiter:
                                                   "<p>Champs des activités citées : " + _detail + ".</p>")
                             elif re.search(r"pas d.accord|desaccord|refuse|conteste|s.oppose|veut (?:ajouter|mettre|remplacer)|prefere", _q_simple):
                                 # Deux collègues proposent chacun une activité : ce n'est pas un refus de la commission.
-                                verdict_champs = ("<p><strong>Les deux propositions sont compatibles :</strong> ces activités relèvent de champs d'apprentissage différents ; "
-                                                  "elles peuvent figurer ensemble dans l'ensemble certificatif d'un candidat, dont les trois épreuves relèvent de trois champs distincts au bac GT.</p>"
+                                verdict_champs = ("<p><strong>Les deux propositions sont compatibles au regard des champs :</strong> ces activités relèvent de champs d'apprentissage différents ; "
+                                                  "elles peuvent figurer ensemble dans l'ensemble certificatif ordinaire d'un candidat, dont les trois épreuves relèvent de trois champs distincts au bac GT.</p>"
+                                                  "<p>Il faut aussi vérifier les autres conditions : au moins deux activités de la liste nationale, ainsi que les référentiels et les conditions de validation applicables. "
+                                                  "La différence des champs ne valide pas à elle seule les activités ni le protocole.</p>"
                                                   "<p>Le protocole de l'établissement peut aussi proposer plusieurs ensembles certificatifs aux candidats, en tenant compte de leurs besoins, "
                                                   "de leurs acquis et de l'offre de formation du lycée. C'est l'équipe d'EPS de l'établissement qui décline le référentiel national "
                                                   "pour chaque activité proposée à la certification : le choix se fait en équipe, puis le protocole suit le circuit de validation de la commission académique.</p>"

@@ -3505,3 +3505,12 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Sources : programme GT https://www.education.gouv.fr/bo/19/Special1/MENE1901574A.htm ; note 2026 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N, 1.a et 2.a–b.
 - Validation locale sans appel IA : 5 tests ciblés (désaccord, refus officiel, auteur inconnu, commission citée sans refus, commission ayant déjà validé), 75 tests de réponse courte, 39 de recherche documentaire, 3 de routage direct, 3 de FCA et 6 de preuve des champs réussis. Contrôle syntaxique et diff. Aucun rejeu fournisseur ni test réel du Hub : aucune réussite de réponse finale n'est revendiquée.
 - Préparé sur une branche isolée pour préserver le travail de Claude. Vérifier le HEAD, relire la coordination et intégrer prudemment avant publication ; ne pas interpréter la préparation comme une modification déjà visible par les collègues.
+
+
+## 2026-10-27 — GPT : désaccord entre collègues et dispense bac pro
+
+Thierry a fourni la réponse réelle du Hub à la question de Mr Chat et Mr Vache : les champs sont bien distingués, mais la formule « compatibles » risquait de faire croire que le protocole entier était validé. Réponse automatique précisée : compatibilité au regard des champs, conditions supplémentaires dont deux activités de la liste nationale, validation du protocole. Aucun nouveau test en ligne n'a été effectué.
+
+Correction documentaire bac pro : l'article 12 de l'arrêté du 17 juin 2020 (NOR MENE2015195A), version consolidée https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000042084996, prévoit explicitement la neutralisation du coefficient après avis de l'autorité médicale scolaire lorsque le handicap ne permet pas une pratique adaptée. La réserve antérieure selon laquelle l'arrêté ne précisait pas le traitement est donc erronée pour ce cas ; ne pas généraliser automatiquement à toutes les autres dispenses.
+
+Validation locale : 111 tests réussis et syntaxe vérifiée ; aucun appel IA. Aucun lot fournisseur lancé. Les dates voie pro du 27 novembre ne sont pas encore passées ; le désaccord AMEX entre 12 et 20 novembre reste à clarifier auprès de la DIEC, sans message envoyé.

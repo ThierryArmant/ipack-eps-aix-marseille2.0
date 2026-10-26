@@ -103,6 +103,31 @@ COMPARISON_COLUMNS = ["reponse_mini", "reponse_albert", "modele_mini", "modele_a
                       "usage_mini", "usage_albert", "erreur_mini", "erreur_albert"]
 
 
+_HEAVY_AUDIT_KEYS = {'documents', 'context_exact', 'rendered_answer'}
+_HEAVY_EXTRACT_KEYS = {'selected_sources'}
+_HEAVY_CALL_KEYS = {'prompt', 'output'}
+
+
+def compact_comparison_diagnostic(result):
+    """Diagnostic du rejeu sans prompts ni textes de sources (déjà dans les réponses) : mémoire Streamlit limitée."""
+    compact = {k: v for k, v in result.items() if k != 'branches'}
+    compact['branches'] = {}
+    for name, item in (result.get('branches') or {}).items():
+        item = dict(item)
+        audit = item.get('audit')
+        if isinstance(audit, dict):
+            audit = {k: v for k, v in audit.items() if k not in _HEAVY_AUDIT_KEYS}
+            if isinstance(audit.get('exact_extracts'), dict):
+                audit['exact_extracts'] = {k: v for k, v in audit['exact_extracts'].items()
+                                           if k not in _HEAVY_EXTRACT_KEYS}
+            if isinstance(audit.get('calls'), list):
+                audit['calls'] = [{k: v for k, v in c.items() if k not in _HEAVY_CALL_KEYS}
+                                  if isinstance(c, dict) else c for c in audit['calls']]
+            item['audit'] = audit
+        compact['branches'][name] = item
+    return compact
+
+
 def comparison_step(state, runner, version):
     """Une question par rafraîchissement ; jamais de relance payante après interruption."""
     batch = state.get('audit113_batch') or {}
@@ -133,7 +158,7 @@ def comparison_step(state, runner, version):
     record = dict(n=row['n'], mode=row['mode'], public=row['public'], academie=row.get('academie',''),
                   academie_effective=academy, question=row['question'], version=version,
                   nouvelle_reponse=mini.get('answer',''), usage_ia=mini.get('usage',{}),
-                  diagnostic_ia=json.dumps(result, ensure_ascii=False, separators=(',',':')),
+                  diagnostic_ia=json.dumps(compact_comparison_diagnostic(result), ensure_ascii=False, separators=(',',':')),
                   videos='')
     for name, item in [('mini',mini),('albert',albert)]:
         record['reponse_'+name] = item.get('answer','')

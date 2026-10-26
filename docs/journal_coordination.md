@@ -3417,3 +3417,17 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - Contrôle : 228 passages de section testés, tous reçoivent la vidéo de leur section. Nouveau test : tests/test_videos_par_section.py.
 - Catalogue : `tutoriels` ajoutés pour 9 vidéos que les fiches ne citaient pas (distribution des lots, clôture par la commission, export vers Cyclades, ARENA, erreurs du navigateur, dépôt CAHPN des inaptes et des notes, équipements et emploi du temps, démonstration complète).
 - Non reliées volontairement : teaser, anciennes versions (2021.1.1, éditions de documents), replays de webinaires 2021, « tutoriels et assistance ».
+
+## 2026-10-26 — Claude : réponse pas à pas et plus d'« autres cas » (retour de l'utilisateur sur « comment compléter les protocoles »)
+
+- Retour de l'utilisateur : la force du hub est l'explication pas à pas avec les menus entre crochets et des phrases d'explication. La réponse courte de 2 à 4 phrases, suivie de « Autres cas et précisions des fiches, non repris ci-dessus », est jugée inutilisable.
+- short_answer.py :
+  - pour une manipulation dans un logiciel, le rédacteur écrit une phrase par étape (8 au plus) avec le chemin [Menu] > [Sous-menu], l'action et, si la fiche l'explique, son utilité ; ces phrases portent `"etape": true` ;
+  - à l'affichage, les étapes forment une liste numérotée <ol>. Le rédacteur n'écrit pas de numéro, pour ne pas déclencher le garde-fou des nombres ;
+  - MAX_PHRASES passe de 5 à 8 ;
+  - règle « répondre uniquement à la situation de la question » : pas de cas après validation, en cours d'année, d'élève blessé, d'autre diplôme ou d'autre académie si la question ne les évoque pas. L'ancienne règle « n'omets aucun cas transmis » ne s'applique plus que si la question ne précise pas sa situation.
+- exact_source_answer.py :
+  - fin du bloc ouvert « Autres cas… non repris » : seuls les extraits cités par la réponse sont montrés, repliés, avec leurs numéros d'origine. La fiche complète reste dans « Consulter les passages complets » ;
+  - prompt de sélection : ne pas ajouter de passage sur un cas particulier que la question n'évoque pas.
+- Fiche dossier_certificatif_lycee_gt.txt : nouvelle « Réponse directe — remplir ses protocoles d'examen, dans l'ordre » en 5 étapes (APSA certificatives, Gérer les S.A., protocole, validité, soumission), reprise de l'article 42 et du relevé lycée du 18/10/2026.
+- Tests mis à jour : tests/test_short_answer.py (extrait non repris, étapes numérotées).

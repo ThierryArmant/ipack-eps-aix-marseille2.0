@@ -151,7 +151,8 @@ class ConditionsEtCouverture(unittest.TestCase):
         phrase = "Si les protocoles sont déjà validés, prévenez l'inspection pédagogique au préalable."
         self.assertIn('portee:aix-marseille', sa.unsupported(phrase, self.BRANCHE))
 
-    def test_extrait_non_repris_reste_ouvert(self):
+    def test_extrait_non_repris_n_est_plus_affiche(self):
+        # Décision de l'utilisateur (26/10/2026) : pas d'« autres cas » non demandés sous la réponse.
         rt = load_runtime(); dr = rt.documentary_review
         docs = dr.mark_excerpt("Le champ est grisé : c'est normal.\n\nSi quelques élèves sont mal placés : ne rien supprimer.",
                                path='data/exemple.txt', title='Mauvais groupe')
@@ -163,7 +164,9 @@ class ConditionsEtCouverture(unittest.TestCase):
             question='Mauvais groupe', public='Lycée Général & Techno', mode='examens', academy='Aix-Marseille',
             audit=audit, synthesis=True)
         self.assertEqual(audit['short_answer']['uncited_passages'], [2])
-        self.assertIn('<details open><summary>Autres cas et précisions des fiches, non repris ci-dessus : extraits 2', out)
+        self.assertNotIn('Autres cas', out)
+        self.assertNotIn('mal placés', out.split('Consulter les passages complets')[0])
+        self.assertIn('Voir les extraits des fiches (1)', out)
 
 
 class PhraseTropLongue(unittest.TestCase):
@@ -385,3 +388,21 @@ class SigleOrdinaireDeLaQuestion(unittest.TestCase):
     def test_vtt_de_la_question_accepte(self):
         self.assertEqual(sa.unsupported("Le chef d'établissement peut refuser la sortie VTT.",
                                         "Le chef d'établissement autorise ou refuse la sortie.", "Mon chef refuse ma sortie VTT, en a-t-il le droit ?"), [])
+
+
+class EtapesNumerotees(unittest.TestCase):
+    def test_manipulation_rendue_en_liste_numerotee(self):
+        rt = load_runtime(); dr = rt.documentary_review
+        docs = dr.mark_excerpt("[Dossier EPS] > [APSA] : déclarer les APSA certificatives.\n\n[Dossier Certificatif] > [Protocole] : compléter les dates.",
+                               path='data/exemple.txt', title='Protocoles')
+        ids = [s['id'] for s in dr.source_packets(docs)[0]['passages']][-2:]
+        llm = _llm({'principal': 'D1', 'complements': [], 'passages': ids},
+                   {'phrases': [{'texte': "[Dossier EPS] > [APSA] : déclarez les APSA certificatives.", 'passages': [1], 'etape': True},
+                                {'texte': "[Dossier Certificatif] > [Protocole] : complétez les dates.", 'passages': [2], 'etape': True}]})
+        audit = {}
+        out = rt.exact_source_answer.exact_answer(llm, reviewer=dr, tracer=lambda l, a, stage: l, documents=docs,
+            question='Comment remplir mes protocoles ?', public='Lycée Général & Techno', mode='ipack', academy='Aix-Marseille',
+            audit=audit, synthesis=True)
+        self.assertIn('<ol', out)
+        self.assertEqual(out.count('<li'), 2)
+        self.assertIn('<strong>[Dossier EPS]</strong>', out)

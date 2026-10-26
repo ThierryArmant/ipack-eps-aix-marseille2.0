@@ -239,13 +239,15 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
     missing = [n for n in range(1, len(focus) + 1) if n not in cited]
     audit['short_answer']['uncited_passages'] = missing
     if missing:
-        summary = ('Autres cas et précisions des fiches, non repris ci-dessus : extraits '
-                   + ', '.join(str(n) for n in missing))
-        return ('<h3>Réponse</h3>' + lead
-                + '<details open><summary>' + summary + '</summary>' + numbered + '</details>')
+        # Seuls les extraits repris dans la réponse sont montrés (avec leurs numéros d'origine) :
+        # les « autres cas » non demandés brouillaient la réponse (demande de l'utilisateur, 26/10/2026).
+        kept_focus = [pid for n, pid in enumerate(focus, 1) if n in cited]
+        positions = {pid: n for n, pid in enumerate(focus, 1)}
+        numbered = render_focused_sources(selected, kept_focus, reviewer, {}, numbered=True, positions=positions)
+    shown = len(focus) - len(missing)
     return ('<h3>Réponse</h3>' + lead
-            + '<p><small>Réponse rédigée à partir des extraits ci-dessous (numéros) : vérifiez votre cas.</small></p>'
-            + '<details><summary>Voir les extraits des fiches (' + str(len(focus)) + ')</summary>'
+            + '<p><small>Réponse rédigée à partir des fiches (numéros) : vérifiez votre cas.</small></p>'
+            + '<details><summary>Voir les extraits des fiches (' + str(shown) + ')</summary>'
             + numbered + '</details>')
 
 
@@ -362,6 +364,7 @@ conditions, exceptions et limites explicitement applicables, même dans d'autres
 Ne sélectionne pas les formulations de recherche, les titres ni une opération voisine seule.
 Un passage qui décrit l'action avec sa condition est préférable à une mention générale.
 Ordre des passages : réponse directe à la demande, puis préalables et limites nécessaires.
+N'ajoute pas de passage sur un cas particulier que la question n'évoque pas (après validation, ajout en cours d'année, élève blessé ou inapte, autre diplôme, autre académie).
 Si un passage mélange des opérations, il reste entier ; ne fabrique pas une procédure combinée.
 Pour une question générale ou composée, conserve les sources nécessaires à tous les volets.
 Ne classe pas tous les documents : retourne seulement les identifiants retenus.

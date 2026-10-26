@@ -3471,3 +3471,4 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - app.py : réponse directe de l'onglet Textes suivie du texte en lien et de son lien.
 - La réponse « pas trouvé » garde ses passages proches repliés (ils ne répondent pas à la question).
 - 21 h 40, demande de l'utilisateur : retour à l'affichage précédent (extraits repliés) ; seule reste, sous la réponse, la ligne « 📄 Texte en lien : titre — lire le texte ».
+- 21 h 45 : ligne « 📄 Texte en lien » étendue à tous les onglets (iPackEPS, Examens, Textes), réponses directes comprises.

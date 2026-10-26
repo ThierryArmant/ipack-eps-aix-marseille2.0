@@ -264,8 +264,8 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
         positions = {pid: n for n, pid in enumerate(focus, 1)}
         numbered = render_focused_sources(selected, kept_focus, reviewer, {}, numbered=True, positions=positions)
     shown = len(focus) - len(missing)
-    # Onglet Textes : une ligne avec le lien vers chaque texte lu, sous la réponse (extraits toujours repliés).
-    lien = _textes_lus(selected, [pid for n, pid in enumerate(focus, 1) if n in cited] or focus) if mode == 'textes' else ''
+    # Une ligne avec le lien vers chaque texte lu, sous la réponse, dans tous les onglets (extraits repliés).
+    lien = _textes_lus(selected, [pid for n, pid in enumerate(focus, 1) if n in cited] or focus)
     return ('<h3>Réponse</h3>' + lead
             + '<p><small>Réponse rédigée à partir des fiches (numéros) : vérifiez votre cas.</small></p>'
             + lien
@@ -316,8 +316,7 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
                   display_version_lead='common-pool-v1', no_business_rewriting=False)
     # Les numéros sont les rangs stables du pool, jamais une réindexation des seuls cités.
     result = '<h3>Réponse</h3>' + lead
-    if mode == 'textes':
-        result += _textes_lus(owners, cited)
+    result += _textes_lus(owners, cited)
     result += '<details><summary>Voir les extraits cités (' + str(len(cited)) + ')</summary>' + extracts + '</details>'
     missing = [i for i in focus if i not in cited]
     if missing:

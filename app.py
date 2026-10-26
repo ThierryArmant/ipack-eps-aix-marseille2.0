@@ -2117,8 +2117,8 @@ if prompt_a_traiter:
                 if _avert_acad and source_documentee.get('title') in titres_aix(catalog()):
                     texte_brut = '<p><strong>' + html_lib.escape(_avert_acad) + '</strong></p>' + texte_brut
                 sources_consultees = [(source_documentee.get('title', '') + ' — ' + reference_url(source_documentee, prompt), None)]
-                if mode == "textes":
-                    # Onglet Textes : le texte lu est donné juste après la réponse, sans clic.
+                if True:
+                    # Tous les onglets : le texte lu est donné juste après la réponse, sans clic.
                     _url_doc = str(reference_url(source_documentee, prompt) or '')
                     _lien_doc = (' — <a href="' + html_lib.escape(_url_doc, quote=True) + '" target="_blank" rel="noopener noreferrer">lire le texte</a>'
                                  if _url_doc.startswith(('https://', 'http://')) else '')

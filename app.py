@@ -3006,6 +3006,9 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
              "extraits": extraits_doc if origine_reponse == "ia" and st.session_state.get("is_admin", False) else "",
              "diagnostic_ia": diagnostic_ia if st.session_state.get("is_admin", False) else None,
              "version": _sha,
+             # Autres cas décrits par les fiches : proposés en boutons sous la réponse (au plus 2).
+             "autres_cas": ((diagnostic_ia or {}).get('short_answer') or {}).get('autres_cas') if isinstance(diagnostic_ia, dict) else None,
+             "question_origine": prompt,
              "usage_ia": usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None}
         )
 
@@ -3066,6 +3069,14 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 st.caption(f"Usage IA : {_usage['calls']} appels IA{_repartition} · "
                            f"{_jetons}"
                            f" · {_usage['duration_seconds']:.1f} s d'appels{_qualif} · hors recherche documentaire")
+            if m.get("autres_cas") and m.get("question_origine"):
+                st.markdown('<div style="margin-top:0.6rem;font-weight:600">Votre situation est différente ?</div>',
+                            unsafe_allow_html=True)
+                _cols_cas = st.columns(len(m["autres_cas"]))
+                for _i, _cas in enumerate(m["autres_cas"]):
+                    if _cols_cas[_i].button("➜ " + _cas, key="autre_cas_" + str(id(m)) + "_" + str(_i), use_container_width=True):
+                        st.session_state.current_prompt = m["question_origine"] + " (situation : " + _cas + ")"
+                        st.rerun()
             if m.get("aide_reperage"):
                 from guided_navigation import render_guide
                 with st.container(key="guide_callout_" + str(id(m))), st.expander("❓ Besoin d’aide ? Être guidé pas à pas — cliquez ici", expanded=m.get("guide_ouvert", False)) :

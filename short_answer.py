@@ -335,7 +335,9 @@ reprends-les (une phrase pour chacune).
 Après un « oui » ou un « non », dis toujours ce que le collègue peut ou doit faire à la place,
 ou les possibilités que donnent les passages : une réponse limitée à « oui » ou « non » est incomplète.
 Si la question ne précise pas sa situation et que les passages décrivent plusieurs cas pour cette même demande,
-consacre une phrase à chaque cas, en commençant par sa condition (« Si … », « Lorsque … »).
+réponds au cas le plus courant en commençant par sa condition (« Si … », « Lorsque … »), et donne les autres cas
+dans "autres_cas" : un libellé court par cas (6 mots au plus, repris des passages, par ex. "Absence justifiée"),
+2 au plus. Sinon, n'écris pas "autres_cas".
 N'ajoute aucun menu, chiffre, délai, interlocuteur, adresse ni condition absents des passages.
 Garde le degré de certitude de la source : ce qu'elle dit « à vérifier » ou « non confirmé » reste
 à vérifier ; ne le transforme jamais en interdiction, en obligation ni en permission.
@@ -444,7 +446,9 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         raw = tracer(llm, audit, stage='short_answer').complete(prompt).text.strip()
         if raw.startswith('```'):
             raw = raw.split('\n', 1)[1].rsplit('```', 1)[0]
-        phrases = json.loads(raw)['phrases']
+        parsed = json.loads(raw)
+        phrases = parsed['phrases']
+        autres_cas = parsed.get('autres_cas') if isinstance(parsed, dict) else None
         if not isinstance(phrases, list):
             raise ValueError('schema')
     except Exception as exc:
@@ -534,6 +538,23 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
         for t in kept:
             report['rejected'].append(dict(texte=t[0], raisons=['objet_hors_fiche:reponse_entiere']))
         kept, steps = [], []
+    # Autres cas proposés en boutons : seulement si la question ne précise pas déjà sa situation (pas d'enchaînement),
+    # 2 au plus, libellé court dont les mots figurent dans les passages cités par la réponse.
+    if kept and isinstance(autres_cas, list) and '(situation :' not in str(question):
+        cites = _norm(' '.join((passages[r - 1]['texte'] if pool else passages[r - 1][1]) for k in kept for r in k[1])
+                      + ' ' + ' '.join((p['texte'] if pool else p[1]) for p in passages))
+        choix = []
+        for label in autres_cas:
+            if not isinstance(label, str):
+                continue
+            label = label.strip().rstrip('.')
+            mots = re.findall(r'[a-z]{4,}', _norm(label))
+            if (not label or len(label) > 60 or not mots or label in choix
+                    or sum(1 for w in mots if w[:5] in cites) < len(mots)):
+                continue
+            choix.append(label[:1].upper() + label[1:])
+        if choix:
+            report['autres_cas'] = choix[:2]
     report.update(status='rendered' if kept else 'nothing_kept', kept=[dict(texte=t, passages=r) for t, r in kept])
     if pool:
         for item in report['kept']:

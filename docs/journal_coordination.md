@@ -3472,3 +3472,8 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - La réponse « pas trouvé » garde ses passages proches repliés (ils ne répondent pas à la question).
 - 21 h 40, demande de l'utilisateur : retour à l'affichage précédent (extraits repliés) ; seule reste, sous la réponse, la ligne « 📄 Texte en lien : titre — lire le texte ».
 - 21 h 45 : ligne « 📄 Texte en lien » étendue à tous les onglets (iPackEPS, Examens, Textes), réponses directes comprises.
+
+## 2026-10-26 23 h 30 — autres cas proposés en boutons
+- Déclencheur : la règle « question sans situation précisée + passages décrivant plusieurs cas pour la même demande ». Albert rédige le cas le plus courant (avec sa condition) et renvoie `autres_cas` (libellés courts, 2 au plus).
+- Contrôle programme : libellé ≤ 60 caractères dont tous les mots significatifs figurent dans les passages ; aucun bouton si la question vient déjà d'un bouton (« (situation : …) ») : pas d'enchaînement.
+- app.py : sous la réponse, « Votre situation est différente ? » + 1 ou 2 boutons ; un clic repose la question avec « (situation : libellé) ».

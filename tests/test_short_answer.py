@@ -534,3 +534,37 @@ class OngletTextesTextesVisibles(unittest.TestCase):
         self.assertNotIn('<details open>', out)
         self.assertIn('Voir les extraits des fiches (1)', out)
         self.assertLess(out.index('caractère cultuel'), out.index('Texte en lien'))
+
+
+class AutresCasEnBoutons(unittest.TestCase):
+    """Cas le plus courant rédigé, autres cas des fiches proposés en boutons (2 au plus, sans enchaînement)."""
+    P = [('Absences', "Absence sans justification à toutes les situations : le candidat est déclaré absent. "
+                      "Absence justifiée par un certificat médical : évaluation différée ou dispense.")]
+
+    def run_sa(self, autres, question='Un élève absent toute l’année peut-il être admis ?'):
+        audit = {}
+        sa.short_answer(_llm({'phrases': [{'texte': "Si l'absence est sans justification, le candidat est déclaré absent.", 'passages': [1]}],
+                              'autres_cas': autres}),
+                        tracer=lambda l, a, stage: l, audit=audit, question=question, passages=self.P)
+        return audit['short_answer']
+
+    def test_autre_cas_des_fiches_propose(self):
+        self.assertEqual(self.run_sa(['Absence justifiée par un certificat médical']).get('autres_cas'),
+                         ['Absence justifiée par un certificat médical'])
+
+    def test_cas_invente_refuse(self):
+        self.assertIsNone(self.run_sa(['Élève en échange Erasmus']).get('autres_cas'))
+
+    def test_deux_au_plus(self):
+        self.assertEqual(len(self.run_sa(['Absence justifiée', 'Certificat médical', 'Évaluation différée']).get('autres_cas')), 2)
+
+    def test_pas_d_enchainement(self):
+        self.assertIsNone(self.run_sa(['Absence justifiée'], question='Absent toute l’année (situation : Absence justifiée)').get('autres_cas'))
+
+    def test_regle_du_prompt(self):
+        self.assertIn('"autres_cas"', sa.build_prompt('q', self.P))
+
+    def test_bouton_dans_l_app(self):
+        src = open('app.py', encoding='utf-8').read()
+        self.assertIn('Votre situation est différente ?', src)
+        self.assertIn('" (situation : "', src)

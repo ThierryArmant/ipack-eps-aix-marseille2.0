@@ -6589,6 +6589,16 @@
    "autres_academies_citees": [],
    "portee_texte": "cadre national (circulaire 2014) ; pas de règle propre",
    "titre": "Absence à une évaluation de classe (6e à 4e) : pas de zéro automatique"
+  },
+  "data/ipack/situations_2026_10_26/hors_perimetre_fiches.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : questions sans fiche vérifiée (avenir, incidents, fonctions non documentées)"
   }
  }
 }

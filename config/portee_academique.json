@@ -1881,6 +1881,17 @@
     }
    ]
   },
+  "data/ipack/situations_2026_10_26/hors_perimetre_fiches.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### iPackEPS et outils voisins : questions sans fiche vérifiée (avenir de l'outil, incidents ponctuels, fonctions non documentées)",
+     "lignes": [
+      "Avenir d'iPackEPS (maintien, remplacement, abandon de l'outil) : aucune information vérifiée dans le hub. Interroger le correspondant académique iPackEPS ou l'inspection pédagogique régionale d'EPS (à Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+     ]
+    }
+   ]
+  },
   "data/ipack/transcriptions_videos_tutoriels.txt": {
    "academie": "aix-marseille",
    "sections": [

@@ -3395,3 +3395,6 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
   - la fiche « Suppression : ne pas conclure à une restauration impossible » était exclusive dès qu'une question contenait « récupérer ». Elle exige maintenant un contexte de suppression ou de perte (n606, SIECLE non validée, retombait dessus) ;
   - la réponse directe « application en ligne » de la fiche d'accès ne se déclenche plus sur « installations municipales » (n566).
 - Nouveau test : tests/test_sans_reponse_courte.py.
+- Nouvelle fiche data/ipack/situations_2026_10_26/hors_perimetre_fiches.txt (modes ipack et textes, priorité 340). Elle couvre les questions sans fiche vérifiée : avenir d'iPackEPS, incident ponctuel ou serveur pendant un webinaire, vue à l'échelle d'une ville, budget des installations, transfert de dossiers, mise à jour des curseurs académiques, I-Prof.
+- La fiche dit « pas d'information vérifiée » et donne le contact. Elle ne rappelle que ce qui est déjà documenté (équipements déclarés par établissement avec leur code RES, données conservées d'une année sur l'autre).
+- Exclusions : Santorin, Cyclades, Imag'in et lot. Registres mis à jour (catalogue, nature_sources, portee_registre, registre d'audit).

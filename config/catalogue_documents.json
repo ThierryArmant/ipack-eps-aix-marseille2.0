@@ -8797,5 +8797,29 @@
       "(?=.*(?:zero|0 ?/ ?20))(?=.*(?:absent|absence))(?=.*(?:sixieme|cinquieme|quatrieme|6e|5e|4e|6eme|5eme|4eme|evaluation de classe|controle))"
     ],
     "domaine_textes": "04_vie_etablissement"
+  },
+  "data/ipack/situations_2026_10_26/hors_perimetre_fiches.txt": {
+    "title": "iPackEPS : questions sans fiche vérifiée (avenir, incidents, fonctions non documentées)",
+    "statut": "redige_2026-10-26_limite_explicite",
+    "examens": [],
+    "modes": [
+      "ipack",
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-10-26",
+    "motifs": [
+      "(?=.*ipack).*(?:dispara|disparit|perenn|\\bavenir\\b|abandonn|fin d.ipack|ipack.{0,30}(?:remplace|arret))",
+      "webinaire|(?=.*(?:ipack|application|plateforme)).*(?:\\bserveur|panne generale)",
+      "echelle d.une ville|installations? (?:municipales?|partagees?)|plusieurs etablissements.{0,60}(?:installations?|equipements?)",
+      "(?=.*(?:ipack|installations?|equipements?)).*\\bbudget",
+      "(?:transferer|importer|reprendre|recuperer) (?:des |les |nos )?dossiers?.{0,40}(?:ipack|remplir|saisie)|passer moins de temps a remplir",
+      "(?:curseurs?|reperes?).{0,60}(?:actualis|mis a jour|mise a jour|pas encore)",
+      "\\bi.?prof\\b"
+    ],
+    "exclure_motifs": [
+      "santorin|cyclades|imag.?in|lot\\b"
+    ]
   }
 }

@@ -13428,6 +13428,14 @@
       "statut_audit": "a_relire",
       "statut_catalogue": "redige_2026-10-25_sources_citees",
       "signaux": []
+    },
+    {
+      "path": "data/ipack/situations_2026_10_26/hors_perimetre_fiches.txt",
+      "sha256": "b525e826420c6b08955ebe7753075cdbb8dbd57bc6b95d841aa8bf330f458878",
+      "famille": "ipack",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "redige_2026-10-26_limite_explicite",
+      "signaux": []
     }
   ],
   "revue_structurelle": {

@@ -17,6 +17,9 @@ def prepare_question(prompt, niveau_actuel_form, mode):
         GUIDE_MESSAGE = MESSAGE_PARCOURS
     demande_precision = GUIDE_MESSAGE if _guide_demande else ('' if documented_dnb_dispense(prompt, niveau_actuel_form)
                                                             else clarification(prompt, niveau_actuel_form, mode=mode))
+    if not _guide_demande:
+        from candidat_humain import precision_animal
+        demande_precision = precision_animal(prompt) or demande_precision
     if mode == 'textes' and demande_precision.startswith("Pour décider d'une note"):
         demande_precision = ''
     reponse_documentee, source_documentee = documented_response(prompt, niveau_actuel_form, mode)

@@ -2656,8 +2656,10 @@ if prompt_a_traiter:
                                 and re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple)):
                             _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
                             if _memes:
-                                verdict_champs = ("<p><strong>NON :</strong> " + " ; ".join(_memes) + " relèvent du même champ d'apprentissage. "
-                                                  "Un protocole d'examen ne peut pas contenir deux épreuves du même champ : gardez-en une seule et complétez avec une activité d'un autre champ.</p>"
+                                verdict_champs = ("<p><strong>Pas pour un même candidat :</strong> " + " ; ".join(_memes) + " relèvent du même champ d'apprentissage. "
+                                                  "En CCF ordinaire, l'ensemble certificatif d'un candidat comporte des activités de champs d'apprentissage différents : "
+                                                  "il ne peut pas retenir deux épreuves du même champ. Le protocole de l'établissement peut en revanche proposer "
+                                                  "plusieurs ensembles certificatifs, et ces activités peuvent figurer dans des ensembles différents.</p>"
                                                   "<p>Champs des activités citées : " + _detail + ".</p>")
                             else:
                                 verdict_champs = ("<p><strong>OUI :</strong> ces activités relèvent de champs d'apprentissage différents, elles peuvent figurer dans le même protocole d'examen.</p>"

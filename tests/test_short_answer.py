@@ -456,3 +456,35 @@ class CorrectifsLotB26(unittest.TestCase):
                                question='Comment remplacer une APSA ?', passages=P)
         self.assertEqual(rep['status'], 'rendered')
         self.assertTrue(rep['kept'][0]['texte'].startswith('À Aix-Marseille, [Dossiers]'))
+
+
+class Dates(unittest.TestCase):
+    """Les dates sont le point faible : jour, mois, année et statut (échéance ou historique) contrôlés."""
+    import datetime
+    TODAY = datetime.date(2026, 10, 26)
+
+    def r(self, phrase, src, q=''):
+        return sa._date_reasons(sa._compact(phrase), sa._compact(src), q, today=self.TODAY)
+
+    def test_date_absente_de_la_fiche_refusee(self):
+        self.assertIn('date:absente:15 mars', self.r("Déposez le dossier avant le 15 mars.", "Déposer le dossier avant le 13 novembre 2026."))
+
+    def test_annee_changee_refusee(self):
+        self.assertTrue(any(x.startswith('date:annee_changee') for x in
+                            self.r("La CAHPN se réunit le 13 novembre 2026.", "CAHPN GT/pro le 13 novembre 2025.")))
+
+    def test_echeance_passee_refusee(self):
+        self.assertTrue(any(x.startswith('date:echeance_passee') for x in
+                            self.r("Faites la demande au plus tard le 30 mai.", "Demande d'activité établissement au plus tard le 30 mai 2026.")))
+
+    def test_echeance_a_venir_acceptee(self):
+        self.assertEqual(self.r("Déposez le dossier avant le 13 novembre 2026.", "Déposer le dossier avant le 13 novembre 2026."), [])
+
+    def test_date_historique_presentee_sans_le_dire_refusee(self):
+        src = "Calendrier historique du BA : CAHPN le 13 novembre 2025. Ces dates ne sont pas des échéances."
+        self.assertTrue(any(x.startswith('date:historique') for x in self.r("La CAHPN a lieu le 13 novembre.", src)))
+        self.assertEqual([x for x in self.r("Pour la session 2026, la CAHPN était le 13 novembre 2025.", src)
+                          if x.startswith('date:historique')], [])
+
+    def test_premier_du_mois(self):
+        self.assertEqual(self.r("Session ouverte le 1er juin 2027.", "Ouverture le 1er juin 2027."), [])

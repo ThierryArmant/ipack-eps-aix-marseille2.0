@@ -126,6 +126,47 @@ def _condition_in_question(branch, question):
     return found * 2 >= len(words)
 
 
+_MOIS = ('janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout',
+         'septembre', 'octobre', 'novembre', 'decembre')
+_DATE = r'\b(1er|\d{1,2})\s+(' + '|'.join(_MOIS) + r')\b(?:\s+(\d{4}))?'
+_ECHEANCE = r"avant le|au plus tard|jusqu.au|date limite|d.ici le|a rendre|a deposer le|a saisir le|doit etre (?:fait|depose|saisi|transmis|termine)"
+_HISTORIQUE_SOURCE = r"historique|ne sont pas des echeances|n.est pas une echeance|a titre d.exemple|par exemple|exemple|dans le cas decrit|dans l.echange"
+_HISTORIQUE_PHRASE = r"historique|exemple|a titre|dans le cas|l.an dernier|session (?:20\d\d)|en (?:20\d\d)|etait|a eu lieu|avait"
+
+
+def _date_reasons(p, source, question, today=None):
+    """Dates : point faible des réponses. Une date doit figurer telle quelle dans la fiche (jour, mois et
+    année), une date historique ou d'exemple n'est jamais présentée comme une échéance, une échéance
+    déjà passée n'est jamais présentée comme à venir."""
+    import datetime
+    today = today or datetime.date.today()
+    q = _compact(question)
+    reasons = []
+    for day, month, year in re.findall(_DATE, p):
+        d = '1' if day == '1er' else day
+        occ = [(m.group(1), m.start()) for m in re.finditer(r'\b(?:' + ('1er|1' if d == '1' else d) + r')\s+' + month + r'\b(?:\s+(\d{4}))?', source)]
+        in_question = re.search(r'\b(?:' + ('1er|1' if d == '1' else d) + r')\s+' + month + r'\b', q)
+        if not occ:
+            if not in_question:
+                reasons.append('date:absente:' + day + ' ' + month)
+            continue
+        if year and not any(y in (None, '', year) for y, _ in occ) and not in_question:
+            reasons.append('date:annee_changee:' + day + ' ' + month + ' ' + year)
+            continue
+        source_year = year or next((y for y, _ in occ if y), '')
+        around = ' '.join(source[max(0, i - 220):i + 120] for _, i in occ)
+        if re.search(_HISTORIQUE_SOURCE, around) and not re.search(_HISTORIQUE_PHRASE, p):
+            reasons.append('date:historique_sans_le_dire:' + day + ' ' + month)
+        if source_year and re.search(_ECHEANCE, p) and not re.search(_HISTORIQUE_PHRASE, p):
+            try:
+                when = datetime.date(int(source_year), _MOIS.index(month) + 1, int(d))
+            except ValueError:
+                continue
+            if when < today:
+                reasons.append('date:echeance_passee:' + day + ' ' + month + ' ' + source_year)
+    return reasons
+
+
 def unsupported(phrase, cited_text, question='', titles=''):
     """Raisons mécaniques de refuser une phrase (liste vide : phrase acceptée).
     question : nombres et objets déjà présents dans la demande ; titles : intitulés des passages cités."""
@@ -155,6 +196,7 @@ def unsupported(phrase, cited_text, question='', titles=''):
         if not re.search(r'(?<!\d)' + re.escape(number) + r'(?!\d)', source + ' ' + context) and not (
                 word and re.search(r'\b' + word + r'\b', source)) and number not in rounded:
             reasons.append('nombre:' + number)
+    reasons += _date_reasons(p, source, question)
     # Sigle ou format repris de la question mais absent des passages (ex. « PDF/A ») : prémisse non vérifiée.
     # Seulement les formats et références techniques (barre oblique ou chiffre : PDF/A, ISO9001) ;
     # un sigle ordinaire de la question (VTT, CO) n'est pas une prémisse.
@@ -246,6 +288,11 @@ AUTRE QUESTION (règle, droit, situation) : 2 à 4 phrases courtes, claires et d
 Réponds UNIQUEMENT à la situation de la question : n'ajoute aucun cas particulier que la question n'évoque pas
 (après validation, ajout en cours d'année, élève blessé ou inapte, autre diplôme, autre académie),
 même s'il figure dans les passages.
+DATES : ne donne une date que si elle est écrite dans le passage, avec le même jour, le même mois et la même année.
+Une date passée, historique ou donnée en exemple n'est jamais une échéance à respecter : dis qu'elle concerne
+la session ou l'année indiquée par le passage. Ne transpose jamais une date d'une session à une autre ni
+d'une académie à une autre ; si la date applicable n'est pas dans les passages, dis de la vérifier auprès
+du service indiqué.
 Quand un passage dit que l'enseignant « apprécie la situation » ou choisit entre plusieurs possibilités,
 donne toutes ces possibilités : n'en écarte aucune en l'appliquant toi-même à la situation
 (pas de « ce qui n'est pas le cas »).

@@ -3449,3 +3449,9 @@ Thierry signale blocage25 depuis8min, arrêt/export inaccessibles. Défaut confi
 - « Oui » retiré en tête d'une réponse à une question de généralisation (« tous », « toujours », « peut-on conclure »).
 - Consigne propre à une académie, académie non précisée : gardée et située (« À Aix-Marseille, … ») au lieu d'être rejetée ; toujours refusée pour une autre académie.
 - Réponse directe « qu'est-ce qu'une FCA » (fiche Dossier certificatif) ; message sans réponse : « adressez-vous au service… ».
+
+## 2026-10-26 20 h — dates contrôlées (point faible signalé)
+- Lot B 50 rejoué en 747aa5d : 43 J / 7 I / 0 F / 0 B (86 %).
+- short_answer.py `_date_reasons` : une date (jour + mois, avec année si écrite) doit figurer telle quelle dans le passage cité ; année changée refusée ; date d'un passage historique ou d'exemple refusée si la phrase ne le dit pas ; échéance déjà passée (« avant le », « au plus tard », « date limite »…) refusée si elle est présentée comme à venir.
+- Consigne DATES ajoutée au prompt du rédacteur : pas de transposition d'une session ou d'une académie à une autre.
+- Réponses directes du catalogue relues : les deux dates passées (BA 549) sont déjà présentées comme historiques.

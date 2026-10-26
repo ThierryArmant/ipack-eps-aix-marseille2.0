@@ -337,7 +337,6 @@ css_pur = f"""
         justify-content: center;
         text-align: center;
         flex-grow: 1;
-        padding-right: 35px; 
     }}
     
     .title-row {{
@@ -345,6 +344,13 @@ css_pur = f"""
         align-items: center;
         justify-content: center;
         gap: 15px;
+        position: relative;
+    }}
+    /* Le compteur ne décale pas le titre : il se place à droite, hors du centrage. */
+    .title-row .badge-visiteur {{
+        position: absolute;
+        left: calc(100% + 15px);
+        white-space: nowrap;
     }}
     
     .title-row h1 {{ 
@@ -1228,7 +1234,7 @@ if st.session_state.get("is_admin", False):
 st.markdown(
     f"""
     <div class="hub-header">
-        <div style="display: flex; align-items: center; width: 20%;">
+        <div style="display: flex; align-items: center; flex: 0 0 22%;">
             <img src="data:image/png;base64,{img_gauche}" height="60">
         </div>
         <div class="hub-title">
@@ -1238,7 +1244,7 @@ st.markdown(
             </div>
             <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
         </div>
-        <div style="display: flex; justify-content: flex-end; align-items: center; width: 25%; gap: 15px;">
+        <div style="display: flex; justify-content: flex-end; align-items: center; flex: 0 0 22%; gap: 15px;">
             <img src="data:image/jpeg;base64,{img_droite}" class="img-zoomable" height="55">
         </div>
     </div>

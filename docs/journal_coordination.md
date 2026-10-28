@@ -3524,3 +3524,7 @@ Thierry a fourni les pages officielles Aix-Marseille des aménagements, inscript
 ## 2026-10-28 — GPT : Grist et protection des données, demande de Thierry
 
 Lecture du journal publié et départ isolé sur HEAD 66366e8 ; anciens espaces préservés. La fiche générale outils numériques/RGPD existait déjà ; ajout d'une fiche complémentaire Grist, référencée au catalogue Textes (domaine 11), sans réponse en dur ni changement des filtres. Grist figure sur le portail Apps Éducation et dans ÉduNum économie-gestion n° 63 (novembre 2025, p. 5). Cette lettre n'est pas une circulaire. Aucune circulaire propre à Grist identifiée lors des recherches : ne pas en inventer ni affirmer leur inexistence. Cadre applicable : RGPD, recommandations CNIL pour les outils collaboratifs (24 août 2026), rôle du responsable et du DPD selon Éduscol ; documentation Grist distincte pour partage et règles d'accès. Pas de certification générale de l'outil ou de son hébergement. Le rejet transmis n'a pas de trace technique : sa cause n'est pas démontrée et l'ajout de la fiche ne prouve pas qu'il disparaît. Aucun appel IA ni rejeu.
+
+## 2026-10-28 — GPT : définition de Grist en ouverture de fiche
+
+À la demande de Thierry, ajout de la définition de Grist (tableur collaboratif avec tables reliées et droits d'accès), d'exemples d'usage et de la source institutionnelle de l'Incubateur du ministère. Complément documentaire uniquement ; aucun appel IA ni rejeu.

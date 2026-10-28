@@ -1,5 +1,9 @@
 ### Grist : protéger les données dans un usage scolaire ou administratif
 [PORTEE: dnb, gt, pro, cap]
+### Qu'est-ce que Grist ?
+Grist est un tableur collaboratif qui associe une présentation en lignes et colonnes à des fonctions de base de données : plusieurs tables peuvent être reliées pour organiser et exploiter des informations. Plusieurs collègues peuvent travailler sur un même document avec des droits de consultation ou de modification définis. Il peut servir, par exemple, à suivre des projets ou organiser des informations administratives. Il est proposé aux agents via Apps Éducation ; les usages portant sur des données d'élèves restent soumis aux règles de protection des données.
+Source institutionnelle de la définition : Incubateur du ministère de l'Éducation nationale, rubrique Grist : https://incubateur.education.gouv.fr/glossaire/ ; présentation des outils : https://incubateur.education.gouv.fr/methodes-et-outils/
+
 Question courte : « Protéger données Grist ». Préciser l'instance utilisée (adresse du service), les catégories de données et les destinataires, sans demander de données nominatives. Une demande scolaire de protection des données relève du numérique éducatif.
 
 ### Où le ministère parle-t-il de Grist ?

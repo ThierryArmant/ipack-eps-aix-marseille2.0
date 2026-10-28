@@ -3,11 +3,11 @@
  * Ajouter dans Code.gs après JSON.parse :
  * if (data.question && data.reponse && data.trace_json) return hubJournalWithTrace_(data);
  * Conserver les autres actions du doPost existant.
- * Activer seulement après vérification des accès restreints du classeur.
+ * JSON dans un dossier Drive privé ; lien seul dans le journal.
  * Pas de lecture des traces par HTTP.
  */
 const HUB_SHEET_ID = '1kY1NMmAQcwkqkZTAWheIYeg_Jcc1M8Qh6UrhJsEc8eI';
-const HUB_TRACE_CELL_LIMIT = 40000; // unités UTF-16, sous la limite des cellules
+const HUB_TRACE_FOLDER_ID = '1m0lZOttwsnYTcsPjVXzqySS6uWCyCsZa';
 
 function hubJournalWithTrace_(p) {
   const lock = LockService.getScriptLock();
@@ -19,7 +19,7 @@ function hubJournalWithTrace_(p) {
     let headers = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
     const names = ['Date','Question','Mode','Niveau','Contexte','Réponse','Académie','Version',
       'Appels IA','Jetons entrée','Jetons sortie','Durée IA (s)','Cache','Modèles IA',
-      'Secours GPT','ID essai','Trace JSON','Trace statut','Trace SHA256'];
+      'Secours GPT','ID essai','Trace JSON (lien)','Trace statut','Trace SHA256'];
     names.forEach(name => { if (headers.indexOf(name) < 0) headers.push(name); });
     if (headers.length > sheet.getMaxColumns()) sheet.insertColumnsAfter(sheet.getMaxColumns(), headers.length - sheet.getMaxColumns());
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
@@ -37,21 +37,17 @@ function hubJournalWithTrace_(p) {
       if (hash !== p.trace_sha256) throw new Error('Empreinte incohérente');
       values['ID essai'] = p.id_essai;
       values['Trace SHA256'] = hash;
-      if (p.trace_json.length <= HUB_TRACE_CELL_LIMIT) {
-        values['Trace JSON'] = p.trace_json;
-        values['Trace statut'] = 'complète';
-      } else {
-        const parts = splitTrace_(p.trace_json);
-        const target = book.getSheetByName('Traces') || book.insertSheet('Traces');
-        if (!target.getLastRow()) target.appendRow(['ID essai','Partie','Total','Fragment JSON','SHA256']);
-        const first = target.getLastRow() + 1;
-        const rows = parts.map((part, i) => [p.id_essai, i + 1, parts.length, literal_(part), hash]);
-        if (first + rows.length - 1 > target.getMaxRows()) target.insertRowsAfter(target.getMaxRows(), first + rows.length - 1 - target.getMaxRows());
-        target.getRange(first, 1, rows.length, 5).setValues(rows);
-        values['Trace JSON'] = JSON.stringify({storage:'Traces',id_essai:p.id_essai,parts:parts.length,sha256:hash});
-        values['Trace statut'] = 'complète — onglet Traces';
+      try {
+        const folder = DriveApp.getFolderById(HUB_TRACE_FOLDER_ID);
+        // Hérite des accès du dossier ; aucun partage par lien ajouté.
+        const file = folder.createFile('trace_' + p.id_essai + '.json', p.trace_json, 'application/json');
+        values['Trace JSON (lien)'] = file.getUrl();
+        values['Trace statut'] = 'JSON enregistré';
+        saved = true;
+      } catch (error) {
+        values['Trace statut'] = 'Échec JSON — accès Drive à vérifier';
+        console.error('Création de la trace impossible : ' + error.name);
       }
-      saved = true;
     } else values['Trace statut'] = 'non fournie';
     // Échapper les préfixes de formule dans les contenus reçus.
     const row = headers.map(h => literal_(values[h] == null ? '' : values[h]));
@@ -65,20 +61,14 @@ function hubJournalWithTrace_(p) {
   } finally { lock.releaseLock(); }
 }
 
-function splitTrace_(text) {
-  const parts = [];
-  for (let start = 0; start < text.length;) {
-    let end = Math.min(start + HUB_TRACE_CELL_LIMIT, text.length);
-    // Ne pas couper une paire de substitution (emoji).
-    if (end < text.length && /[\uD800-\uDBFF]/.test(text[end - 1])) end--;
-    parts.push(text.slice(start, end));
-    start = end;
-  }
-  return parts;
-}
 function literal_(value) {
   return typeof value === 'string' && /^[=+@-]/.test(value) ? "'" + value : value;
 }
 function json_(value) {
   return ContentService.createTextOutput(JSON.stringify(value)).setMimeType(ContentService.MimeType.JSON);
+}
+
+// Vérification des accès uniquement : aucune génération IA, aucune création de fichier.
+function verifierAccesDossierTraces() {
+  console.log('Dossier accessible : ' + DriveApp.getFolderById(HUB_TRACE_FOLDER_ID).getName());
 }

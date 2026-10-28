@@ -6611,6 +6611,16 @@
    ],
    "portee_texte": null,
    "titre": "Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement"
+  },
+  "data/textes/situations_2026_10_28/grist_protection_donnees.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Grist : protection des données scolaires, textes et droits d’accès"
   }
  }
 }

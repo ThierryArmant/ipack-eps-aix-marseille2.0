@@ -1454,6 +1454,35 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/situations_2026_10_28/grist_protection_donnees.txt",
+      "title": "Grist : protection des données scolaires, textes et droits d’accès",
+      "domaine": "11_numerique",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://incubateur.education.gouv.fr/glossaire/",
+        "https://incubateur.education.gouv.fr/methodes-et-outils/",
+        "https://projet.apps.education.fr/",
+        "https://eduscol.education.gouv.fr/media/123136/download?attachment=",
+        "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2",
+        "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3",
+        "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4",
+        "https://www.cnil.fr/fr/reglement-europeen-protection-donnees",
+        "https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs",
+        "https://eduscol.education.gouv.fr/4935/delegues-la-protection-des-donnees-dpd",
+        "https://support.getgrist.com/sharing/",
+        "https://support.getgrist.com/access-rules/"
+      ],
+      "statut": "sources_officielles_consultees_2026-10-28",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/sorties_encadrement_2024.txt",
       "title": "Sorties au second degré : autorisation et encadrement général",
       "domaine": "06_sorties_transports",
@@ -1485,20 +1514,6 @@
         "https://eduscol.education.fr/document/52179/download"
       ],
       "statut": "textes_fournis_par_thierry_2026-10-19",
-      "recherche_active": true,
-      "remplace_par": null,
-      "controle_a_poursuivre": false
-    },
-    {
-      "path": "data/textes/situations_2026_10_28/grist_protection_donnees.txt",
-      "title": "Grist : protection des données scolaires",
-      "domaine": "11_numerique",
-      "publics_explicites": [],
-      "sources": [
-        "https://projet.apps.education.fr/",
-        "https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs"
-      ],
-      "statut": "sources_officielles_consultees_2026-10-28",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false

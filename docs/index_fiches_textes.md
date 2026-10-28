@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-96 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+97 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -142,13 +142,14 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]](../data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]](../data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt) | gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 
-## Données personnelles, images et intelligence artificielle (3)
+## Données personnelles, images et intelligence artificielle (4)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
 | [Données des élèves : outils numériques, images et responsabilité](../data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Photographier ou filmer des élèves : droit à l'image](../data/textes/fiches/droit_image_eleves_photos_videos.txt) | primaire, dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Usage pédagogique d’un système automatisé : données et évaluation](../data/textes/fiches/ia_usages_pedagogiques.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
+| [Grist : protection des données scolaires, textes et droits d’accès](../data/textes/situations_2026_10_28/grist_protection_donnees.txt) | dnb, gt, pro, cap | 12 | Références présentes ; statut détaillé au catalogue |
 
 ## Repères transversaux, dispositifs et circuits académiques (5)
 

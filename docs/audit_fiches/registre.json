@@ -6949,7 +6949,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt",
-      "sha256": "1b73b88c07fedbda8890701bdafc30cc8554067c65c3ab09545166845b2dbac5",
+      "sha256": "d5da8972d37173b21464897a01b29b2a197bfad689b4c4b22fc68cc068cea4e6",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "synthese_non_revalidee",
@@ -10996,7 +10996,7 @@
     },
     {
       "path": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
-      "sha256": "8c508c654895414330868b30cf13ab1b8909ca4ad69e7b29e4e3d3c1ca3ef367",
+      "sha256": "bcbeaabaf4df2febda78b756860b18cecadf3484af11a9c4f32571177135429e",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "releve_ecran_correspondant_2026-10-18",

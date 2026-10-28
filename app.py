@@ -1,4 +1,5 @@
 from pathlib import Path
+from sheet_trace import make_trace_payload
 from question_normalization import normalise_question
 import academie
 import knowledge_catalog
@@ -88,7 +89,7 @@ def _texte_simple_pour_journal(texte):
     return t.strip()
 
 
-def log_interaction(question, reponse, mode="", contexte="", niveau="", usage=None, academie="", version=""):
+def log_interaction(question, reponse, mode="", contexte="", niveau="", usage=None, academie="", version="", trace_fields=None):
     reponse = _texte_simple_pour_journal(reponse)
     usage = usage or {}
     payload = {
@@ -108,8 +109,17 @@ def log_interaction(question, reponse, mode="", contexte="", niveau="", usage=No
         "secours_gpt": "oui" if usage.get("fallback_used") else "",
         "cache": "oui" if usage.get("cache_hit") else ""
     }
+    payload.update(trace_fields or {})
     try:
-        requests.post(WEBHOOK_URL, json=payload, timeout=10)
+        result = requests.post(WEBHOOK_URL, json=payload, timeout=10)
+        result.raise_for_status()
+        if trace_fields:
+            try:
+                receipt = result.json()
+            except ValueError:
+                receipt = {}
+            if not receipt.get("trace_saved") or receipt.get("id_essai") != trace_fields["id_essai"]:
+                print("Journal : réception de la trace non confirmée (script Google à vérifier).")
     except Exception as e:
         print(f"Erreur de log Google Sheet : {e}")
 
@@ -2997,23 +3007,23 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
             f'<div class="{color_card}">{phrase_contexte}<strong>{badge} :</strong><br>{texte_final}{bloc_sources}{footer_assistance}{bloc_diag}</div>'
         )
 
-        # Même journal pour les questions des collègues et les rejeux administrateur.
-        log_interaction(
-            question=prompt,
-            reponse=texte_brut,
-            mode=mode,
-            contexte=contexte_choisi_nom,
-            niveau=niveau_actuel_form,
-            usage=usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None,
-            academie=academie_reponse,
-            version=_sha
-        )
-
+        # Finaliser le diagnostic avant l'envoi, pour tous les visiteurs.
         if diagnostic_ia is not None:
             diagnostic_ia['usage_response'] = usage_summary(usage_ia)
             diagnostic_ia['answer_after_controls'] = texte_brut
             diagnostic_ia['displayed_body'] = texte_final
             diagnostic_ia['sources_affichees_finales'] = sources_consultees
+        _trace_fields = make_trace_payload(
+            question=prompt, answer=texte_brut, mode=mode, public=niveau_actuel_form,
+            academy=academie_reponse, version=_sha, origin=origine_reponse,
+            diagnostic=diagnostic_ia, usage=usage_ia)
+        # Même journal pour les questions des collègues et les rejeux administrateur.
+        log_interaction(
+            question=prompt, reponse=texte_brut, mode=mode,
+            contexte=contexte_choisi_nom, niveau=niveau_actuel_form,
+            usage=usage_summary(usage_ia) if mode in ("examens", "ipack", "textes") else None,
+            academie=academie_reponse, version=_sha, trace_fields=_trace_fields)
+
         st.session_state.messages_hub.append(
             {"role": "assistant", "type": "text", "content": formatted_answer,
              "aide_reperage": (_guide_demande or offer_navigation_help(mode, niveau_actuel_form, origine_reponse, texte_brut)
@@ -3113,7 +3123,7 @@ if "messages_hub" in st.session_state and st.session_state.messages_hub:
                 except (OSError, ValueError, KeyError, AttributeError, TypeError):
                     st.warning("Contrôle pilote indisponible ; la réponse reste inchangée.")
                 with st.expander("Trace exacte des appels IA et vérification des affirmations"):
-                    st.caption("Le programme contrôle l'existence des passages et fixe les étiquettes de source. L'interprétation et l'applicabilité de la rédaction ne sont pas prouvées automatiquement. Cette trace reste dans la session administrateur.")
+                    st.caption("Le programme contrôle l'existence des passages et fixe les étiquettes de source. L'interprétation et l'applicabilité de la rédaction ne sont pas prouvées automatiquement. Cette trace est également transmise au journal privé pour analyse.")
                     st.download_button("Télécharger la trace de cette réponse", json.dumps(m["diagnostic_ia"], ensure_ascii=False, indent=2),
                                        file_name="trace_lecture_ia.json", mime="application/json", key="trace_ia_" + str(id(m)), on_click="ignore")
                     st.json(m["diagnostic_ia"])
@@ -3148,7 +3158,7 @@ with st.container(key="notice_rgpd"), st.expander(
     <h3 style="color:#38BDF8;font-size:16px;">Protégez les élèves et les autres personnes</h3>
     <p><strong>Ne saisissez aucun nom, prénom ni information permettant d’identifier un élève, une famille, un collègue ou toute autre personne.</strong> Vérifiez également les textes copiés-collés. Retirez les coordonnées, identifiants, numéros d’élève, photographies et signatures. Ne transmettez pas de certificats médicaux, de diagnostics individuels, de bulletins nominatifs ni de documents confidentiels. Décrivez uniquement les éléments nécessaires à votre question, par exemple « un élève de troisième ». Le retrait du nom ne suffit pas si les autres détails permettent de reconnaître la personne.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Utilisation des échanges</h3>
-    <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés. Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
+    <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés, ainsi qu’un identifiant aléatoire d’essai et une trace technique (fiches et passages transmis, rédaction, contrôles et consommation IA lorsqu’ils sont disponibles). Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
     <p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Accès et services utilisés</h3>
     <p>L’accès au journal est limité aux deux personnes chargées du SAV iPackEPS. Les services mobilisés sont Streamlit pour l’hébergement et l’exécution de l’application, OpenAI pour la recherche documentaire et la sélection des fiches, Albert API pour la rédaction des réponses (OpenAI en secours technique), et Google Apps Script et Google Sheets pour l’enregistrement des échanges. GitHub héberge le code et les ressources documentaires.</p>

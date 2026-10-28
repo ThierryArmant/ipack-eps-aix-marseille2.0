@@ -3528,3 +3528,9 @@ Lecture du journal publié et départ isolé sur HEAD 66366e8 ; anciens espaces 
 ## 2026-10-28 — GPT : définition de Grist en ouverture de fiche
 
 À la demande de Thierry, ajout de la définition de Grist (tableur collaboratif avec tables reliées et droits d'accès), d'exemples d'usage et de la source institutionnelle de l'Incubateur du ministère. Complément documentaire uniquement ; aucun appel IA ni rejeu.
+
+## 2026-10-28 — GPT : préparation de l'export JSON des traces vers le journal
+
+Demande de Thierry : conserver les traces des questions réelles sans rejeu. Ajout d'un identifiant aléatoire, JSON complet du diagnostic existant (sélection, passages, appels, contrôles et réponse selon les branches), empreinte SHA256 et contexte à l'envoi webhook. Diagnostic finalisé avant envoi ; réponses sans génération marquées explicitement. Aucune nouvelle génération IA. Information des utilisateurs complétée. Le récepteur `integrations/google_sheets_trace.gs` conserve les colonnes existantes par leur en-tête ; JSON long réparti dans un onglet Traces (fragments de 40 000 unités UTF-16), identifiant et empreinte dans la ligne principale. Aucun fichier Drive ni partage public supplémentaire. Trois tests Python, test réel du récepteur avec doubles Sheets (court/long/emoji/formule/empreinte), syntaxe et diff réussis.
+
+IMPORTANT : l'envoi de champs supplémentaires ne prouve pas leur sauvegarde. Le Google Apps Script en production doit être inspecté, adapté et redéployé ; le connecteur Drive ne donne pas accès à son code. Tant qu'aucun accusé `trace_saved` avec le bon identifiant n'est reçu, le programme signale la réception non confirmée dans les logs. Mise en service complète NON vérifiée ; ne pas demander de rejeu payant pour cette activation. Ne pas reconstituer les anciennes traces absentes.

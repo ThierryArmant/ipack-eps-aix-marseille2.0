@@ -1,15 +1,18 @@
 /** Récepteur du journal Hub. Projet lié au Sheet « questions hub ».
  * Déploiement : application Web, exécuter en tant que propriétaire.
- * Ne pas modifier le partage privé du classeur. Pas de lecture des traces par HTTP.
+ * Ajouter dans Code.gs après JSON.parse :
+ * if (data.question && data.reponse && data.trace_json) return hubJournalWithTrace_(data);
+ * Conserver les autres actions du doPost existant.
+ * Activer seulement après vérification des accès restreints du classeur.
+ * Pas de lecture des traces par HTTP.
  */
 const HUB_SHEET_ID = '1kY1NMmAQcwkqkZTAWheIYeg_Jcc1M8Qh6UrhJsEc8eI';
 const HUB_TRACE_CELL_LIMIT = 40000; // unités UTF-16, sous la limite des cellules
 
-function doPost(e) {
+function hubJournalWithTrace_(p) {
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);
   try {
-    const p = JSON.parse(e.postData.contents);
     const book = SpreadsheetApp.openById(HUB_SHEET_ID);
     const sheet = book.getSheetByName('Feuille 1');
     if (!sheet) throw new Error('Onglet journal absent');
@@ -50,9 +53,11 @@ function doPost(e) {
       }
       saved = true;
     } else values['Trace statut'] = 'non fournie';
-    // setValues n'interprète aucun contenu reçu comme formule.
+    // Échapper les préfixes de formule dans les contenus reçus.
     const row = headers.map(h => literal_(values[h] == null ? '' : values[h]));
-    sheet.getRange(sheet.getLastRow() + 1, 1, 1, row.length).setValues([row]);
+    // Conserver l'ordre du journal existant : la plus récente en ligne 2.
+    sheet.insertRowAfter(1);
+    sheet.getRange(2, 1, 1, row.length).setValues([row]);
     return json_({ok:true, trace_saved:saved, id_essai:p.id_essai || ''});
   } catch (error) {
     console.error('Échec du journal Hub : ' + error.name);

@@ -24,3 +24,7 @@ Les autres fonctions restent inchangées. Les réponses récentes sont insérée
 ## Mise à jour vérifiée — 28 octobre, 23 h 48
 
 Le déploiement Web actif est désormais la **version 16** (même URL). Le correctif qui conserve la ligne en cas d'échec Drive est déployé. Un POST synthétique sans IA a renvoyé `ok:true, trace_saved:false` ; la ligne a été vérifiée dans le Sheet avec sa question, sa réponse, son identifiant, son empreinte et le statut « Échec JSON — accès Drive à vérifier ». Le lien reste vide, aucune création de JSON n'étant confirmée. Les paragraphes ci-dessus sur la version 15 décrivent l'état antérieur. La validation OAuth Drive par le propriétaire reste nécessaire ; ne pas annoncer les traces comme opérationnelles avant un fichier et son lien vérifiés.
+## 28 octobre, 23 h 55 (Claude)
+- Autorisation Drive accordée par Thierry en lecture seulement : `verifierAccesDossierTraces` réussit, mais `createFile` échoue (« Autorisations requises : …/auth/drive »). La ligne du Sheet est bien conservée avec le statut « Échec JSON — accès Drive à vérifier » (essais TEST TECHNIQUE en versions 17 et 18).
+- Versions Web 17 puis 18 déployées sur la même URL ; la 18 journalise le message d'erreur Drive.
+- Ajout de `verifierCreationTrace` (crée un fichier de test dans le dossier privé puis le met à la corbeille) pour redemander l'autorisation en écriture. En attente de l'accord de Thierry ; l'installation n'est pas déclarée opérationnelle.

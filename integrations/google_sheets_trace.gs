@@ -46,7 +46,7 @@ function hubJournalWithTrace_(p) {
         saved = true;
       } catch (error) {
         values['Trace statut'] = 'Échec JSON — accès Drive à vérifier';
-        console.error('Création de la trace impossible : ' + error.name);
+        console.error('Création de la trace impossible : ' + error.name + ' — ' + error.message);
       }
     } else values['Trace statut'] = 'non fournie';
     // Échapper les préfixes de formule dans les contenus reçus.
@@ -71,4 +71,13 @@ function json_(value) {
 // Vérification des accès uniquement : aucune génération IA, aucune création de fichier.
 function verifierAccesDossierTraces() {
   console.log('Dossier accessible : ' + DriveApp.getFolderById(HUB_TRACE_FOLDER_ID).getName());
+}
+
+// Vérification de l'écriture : crée un petit fichier de test dans le dossier privé puis le met à la corbeille.
+// À lancer depuis l'éditeur : déclenche la demande d'autorisation Drive en écriture si elle manque.
+function verifierCreationTrace() {
+  const file = DriveApp.getFolderById(HUB_TRACE_FOLDER_ID)
+    .createFile('test_ecriture_trace.json', '{"test":true}', 'application/json');
+  console.log('Écriture autorisée : ' + file.getName());
+  file.setTrashed(true);
 }

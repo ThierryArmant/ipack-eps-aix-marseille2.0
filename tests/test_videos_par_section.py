@@ -37,3 +37,13 @@ class VideosParSectionTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class VideoImportEleves(unittest.TestCase):
+    def test_videos_rattachees(self):
+        import json
+        c = json.load(open('config/catalogue_documents.json', encoding='utf-8'))
+        classes = c['data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt']['tutoriels']
+        self.assertEqual(classes[0]['url'], 'https://www.youtube.com/watch?v=tu8J1RBUTwk')
+        pronote = c['data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt']['tutoriels']
+        self.assertEqual(pronote[0]['url'], 'https://www.youtube.com/watch?v=RlScDjd8kHk')

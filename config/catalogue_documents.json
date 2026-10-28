@@ -1411,7 +1411,12 @@
     "title": "[ARTICLE 14] [Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves",
     "statut": "synthese_non_revalidee",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "tutoriels": [
+      {
+        "url": "https://www.youtube.com/watch?v=tu8J1RBUTwk"
+      }
+    ]
   },
   "data/ipack/fiches/ipack_061_article_15_dossiers_dossiereps_apsas_declaration_des_apsas.txt": {
     "title": "[ARTICLE 15] [Dossiers]/[DossierEPS]/[APSAs] Déclaration des APSAs",
@@ -1475,6 +1480,14 @@
     ],
     "exclure_motifs": [
       "\\bnotes?\\b|moyenne|bulletin|resultat|appreciation"
+    ],
+    "tutoriels": [
+      {
+        "url": "https://www.youtube.com/watch?v=RlScDjd8kHk",
+        "motifs": [
+          "PRONOTE|Pronote|CSV|Importer un fichier|pas été retrouvées|n.ont pas été retrouv"
+        ]
+      }
     ]
   },
   "data/ipack/fiches/ipack_067_article_19_dossiers_dossiereps_equipements_gestion_des_equipements_sportifs.txt": {
@@ -7413,6 +7426,12 @@
       "ipack"
     ],
     "tutoriels": [
+      {
+        "url": "https://www.youtube.com/watch?v=tu8J1RBUTwk",
+        "motifs": [
+          "Configuration des Classes|Organisation des Classes|Importation des [ÉE]l[èe]ves|\\[Actualiser\\]|\\[Importer\\]"
+        ]
+      },
       {
         "url": "https://youtu.be/-Ka0fNtMLBk",
         "motifs": [

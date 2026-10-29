@@ -28,3 +28,8 @@ Le déploiement Web actif est désormais la **version 16** (même URL). Le corre
 - Autorisation Drive accordée par Thierry en lecture seulement : `verifierAccesDossierTraces` réussit, mais `createFile` échoue (« Autorisations requises : …/auth/drive »). La ligne du Sheet est bien conservée avec le statut « Échec JSON — accès Drive à vérifier » (essais TEST TECHNIQUE en versions 17 et 18).
 - Versions Web 17 puis 18 déployées sur la même URL ; la 18 journalise le message d'erreur Drive.
 - Ajout de `verifierCreationTrace` (crée un fichier de test dans le dossier privé puis le met à la corbeille) pour redemander l'autorisation en écriture. En attente de l'accord de Thierry ; l'installation n'est pas déclarée opérationnelle.
+
+## 29 octobre, 7 h 25 (Claude) — installation opérationnelle
+- Autorisation Drive en écriture accordée par Thierry ; `verifierCreationTrace` réussit (fichier de test créé puis mis à la corbeille).
+- Essai TEST TECHNIQUE sur la version Web 18 : accusé `trace_saved:true`, ligne du Sheet avec lien Drive, statut « JSON enregistré », SHA256 identique à celui envoyé ; contenu JSON (accents et émoji) intact ; permissions du fichier héritées du dossier (propriétaire + lecteur nommé), aucun partage par lien.
+- Rien à redéployer côté hub : même URL de webhook.

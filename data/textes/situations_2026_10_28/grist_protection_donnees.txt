@@ -4,7 +4,12 @@
 Grist est un tableur collaboratif qui associe une présentation en lignes et colonnes à des fonctions de base de données : plusieurs tables peuvent être reliées pour organiser et exploiter des informations. Plusieurs collègues peuvent travailler sur un même document avec des droits de consultation ou de modification définis. Il peut servir, par exemple, à suivre des projets ou organiser des informations administratives. Il est proposé aux agents via Apps Éducation ; les usages portant sur des données d'élèves restent soumis aux règles de protection des données.
 Source institutionnelle de la définition : Incubateur du ministère de l'Éducation nationale, rubrique Grist : https://incubateur.education.gouv.fr/glossaire/ ; présentation des outils : https://incubateur.education.gouv.fr/methodes-et-outils/
 
-Question courte : « Protéger données Grist ». Préciser l'instance utilisée (adresse du service), les catégories de données et les destinataires, sans demander de données nominatives. Une demande scolaire de protection des données relève du numérique éducatif.
+### Réglages pratiques pour limiter les accès dans Grist
+Ces indications viennent de la documentation du logiciel, pas d'une circulaire. Les libellés peuvent varier selon l'instance et la langue.
+Dans [Gérer les utilisateurs] (Manage Users), contrôler les destinataires et leurs rôles. Pour des données nominatives, désactiver le partage public et limiter les invitations aux personnes habilitées : un lien public peut être ouvert sans connexion.
+Si des collègues doivent accéder à des parties différentes, le propriétaire configure les [Règles d'accès] (Access Rules), enregistre les modifications, puis teste les droits avec [View As]. Vérifier aussi les données brutes accessibles. Un simple filtre d'affichage ne remplace pas des règles d'accès.
+Limiter les propriétaires : ils disposent de pouvoirs étendus. Les droits de structure permettent de modifier les formules et peuvent contourner les restrictions de lecture ; ne pas les accorder à une personne dont l'accès doit rester limité.
+Documentation : https://support.getgrist.com/sharing/ ; https://support.getgrist.com/access-rules/
 
 ### Où le ministère parle-t-il de Grist ?
 Le portail officiel Apps Éducation présente Grist parmi les applications externes proposées, pour la gestion de données de l'administration. La lettre ÉduNum économie et gestion n° 63, novembre 2025, page 5, présente Docs et Grist (bêta) sur apps.education.fr et évoque les usages pédagogiques. Cette lettre est une publication d'information pédagogique, pas une circulaire réglementaire ni une autorisation générale de stocker toutes les données d'élèves.
@@ -19,13 +24,6 @@ Aucune circulaire spécifiquement consacrée à Grist n'a été identifiée dans
 Selon la CNIL (24 août 2026), le responsable du traitement doit déterminer la base légale, informer les personnes, examiner les garanties contractuelles du fournisseur et les transferts éventuels. Une AIPD est requise en cas de risque élevé. L'accord parental ne remplace pas ces obligations.
 Présenter le projet au chef d'établissement et au DPD académique : finalité, données nécessaires, accès, instance et conservation envisagée. Éduscol indique que le DPD est associé aux nouveaux traitements ; pour les traitements de l'EPLE, le chef d'établissement est responsable du traitement. Ne pas assimiler le conseil du DPD à une certification générale de Grist.
 Références : CNIL, outils collaboratifs dans les premier et second degrés : https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs ; Éduscol, Délégués à la protection des données : https://eduscol.education.gouv.fr/4935/delegues-la-protection-des-donnees-dpd
-
-### Réglages pratiques pour limiter les accès dans Grist
-Ces indications viennent de la documentation du logiciel, pas d'une circulaire. Les libellés peuvent varier selon l'instance et la langue.
-Dans [Gérer les utilisateurs] (Manage Users), contrôler les destinataires et leurs rôles. Pour des données nominatives, désactiver le partage public et limiter les invitations aux personnes habilitées : un lien public peut être ouvert sans connexion.
-Si des collègues doivent accéder à des parties différentes, le propriétaire configure les [Règles d'accès] (Access Rules), enregistre les modifications, puis teste les droits avec [View As]. Vérifier aussi les données brutes accessibles. Un simple filtre d'affichage ne remplace pas des règles d'accès.
-Limiter les propriétaires : ils disposent de pouvoirs étendus. Les droits de structure permettent de modifier les formules et peuvent contourner les restrictions de lecture ; ne pas les accorder à une personne dont l'accès doit rester limité.
-Documentation : https://support.getgrist.com/sharing/ ; https://support.getgrist.com/access-rules/
 
 ### Limites de cette fiche
 La disponibilité de Grist sur Apps Éducation ne démontre pas la conformité de chaque document ni de chaque instance commerciale ou auto-hébergée. La fiche ne certifie ni un hébergement particulier ni l'autorisation d'y déposer des certificats médicaux. Une question sur ces données nécessite l'examen du traitement précis avec le responsable et le DPD.

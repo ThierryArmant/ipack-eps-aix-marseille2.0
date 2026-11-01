@@ -3596,3 +3596,7 @@ Correction **uniquement documentaire** : retirer le paragraphe « Question court
 Validation hors IA : 100 formulations extraites des tests du dépôt (hors Grist), 300 contextes comparés avec l'ancienne et la nouvelle fiche : aucun changement du contexte prioritaire. Ce ne sont pas les 100 réponses utiles historiques : leur ancien fichier local n'était plus accessible. Contrôle des paragraphes : seul le guidage éditorial est retiré, aucun paragraphe métier ajouté ; les réglages existants sont seulement déplacés. Suite complète 1 332 tests réussis ; après retrait de la consigne préparatoire, 14 tests de sélection exacte et 2 tests de nature des sources réussis, diff propre. Aucun appel IA ni rejeu, aucune preuve revendiquée d'une meilleure génération réelle ; la prochaine trace réelle permettra de vérifier les passages choisis.
 
 Question distincte de Thierry sur le délai des JSON : l'envoi du journal est synchrone, avant ajout du message assistant, via requests.post(timeout=10). L'écriture Drive peut donc ajouter de l'attente ; la durée IA du Sheet exclut cette partie. Aucun temps ajouté n'a été mesuré ni modification asynchrone effectuée dans cette publication. L'intégration Drive version 18 validée par Claude est conservée.
+
+## 2026-11-01 — Veille mensuelle
+
+Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passage, état de référence ; BO et Éduscol non lisibles directement, repérage par recherche).

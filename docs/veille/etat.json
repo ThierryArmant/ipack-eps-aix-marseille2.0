@@ -1,0 +1,60 @@
+{
+  "dernier_passage": "2026-11-01",
+  "bo_dernier_numero_repere": "n° 41 du 29 octobre 2026 (sommaire non lu, à vérifier)",
+  "sources_inaccessibles": [
+    "BO (lecture directe)",
+    "Éduscol (lecture directe)"
+  ],
+  "elements": [
+    {
+      "titre": "Évaluation de l'éducation physique et sportive aux baccalauréats général et technologique",
+      "date": "2026-02-26",
+      "url": "https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N",
+      "source": "BO",
+      "nor": "MENE2531948N"
+    },
+    {
+      "titre": "Épreuve terminale de l'enseignement de spécialité éducation physique, pratiques et culture sportives (EPPCS)",
+      "date": "à vérifier",
+      "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2622650N",
+      "source": "BO",
+      "nor": "MENE2622650N"
+    },
+    {
+      "titre": "Bulletin académique spécial n° 549 — Épreuves certificatives d'EPS",
+      "date": "2025-10-17",
+      "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf",
+      "source": "Académie Aix-Marseille"
+    },
+    {
+      "titre": "Éducation physique et sportive (portail Éduscol)",
+      "date": "à vérifier",
+      "url": "https://eduscol.education.gouv.fr/4434/education-physique-et-sportive",
+      "source": "Éduscol"
+    },
+    {
+      "titre": "Programmes et ressources en EPS - voie GT",
+      "date": "à vérifier",
+      "url": "https://eduscol.education.gouv.fr/5784/programmes-et-ressources-en-education-physique-et-sportive-eps-voie-gt",
+      "source": "Éduscol"
+    },
+    {
+      "titre": "30 minutes d'activité physique quotidienne en complément de l'EPS",
+      "date": "à vérifier",
+      "url": "https://eduscol.education.fr/2569/30-minutes-d-activite-physique-quotidienne",
+      "source": "Éduscol"
+    },
+    {
+      "titre": "Évaluation des aptitudes physiques des élèves de sixième",
+      "date": "à vérifier",
+      "url": "https://eduscol.education.fr/4238/evaluation-des-aptitudes-physiques-des-eleves-de-6e",
+      "source": "Éduscol"
+    },
+    {
+      "titre": "Journée nationale du sport scolaire",
+      "date": "à vérifier",
+      "url": "https://eduscol.education.fr/3475/journee-nationale-du-sport-scolaire",
+      "source": "Éduscol"
+    }
+  ]
+}

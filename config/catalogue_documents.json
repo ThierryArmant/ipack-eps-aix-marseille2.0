@@ -2807,7 +2807,11 @@
     ],
     "url": "https://www.education.gouv.fr/bo/14/Hebdo22/MENE1406107C.htm",
     "date_verification": "2026-10-16",
-    "domaine_textes": "04_vie_etablissement"
+    "domaine_textes": "04_vie_etablissement",
+    "exclure_motifs": [
+      "(?=.*(?:enseignants?|professeurs?|\\bprofs?\\b|collegues?|fonctionnaires?))(?=.*(?:sanction|disciplin|faute|refus))(?!.*\\beleves?\\b)",
+      "(?=.*(?:\\bas\\b|association sportive|3 ?h(?:eures)? d.as|forfait as))(?=.*(?:sanction|refus|non.respect|n.assure pas))(?!.*\\beleves?\\b)"
+    ]
   },
   "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt": {
     "title": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
@@ -8960,5 +8964,28 @@
       "\\bgrist\\b"
     ],
     "domaine_textes": "11_numerique"
+  },
+  "data/textes/situations_2026_11_02/enseignant_obligations_manquements_sanctions.txt": {
+    "title": "Enseignant : obligations, service non fait et sanctions disciplinaires",
+    "statut": "sources_officielles_consultees_2026-11-02",
+    "examens": [],
+    "modes": [
+      "textes",
+      "examens",
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 345,
+    "date_verification": "2026-11-02",
+    "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F510",
+    "motifs": [
+      "(?=.*(?:enseignants?|professeurs?|\\bprofs?\\b|collegues?|coordo\\w*|fonctionnaires?|agents? public))(?=.*(?:sanction|disciplin|faute|retenue|service (?:non )?fait|refus\\w*|ne (?:fait|veut|assure) pas|n.assure pas|manquement|obeissance|desobei))",
+      "(?=.*(?:\\bas\\b|association sportive|3 ?h(?:eures)? d.as|forfait))(?=.*(?:sanction|refus\\w*|n.assure pas|ne (?:fait|veut|assure) pas|non.respect))",
+      "conseil de discipline (?:d.un|pour un) (?:enseignant|professeur|fonctionnaire)|sanctions? (?:d.un|contre un|pour un) (?:enseignant|professeur|prof|collegue|fonctionnaire)|service non fait|absence de service fait"
+    ],
+    "exclure_motifs": [
+      "\\beleves?\\b(?!.*(?:enseignant|professeur|prof\\b|collegue).{0,40}(?:sanction|refus|faute))"
+    ],
+    "domaine_textes": "01_service_statuts"
   }
 }

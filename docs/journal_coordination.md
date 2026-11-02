@@ -3600,3 +3600,9 @@ Question distincte de Thierry sur le délai des JSON : l'envoi du journal est sy
 ## 2026-11-01 — Veille mensuelle
 
 Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passage, état de référence ; BO et Éduscol non lisibles directement, repérage par recherche).
+
+## 2026-11-02 — Claude : sanctions d'un enseignant (zone d'ombre réglementaire)
+- Constat (journal du 2/11) : « sanctions contre un enseignant qui refuse d'assurer son AS » recevait la discipline des ÉLÈVES (R. 511-12, circulaire 2014-059).
+- Nouvelle fiche data/textes/situations_2026_11_02/enseignant_obligations_manquements_sanctions.txt (domaine 01, priorité 345) : AS comprise dans le maximum de service (décret 2014-940) ; absence de service fait et retenue (art. 4 loi 61-825 du 29/07/1961 cité par CE 7 juillet 1978 n° 03918 ; trentième) ; 4 groupes de sanctions (CGFP L. 533-1) ; procédure et droits (service-public F510) ; obligations L. 121-1, 2, 6, 7, 9, 10 (fonction-publique.gouv.fr). Pas de sanction présentée comme automatique.
+- Routage : fiche « punitions et sanctions » des élèves exclue quand la question vise un enseignant/collègue/fonctionnaire sans mention d'élève, ou l'AS (3 h) sans élève. Tests : tests/test_sanctions_enseignant.py.
+- Zones d'ombre repérées (aucune fiche) : droit de retrait, liberté pédagogique (L. 912-1-1), obligation de réserve et expression publique / réseaux sociaux, notes contestées par les familles, autorisations d'absence hors maladie, refus d'un élève de participer à l'AS (L. 552-1 seulement dans la synthèse 31e section). À sourcer sur Légifrance avant rédaction.

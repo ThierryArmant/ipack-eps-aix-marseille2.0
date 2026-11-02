@@ -1,10 +1,10 @@
 # Index ordonné des fiches Textes
 
-97 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+98 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
-## Service, statuts, rémunération et qualifications EPS (16)
+## Service, statuts, rémunération et qualifications EPS (17)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -24,6 +24,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)](../data/textes/fiches/obligations_service_premier_degre_2013.txt) | primaire | 3 | Références présentes ; statut détaillé au catalogue |
 | [Remplacement de courte durée (RCD) et pacte](../data/textes/fiches/remplacement_courte_duree_pacte.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [TZR : zone, rattachement, emploi du temps, service et heures (décret n° 99-823, note n° 99-152)](../data/textes/fiches/tzr_decret_99_823_remplacement.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
+| [Enseignant : obligations, service non fait et sanctions disciplinaires](../data/textes/situations_2026_11_02/enseignant_obligations_manquements_sanctions.txt) | dnb, gt, pro, cap | 5 | Références présentes ; statut détaillé au catalogue |
 
 ## Carrière, recrutement, mobilité et recours (5)
 

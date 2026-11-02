@@ -6621,6 +6621,16 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Grist : protection des données scolaires, textes et droits d’accès"
+  },
+  "data/textes/situations_2026_11_02/enseignant_obligations_manquements_sanctions.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Enseignant : obligations, service non fait et sanctions disciplinaires"
   }
  }
 }

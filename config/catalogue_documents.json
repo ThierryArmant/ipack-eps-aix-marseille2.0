@@ -8979,13 +8979,104 @@
     "date_verification": "2026-11-02",
     "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F510",
     "motifs": [
-      "(?=.*(?:enseignants?|professeurs?|\\bprofs?\\b|collegues?|coordo\\w*|fonctionnaires?|agents? public))(?=.*(?:sanction|disciplin|faute|retenue|service (?:non )?fait|refus\\w*|ne (?:fait|veut|assure) pas|n.assure pas|manquement|obeissance|desobei))",
+      "(?=.*(?:enseignants?|professeurs?|\\bprofs?\\b|collegues?|coordo\\w*|fonctionnaires?|agents? public))(?=.*(?:sanction|disciplin|faute professionnelle|retenue sur (?:salaire|traitement)|service (?:non )?fait|manquement|obeissance|desobei|(?:refus\\w*|ne (?:veut|fait|assure) (?:pas|plus)|n.assure (?:pas|plus)).{0,60}(?:son service|ses heures|cours|\\bas\\b|association sportive|mission|surveillance|instruction|projet|heures? d)))",
       "(?=.*(?:\\bas\\b|association sportive|3 ?h(?:eures)? d.as|forfait))(?=.*(?:sanction|refus\\w*|n.assure pas|ne (?:fait|veut|assure) pas|non.respect))",
       "conseil de discipline (?:d.un|pour un) (?:enseignant|professeur|fonctionnaire)|sanctions? (?:d.un|contre un|pour un) (?:enseignant|professeur|prof|collegue|fonctionnaire)|service non fait|absence de service fait"
     ],
     "exclure_motifs": [
-      "\\beleves?\\b(?!.*(?:enseignant|professeur|prof\\b|collegue).{0,40}(?:sanction|refus|faute))"
+      "\\beleves?\\b(?!.*(?:enseignant|professeur|prof\\b|collegue).{0,40}(?:sanction|refus|faute))",
+      "santorin|cyclades|ipack|\\bnote d.afl|protocole"
     ],
     "domaine_textes": "01_service_statuts"
+  },
+  "data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt": {
+    "title": "Droit de retrait d'un enseignant (danger grave et imminent)",
+    "statut": "sources_officielles_consultees_2026-11-02",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-11-02",
+    "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000042560118",
+    "motifs": [
+      "droit de retrait|danger grave et imminent|registre (?:special|dgi|de danger)|\\bdgi\\b",
+      "(?=.*(?:refuser|refus\\w*|arreter|ne pas faire) (?:de faire )?(?:cours|la seance|le cours|enseigner|travailler))(?=.*(?:dangereu|danger|insalubr|degrade|defectu|effondr|toiture|chauffage|froid|amiante|fuite|electri))"
+    ],
+    "domaine_textes": "03_responsabilite"
+  },
+  "data/textes/situations_2026_11_02/liberte_pedagogique.txt": {
+    "title": "Liberté pédagogique de l'enseignant",
+    "statut": "sources_officielles_consultees_2026-11-02",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-11-02",
+    "url": "https://www.legifrance.gouv.fr/codes/id/LEGIARTI000006525568/2005-04-24",
+    "motifs": [
+      "liberte pedagogique|liberte d.enseigner|l\\.? ?912.1.1",
+      "(?=.*(?:imposer|impose|obliger|oblige|forcer|contraindre|interdire|interdit))(?=.*(?:progression|methode|pedagogie|facon de (?:faire|travailler|enseigner)|situations? d.apprentissage|seances?|demarche|contenus? de cycle))"
+    ],
+    "domaine_textes": "01_service_statuts",
+    "exclure_motifs": [
+      "^(?!.*(?:liberte pedagogique|liberte d.enseigner)).*\\b(?:eleves?|parents?)\\b"
+    ]
+  },
+  "data/textes/situations_2026_11_02/expression_reserve_enseignant.txt": {
+    "title": "Expression publique d'un enseignant : discrétion et obligation de réserve",
+    "statut": "sources_officielles_consultees_2026-11-02",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-11-02",
+    "url": "https://www.fonction-publique.gouv.fr/etre-agent-public/mes-droits-et-obligations",
+    "motifs": [
+      "(?:devoir|obligation) de reserve|liberte d.expression|discretion professionnelle",
+      "(?=.*(?:enseignants?|professeurs?|\\bprofs?\\b|collegues?|je |puis.je|ai.je|peut.on))(?=.*(?:reseaux? sociaux|facebook|instagram|tiktok|twitter|linkedin|\\bblog\\b|journaliste|tribune|interview|chroniqu|(?:publier|poster) (?:sur|un|une|des)|critiquer publiquement))"
+    ],
+    "domaine_textes": "01_service_statuts"
+  },
+  "data/textes/situations_2026_11_02/autorisations_absence_enseignant.txt": {
+    "title": "Autorisations d'absence d'un enseignant (événements familiaux, enfant malade, concours)",
+    "statut": "sources_officielles_consultees_2026-11-02",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-11-02",
+    "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054399653",
+    "motifs": [
+      "autorisations? (?:speciales? )?d.absence|\\basa\\b",
+      "(?=.*(?:absence|absent|jours?|conge))(?=.*(?:mariage|pacs|deces|enterrement|obseques|naissance|enfant malade|garde d.enfant|maladie (?:tres )?grave|concours|demenagement|fete religieuse|rentree scolaire de mon))"
+    ],
+    "domaine_textes": "01_service_statuts",
+    "exclure_motifs": [
+      "\\beleves?\\b|\\bcandidat|candidature|\\bccf\\b|epreuve"
+    ]
+  },
+  "data/textes/situations_2026_11_02/as_participation_eleves.txt": {
+    "title": "Association sportive : participation volontaire des élèves",
+    "statut": "sources_officielles_consultees_2026-11-02",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-11-02",
+    "url": "https://www.education.gouv.fr/bo/14/Hebdo22/MENH1411477C.htm",
+    "motifs": [
+      "(?=.*(?:\\bas\\b|association sportive|unss))(?=.*\\beleves?\\b)(?=.*(?:\\boblige[rsz]?\\b|obligatoire (?:de|d.) (?:venir|participer)|forcer|force a|sanction|punir|punition|ne vient (?:pas|plus)|refuse de venir|absences? (?:a|aux) (?:l.as|l.association|entrainements)))"
+    ],
+    "domaine_textes": "04_vie_etablissement"
   }
 }

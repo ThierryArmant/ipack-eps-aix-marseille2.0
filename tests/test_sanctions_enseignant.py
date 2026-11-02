@@ -32,3 +32,27 @@ class SanctionsEnseignant(unittest.TestCase):
         body = open(ENS, encoding='utf-8').read()
         for ref in ('L. 533-1', 'L. 121-10', 'n° 03918', 'service-public.gouv.fr', '29 juillet 1961'):
             self.assertIn(ref, body)
+
+
+class ZonesDOmbre(unittest.TestCase):
+    CAS = [("Le gymnase a une fuite au plafond et le sol est glissant, puis-je refuser de faire cours ?", 'Tous publics', "Droit de retrait"),
+           ("Mon coordo veut m'imposer sa progression en badminton, il a le droit ?", 'Lycée Général & Techno', "Liberté pédagogique"),
+           ("Un enseignant peut-il critiquer sa direction sur Facebook ?", 'Tous publics', "Expression publique"),
+           ("Combien de jours d'autorisation d'absence pour garder mon enfant malade ?", 'Tous publics', "Autorisations d'absence"),
+           ("Un élève est-il obligé de venir à l'AS ?", 'Collège (DNB)', "Association sportive : participation")]
+
+    def test_aiguillage(self):
+        for q, public, attendu in self.CAS:
+            with self.subTest(q=q):
+                self.assertIn(attendu, ' | '.join(kc.priority_titles(q, public, 'textes')))
+
+    def test_pas_de_faux_positifs(self):
+        for q in ("Bonjour Enseignante au LP X à X, question sur Santorin",
+                  "Mon élève a été absent au deuxième CCF pour un enterrement familial",
+                  "Bac GT : Santorin ne veut pas de ma note d’AFL2, un collègue affirme le contraire",
+                  "Un élève s'est blessé lors d'un entraînement AS. Qui doit obligatoirement prévenir ?"):
+            with self.subTest(q=q):
+                t = ' | '.join(kc.priority_titles(q, 'Tous publics', 'textes'))
+                for n in ("Droit de retrait", "Liberté pédagogique", "Expression publique", "Autorisations d'absence d'un enseignant",
+                          "Association sportive : participation", "Enseignant : obligations"):
+                    self.assertNotIn(n, t)

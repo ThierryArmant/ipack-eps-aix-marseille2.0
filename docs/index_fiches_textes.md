@@ -1,10 +1,10 @@
 # Index ordonné des fiches Textes
 
-98 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+103 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
-## Service, statuts, rémunération et qualifications EPS (17)
+## Service, statuts, rémunération et qualifications EPS (20)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -24,7 +24,10 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Premier degré : obligations de service des professeurs des écoles (24 h + 108 h)](../data/textes/fiches/obligations_service_premier_degre_2013.txt) | primaire | 3 | Références présentes ; statut détaillé au catalogue |
 | [Remplacement de courte durée (RCD) et pacte](../data/textes/fiches/remplacement_courte_duree_pacte.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [TZR : zone, rattachement, emploi du temps, service et heures (décret n° 99-823, note n° 99-152)](../data/textes/fiches/tzr_decret_99_823_remplacement.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
-| [Enseignant : obligations, service non fait et sanctions disciplinaires](../data/textes/situations_2026_11_02/enseignant_obligations_manquements_sanctions.txt) | dnb, gt, pro, cap | 5 | Références présentes ; statut détaillé au catalogue |
+| [Autorisations d'absence d'un enseignant (événements familiaux, enfant malade, concours)](../data/textes/situations_2026_11_02/autorisations_absence_enseignant.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
+| [Enseignant : obligations, service non fait et sanctions disciplinaires](../data/textes/situations_2026_11_02/enseignant_obligations_manquements_sanctions.txt) | dnb, gt, pro, cap | 7 | Références présentes ; statut détaillé au catalogue |
+| [Expression publique d'un enseignant : discrétion et obligation de réserve](../data/textes/situations_2026_11_02/expression_reserve_enseignant.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
+| [Liberté pédagogique de l'enseignant](../data/textes/situations_2026_11_02/liberte_pedagogique.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 
 ## Carrière, recrutement, mobilité et recours (5)
 
@@ -36,7 +39,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Professeur d’EPS : mutation, vérification du barème et recours](../data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]](../data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt) | Non balisé | 0 | Relecture à poursuivre |
 
-## Responsabilité et protection des personnels (5)
+## Responsabilité et protection des personnels (6)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -45,8 +48,9 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Accident de service ou de trajet : déclaration de l’agent](../data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Violences, discriminations et harcèlement envers les personnels](../data/textes/fiches/signalement_violences_personnels.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Surveillance des élèves en EPS : continuité, élève laissé seul](../data/textes/fiches/surveillance_continue_eleve_seul.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
+| [Droit de retrait d'un enseignant (danger grave et imminent)](../data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 
-## Vie scolaire, direction, laïcité et égalité (10)
+## Vie scolaire, direction, laïcité et égalité (11)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -60,6 +64,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Absence à une évaluation de classe (6e à 4e) : pas de zéro automatique](../data/textes/fiches/evaluation_classe_absence_zero.txt) | dnb | 1 | Références présentes ; statut détaillé au catalogue |
 | [Fournitures et équipements demandés aux familles : neutralité commerciale](../data/textes/fiches/fournitures_neutralite_commerciale.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 | [Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement](../data/textes/situations_2026_10_26/laicite_fetes_noel.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
+| [Association sportive : participation volontaire des élèves](../data/textes/situations_2026_11_02/as_participation_eleves.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 
 ## Santé, inaptitudes et inclusion (5)
 

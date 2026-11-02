@@ -45,6 +45,12 @@
       "texte": "Bac général et technologique, session 2027 : dernier jour de prise en compte d'un changement de statut du candidat.",
       "fiche": "data/commun/audit60/aix_inscriptions_2027_gt.txt",
       "fiche_revue": false
+    },
+    {
+      "date": "2027-01-01",
+      "texte": "Autorisations d'absence des personnels (mariage, décès, enfant malade…) : le décret n° 2026-604 du 6 juillet 2026 s'applique à partir de ce jour.",
+      "fiche": "data/textes/situations_2026_11_02/autorisations_absence_enseignant.txt",
+      "fiche_revue": false
     }
   ]
 }

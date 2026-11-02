@@ -6631,6 +6631,56 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Enseignant : obligations, service non fait et sanctions disciplinaires"
+  },
+  "data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Droit de retrait d'un enseignant (danger grave et imminent)"
+  },
+  "data/textes/situations_2026_11_02/liberte_pedagogique.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Liberté pédagogique de l'enseignant"
+  },
+  "data/textes/situations_2026_11_02/expression_reserve_enseignant.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Expression publique d'un enseignant : discrétion et obligation de réserve"
+  },
+  "data/textes/situations_2026_11_02/autorisations_absence_enseignant.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Autorisations d'absence d'un enseignant (événements familiaux, enfant malade, concours)"
+  },
+  "data/textes/situations_2026_11_02/as_participation_eleves.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Association sportive : participation volontaire des élèves"
   }
  }
 }

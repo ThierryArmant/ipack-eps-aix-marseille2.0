@@ -538,9 +538,18 @@ css_pur = f"""
         border-radius: 10px !important;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }}
-    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary {{
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary,
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary:hover,
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] details[open] > summary {{
         padding: 16px !important;
         cursor: pointer;
+        /* Fond foncé forcé : Streamlit éclaircit l'en-tête ouvert ou survolé, le titre blanc devenait illisible. */
+        background: #0F273B !important;
+        border-radius: 8px !important;
+    }}
+    div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary svg {{
+        fill: #FFFFFF !important;
+        color: #FFFFFF !important;
     }}
     div[class*="st-key-guide_callout_"] div[data-testid="stExpander"] summary p {{
         color: #FFFFFF !important;
@@ -1595,7 +1604,7 @@ with st.container(key="parcours"):
                     )
                 with col_submit:
                     bouton_envoyer = st.form_submit_button(
-                        "🚀 Poser la question", use_container_width=True, type="primary"
+                        "🚀 Envoyer", use_container_width=True, type="primary"
                     )
                 # Rappel discret sous la barre (l'œil reste sur la question) ; libère la hauteur d'un cadre.
                 st.markdown(
@@ -2137,7 +2146,7 @@ if prompt_a_traiter:
                 if True:
                     # Tous les onglets : le texte lu est donné juste après la réponse, sans clic.
                     _url_doc = str(reference_url(source_documentee, prompt) or '')
-                    _lien_doc = (' — <a href="' + html_lib.escape(_url_doc, quote=True) + '" target="_blank" rel="noopener noreferrer">lire le texte</a>'
+                    _lien_doc = (' — <a href="' + html_lib.escape(_url_doc, quote=True) + '" target="_blank" rel="noopener noreferrer">' + _generation_runtime.exact_source_answer.libelle_lien(_url_doc) + '</a>'
                                  if _url_doc.startswith(('https://', 'http://')) else '')
                     texte_brut += ('<p>📄 Texte en lien : '
                                    + html_lib.escape(source_documentee.get('title', '')) + _lien_doc + '</p>')

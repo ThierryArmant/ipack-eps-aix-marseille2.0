@@ -3622,3 +3622,9 @@ Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passa
 - Message d'erreur exact non transmis : cause non confirmée. Hypothèse : NLTK récent demande « punkt_tab » ; app.py ne téléchargeait que « punkt » et « stopwords ». Correctif publié en c00a397 (punkt, punkt_tab, stopwords téléchargés séparément, NLTK_DATA renseigné). Sans effet si tout va bien.
 - À faire : obtenir le message exact ; redémarrer l'app après déploiement ; si l'erreur persiste (téléchargement impossible au démarrage), envisager d'embarquer les données NLTK dans le dépôt. requirements.txt n'épingle aucune version : un redémarrage peut installer des versions nouvelles (piste d'épinglage proposée à Thierry, non faite).
 - La parenthèse invalide d'un motif du catalogue (zones d'ombre, ce soir) a été corrigée avant publication : elle n'est pas la cause.
+
+## 2026-11-02 23 h 10 — Claude : retouches d'affichage demandées par Thierry
+- Réponses iPackEPS : ligne « Accès à la fonctionnalité : [Dossiers] / [Dossier EPS] / [Emploi du Temps] » en tête, extraite par le programme de la fiche citée (« Accès à cette fonctionnalité : », « Chemin : », « Parcours guidé : » ou titre « [ARTICLE n] [..]/[..] ») ; aucune ligne si la fiche n'écrit pas de chemin (exact_source_answer.acces_fonctionnalite).
+- Ligne des sources : « ▶ voir la vidéo » pour un lien YouTube, « lire le texte » sinon ; en-tête 🎬 Vidéo / 📄 Texte / Texte et vidéo en lien.
+- Lignes « URL : spip.php?articleNN » (adresse relative du site d'aide, inutilisable) masquées dans les extraits et le pool. Adresse de base du site d'aide à confirmer par Thierry avant de les rendre cliquables.
+- Bouton « 🚀 Poser la question » tronqué → « 🚀 Envoyer ». En-tête du guide pas à pas ouvert : fond foncé forcé (blanc sur blanc).

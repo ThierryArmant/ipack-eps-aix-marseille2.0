@@ -113,6 +113,8 @@ def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False
     sections = []
     for position, passage_id in enumerate(focus_ids, 1):
         packet, span = spans[passage_id]
+        if ligne_url_relative(span['text']):
+            continue
         section, section_origin = section_label(packet, span)
         section_key = (packet['id'], section)
         if section and section_key != previous_section:
@@ -146,10 +148,62 @@ def render_focused_sources(selected, focus_ids, reviewer, report, numbered=False
     return '\n'.join(blocks)
 
 
+_ACCES = (r"Acc[èe]s [àa] (?:cette |la )?fonctionnalit[ée]\W*:\W*", r"Chemin(?: exact)?\W*:\W*", r"Parcours guid[ée]\W*:\W*")
+
+
+def _chemin_lisible(raw):
+    """« Tableau de bord => Dossiers ==> Dossier EPS ==> Emploi du Temps. Le module… » -> [Dossiers] / [Dossier EPS] / [Emploi du Temps]."""
+    raw = re.split(r"(?<=[a-zé\]])\.(?:\s|$)|\s[-–—]\s|;|\(", raw.strip(), maxsplit=1)[0]
+    parts = [x.strip(" .*'\"«»[]") for x in re.split(r"\s*(?:={1,2}>|->|>|→|/)\s*", raw)]
+    parts = [x for x in parts if x and x.lower() not in ('tableau de bord', 'menu')]
+    if not 1 <= len(parts) <= 5 or any(len(x) > 45 or not re.search(r"[A-Za-zÀ-ÿ]", x) for x in parts):
+        return ''
+    return ' / '.join('[' + x + ']' for x in parts)
+
+
+_URL_RELATIVE = re.compile(r"^\W*(?:\*\*)?URL\s*:?(?:\*\*)?\s*:?\s*spip\.php\?article\d+\W*$", re.I)
+
+
+def ligne_url_relative(text):
+    """« - **URL :** spip.php?article20 » : adresse incomplète du site d'aide, inutilisable par un collègue."""
+    return bool(_URL_RELATIVE.match((text or '').strip()))
+
+
+def acces_fonctionnalite(packets):
+    """Fil d'Ariane de la fiche citée : écrit dans la fiche (accès, chemin, parcours guidé) ou dans le titre d'un
+    article (« [Dossiers]/[DossierEPS]/[EDT] … »). Rien n'est inventé : sans chemin écrit, pas de ligne."""
+    for packet in packets:
+        text = '\n'.join(sp.get('text', '') for sp in packet.get('passages', []))
+        for motif in _ACCES:
+            m = re.search(motif + r"([^\n]{3,200})", text)
+            if m:
+                chemin = _chemin_lisible(m.group(1))
+                if chemin:
+                    return chemin
+        m = re.match(r"^\W*\[ARTICLE \d+\]\s*((?:\[[^\]]+\]\s*/?\s*){2,5})", packet.get('title', ''))
+        if m:
+            chemin = _chemin_lisible(m.group(1).replace('][', '] / ['))
+            if chemin:
+                return chemin
+    return ''
+
+
+def _ligne_acces(packets, mode):
+    if mode != 'ipack':
+        return ''
+    chemin = acces_fonctionnalite(packets)
+    return ('<p style="margin:0 0 0.8rem"><strong>Accès à la fonctionnalité :</strong> ' + html.escape(chemin) + '</p>') if chemin else ''
+
+
+def libelle_lien(url):
+    """Annoncer ce que le lien ouvre : une vidéo ou un texte."""
+    return '▶ voir la vidéo' if re.search(r'youtu\.?be|vimeo|\.mp4\b|/video', url or '', re.I) else 'lire le texte'
+
+
 def _textes_lus(selected, passage_ids):
     """Onglet Textes : les textes lus pour étayer la réponse, visibles juste après elle, avec leur lien."""
     owners = [p for p in selected if any(s['id'] in passage_ids for s in p.get('passages', []))]
-    items = []
+    items, kinds = [], []
     for packet in owners:
         title = re.sub(r'^\[SITUATION:\s*(.*?)\]$', r'\1', packet.get('title', 'Source')).lstrip('# ').strip()
         title = re.sub(r'^\[(.*)\]$', r'\1', title).strip()
@@ -160,12 +214,15 @@ def _textes_lus(selected, passage_ids):
             # Lien de la source écrit dans la fiche elle-même (« Source : https://… »).
             found = re.search(r'https?://[^\s<>()]+', ' '.join(s.get('text', '') for s in packet.get('passages', [])))
             url = found.group(0).rstrip('.,;') if found else ''
-        link = (' — <a href="' + html.escape(url, quote=True) + '" target="_blank" rel="noopener noreferrer">lire le texte</a>'
+        link = (' — <a href="' + html.escape(url, quote=True) + '" target="_blank" rel="noopener noreferrer">' + libelle_lien(url) + '</a>'
                 if url.startswith(('https://', 'http://')) else '')
         items.append(html.escape(title) + link)
+        kinds.append('video' if link and 'voir la vidéo' in link else 'texte')
     if not items:
         return ''
-    return '<p>📄 Texte en lien : ' + ' ; '.join(items) + '</p>'
+    entete = ('🎬 Vidéo en lien : ' if set(kinds) == {'video'} else
+              '📄 Texte en lien : ' if set(kinds) == {'texte'} else '📄 Texte et vidéo en lien : ')
+    return '<p>' + entete + ' ; '.join(items) + '</p>'
 
 
 def render_exact_sources(selected, reviewer, report):
@@ -185,6 +242,9 @@ def render_exact_sources(selected, reviewer, report):
                 continue
             if text.strip().lstrip('# ').strip() == title.strip().lstrip('# ').strip():
                 hidden.append(dict(id=span['id'], reason='repeated_title'))
+                continue
+            if ligne_url_relative(text):
+                hidden.append(dict(id=span['id'], reason='url_relative'))
                 continue
             label = reviewer.evidence_label({'scope': span.get('scope', {})}, packet, reviewer._LEVELS)
             if label not in references:
@@ -268,8 +328,10 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
         numbered = render_focused_sources(selected, kept_focus, reviewer, {}, numbered=True, positions=positions)
     shown = len(focus) - len(missing)
     # Une ligne avec le lien vers chaque texte lu, sous la réponse, dans tous les onglets (extraits repliés).
-    lien = _textes_lus(selected, [pid for n, pid in enumerate(focus, 1) if n in cited] or focus)
-    return ('<h3>Réponse</h3>' + lead
+    cites_ids = [pid for n, pid in enumerate(focus, 1) if n in cited] or focus
+    lien = _textes_lus(selected, cites_ids)
+    ordre = [p for pid in cites_ids for p in selected if any(sp['id'] == pid for sp in p.get('passages', []))]
+    return ('<h3>Réponse</h3>' + _ligne_acces(ordre + list(selected), mode) + lead
             + '<p><small>Réponse rédigée à partir des fiches (numéros) : vérifiez votre cas.</small></p>'
             + lien
             + '<details><summary>Voir les extraits des fiches (' + str(shown) + ')</summary>'
@@ -287,7 +349,8 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
     pool = []
     for packet in candidates:
         for span in packet['passages']:
-            if search_metadata(span) or span['id'] in report.get('excluded_non_business', []):
+            if (search_metadata(span) or span['id'] in report.get('excluded_non_business', [])
+                    or ligne_url_relative(span.get('text', ''))):
                 continue
             scope = span.get('scope', {})
             pool.append(dict(id=span['id'], section=section_label(packet, span)[0],
@@ -318,7 +381,7 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
     report.update(selected_sources=owners, selected_ids=[p['id'] for p in owners],
                   display_version_lead='common-pool-v1', no_business_rewriting=False)
     # Les numéros sont les rangs stables du pool, jamais une réindexation des seuls cités.
-    result = '<h3>Réponse</h3>' + lead
+    result = '<h3>Réponse</h3>' + _ligne_acces(owners, mode) + lead
     result += _textes_lus(owners, cited)
     result += '<details><summary>Voir les extraits cités (' + str(len(cited)) + ')</summary>' + extracts + '</details>'
     missing = [i for i in focus if i not in cited]

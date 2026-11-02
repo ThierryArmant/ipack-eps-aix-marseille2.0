@@ -600,3 +600,26 @@ class AutresAcademiesNommees(unittest.TestCase):
         src = "Exemple tiré du guide Normandie 2025 : appréciation pour les cas particuliers."
         self.assertEqual([r for r in sa.unsupported("Les sources citées concernent d'autres académies ; vérifiez le circuit de la vôtre.", src, 'q Aix-Marseille')
                           if r.startswith('portee')], [])
+
+
+class AccesEtLiens(unittest.TestCase):
+    def test_fil_d_ariane(self):
+        import exact_source_answer as e
+        self.assertEqual(e._chemin_lisible("Tableau de bord => Dossiers ==> Dossier EPS ==> Emploi du Temps. Le module"),
+                         '[Dossiers] / [Dossier EPS] / [Emploi du Temps]')
+        self.assertEqual(e.acces_fonctionnalite([{'title': '[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie', 'passages': [{'text': 'x'}]}]),
+                         '[Dossiers] / [DossierEPS] / [EDT]')
+        self.assertEqual(e._ligne_acces([{'title': 'x', 'passages': [{'text': 'rien'}]}], 'ipack'), '')
+        self.assertEqual(e._ligne_acces([{'title': '[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] S', 'passages': []}], 'examens'), '')
+
+    def test_libelle_selon_le_lien(self):
+        import exact_source_answer as e
+        self.assertEqual(e.libelle_lien('https://www.youtube.com/watch?v=8pHcZ4gw6go'), '▶ voir la vidéo')
+        self.assertEqual(e.libelle_lien('https://www.education.gouv.fr/bo/x'), 'lire le texte')
+        out = e._textes_lus([{'title': 'EDT (vidéo)', 'url': 'https://youtu.be/abc', 'passages': [{'id': 'a', 'text': ''}]}], ['a'])
+        self.assertIn('🎬 Vidéo en lien', out)
+
+    def test_url_relative_masquee(self):
+        import exact_source_answer as e
+        self.assertTrue(e.ligne_url_relative('- **URL :** spip.php?article20'))
+        self.assertFalse(e.ligne_url_relative('Source : https://www.education.gouv.fr'))

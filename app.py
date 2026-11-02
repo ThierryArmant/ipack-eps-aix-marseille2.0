@@ -134,8 +134,15 @@ try:
     nltk_data_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
     os.makedirs(nltk_data_dir, exist_ok=True)
     nltk.data.path.append(nltk_data_dir)
-    nltk.download("punkt", download_dir=nltk_data_dir, quiet=True)
-    nltk.download("stopwords", download_dir=nltk_data_dir, quiet=True)
+    os.environ.setdefault("NLTK_DATA", nltk_data_dir)
+    # Les versions récentes de NLTK cherchent « punkt_tab » (et non plus « punkt ») : sans lui,
+    # erreur « Resource punkt_tab not found » au découpage des textes. Chaque ressource séparément :
+    # un échec n'empêche pas les autres.
+    for _ressource in ("punkt", "punkt_tab", "stopwords"):
+        try:
+            nltk.download(_ressource, download_dir=nltk_data_dir, quiet=True)
+        except Exception:
+            pass
 except Exception:
     pass
 

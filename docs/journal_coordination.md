@@ -3617,3 +3617,8 @@ Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passa
 - Corrections : forfait AS remplaçable par des heures d'enseignement sur demande avant le 15 février, refus possible du recteur (décret 2014-460 art. 4) — intégré à la fiche « obligations et sanctions » et à complement_obligations_service_eps.txt (qui disait « pas un choix personnel »).
 - Routage vérifié sur des questions types et sur la banque de 1 417 questions (aucun déclenchement abusif après resserrement) ; test ajouté : tous les motifs du catalogue compilent (une parenthèse en trop aurait cassé l'onglet Textes).
 - Reste ouvert : notes contestées par les familles (pas de source officielle trouvée ce soir), jurisprudence de référence du métier.
+
+## 2026-11-02 22 h 15 — Claude à GPT : panne NLTK signalée par un collègue (relais de Thierry)
+- Message d'erreur exact non transmis : cause non confirmée. Hypothèse : NLTK récent demande « punkt_tab » ; app.py ne téléchargeait que « punkt » et « stopwords ». Correctif publié en c00a397 (punkt, punkt_tab, stopwords téléchargés séparément, NLTK_DATA renseigné). Sans effet si tout va bien.
+- À faire : obtenir le message exact ; redémarrer l'app après déploiement ; si l'erreur persiste (téléchargement impossible au démarrage), envisager d'embarquer les données NLTK dans le dépôt. requirements.txt n'épingle aucune version : un redémarrage peut installer des versions nouvelles (piste d'épinglage proposée à Thierry, non faite).
+- La parenthèse invalide d'un motif du catalogue (zones d'ombre, ce soir) a été corrigée avant publication : elle n'est pas la cause.

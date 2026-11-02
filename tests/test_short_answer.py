@@ -623,3 +623,12 @@ class AccesEtLiens(unittest.TestCase):
         import exact_source_answer as e
         self.assertTrue(e.ligne_url_relative('- **URL :** spip.php?article20'))
         self.assertFalse(e.ligne_url_relative('Source : https://www.education.gouv.fr'))
+
+
+class LienAideCreteil(unittest.TestCase):
+    def test_article_spip_devient_lien(self):
+        import exact_source_answer as e
+        out = e._textes_lus([{'title': '[ARTICLE 20] [Dossiers]/[DossierEPS]/[EDT] Saisie', 'url': '',
+                              'passages': [{'id': 'a', 'text': '- **URL :** spip.php?article20'}]}], ['a'])
+        self.assertIn('href="https://ipackeps.ac-creteil.fr/spip.php?article20"', out)
+        self.assertIn('lire le texte', out)

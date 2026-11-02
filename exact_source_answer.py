@@ -195,6 +195,9 @@ def _ligne_acces(packets, mode):
     return ('<p style="margin:0 0 0.8rem"><strong>Accès à la fonctionnalité :</strong> ' + html.escape(chemin) + '</p>') if chemin else ''
 
 
+AIDE_IPACK = 'https://ipackeps.ac-creteil.fr/'  # site d'aide iPackEPS (articles spip.php?articleNN)
+
+
 def libelle_lien(url):
     """Annoncer ce que le lien ouvre : une vidéo ou un texte."""
     return '▶ voir la vidéo' if re.search(r'youtu\.?be|vimeo|\.mp4\b|/video', url or '', re.I) else 'lire le texte'
@@ -210,9 +213,15 @@ def _textes_lus(selected, passage_ids):
         # « [ARTICLE 98] [Dossiers]/[Dossier EPS]/[Élèves] Déménagement… » : on garde l'intitulé lisible.
         title = re.sub(r'^(?:\[[^\]]*\]\s*/?\s*)+', '', title).strip() or title
         url = packet.get('url', '')
+        corps = ' '.join(s.get('text', '') for s in packet.get('passages', [])) + ' ' + packet.get('title', '')
+        if not url.startswith(('https://', 'http://')):
+            # Fiche reprise de l'aide iPackEPS de Créteil : « URL : spip.php?article20 » -> article d'origine.
+            spip = re.search(r'spip\.php\?article(\d+)', corps)
+            if spip:
+                url = AIDE_IPACK + 'spip.php?article' + spip.group(1)
         if not url.startswith(('https://', 'http://')):
             # Lien de la source écrit dans la fiche elle-même (« Source : https://… »).
-            found = re.search(r'https?://[^\s<>()]+', ' '.join(s.get('text', '') for s in packet.get('passages', [])))
+            found = re.search(r'https?://[^\s<>()]+', corps)
             url = found.group(0).rstrip('.,;') if found else ''
         link = (' — <a href="' + html.escape(url, quote=True) + '" target="_blank" rel="noopener noreferrer">' + libelle_lien(url) + '</a>'
                 if url.startswith(('https://', 'http://')) else '')

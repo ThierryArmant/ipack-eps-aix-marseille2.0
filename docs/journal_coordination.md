@@ -3626,5 +3626,5 @@ Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passa
 ## 2026-11-02 23 h 10 — Claude : retouches d'affichage demandées par Thierry
 - Réponses iPackEPS : ligne « Accès à la fonctionnalité : [Dossiers] / [Dossier EPS] / [Emploi du Temps] » en tête, extraite par le programme de la fiche citée (« Accès à cette fonctionnalité : », « Chemin : », « Parcours guidé : » ou titre « [ARTICLE n] [..]/[..] ») ; aucune ligne si la fiche n'écrit pas de chemin (exact_source_answer.acces_fonctionnalite).
 - Ligne des sources : « ▶ voir la vidéo » pour un lien YouTube, « lire le texte » sinon ; en-tête 🎬 Vidéo / 📄 Texte / Texte et vidéo en lien.
-- Lignes « URL : spip.php?articleNN » (adresse relative du site d'aide, inutilisable) masquées dans les extraits et le pool. Adresse de base du site d'aide à confirmer par Thierry avant de les rendre cliquables.
+- Lignes « URL : spip.php?articleNN » (adresse relative du site d'aide, inutilisable) masquées dans les extraits et le pool. Adresse de base confirmée par Thierry (aide iPackEPS de Créteil) : la ligne « Texte en lien » pointe vers https://ipackeps.ac-creteil.fr/spip.php?articleNN.
 - Bouton « 🚀 Poser la question » tronqué → « 🚀 Envoyer ». En-tête du guide pas à pas ouvert : fond foncé forcé (blanc sur blanc).

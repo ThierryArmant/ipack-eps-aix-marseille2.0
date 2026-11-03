@@ -6691,6 +6691,26 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)"
+  },
+  "data/textes/situations_2026_11_03/equipements_sportifs_conventions_eple.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Installations sportives de la commune : convention d'utilisation pour l'EPS (L. 214-4)"
+  },
+  "data/textes/situations_2026_11_03/voie_pro_notation_aflp_ccf.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Bac professionnel et CAP : répartition des points entre AFLP (12 + 8) en CCF"
   }
  }
 }

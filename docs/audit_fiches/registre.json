@@ -11471,10 +11471,10 @@
     },
     {
       "path": "data/textes/complement_natation_scolaire.txt",
-      "sha256": "1a36917cc96470216ea159cd212c816f9ee644c227813cfb88e5c399f68bd4e9",
+      "sha256": "5ca474c6cee6a2e78b1b60a7067b08a28202c7ad8f02edf4e8702612c584b85e",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "verifie_2026-10-10",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner"
       ],
@@ -11515,10 +11515,10 @@
     },
     {
       "path": "data/textes/complement_statuts_personnels_eps.txt",
-      "sha256": "e5e468ae701ba45df453aecaa21f0d89860cbe5ddbf36e3cbc8fbaa262f5422d",
+      "sha256": "45ed70328df65014e7e73cd998ce7f86d6f8ef4c15033099c3b400e8dc2bb859",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -11885,7 +11885,7 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_016_situation_10e_section_certification_en_voie_professionnelle_cap_bac_pro.txt",
-      "sha256": "41033aca2988590bf65b0f6f8c5a7179a8f89bba5b85b993a89dc6f93f1124b3",
+      "sha256": "4c52f3fcf25e1f31cabb28ca20e571aeb9785476b7e85e9e38a2c75655f47d99",
       "famille": "textes",
       "statut_audit": "a_relire",
       "statut_catalogue": "sources_officielles_relues_2026_10_18",
@@ -11928,10 +11928,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt",
-      "sha256": "d1eac8a86a97d06b1df11f38324fb87cf7fdc501ab2487c68c2d9502f287e246",
+      "sha256": "e443a281e84fab59630ddf8daec543bf1d1edaeb778024fc63ef9857687468cf",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -12016,7 +12016,7 @@
       "sha256": "2e99cb4791fd9fcf0d4a6727dd70bd3dd26a549f702f83e2f4ba0d2d0c9a97b7",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -12060,7 +12060,7 @@
       "sha256": "e1c6b4feddc4dc5303121f4b731f35a467288ed7deaa000077b878116354e017",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "synthese_non_revalidee"
       ],
@@ -12201,10 +12201,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
-      "sha256": "0dacdef24901e98be31596e6f0305eb198980db0eff15f24ca3340b4e356568d",
+      "sha256": "8653e0df25ca4a91017db9d5c81cf2f48c5757d97e81e119d65b967201d53b86",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -12223,10 +12223,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
-      "sha256": "7385770fb01209b573f54b9c9596f4997f70ea8611c760245d69d789b350a8ec",
+      "sha256": "120d913ab584cbe5135837b7630fed6fa71891322dde49ccad8a4df7d6c9f9de",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -12245,10 +12245,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt",
-      "sha256": "7c5d2150109f473fabc2f93756e8b1e31e560ae22169ea40fb7a4f48c69fbed9",
+      "sha256": "aaf77501dabf0b1b7568d8e5f971a8ae29badfbc0b24388091a0814281e92870",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -12267,10 +12267,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt",
-      "sha256": "1b5e2406fc4ce1da64124c934077a7e4388d51e391356bcc78ab4ee1dddfcd08",
+      "sha256": "5ad4ec466bf87e6bc19044e3c7d30ac9d1fa2f8d1f0a17b7fce28151f82cf0d1",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -12375,10 +12375,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_043_situation_33e_section_conformite_stabilite_et_ancrage_des_equipements_sportifs_buts_et_pan.txt",
-      "sha256": "d0b683cc1e16409fb9bee5506e42cba0416dd4cb15889ef780a45569a6167f8e",
+      "sha256": "309fe7988fa6f394375d77c7253fa1c4a69d6bf61541b165e8f945331ab35037",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -12396,10 +12396,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt",
-      "sha256": "19239039bc34fd5d6db425e1d5b50ff5dcd561062dbdd79de498baafad8dba43",
+      "sha256": "0710ed38eaed9b2de047dd090b16a09c74d7c2c7f113b3c3a614853e271be9a6",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -12520,10 +12520,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt",
-      "sha256": "a6b0c5baa42526c64474dc493f79736a335f5142d9c289dea18db0ee5d47072b",
+      "sha256": "b29e9faa19552f441a2c2dd06c9ca15e95902c49d96350e3d0b84a1fe88f2ba8",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -12542,10 +12542,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt",
-      "sha256": "84c22536d5b6a1c1795066f7ccec6e2db6d7e0d2bfdb2f68618c2b62e302aec0",
+      "sha256": "3722f50cf9007a13638ab59513f2dd173f01e77924b7cf085bfd6639bea2c7a4",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revu_2026-11-03_reperes_indicatifs",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -12564,10 +12564,10 @@
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt",
-      "sha256": "7867ff981246e57c581c74496d1b49f5be091bb5f2cafd5381ecdf1d5cdac2c9",
+      "sha256": "d93acd09550fb6172027cbaf2c073b5c6b3714295ee03647b5a9f2ed1e434060",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revu_2026-11-03_reperes_indicatifs",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -12610,7 +12610,7 @@
       "sha256": "a83f33603fb45ecd29179034161daf0eab9445b18ea15e17eb1de6f2a42a414b",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -13177,10 +13177,10 @@
     },
     {
       "path": "data/textes/partenariats_defense_citoyennete.txt",
-      "sha256": "d63dd945197c4e1aba5463e02cfd39c4d7c3d40f8b501c0be6281c10e393a952",
+      "sha256": "308e1154c7a988313bf736550acf87d32ec56104dad807ec273e7080620d7949",
       "famille": "textes",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -13504,6 +13504,22 @@
     {
       "path": "data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt",
       "sha256": "2eccd8e5743ccf63b6e35791da318a6db1bb9fb023c174d51e671dca0beea9ca",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/situations_2026_11_03/equipements_sportifs_conventions_eple.txt",
+      "sha256": "39ac55308d3cfbb36d1f836e53f9888adbc8233595a752893eaba627122e52fe",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-03",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/situations_2026_11_03/voie_pro_notation_aflp_ccf.txt",
+      "sha256": "20443e5cd705c5c052b0eebe9a2de2beca345bc6155ebb817b3fbd8fa3c54d2a",
       "famille": "textes",
       "statut_audit": "a_relire",
       "statut_catalogue": "sources_officielles_consultees_2026-11-03",

@@ -28,7 +28,7 @@
         "https://www.ac-lyon.fr/media/53854/download",
         "https://eps.ac-besancon.fr/enseignement-de-la-natation-scolaire-au-28-02-2022/"
       ],
-      "statut": "verifie_2026-10-10",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false
@@ -53,11 +53,14 @@
       "title": "complement statuts personnels eps",
       "domaine": "01_service_statuts",
       "publics_explicites": [],
-      "sources": [],
-      "statut": "synthese_non_revalidee",
+      "sources": [
+        "https://www.education.gouv.fr/bo/2023/Hebdo48/MENE2334358C",
+        "https://www.senat.fr/questions/base/2008/qSEQ080303845.html"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/escalade_controles_securite.txt",
@@ -347,15 +350,20 @@
       "path": "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt",
       "title": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
       "domaine": "06_sorties_transports",
-      "publics_explicites": [],
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
       "sources": [
         "https://www.education.gouv.fr/bo/2024/Hebdo30/MENE2407159C",
         "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt",
@@ -415,10 +423,10 @@
         "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm",
         "https://eduscol.education.gouv.fr/sites/default/files/document/guide-sorties-et-voyages-scolaires-second-degre-101619.pdf"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt",
@@ -448,10 +456,10 @@
         "https://eduscol.education.fr/document/50600/download",
         "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt",
@@ -542,50 +550,77 @@
       "path": "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
       "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
       "domaine": "09_programmes",
-      "publics_explicites": [],
-      "sources": [],
-      "statut": "synthese_non_revalidee",
+      "publics_explicites": [
+        "gt"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/19/Special1/MENE1901567A.htm",
+        "https://cache.media.education.gouv.fr/file/SP1-MEN-22-1-2019/84/6/spe567_annexe_22-1_1063846.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt",
       "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
       "domaine": "09_programmes",
-      "publics_explicites": [],
-      "sources": [],
-      "statut": "synthese_non_revalidee",
+      "publics_explicites": [
+        "gt"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/19/Special1/MENE1901567A.htm",
+        "https://cache.media.education.gouv.fr/file/SP1-MEN-22-1-2019/84/6/spe567_annexe_22-1_1063846.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt",
       "title": "[SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]",
       "domaine": "04_vie_etablissement",
-      "publics_explicites": [],
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
       "sources": [
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182398",
         "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182383",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182385",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182386",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182412",
         "https://www.service-public.gouv.fr/particuliers/vosdroits/F1396"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt",
       "title": "Égalité filles-garçons : missions du service public",
       "domaine": "04_vie_etablissement",
-      "publics_explicites": [],
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
       "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006527445",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006166561",
         "https://eduscol.education.gouv.fr/6141/egalite-filles-garcons-et-prevention-des-violences-sexistes-et-sexuelles"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt",
@@ -660,10 +695,10 @@
       "sources": [
         "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032432112"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt",
@@ -675,10 +710,10 @@
         "https://www.service-public.gouv.fr/particuliers/vosdroits/F1030",
         "https://www.unss.org/sport-sante"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt",
@@ -755,31 +790,50 @@
       "path": "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt",
       "title": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]",
       "domaine": "02_carriere",
-      "publics_explicites": [],
-      "sources": [],
-      "statut": "synthese_non_revalidee",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo1/MENH2535543N"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt",
       "title": "[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]",
       "domaine": "12_reperes",
-      "publics_explicites": [],
-      "sources": [],
-      "statut": "synthese_non_revalidee",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2026/Hebdo1/MENH2535543N"
+      ],
+      "statut": "revu_2026-11-03_reperes_indicatifs",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt",
       "title": "[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]",
       "domaine": "12_reperes",
-      "publics_explicites": [],
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
       "sources": [],
-      "statut": "synthese_non_revalidee",
+      "statut": "revu_2026-11-03_reperes_indicatifs",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": true
@@ -806,10 +860,10 @@
       "sources": [
         "https://www.education.gouv.fr/bo/17/Hebdo16/MENE1711773C.htm"
       ],
-      "statut": "synthese_non_revalidee",
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt",
@@ -1407,11 +1461,15 @@
       "title": "partenariats defense citoyennete",
       "domaine": "12_reperes",
       "publics_explicites": [],
-      "sources": [],
-      "statut": "synthese_non_revalidee",
+      "sources": [
+        "https://www.education.gouv.fr/bo/16/Hebdo30/MENE1617837C.htm",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F871",
+        "https://eduscol.education.gouv.fr/6986/sensibilisation-aux-gestes-qui-sauvent-et-formation-aux-premiers-secours"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,
       "remplace_par": null,
-      "controle_a_poursuivre": true
+      "controle_a_poursuivre": false
     },
     {
       "path": "data/textes/premier_degré.txt",
@@ -1601,6 +1659,25 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/situations_2026_11_03/equipements_sportifs_conventions_eple.txt",
+      "title": "Installations sportives de la commune : convention d'utilisation pour l'EPS (L. 214-4)",
+      "domaine": "07_securite",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182385",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070633/LEGISCTA000006180932"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt",
       "title": "Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)",
       "domaine": "03_responsabilite",
@@ -1618,6 +1695,23 @@
         "https://www.legifrance.gouv.fr/ceta/id/CETATEXT000007720817",
         "https://www.conseil-etat.fr/fr/arianeweb/CE/analyse/2021-02-12/429801",
         "https://www.education.gouv.fr/sites/default/files/document/Fiche%2043%20-%20La%20r%C3%A9paration%20des%20dommages%20li%C3%A9s%20aux%20accidents%20des%20%C3%A9l%C3%A8ves-245844.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/situations_2026_11_03/voie_pro_notation_aflp_ccf.txt",
+      "title": "Bac professionnel et CAP : répartition des points entre AFLP (12 + 8) en CCF",
+      "domaine": "10_examens",
+      "publics_explicites": [
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+        "https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C"
       ],
       "statut": "sources_officielles_consultees_2026-11-03",
       "recherche_active": true,

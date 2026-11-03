@@ -1,37 +1,18 @@
-TITRE : Classes de Défense et de Sécurité Globale (CDSG) et Classes Engagées
-CADRE RÉGLEMENTAIRE :
-- Protocole interministériel du 16 décembre 2021 entre le ministère des Armées et le ministère de l'Éducation nationale.
-- Circulaire du 8 juin 2023 (BO n° 26 du 29 juin 2023) relative au déploiement des « classes engagées » et des « lycées engagés ».
+TITRE : Classes de défense et de sécurité globale (CDSG), classes engagées et cadets
+PRINCIPES :
+- Une classe de défense et de sécurité globale repose sur un partenariat entre un collège ou un lycée et une unité de la Défense (ou de la gendarmerie) qui la parraine ; elle s'inscrit dans le parcours citoyen et l'enseignement moral et civique, avec des projets autour de l'esprit de défense, de l'engagement et de la cohésion.
+- Les cadets de la sécurité civile (avec les services d'incendie et de secours) et les cadets de la Défense ou de la Marine reposent sur des conventions entre l'éducation nationale et le partenaire, déclinées localement.
+- Limite : les textes de cadrage de ces dispositifs (protocoles, conventions-cadres, circulaires) n'ont pas été relus ici. Pour la convention, le volume horaire, l'encadrement des sorties et l'assurance, se référer à la convention signée par l'établissement et au référent académique ; ne pas citer de date ou de numéro de texte sans l'avoir retrouvé.
 
-PRINCIPES ET OBJECTIFS :
-- Les CDSG reposent sur un partenariat fort, formalisé par une convention entre un établissement scolaire (collège ou lycée) et une unité militaire parrainante (régiment, base aérienne, bâtiment de la Marine nationale, gendarmerie).
-- Elles s'inscrivent pleinement dans le Parcours Citoyen de l'élève et l'Enseignement Moral et Civique (EMC).
-- Objectifs pédagogiques : Développer l'esprit de défense, la cohésion, la culture de l'engagement civique, la connaissance des institutions républicaines et l'égalité des chances à travers des projets interdisciplinaires.
-- Les classes engagées articulent ces projets partenariaux de défense avec des dispositifs de cohésion et d'éducation à la citoyenneté.
+TITRE : Formation aux premiers secours (PSC1) et gestes qui sauvent au collège et au lycée
+CADRE :
+- Instruction interministérielle n° 2016-103 du 24 août 2016 (NOR MENE1617837C, BO n° 30 du 25 août 2016) : développer la formation à la prévention et secours civiques de niveau 1 (PSC1) et la sensibilisation aux gestes qui sauvent, notamment en classe de troisième, en s'appuyant sur la formation des personnels.
+PRINCIPES :
+- La formation aux premiers secours au collège vise à faire acquérir à chaque élève les gestes élémentaires de secours et une culture de la prévention. Cette instruction n'en fait pas une condition d'obtention du diplôme national du brevet ni du passage en classe supérieure : ne pas présenter le PSC1 comme une épreuve ou un prérequis du DNB.
+- Pour un enseignant d'EPS, les attestations de sauvetage aquatique et de secourisme sont une condition propre au recrutement (voir la fiche statuts des personnels) : ne pas les confondre avec la formation des élèves.
 
-TITRE : Formation PSC1 et Secourisme en Milieu Scolaire
-CADRE RÉGLEMENTAIRE :
-- Arrêté du 24 juillet 2007 fixant le référentiel national des compétences de sécurité civile.
-- Circulaire n° 2016-178 du 16 décembre 2016 (BO n° 30) relative à la sensibilisation et la formation aux premiers secours.
-
-PRINCIPES ET CLARIFICATION RÉGLEMENTAIRE (DNB) :
-- La formation PSC1 (Prévention et Secours Civiques de niveau 1) ou toute formation aux premiers secours dispensée au collège n'est en aucun cas un prérequis, une condition ni un critère bloquant pour l'obtention du Diplôme National du Brevet (DNB) ou pour le passage en classe supérieure.
-- Bien qu'elle soit fortement encouragée, valorisée et mise en œuvre dans le cadre du Parcours Citoyen (souvent en classe de 4e ou de 3e), elle ne constitue pas une obligation individuelle sanctionnée par la non-délivrance d'un diplôme académique.
-- Objectif : Permettre à chaque élève d'acquérir les gestes élémentaires de secours et de développer une culture de la prévention des risques au quotidien.
-
-TITRE : Cadets de la Sécurité Civile et Cadets de la Marine Nationale
-CADRE RÉGLEMENTAIRE :
-- Cadets de la Sécurité Civile : Circulaire n° 2016-048 du 3 mars 2016 (BO n° 9). Dispositif partenarial entre le ministère de l'Éducation nationale, le ministère de l'Intérieur (DGSCGC) et les Services Départementaux d'Incendie et de Secours (SDIS).
-- Cadets de la Marine Nationale : Conventions-cadres locales passées entre les autorités académiques et la Marine Nationale.
-
-OBJECTIFS ET FONCTIONNEMENT :
-- Cadets de la Sécurité Civile : Offrir à des collégiens volontaires une formation civique axée sur la prévention des risques majeurs, la culture de la sécurité civile et l'apprentissage des gestes citoyens. Les jeunes formés peuvent participer aux actions de prévention au sein de l'établissement (rôle d'assistant de sécurité - Assec).
-- Cadets de la Marine Nationale : Permettre à des collégiens et lycéens de découvrir le milieu maritime, de s'approprier les valeurs de rigueur, de cohésion, d'esprit d'équipage et de renforcer leur orientation et leur sens des responsabilités à travers des activités mémorielles et pratiques.
-TITRE : La Journée Défense et Citoyenneté (JDC) et Obligations Légales
-CADRE LÉGAL :
-- Code du service national (Articles L. 114-1 et suivants, R*112-1 et suivants).
-
-CARACTÈRE OBLIGATOIRE ET CONSÉQUENCES :
-- La JDC est une obligation légale pour tous les jeunes de nationalité française (garçons et filles) entre leur 16e et leur 25e anniversaire.
-- Justificatif obligatoire : L'attestation de participation à la JDC (avant 18 ans, l'attestation de recensement ; entre 18 et 25 ans, le certificat individuel de participation à la JDC ou, à défaut, une attestation provisoire) est exigée de manière impérative pour toute inscription aux examens et concours soumis au contrôle de l'autorité publique (tels que le baccalauréat, le CAP, les concours administratifs ou l'inscription au permis de conduire avant 25 ans).
-- Rôle de l'institution scolaire : L'école sensibilise les élèves aux enjeux de la défense et de la citoyenneté en amont, mais la convocation et la gestion relèvent exclusivement de la Direction du Service National et de la Jeunesse (DSNJ) et des centres du service national.
+TITRE : Journée défense et citoyenneté (JDC) et inscription aux examens
+- Après le recensement citoyen, chaque jeune Français, fille ou garçon, est convoqué à la JDC. Selon Service Public (vérifié le 14 avril 2026), « pour vous inscrire de 17 à 24 ans à l'examen du permis de conduire, et de 18 à 24 ans à un examen (BEP, bac...) ou un concours administratif, il est indispensable de fournir votre justificatif de JDC ».
+- L'établissement sensibilise les élèves ; la convocation et la gestion de la JDC relèvent du service national.
+Nature de la source : texte national (instruction interministérielle au Bulletin officiel) et information administrative officielle (Service Public), relus le 3 novembre 2026.
+Sources : https://www.education.gouv.fr/bo/16/Hebdo30/MENE1617837C.htm ; https://www.service-public.gouv.fr/particuliers/vosdroits/F871 ; Éduscol, sensibilisation aux gestes qui sauvent et formation aux premiers secours : https://eduscol.education.gouv.fr/6986/sensibilisation-aux-gestes-qui-sauvent-et-formation-aux-premiers-secours

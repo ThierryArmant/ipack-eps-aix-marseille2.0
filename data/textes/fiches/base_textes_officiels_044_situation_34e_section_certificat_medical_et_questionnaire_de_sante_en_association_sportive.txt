@@ -1,9 +1,10 @@
 ### [SITUATION: CERTIFICAT MÉDICAL EN ASSOCIATION SPORTIVE / UNSS]
-- Dans le cas général, la licence d’une fédération sportive scolaire ne nécessite pas de certificat médical. Un élève apte en EPS est réputé apte aux activités sportives volontaires.
+- Dans le cas général, la licence d’une fédération sportive scolaire ne nécessite pas de certificat médical : « tout élève apte à l'éducation physique et sportive est réputé apte » aux activités physiques et sportives volontaires de l’AS (Code de l’éducation, L552-1).
 - Ne pas imposer à l’AS/UNSS le questionnaire et l’attestation applicables aux licences de clubs ordinaires : l’article L552-4 du Code de l’éducation exclut les articles L231-2 et L231-2-1 du Code du sport.
-- Pour les disciplines à contraintes particulières, un certificat spécifique demeure requis, datant de moins d’un an au jour de la demande de licence ; vérifier la discipline et les règles applicables. Ne pas généraliser cette exception à toutes les activités de l’AS.
+- Service Public (vérifié le 30 octobre 2026) indique pour l’UNSS : « Vous n'avez pas à présenter de certificat médical pour obtenir ou renouveler votre licence sportive », et renvoie à l’établissement ou à la fédération pour les conditions d’obtention. L’article L552-4 n’écarte que les articles L231-2 et L231-2-1 : pour une discipline à contraintes particulières (plongée subaquatique, sports de combat pouvant finir par K.-O., tir…), vérifier auprès de l’UNSS la règle applicable avant d’annoncer qu’aucun certificat n’est exigé.
 - Un problème de santé ou une inaptitude connue appelle les adaptations et précautions correspondantes ; l’absence de certificat systématique ne dispense pas de ces précautions.
-Sources : Code de l’éducation L552-1 et L552-4 ; Service Public, rubrique activité sportive facultative au collège et lycée.
+Nature de la source : texte national (Code de l’éducation, lu sur Légifrance le 3 novembre 2026) et information administrative officielle (Service Public).
+Sources : Code de l’éducation L552-1 et L552-4 ; Service Public F1030, onglet « Scolaire ».
 https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006151363
 https://www.service-public.gouv.fr/particuliers/vosdroits/F1030
 https://www.unss.org/sport-sante

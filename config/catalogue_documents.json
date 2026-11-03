@@ -788,12 +788,13 @@
   },
   "data/textes/complement_natation_scolaire.txt": {
     "title": "complement natation scolaire",
-    "statut": "verifie_2026-10-10",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "url": "https://www.education.gouv.fr/bo/22/Hebdo9/MENE2129643N.htm",
     "prioritaire": true,
     "motifs": [
-      "natation|nager|aquatique|asns"
+      "natation|nager|aquatique|asns",
+      "maitre.?nageur|\\bmns\\b|(?=.*(?:piscine|bassin|plan d.eau))(?=.*(?:surveill|encadr|surface|m2|m²|profondeur|\\bseule?s?\\b|non.?nageur))"
     ],
     "exclure_motifs": [
       "shn|haut niveau|specialite sportive",
@@ -803,7 +804,8 @@
     "modes": [
       "textes"
     ],
-    "domaine_textes": "07_securite"
+    "domaine_textes": "07_securite",
+    "date_verification": "2026-11-03"
   },
   "data/textes/complement_obligations_service_eps.txt": {
     "title": "Obligations de service des professeurs d'EPS (décret n° 2014-940)",
@@ -832,7 +834,7 @@
   },
   "data/textes/complement_statuts_personnels_eps.txt": {
     "title": "complement statuts personnels eps",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "domaine_textes": "01_service_statuts",
     "prioritaire": true,
@@ -842,7 +844,8 @@
     ],
     "motifs": [
       "\\baed\\b|assistant d.education|preprofessionnalisation|vacataire|vacation|contractuel.{0,40}(?:diplome|qualif|recrut)|etudiant.{0,30}staps"
-    ]
+    ],
+    "date_verification": "2026-11-03"
   },
   "data/textes/escalade_controles_securite.txt": {
     "title": "Escalade SAE et moulinette : contrôles du professeur",
@@ -865,9 +868,10 @@
   },
   "data/textes/partenariats_defense_citoyennete.txt": {
     "title": "partenariats defense citoyennete",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
-    "domaine_textes": "12_reperes"
+    "domaine_textes": "12_reperes",
+    "date_verification": "2026-11-03"
   },
   "data/textes/premier_degré.txt": {
     "title": "premier degré",
@@ -2815,10 +2819,11 @@
   },
   "data/textes/fiches/base_textes_officiels_020_situation_14e_section_logistique_et_securite_des_voyages_et_sorties_scolaires.txt": {
     "title": "[SITUATION: 14E SECTION : LOGISTIQUE ET SÉCURITÉ DES VOYAGES ET SORTIES SCOLAIRES]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "06_sorties_transports"
+    "domaine_textes": "06_sorties_transports",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt": {
     "title": "Données des élèves : outils numériques, images et responsabilité",
@@ -2852,7 +2857,7 @@
   },
   "data/textes/fiches/base_textes_officiels_024_situation_18e_section_exigences_de_l_encadrement_par_des_intervenants_exterieurs.txt": {
     "title": "[SITUATION: 18E SECTION : EXIGENCES DE L'ENCADREMENT PAR DES INTERVENANTS EXTÉRIEURS]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "prioritaire": true,
@@ -2865,7 +2870,8 @@
       "(?=.*intervenant)(?=.*(?:hors de (?:ma )?vue|pas (?:dans|a) (?:ma )?vue|sans moi|en mon absence|seul avec|au pied))",
       "(?=.*parents?)(?=.*accompagn)(?=.*(?:sortie|formalit|voyage))"
     ],
-    "domaine_textes": "06_sorties_transports"
+    "domaine_textes": "06_sorties_transports",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_025_situation_19e_section_protocoles_de_securite_chirurgicaux_par_familles_d_apsa.txt": {
     "title": "Sécurité en EPS : organisation des activités, matériel, différences entre élèves",
@@ -2886,10 +2892,11 @@
   },
   "data/textes/fiches/base_textes_officiels_026_situation_20e_section_bible_des_exigences_nationales_et_securite_des_7_appn_eduscol.txt": {
     "title": "[SITUATION: 20E SECTION : BIBLE DES EXIGENCES NATIONALES ET SÉCURITÉ DES 7 APPN (EDUSCOL)]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "07_securite"
+    "domaine_textes": "07_securite",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_029_situation_constat_des_risques_et_vigilance_imperative.txt": {
     "title": "EPS : vigilance, facteurs de risque et prévention",
@@ -2984,32 +2991,36 @@
   },
   "data/textes/fiches/base_textes_officiels_035_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
     "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "09_programmes"
+    "domaine_textes": "09_programmes",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_036_situation_textes_de_reference_bo_special_n_1_du_22_janvier_2019_1re_et_terminale.txt": {
     "title": "[SITUATION: Textes de référence : BO spécial n°1 du 22 janvier 2019 (1re et Terminale)]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "09_programmes"
+    "domaine_textes": "09_programmes",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_037_situation_31e_section_les_grands_piliers_legislatifs_du_code_de_l_education_reconnus.txt": {
     "title": "[SITUATION: 31E SECTION : LES GRANDS PILIERS LÉGISLATIFS DU CODE DE L'ÉDUCATION RECONNUS]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "04_vie_etablissement"
+    "domaine_textes": "04_vie_etablissement",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_038_situation_32e_section_ancrage_constitutionnel_et_legal_de_la_mixite_et_de_l_egalite.txt": {
     "title": "Égalité filles-garçons : missions du service public",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "url": "https://eduscol.education.gouv.fr/6141/egalite-filles-garcons-et-prevention-des-violences-sexistes-et-sexuelles",
-    "domaine_textes": "04_vie_etablissement"
+    "domaine_textes": "04_vie_etablissement",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_039_situation_cadre_juridique_textes_officiels_de_reference.txt": {
     "title": "Transport d’élèves en véhicule personnel : recours exceptionnel et garanties",
@@ -3064,7 +3075,7 @@
   },
   "data/textes/fiches/base_textes_officiels_043_situation_33e_section_conformite_stabilite_et_ancrage_des_equipements_sportifs_buts_et_pan.txt": {
     "title": "[SITUATION: 33E SECTION : CONFORMITÉ, STABILITÉ ET ANCRAGE DES ÉQUIPEMENTS SPORTIFS (BUTS ET PANIERS)]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
     "prioritaire": true,
@@ -3076,14 +3087,16 @@
       "(?=.*(?:\\bbuts?\\b|paniers?|equipements? sportifs?))(?=.*(?:verif|control|stabil|ancr|secur|entretien))",
       "(?=.*(?:\\bbuts?\\b|paniers?))(?=.*(?:fix|instable|tomb|bascul|couch|bouge|mobile|lest))"
     ],
-    "domaine_textes": "07_securite"
+    "domaine_textes": "07_securite",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_044_situation_34e_section_certificat_medical_et_questionnaire_de_sante_en_association_sportive.txt": {
     "title": "[SITUATION: 34E SECTION : CERTIFICAT MÉDICAL ET QUESTIONNAIRE DE SANTÉ EN ASSOCIATION SPORTIVE (AS / UNSS)]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "05_sante"
+    "domaine_textes": "05_sante",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_045_situation_35e_section_adaptation_aux_conditions_climatiques_extremes_et_pollution_atmosphe.txt": {
     "title": "EPS : chaleur, pollution et conditions météorologiques",
@@ -3172,24 +3185,27 @@
   },
   "data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt": {
     "title": "[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "02_carriere"
+    "domaine_textes": "02_carriere",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt": {
     "title": "[SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]",
-    "statut": "synthese_non_revalidee",
+    "statut": "revu_2026-11-03_reperes_indicatifs",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "12_reperes"
+    "domaine_textes": "12_reperes",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt": {
     "title": "[SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]",
-    "statut": "synthese_non_revalidee",
+    "statut": "revu_2026-11-03_reperes_indicatifs",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "12_reperes"
+    "domaine_textes": "12_reperes",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_056_situation_addendum_statut_de_l_agent_deontologie_et_accident_de_service.txt": {
     "title": "Accident de service ou de trajet : déclaration de l’agent",
@@ -3209,10 +3225,11 @@
   },
   "data/textes/fiches/base_textes_officiels_058_situation_doctrine_appn_et_taux_d_encadrement_circulaires_2017_075_2017_116.txt": {
     "title": "[SITUATION: DOCTRINE APPN ET TAUX D'ENCADREMENT (CIRCULAIRES 2017-075 & 2017-116)]",
-    "statut": "synthese_non_revalidee",
+    "statut": "sources_officielles_consultees_2026-11-03",
     "examens": [],
     "origine": "data/archives/compilations/base_textes_officiels.txt",
-    "domaine_textes": "07_securite"
+    "domaine_textes": "07_securite",
+    "date_verification": "2026-11-03"
   },
   "data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt": {
     "title": "[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]",
@@ -9096,5 +9113,49 @@
       "(?=.*malaise)(?=.*(?:secours|samu|\\b15\\b|\\b112\\b|appeler|que (?:dois|faire)))"
     ],
     "domaine_textes": "03_responsabilite"
+  },
+  "data/textes/situations_2026_11_03/equipements_sportifs_conventions_eple.txt": {
+    "title": "Installations sportives de la commune : convention d'utilisation pour l'EPS (L. 214-4)",
+    "statut": "sources_officielles_consultees_2026-11-03",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 320,
+    "date_verification": "2026-11-03",
+    "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006182385",
+    "motifs": [
+      "214-4|1311-15|convention d.(?:utilisation|occupation|mise a disposition)|(?=.*(?:gymnase|installations?|equipements? sporti\\w*|stade|piscine|terrain|salle de sport|creneaux?))(?=.*(?:mairie|commune|municipal\\w*|intercommunal\\w*|agglo\\w*|metropole|departement|region|collectivite|club))(?=.*(?:convention|payer|paie|paye|factur|gratui\\w*|redevance|loyer|retir\\w*|reprend\\w*|enlev\\w*|priorit\\w*|droit))"
+    ],
+    "exclure_motifs": [
+      "transport|\\bcar\\b|bus|navette",
+      "ipack|santorin|cyclades|code res|emploi du temps"
+    ],
+    "domaine_textes": "07_securite"
+  },
+  "data/textes/situations_2026_11_03/voie_pro_notation_aflp_ccf.txt": {
+    "title": "Bac professionnel et CAP : répartition des points entre AFLP (12 + 8) en CCF",
+    "statut": "sources_officielles_consultees_2026-11-03",
+    "examens": [
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "textes",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "date_verification": "2026-11-03",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo18/MENE2505383C",
+    "motifs": [
+      "(?=.*(?:\\baflp|bac pro|baccalaureat professionnel|\\bcap\\b|voie pro\\w*|\\blp\\b|lycee pro\\w*))(?=.*(?:points?|repartition|repartir|bareme|\\bsur (?:7|5|8|12)\\b|4.4|6.2|2.6|noter|notation|note sur|choix de l.eleve|au fil de la sequence|fin de sequence))"
+    ],
+    "exclure_motifs": [
+      "santorin|cyclades|saisi|saisir|bloque|message d.erreur|ipack",
+      "\\bshn\\b|haut niveau|inapt|dispens|absen|bless|malad"
+    ],
+    "domaine_textes": "10_examens"
   }
 }

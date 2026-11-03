@@ -1943,13 +1943,14 @@
     }
    ]
   },
-  "data/textes/fiches/base_textes_officiels_054_situation_cycle_annuel_des_publications_et_des_operations_de_gestion.txt": {
+  "data/textes/fiches/base_textes_officiels_055_situation_structure_type_des_services_emetteurs_dans_le_ba.txt": {
    "academie": "aix-marseille",
    "sections": [
     {
-     "section": "### [SITUATION: CYCLE ANNUEL DES PUBLICATIONS ET DES OPÉRATIONS DE GESTION]",
+     "section": "### [SITUATION: STRUCTURE TYPE DES SERVICES ÉMETTEURS DANS LE BA]",
      "lignes": [
-      "- Organisation des examens terminaux et du CCF, remontée des notes via les applications académiques (Santorin, Cyclades, Esterel)."
+      "Services qui signent le plus souvent les textes utiles aux enseignants d'EPS dans le bulletin académique d'Aix-Marseille (vérifier le service émetteur indiqué en tête de chaque texte) :",
+      "* DIEC (division interacadémique des examens et concours) : organisation des examens (DNB, CAP, bac professionnel, bac GT) et procédures de gestion des notes et des jurys."
      ]
     }
    ]

@@ -1,8 +1,9 @@
 ### [SITUATION: SÉCURITÉ DES BUTS ET PANIERS — CONTRÔLES ET MISE HORS SERVICE]
 - Le Code du sport encadre les équipements concernés, notamment les dispositifs assurant leur stabilité. Respecter la notice du fabricant ; ne pas improviser lestage, fixation ou manipulation.
-- L’article R322-25 prévoit une vérification de stabilité et de solidité à l’installation. Les exploitants ou gestionnaires établissent un plan de vérification et d’entretien et tiennent un registre des essais et contrôles.
+- L’article R322-25 : les équipements sont régulièrement entretenus par les exploitants ou gestionnaires pour répondre en permanence aux exigences de sécurité ; dès la première installation, ils sont contrôlés selon les normes publiées au Journal officiel ; les exploitants ou gestionnaires établissent un plan de vérification et d’entretien (avec la périodicité des vérifications) et tiennent un registre, par site, des dates et résultats des essais et contrôles. Tout équipement non conforme est immédiatement rendu inaccessible aux usagers par l’exploitant ou le gestionnaire.
 - Avant utilisation, l’enseignant vérifie les conditions apparentes de sécurité et s’assure que l’équipement peut être utilisé. Ne pas inventer une obligation légale de « poussée franche personnelle » de chaque but à chaque séance ; un essai technique doit suivre la procédure appropriée.
 - En présence d’une défaillance ou d’un doute sur la stabilité, empêcher l’utilisation et l’accès, alerter la direction et le gestionnaire. Ne pas conseiller de basculer soi-même un équipement défectueux face contre terre : sa sécurisation doit suivre une procédure sûre.
-- Les buts mobiles doivent être sécurisés après utilisation contre l’accès et le basculement. Interdire les suspensions dangereuses aux équipements.
+- Après utilisation, les buts non fixés de manière permanente sont rendus inutilisables par le public et sécurisés contre tout risque de chute, de renversement ou de basculement (R322-25). Interdire les suspensions dangereuses aux équipements.
+Nature de la source : texte national (Code du sport, article R322-25 en vigueur depuis le 21 avril 2016, lu sur Légifrance le 3 novembre 2026).
 Sources : Code du sport, articles R322-19 à R322-26, notamment R322-25.
 https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032432112

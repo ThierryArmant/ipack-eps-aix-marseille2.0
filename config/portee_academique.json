@@ -1356,6 +1356,17 @@
     }
    ]
   },
+  "data/ipack/creteil_2026_2027/interfacage_partie2_cyclades_santorin.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Examens : les saisies dans Cyclades et Santorin après iPackEPS (document officiel 2026-2027, partie 2)",
+     "lignes": [
+      "Accès : Cyclades et Santorin depuis le portail académique (ARENA ; à Aix-Marseille, le portail ESTEREL) ; pour quelques établissements privés, par un lien Imag'in transmis par la division des examens."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/correspondant_01_acces_comptes_enseignants.txt": {
    "academie": "aix-marseille",
    "sections": [

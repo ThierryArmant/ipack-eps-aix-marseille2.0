@@ -6,7 +6,7 @@ import knowledge_catalog as kc
 
 GT = 'Lycée Général & Techno'
 CLG = 'Collège (DNB)'
-PRO = 'Lycée Pro'
+PRO = 'Lycée Pro / CAP'
 VP = "Bac professionnel et CAP : répartition des points entre AFLP (12 + 8) en CCF"
 EQ = "Installations sportives de la commune : convention d'utilisation pour l'EPS (L. 214-4)"
 
@@ -77,3 +77,19 @@ class RevueIpack(unittest.TestCase):
         import json
         c = json.load(open('config/catalogue_documents.json', encoding='utf-8'))
         self.assertEqual([], [k for k, v in c.items() if 'non_revalid' in str(v.get('statut'))])
+
+
+class Interfacage2026(unittest.TestCase):
+    P1 = "Examens : saisies dans iPackEPS avant Cyclades (document officiel 2026-2027)"
+    P2 = "Examens : saisies dans Cyclades et Santorin après iPackEPS (document officiel 2026-2027)"
+
+    def test_routage(self):
+        self.assertIn(self.P1, kc.priority_titles("Peut-on importer les élèves dans Cyclades depuis Pronote ?", GT, 'examens'))
+        self.assertIn(self.P2, kc.priority_titles("Nos protocoles sont validés, comment ajouter un nouveau protocole standard ?", GT, 'examens'))
+        self.assertNotIn(self.P2, kc.priority_titles("Je ne peux pas saisir l'AFL2 dans Santorin", GT, 'examens'))
+
+    def test_contenu(self):
+        t = lire('data/ipack/creteil_2026_2027/interfacage_partie1_saisies_ipackeps.txt')
+        self.assertIn('à proscrire', t)
+        self.assertIn('2026.2', t)
+        self.assertIn('Seul le chef établissement peut déverrouiller', lire('data/ipack/creteil_2026_2027/interfacage_partie2_cyclades_santorin.txt'))

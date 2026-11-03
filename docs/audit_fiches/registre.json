@@ -13524,6 +13524,22 @@
       "statut_audit": "a_relire",
       "statut_catalogue": "sources_officielles_consultees_2026-11-03",
       "signaux": []
+    },
+    {
+      "path": "data/ipack/creteil_2026_2027/interfacage_partie1_saisies_ipackeps.txt",
+      "sha256": "8dc602617928d9ee8432c682166b728b7e182b549832b48c7bc4ab2b3fa591f7",
+      "famille": "ipack",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "source_officielle_logiciel_2026-11-03",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/creteil_2026_2027/interfacage_partie2_cyclades_santorin.txt",
+      "sha256": "f31bd2d9a9d745ca2fc6f38ee7d951ad23bdb7d17111795882e9e9e42458512b",
+      "famille": "ipack",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "source_officielle_logiciel_2026-11-03",
+      "signaux": []
     }
   ],
   "revue_structurelle": {

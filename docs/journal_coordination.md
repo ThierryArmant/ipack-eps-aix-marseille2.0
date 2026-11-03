@@ -3656,3 +3656,11 @@ Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passa
   - ipack_100 : transmission à Santorin par l'édition PDF attribuée à la division des examens d'Aix (2024), « instantanément » retiré ; ipack_018 : « priorité absolue » → conseil.
 - Tests : tests/test_revalidation_textes_2026_11_03.py (plus de consigne « L'IA doit », plus aucune fiche non revalidée).
 - Reste à confirmer à l'écran par Thierry (impossible d'ici) : comportements 2026 des modules décrits par des articles Créteil de 2018-2020.
+
+## 2026-11-03 soir (suite) — Claude : tour complet du site d'assistance iPackEPS de Créteil (navigateur de Thierry)
+- 78 articles relevés (plan du site). Articles sans fiche citant leur numéro : 21, 23, 33, 34, 41, 46, 52, 61, 62, 68, 75, 76, 79. Après lecture : 23 déjà couvert (acces_ipackeps_problemes.txt, sans numéro d'article) ; 33, 34, 41, 46, 52 = vidéos ou pages de navigation ; 76 = assistance à distance de Créteil (hors Aix).
+- Nouveautés 2026-2027 (article 21 : PDF « nouveautés 2026-2027 » et release notes, dernière version 2026.2.1 du 01/09/2026) : déjà intégrées dans ipack_001 et ipack_233 (actualisation ouverte à tous, import automatique à la connexion, EPI photos/notice/fréquence, alertes dates des CM, Évolution SSS + signature du chef).
+- Nouvelles fiches data/ipack/creteil_2026_2027/ (modes ipack + examens, priorité 285, motifs ciblés sur les manques) :
+  - interfacage_partie1_saisies_ipackeps.txt (article 61, PDF 2026-2027) : ordre des saisies, ce qui n'est pas transféré, protocole adapté sans référentiel, import Pronote → Cyclades « à proscrire ». Le PDF attribue encore l'actualisation au coordonnateur : écart signalé dans la fiche (version 2026.2).
+  - interfacage_partie2_cyclades_santorin.txt (article 62, PDF 2026-2027 + procédure CFA/AEFE, articles 75 et 79) : ordre Cyclades / Imag'in / Santorin, protocole standard après validation (invalidation par la commission puis « soumettre les protocoles »), « Voir infos Candidats », verrouillage, statistiques, export Excel pour repérer les DI.
+- Tests ajoutés (classe Interfacage2026).

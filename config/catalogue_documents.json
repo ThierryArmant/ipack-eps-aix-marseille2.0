@@ -9225,5 +9225,52 @@
       "\\bshn\\b|haut niveau|inapt|dispens|absen|bless|malad"
     ],
     "domaine_textes": "10_examens"
+  },
+  "data/ipack/creteil_2026_2027/interfacage_partie1_saisies_ipackeps.txt": {
+    "title": "Examens : saisies dans iPackEPS avant Cyclades (document officiel 2026-2027)",
+    "statut": "source_officielle_logiciel_2026-11-03",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 285,
+    "date_verification": "2026-11-03",
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article61",
+    "motifs": [
+      "(?=.*(?:pronote|vie scolaire|notabene|ecole ?directe))(?=.*cyclades)(?=.*(?:import|eleves|groupes?))",
+      "(?=.*(?:protocole|groupe) adapte)(?=.*(?:referentiel|valid|conform|champ|combien|apsa))",
+      "(?=.*(?:pas|non|ne sont pas|ne seront pas) (?:transfer|export|remont))(?=.*cyclades)",
+      "aucun groupe d.examen|ne seront donc pas exportes"
+    ]
+  },
+  "data/ipack/creteil_2026_2027/interfacage_partie2_cyclades_santorin.txt": {
+    "title": "Examens : saisies dans Cyclades et Santorin après iPackEPS (document officiel 2026-2027)",
+    "statut": "source_officielle_logiciel_2026-11-03",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 285,
+    "date_verification": "2026-11-03",
+    "url": "https://ipackeps.ac-creteil.fr/spip.php?article62",
+    "motifs": [
+      "voir infos candidats|soumettre les protocoles|(?=.*(?:invalid|revalid|devalid))(?=.*protocole)",
+      "(?=.*(?:nouveau|creer|ajouter|rajouter) (?:un )?protocole)(?=.*(?:standard|apres (?:la )?validation|deja valide|commission))",
+      "(?=.*(?:liste|extraire|extraction|exporter|recuperer))(?=.*(?:dispens|inaptes|\\bdi\\b))(?=.*santorin)",
+      "(?=.*statistiques?)(?=.*santorin)",
+      "(?=.*\\bcfa\\b|.*aefe)(?=.*(?:cyclades|santorin|imag.?in|ccf))"
+    ]
   }
 }

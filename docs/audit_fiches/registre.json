@@ -1396,7 +1396,7 @@
       "sha256": "b33d201984c464b9264862637c1b9fba92df3b82ed397213fbb062fdcd6f7fb5",
       "famille": "commun",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -1439,7 +1439,7 @@
       "sha256": "0a26aa07573a27f3d6f19c06af1024607f30ab843ddd6eb48570a135095f32b5",
       "famille": "commun",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "affirmation_absolue_a_relire",
@@ -1579,7 +1579,7 @@
       "sha256": "0c9f852a708cec8f374b79622ea5fba654de4e9ba707a1cf6599ea25e081d75b",
       "famille": "examens",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "synthese_non_revalidee"
@@ -3505,7 +3505,7 @@
       "sha256": "ed7e208d0c2753b2a0eecfd01dcdb423648ccf4acd034d4064fd690e4994dd54",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -3534,7 +3534,7 @@
       "sha256": "81f1a8753dd9f413272338a67d653b062b9a902a3e83f6a18125174f84c154dc",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler",
@@ -3560,7 +3560,7 @@
       "sha256": "bf4e8c285720d6247bc6d978e73490ccbafbe7c5369a6ec26c573c78937ee839",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "portee_academique_a_controler",
@@ -3586,7 +3586,7 @@
       "sha256": "5d130eb49496df103e01a2bcf72dcbd38b1561ea6095f25033bbabd1ed7a5672",
       "famille": "examens",
       "statut_audit": "a_relire",
-      "statut_catalogue": "diagnostic_conditionnel_sources_existantes_non_revalidees",
+      "statut_catalogue": "diagnostic_conditionnel_revu_2026-10-25",
       "signaux": [],
       "revue_structurelle": {
         "date": "2026-10-24",
@@ -3609,7 +3609,7 @@
       "sha256": "4a37bf08f91ac6015cb8447d013597432dd8d896e0f5f03fb4123c732821181f",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler",
@@ -3982,7 +3982,7 @@
       "sha256": "74eb3654e691d303e967b3378cffd31471d3cbdcf71351b4b043b2cfc163cf3b",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler",
@@ -5148,7 +5148,7 @@
       "sha256": "6e1346524d5515ed4f9b716e788a1904f0ed6af8c5769fcdb614899b8dfc57e4",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -5201,7 +5201,7 @@
       "sha256": "e3e03ee287d6f07229562993b1664f310d64f54964b8a22e76dc135dfd03767a",
       "famille": "examens",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -5299,7 +5299,7 @@
       "sha256": "04408c9c92b375f44f57ab3b5d6457b803e7f6cedeba25d21281c6aeeca47ed1",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -5356,7 +5356,7 @@
       "sha256": "bf99d3503e0d4ee97c7c5d566f2fcc8c6f036846b2bed8d26b867b22b3442883",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -5385,7 +5385,7 @@
       "sha256": "37b6f0c694e7f7612a3ff6c944a9a57eabe9886c99ef4e305dee67cf0e60f745",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -5848,7 +5848,7 @@
       "sha256": "b56a0e45811a16539a30fbb02dc630ecb55bb79c8d1e8bdffa9ad48fc07cfaf7",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -5937,7 +5937,7 @@
       "sha256": "3e2195e04d17e83e96fc7b1f4f2918591e9955b75cca12cad8302f0e373f4b30",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -5963,7 +5963,7 @@
       "sha256": "48ea590b9461059c24315965e0dd3143e7f4960f17cef8709e5ed6f0dc551a24",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "portee_academique_a_controler",
@@ -6007,7 +6007,7 @@
       "sha256": "2a28fed421a0c0479a73873298efdc13f7cc78efd64445efc859f5ce2a471b12",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6029,7 +6029,7 @@
       "sha256": "a4902bc71cf092d4e555e22e4fbe134fcf563989ee7d706de562122d691207f2",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6051,7 +6051,7 @@
       "sha256": "4cecaa4cab1fc93e29b8c48059ea4a20f7f8ee179fd99110e9fdc905ed8afcea",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "portee_academique_a_controler",
@@ -6096,7 +6096,7 @@
       "sha256": "229c5801626127f2dce4af20a2d347d506080dd207022181460843e2ca72760c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6115,10 +6115,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_018_situation_groupes_d_options_et_double_niveau.txt",
-      "sha256": "903ba96707bb0e6e7f5bfee1409c80a9e7d81e5aee74d5b6ab76fd01dce1bcc8",
+      "sha256": "350338c39a5380e43f96e1f1e842c4c3dab7e043df2aaa18da7ebfd55157a950",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6187,7 +6187,7 @@
       "sha256": "472804d04dba3811f217bb3c83e9ae4ca4b6d46653986d842fe3214791bb588e",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6212,7 +6212,7 @@
       "sha256": "07df00d309ba0084fadbf99e15e5705b1b8f5ed657de1d3c4e70dd450a6a833b",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6257,7 +6257,7 @@
       "sha256": "0aaa99ca95511ef9c0cc0abc71b5012defb08ca5eed2dec3ee2afd65ff46b8e8",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6323,7 +6323,7 @@
       "sha256": "3d73f0aabb07270f0f377afbf74c31d9292f8d23b47f3aadc524ffde8ee00d79",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6366,7 +6366,7 @@
       "sha256": "9b25bd5955c67217e7d1636603995d702eb975fc512f5f1106c4f6c8eccd3f15",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "portee_academique_a_controler",
@@ -6410,7 +6410,7 @@
       "sha256": "c80e568c66fadc9ed5296a2b72b3914f39b0bbb04cdcc1c38e6403f3f6f8cf90",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6455,7 +6455,7 @@
       "sha256": "a7514e7b90c7a6aecdd8d9242ae939a7bdb485324fa6b41613a4d38eeb6b6405",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6477,7 +6477,7 @@
       "sha256": "f71b8563d4d8a1c45dae94f1cc0bd0157d1b9259d67aeabd1c19fb7a581cac68",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6499,7 +6499,7 @@
       "sha256": "69b19467c2499b86ab31de3a870a58876d4a600edfea035a8aa327e70d4014ae",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6521,7 +6521,7 @@
       "sha256": "6ce1e69b39ee83f94cca4d8a8560fd864bdc54be7e3620b295884ae9e542702f",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6543,7 +6543,7 @@
       "sha256": "9947f240a2fdc1278815d89281cd75056cd79b71e09bb2ee8439111122bcd5c8",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6565,7 +6565,7 @@
       "sha256": "9f10bfd88fe529351359357898a190319baa7ddd641c76e280971a71d89639f7",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -6673,7 +6673,7 @@
       "sha256": "dfa783cc596a892789034de8c1f611af6c244a9f2dabb13f2ae8ab0322bc75f0",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6719,7 +6719,7 @@
       "sha256": "0879d7dfb820d44af2f375706e9624b7b67b30d19bf92bce5d82fdc08daa6f50",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6740,7 +6740,7 @@
       "sha256": "41e88385b0bd69f7cbf484e3db58a9618b27d9eab96749bffd57d6b153ddf811",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6761,7 +6761,7 @@
       "sha256": "1f31d2c1862b60a0a90f0975828f8f6d9afb493a727d68ff44bc774de4457000",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6784,7 +6784,7 @@
       "sha256": "54742550e1d8f75ca555cb92bb9eca05a1b2d9b520554ead4ff4408c45b34770",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6808,7 +6808,7 @@
       "sha256": "158bd3eaedcd080f0e2a738b17e8ba8fb26fad86820f73e9043060e61bf4b880",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6836,7 +6836,7 @@
       "sha256": "1dd94e3c61b314915c822832810f0c2b1934cc3ab73896799e80abe7a865a0ec",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6861,7 +6861,7 @@
       "sha256": "07c94e49680b63326a4d7e822c5829d18d5d5c993c4eace7681438c694238ba2",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6882,7 +6882,7 @@
       "sha256": "76407a04d59932a56edd4beed8de5fe17c48671674521f90c4a75c9fa8e125c9",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6909,7 +6909,7 @@
       "sha256": "4d35e6d5af1e7ff28165577b55e6b9b9c578e35579a9cc23eaf90642a54c0a6e",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6931,7 +6931,7 @@
       "sha256": "9433627dc875e2233da968a9b5fb65e6affa71076fa4a3d8ee156ae002c2f93d",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6949,10 +6949,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_066_article_88_dossiers_dossiereps_eleves_import_d_eleves_depuis_pronote_ecole_directe.txt",
-      "sha256": "d5da8972d37173b21464897a01b29b2a197bfad689b4c4b22fc68cc068cea4e6",
+      "sha256": "b090ff70fba3513508707cfd29c4f676f4009ed6acbf2870e533fd9cac9c53a2",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -6978,7 +6978,7 @@
       "sha256": "728e89f2f50c65428c3e813b43d945b1b1cecd1a2b4e4d6eb4159da558abb084",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -6999,7 +6999,7 @@
       "sha256": "f881f53f16ee4c960ebc26d382d9c30a8e6b9a0f1530220a2c721c193f1c4fd1",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -7022,7 +7022,7 @@
       "sha256": "60c42fe38867598cfd60c5cea721a80c32f581f27a06880de303af4aa78ae14e",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7046,7 +7046,7 @@
       "sha256": "98f9c11915e5cf5597bf06d60f1167be8d4123329d69d5d272fdb9063b8be8f5",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -7071,7 +7071,7 @@
       "sha256": "46e4499ac1885801371f0a49bb7f1a4312b2bc2a1d929b44c9bd256798febd96",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7092,7 +7092,7 @@
       "sha256": "a083f6c2cc4345d2ecec189df84f8b61cbd1cd2771a3358804f9b6c5f22fbca0",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -7114,7 +7114,7 @@
       "sha256": "554a1a205fbc3a88b6e835fca0206863aef70ffb627317ceead67209f8751db1",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -7137,7 +7137,7 @@
       "sha256": "74769c25c1173050d96257d4d8596aa8b0d6f151eff96995e6e23457e7a45907",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7160,7 +7160,7 @@
       "sha256": "ae1f64a8ad79d21905f0cd36228148f4e27e3bc52e2f3e13f3574bb3f0ad89be",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7182,7 +7182,7 @@
       "sha256": "eeaf086c74f95cd2f22b7d41164cdcb654a17480ca02a81208f8999eda2dee2a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7203,7 +7203,7 @@
       "sha256": "71a13b6eb52a8613820015cd524ed7b27b9f67412a2739697c99eb112984d10d",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7224,7 +7224,7 @@
       "sha256": "d6410c757477d596b5677d6942c274b9d84d7c03e9a832022fbd31014036d082",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7245,7 +7245,7 @@
       "sha256": "0ab255d097a2decc8c774f92144d8fce188d8dee740705945c916b47755c0ef9",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7266,7 +7266,7 @@
       "sha256": "8a47870c33f7dcad47235a91fdb588026687f4c52aa2115e129eae79e0ed5be0",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7288,7 +7288,7 @@
       "sha256": "f3eeca64e03544223a35a1c652ac163950f5dfd04209e6bb4e0ffeff3d13ade1",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7311,7 +7311,7 @@
       "sha256": "e43e437c2a17c2636e809291485c307b6b672796e4e18162330f36708a66f70d",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7332,7 +7332,7 @@
       "sha256": "6bb2a457170ee1d1c7e2556165c1f3a2191adb6ab8990a2e78029a532eab4e2e",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -7355,7 +7355,7 @@
       "sha256": "ea9aa9bd1d75a680d788fde53e5148cffdab29e456a4a1a3499d27fa3897d724",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7376,7 +7376,7 @@
       "sha256": "8c0c93d9fcf9ce32f8f295c2451868a02744fac0105cc4f08c8c24042a6295e5",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7397,7 +7397,7 @@
       "sha256": "59320e0190d979c18e13bb60d4358882c12e9ac85bb52fdb4752ad0fa634629b",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7420,7 +7420,7 @@
       "sha256": "af9a2e5ba75e2de797e125c22e102533ed9daefeda855f55568f0efcf9b50082",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7441,7 +7441,7 @@
       "sha256": "ff8cecbe1ffb59e2e9f049ac8d6ca33fe1b19a78c059762e0e17c62d61a349d6",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7462,7 +7462,7 @@
       "sha256": "d5339cddb4f59b448478ed2e7d7a85e876cfe4eeaa4d104df99ef2a5da19f3d9",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7483,7 +7483,7 @@
       "sha256": "0d4a3aafd722938c7b30a2e174436a1ca9212d19bc9a3424842941ad909dcc6f",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7504,7 +7504,7 @@
       "sha256": "d8b0a4bb9f7da7f80e8f0e872e324dc871286187f3de9da8f89657d96f34c980",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7525,7 +7525,7 @@
       "sha256": "2d48532e982f2b8d20f1540f3ff6c120de0a6d4f9c823bc0c6f1ec412544f2b6",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7546,7 +7546,7 @@
       "sha256": "be81accab50a5fcf5e64030da60d8c3544688412f75752831a99757132403e21",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7567,7 +7567,7 @@
       "sha256": "5655bb6a27dcca5f409bb44e34575c678590ae7c77d603d13e81477ec7346181",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7590,7 +7590,7 @@
       "sha256": "7566557810fa0fb128ad17229ce87946c9e262bcc174249fb7979095cf5bd936",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7611,7 +7611,7 @@
       "sha256": "c514b9320368b3ea69d54e22b093da95865ec61127ebaf229ddffe31619a714f",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7632,7 +7632,7 @@
       "sha256": "5903916b2003ab732149f5721e02f4ffc461406f6724cbd54ce68199f53ec996",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7653,7 +7653,7 @@
       "sha256": "c70b046251309c8a625dded0f2911f95e3ebf1dc5b7d09b989ef624d005df41e",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "synthese_non_revalidee"
@@ -7674,7 +7674,7 @@
       "sha256": "6242b257c7bc638eb3e51dea027393b5cc9edf7b272c8d791feb9885775c01bf",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7694,10 +7694,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_100_2_affectation_manuelle_des_enseignants_en_cas_de_besoin_remplacement.txt",
-      "sha256": "62131392e1b57a2faef4e2be300d1fcc561fddc883c5fa86286bf65e522f3a81",
+      "sha256": "4157ab96bfea355c07727fbaad7753a3ba95c639ea79491fa92a25a1445c5100",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7741,7 +7741,7 @@
       "sha256": "d7577c1349006b58cb5b2327f73943cbac7e2608a9cbdf670cd5500bc1134f03",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7787,7 +7787,7 @@
       "sha256": "c86bc647d6367f4f3afea24c62f1969d4b40834be2c0848000a063d2ad2b9fd5",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7831,7 +7831,7 @@
       "sha256": "6edb1ae8b26d29990f83161349cc1882f6e6115da90f0762253789ba79bf3225",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7922,10 +7922,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_110_thematique_conservation_des_notes.txt",
-      "sha256": "be81748166cc415e48df6d74e6c67a5d020c0af4a330f398fa22e25e119a762d",
+      "sha256": "cf8c612d9d894b6c7f4a3236d0bb288d1e63f719638408b7a4b520e5d206633a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7971,7 +7971,7 @@
       "sha256": "51305d0dd247c9700f3d3a10774f655736168cac31677719c7d0684b25c4f4d2",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -7996,7 +7996,7 @@
       "sha256": "acf3b40643159a9796e7642ad56ae09432134fec5d334554a7ff291642aa3b50",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8018,7 +8018,7 @@
       "sha256": "4f2ab7f4c6138d01e13ee14a1d278b8cb0c39647a53686e7adca75853253687c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8040,7 +8040,7 @@
       "sha256": "3f48f4d2310ec0678a0bae7f280f444ba4c73acec9b70dfdf26f0d69b8b27015",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8063,7 +8063,7 @@
       "sha256": "7663a0565cabf43a24e607f2c7f68d2992cad7cb9a852c7831cae24d50d0d2e4",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8085,7 +8085,7 @@
       "sha256": "691051648699c427c029ee7c059613e9d070270fb57dff00d1263ec04e1bf85c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8107,7 +8107,7 @@
       "sha256": "05fa2d9c42e0260aa0370a90e4dbd45ab84c8c3608e98af8917ab8dbf6c0a710",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8130,7 +8130,7 @@
       "sha256": "8103c37fc3e17517803491e66073aeba07ffb0900323a3b68446a66c5ee61ad4",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8152,7 +8152,7 @@
       "sha256": "ee934c3f16d1818a2294b4c391fab6a1991a0e2c7accd1b42124114a31854626",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8176,7 +8176,7 @@
       "sha256": "96265bfb86e5c6e1c4b1f604365eb143e36d111796cb166164dc5b9c4f7e9f94",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8201,7 +8201,7 @@
       "sha256": "f3e154a2dd8b4ef47fcdf764f4d28e5815a72290c45208503b242854553bf742",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8224,7 +8224,7 @@
       "sha256": "c84a9c1d37634ff80016cffc50f98cc0903453d7e2fc79081d45388557f7d09c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8246,7 +8246,7 @@
       "sha256": "212875343ee806c75d8bbc96ab4b3c93891594f42b8fe87518f90d1cebcd18cd",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8271,7 +8271,7 @@
       "sha256": "ff0573fab9fce0aed7c0dbbd2abc60cf8ab4df79e7cc14bb8c120e98a6d392f8",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8295,7 +8295,7 @@
       "sha256": "e1effa978a4b898492b47aec3437a0504ac20209a1be39e4b0b5d8c792bb5d8c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8319,7 +8319,7 @@
       "sha256": "fc2ddcbd3c7f60ab94d920c32c3bce776e218b1463a731c4eb6e7e917456d450",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8342,7 +8342,7 @@
       "sha256": "dea5dec969831ddc996b56598ff1bea767ee649d8ec0c9bffca6782b6df1ece3",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8369,7 +8369,7 @@
       "sha256": "ded0f8cda7a93149157b1df2f9ec02a28341bcac1c5b5af0deff5737e2eac2d4",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8391,7 +8391,7 @@
       "sha256": "508e3499ec1534d14791d80c1e102a1d124cd08f387a35e92941b46f5ed1af49",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8413,7 +8413,7 @@
       "sha256": "dafe14ce8a454e6c05a95f28ef9f81ab6d1ad43fc948294cd01e3040142b1210",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8439,7 +8439,7 @@
       "sha256": "b0e51e7d7aa296f27647c191ba52aefaafbc99e2e75e9678ffa1c9315f54107a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8467,7 +8467,7 @@
       "sha256": "aecbb1a0b44848494336cd45d88c3c6b2d036fd422caae7de1c4fa1537caa280",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8489,7 +8489,7 @@
       "sha256": "6cf5aa3892875b5ddde8462c2ce18ffdfa54f26b8473d2bbc598ea8decc1d46a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8511,7 +8511,7 @@
       "sha256": "0cc21d28c3a2e3ae555e75e888ee131be40655929a007ba1284d92a6f3a1c890",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8536,7 +8536,7 @@
       "sha256": "6be073741b57c774410a29764177875f59a2985056b1e83020681260eb221cba",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8559,7 +8559,7 @@
       "sha256": "0328357a9ae22b926fa13f8b2b660eb485185df7cbc0561fa99d14f80f41769c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8586,7 +8586,7 @@
       "sha256": "7314e2f6465a037f4b56fe6b4db14366575e64cb2fc63bd467a0d0395d827b10",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8608,7 +8608,7 @@
       "sha256": "18c7e461ffd39c3b7cd1adf1fdad299ad35fe74cabcf263ad2890e94b26e973c",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8630,7 +8630,7 @@
       "sha256": "a022b105ebdaf3ca48d4e18b3cb062afbf17bacd9b8bd34396af94f9fc95cf40",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8653,7 +8653,7 @@
       "sha256": "3664c4cb28fe129713d22bc13a85085cb5944ccb4ff7caf519b40b57215ef198",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "synthese_non_revalidee"
@@ -8674,7 +8674,7 @@
       "sha256": "be68a85081796c94c0128a14ee688f5d558bd15f63d0903b51f04a845aff74ca",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "synthese_non_revalidee"
@@ -8696,7 +8696,7 @@
       "sha256": "6188dda5a0eb10f9443c6820362f9bc55086bca3adac942323cbdd63ba2debd5",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8718,7 +8718,7 @@
       "sha256": "04f6fc39ff4988fbc33fc540e4286570c671d057535da6ba2c64030caf1b94f2",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8741,7 +8741,7 @@
       "sha256": "bd0aef02a0952927238e4150d33efbed0d0b81edfed42f77bdb40fdd2363f6c4",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8763,7 +8763,7 @@
       "sha256": "cf856db37185b707b133a3f9609b16619089d36e350f3035130b3c53fbd97e82",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8785,7 +8785,7 @@
       "sha256": "638908b573c571e12ddc6dfc10daeb649004ae80c061f45db24f0eb2b3088814",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8807,7 +8807,7 @@
       "sha256": "d6552c4c7ca92af8bfb70af979c5cc702b03810fc82d383033e77f3ae3070bf5",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8830,7 +8830,7 @@
       "sha256": "df598de74e88f76c46e6eefc745d6aea9a6aee40ca52696c9fa06385b9af9bd6",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8853,7 +8853,7 @@
       "sha256": "1f1853e3c9a40af3486a47b35d6762ab5b481adc063a872ddb1ba53462c854d8",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8899,10 +8899,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_153_thematique_l_evaluation_en_eps_epreuve_optionnelle_ponctuelle.txt",
-      "sha256": "e16ae2d9bff292457682210406148cac7d073b521d6d399a8dea5018e6a81f9e",
+      "sha256": "6794bdcaa6551795285f96cb027ef50d7fe742ef183e0315fae3c06f214bf5e5",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8947,7 +8947,7 @@
       "sha256": "cdc00cd91c8c674c65ff85851ccde1329070d87c67a005e16ccb8903d74a8189",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8970,7 +8970,7 @@
       "sha256": "0c254beb4c51d0df5db8d415ebbec7bb2c824d1176f4f0ba42a641ba79d58083",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -8993,7 +8993,7 @@
       "sha256": "576670656756ac2e28f1b515bf4d4db7303f318d1a4769acb13efe2722ac58e9",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9015,7 +9015,7 @@
       "sha256": "8a3da7178da9c60effd1663624610ef885118a78d04f719bb84e5270a9542c93",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9037,7 +9037,7 @@
       "sha256": "6d40407fbe0a4ed4166df40e660ad11ab6d95ad4148f3a19063bd0b5f4fa4857",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9085,10 +9085,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_161_situation_regle_d_or_nationale_certification_mixte_du_ccf_bac.txt",
-      "sha256": "54fe07e1bfefd4e58202f8e7dc48861e69a86f3374c8a5aad7053c3c08eaed79",
+      "sha256": "9a8351d95ce72114f00b190e3253b763d9e932117b04cfc44a2563310c26cb29",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9111,7 +9111,7 @@
       "sha256": "0228f823b72fc03487a5b5a1a1720a0732ea5be5ca35fb35d6c0ae52a92e840a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9135,7 +9135,7 @@
       "sha256": "ca80ce95a764fd01c90bb8f0f539f52e3f6f56fdb20e314974ee775cf4038424",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9202,7 +9202,7 @@
       "sha256": "1945d8f7e00aa1a9bd77932d67ebec05324b725037e269b22c3c658bc4a8af19",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9333,7 +9333,7 @@
       "sha256": "312eef048bf22b8de3e4b1f9d0bdedebbd190a497d256cd732864c81599a4e6a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "affirmation_absolue_a_relire",
         "synthese_non_revalidee"
@@ -9354,7 +9354,7 @@
       "sha256": "c8ab39554aade7c1b015d4a7aec9d09963abfa843fb85b0f5529e049adc62215",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "synthese_non_revalidee"
@@ -9398,7 +9398,7 @@
       "sha256": "9601cd83db8dd1d2a6b8b92dbd99ef3d8fc134e17915f41aabdc9119ebf7bfba",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9506,10 +9506,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_182_situation_caracteres_speciaux_prenoms_composes_et_encodage_csv_corrompu.txt",
-      "sha256": "3e20ccf04da89b57692897cf918e5309f83500cc3f1d6014e126040c19acf926",
+      "sha256": "0bd49d9bc3f1de605ab508947c66a264649b39f56f8ad0aa74cfceee9c9e08b6",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9532,7 +9532,7 @@
       "sha256": "37821ec6c2a589cb4f3ca774cdad69d716729a7ceda2cfa8361aff3c41d136c3",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9554,7 +9554,7 @@
       "sha256": "cd4c7a9404f545356bcede2fe9123d7c57e07f201f79e2879149e3aaabfc71d5",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9597,7 +9597,7 @@
       "sha256": "e8cd9e3d30a32299ca5b7eecc08bbf2c92eeb214ab0ada4340378008a1430439",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9664,7 +9664,7 @@
       "sha256": "c6585c7e081868871e2509f6458a60b0a44542ffc29569829de43ec186e736df",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9707,7 +9707,7 @@
       "sha256": "ceba6facf1624c6a832c37a45544f420a08633ed85b9f9e953b9e5a6838ab065",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "synthese_non_revalidee"
@@ -9752,7 +9752,7 @@
       "sha256": "b9e16de77d52322c96cc3040d70a43cc49d19ffb01fcbc93c2fd871e857e948d",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9864,7 +9864,7 @@
       "sha256": "4a3c6aee216d87dc5ac9b0e0d2a3e022605fab48d13b58387962bbfd0d8ee4bd",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9886,7 +9886,7 @@
       "sha256": "a7c4acd65ea4cb29bec77bf6e3e0431ad8c051d0671ff4dc0a32cd75ca2ca1cf",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -9930,7 +9930,7 @@
       "sha256": "0c8a4f1e2aa7057b237c10787ad7e2a92ee2d696387a056ab9344cc2df5f0a0d",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -10036,10 +10036,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_208_article_110_v_ux_de_formation_renseigner_son_bassin_et_son_district.txt",
-      "sha256": "e54dddfa59e870a251e7d7f7a1a0acce1a384dc3fab39b0dca5d617b7f35ff75",
+      "sha256": "ac6ace83844f2ecf351148c9aa0a474aba5030b783d0491d3c563d3944903bef",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -10087,7 +10087,7 @@
       "sha256": "c7d631c6c204fced719e8f6338722e496f0b5bcb48a4d7e552f81b6e3275bb25",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -10107,7 +10107,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_211_article_113_calendrier_academique_et_dates_limites_import_classes_protocoles.txt",
-      "sha256": "8cfd37ffe581308899bf1d4a80af80676998aafccbda555d86c48f1f2b7346e9",
+      "sha256": "0b1543821882a474013b94d7693564744360d3d6e0927308fc1bc414bc970ea0",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
@@ -10136,7 +10136,7 @@
       "sha256": "ab85ed01adc4c2af08bfdd5328e90cbd13edf366716c3a57cd12f799fee798cb",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "affirmation_absolue_a_relire",
         "portee_academique_a_controler",
@@ -10157,10 +10157,10 @@
     },
     {
       "path": "data/ipack/fiches/ipack_213_situation_corruption_des_accents_et_des_classes_csv_piege_d_excel.txt",
-      "sha256": "cf9d48840650b009212d98edaa4f7dc0eb71c3aceb154879889590af15ad3001",
+      "sha256": "6e71c67583a38b5dbc6b50af58e04f1adddd6c0682cddb3a0524d247f1eaaa26",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -10205,7 +10205,7 @@
       "sha256": "c2738c7b5693c3c5571126de78100deb29ca35d5119318d66716eb3a28678c4a",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -10275,7 +10275,7 @@
       "sha256": "501a890f2c680775b347d0b6d3d44a26051060bcc760a79ea67f3f8ef565dabe",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "portee_academique_a_controler",
@@ -10297,7 +10297,7 @@
       "sha256": "92d5afae9d5a46c2fb60051b91f4e55043f8b15286602b11cd8f83af41dd6572",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
       "signaux": [
         "reference_non_explicite_a_verifier",
         "diplome_non_balise_a_examiner",
@@ -10650,7 +10650,7 @@
       "sha256": "81ef07e8131851a148e292a606d6d869241defe7c1f45a12f8d67514556307f8",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -10676,7 +10676,7 @@
       "sha256": "e397eff5241d7f780726ed3c88fe2307e5aa97dcf1575179ca29f96b7402cde6",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "portee_academique_a_controler",
@@ -10944,7 +10944,7 @@
       "sha256": "7ba8baa988c70ad303623129f0cd38a0ba8766f18b1c4b7fefb9c43682af05cd",
       "famille": "ipack",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -11361,10 +11361,10 @@
     },
     {
       "path": "data/peda/fiches_APSA.txt",
-      "sha256": "ef46701caa90661d5771daebfe3af230c4e0e81af33e0743301881ed7a6ed63f",
+      "sha256": "2ee7e58fa6996d4aa98d0c20a397f5c4822279f8de9bd0f489bb90a38d8ed020",
       "famille": "peda",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",
@@ -11432,7 +11432,7 @@
       "sha256": "0d75db2ed0b16cad7116273d3baca59fb9cf48f9c127c3da21a7f2ee061a6ee2",
       "famille": "peda",
       "statut_audit": "a_relire",
-      "statut_catalogue": "synthese_non_revalidee",
+      "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
       "signaux": [
         "diplome_non_balise_a_examiner",
         "affirmation_absolue_a_relire",

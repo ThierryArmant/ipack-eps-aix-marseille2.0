@@ -1661,6 +1661,17 @@
     }
    ]
   },
+  "data/ipack/fiches/ipack_100_2_affectation_manuelle_des_enseignants_en_cas_de_besoin_remplacement.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### 2. Affectation manuelle des enseignants (en cas de besoin / remplacement)",
+     "lignes": [
+      "- En cas de remplacement d’un intervenant ou si un enseignant d'EPS n’a pas été affecté automatiquement en raison d'un problème STSWEB, le chef d'établissement a la possibilité de le convoquer manuellement. Prérequis : avoir défini un signataire officiel dans Imag’in. L'établissement recherche l'intervenant par son nom, crée la convocation, et clique sur le picto PDF pour éditer la convocation : à Aix-Marseille, la division des examens indique que c'est cette édition qui transmet l'enseignant à Santorin (support de la division des examens, 2024). L'envoi par mail via l'icône enveloppe est facultatif."
+     ]
+    }
+   ]
+  },
   "data/ipack/fiches/ipack_103_5_saisie_des_notes_par_les_enseignants.txt": {
    "academie": "aix-marseille",
    "sections": [
@@ -1680,6 +1691,17 @@
      "lignes": [
       "Branche technique Aix-Marseille — selon le retour SAV du 20 octobre 2026, la création directe dans Cyclades des protocoles adaptés du baccalauréat discutés n'accepte pas une ou deux épreuves, ni plusieurs APSA d'un même champ. Ce cas passe par l'inspection via une extraction iPack IA-IPR : contacter le chargé de mission Examens, sans ajouter d'APSA fictive. Ce constat ne vaut pas pour le CAP, d'autres académies ou versions sans confirmation ; il ne change pas les possibilités réglementaires du diplôme.",
       "- Si l'export est bloqué : vérifier qu'aucun élève de classe à examen n'est « sans groupe EPS » ([Dossier EPS] > [Élèves]). Si Cyclades refuse l'import, voir les fiches sur les alertes d'import Cyclades. Sinon, écrire à l'assistance iPackEPS (Aix-Marseille : ipackeps@ac-aix-marseille.fr)."
+     ]
+    }
+   ]
+  },
+  "data/ipack/fiches/ipack_161_situation_regle_d_or_nationale_certification_mixte_du_ccf_bac.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### [SITUATION: RÈGLE D'OR NATIONALE : CERTIFICATION MIXTE DU CCF BAC]",
+     "lignes": [
+      "* À Aix-Marseille, les cas particuliers (par exemple un élève qui n'a qu'une seule note) se documentent par une fiche individuelle déposée pour la commission dans [Dossiers] > [Dossier Certificatif] (fiche dédiée)."
      ]
     }
    ]
@@ -1726,7 +1748,7 @@
      "section": "### [ARTICLE 110] VŒUX DE FORMATION : RENSEIGNER SON BASSIN ET SON DISTRICT",
      "lignes": [
       "- Spécificité Aix-Marseille : L'académie d'Aix-Marseille fonctionne avec un découpage en \"Réseaux\" d'établissements.",
-      "3. Précise qu'Aix-Marseille fonctionne en \"Réseaux\" et fournis OBLIGATOIREMENT ce lien : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447."
+      "- Réponse : les menus « Bassin » et « District » viennent de l'académie de Créteil, qui a conçu iPackEPS et utilise ce vocabulaire. L'académie d'Aix-Marseille organise ses établissements en « réseaux » : https://www.ac-aix-marseille.fr/les-reseaux-ecoles-colleges-lycees-121447 . Pour savoir quelle valeur choisir dans le menu déroulant, contacter le correspondant académique iPackEPS."
      ]
     }
    ]

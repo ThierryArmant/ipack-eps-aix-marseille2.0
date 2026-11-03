@@ -116,7 +116,7 @@ CHAMP D'APPRENTISSAGE 4 : Conduire et maîtriser un affrontement collectif ou in
 - L'enjeu éducatif majeur repose sur l'auto-arbitrage et le fair-play : il n'y a pas d'arbitre externe, les joueurs gèrent eux-mêmes les fautes et les litiges sur le terrain.
 
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
-- L'Auto-arbitrage (Esprit du Jeu) : C'est la règle fondatrice de l'activité. L'IA ne doit JAMAIS mentionner "le rôle de l'arbitre" en Ultimate. Les élèves résolvent les désaccords par le dialogue.
+- L'Auto-arbitrage (Esprit du Jeu) : C'est la règle fondatrice de l'activité. Il n'y a pas d'arbitre en Ultimate : les élèves résolvent les désaccords par le dialogue.
 - Le pied de pivot : Le joueur en possession du disque (le lanceur) ne peut pas se déplacer. Il doit garder un pied fixe au sol (pied de pivot) pour pivoter et trouver une ligne de passe.
 - Pas de contact (Non-contact sport) : Le défenseur ne peut pas arracher le disque des mains de l'attaquant ni créer de contact physique.
 - Le démarquage (cut) : Action du non-porteur pour se libérer du marquage défensif par des courses franches (appels/contre-appels).
@@ -141,7 +141,7 @@ CHAMP D'APPRENTISSAGE 4 : Conduire et maîtriser un affrontement collectif ou in
 - L'enjeu est de passer d'un jeu "en grappe" centré sur le ballon, à une occupation rationnelle de l'espace (le jeu en largeur).
 
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
-- La zone (surface de but) : C'est le sanctuaire du gardien (ligne des 6 mètres). L'IA ne doit jamais proposer d'exercices où les joueurs de champ rentrent dans la zone avec le ballon. Un tir valide se fait toujours EN DEHORS de la zone (ou en extension au-dessus, avant la retombée).
+- La zone (surface de but) : C'est le sanctuaire du gardien (ligne des 6 mètres). Les joueurs de champ n'entrent pas dans la zone avec le ballon. Un tir valide se fait toujours EN DEHORS de la zone (ou en extension au-dessus, avant la retombée).
 - La règle des 3 pas / 3 secondes : Le porteur de balle est limité dans son déplacement et son temps de conservation. Le dribble permet de relancer ces compteurs.
 - La défense étagée vs alignée : Passer d'une défense stricte homme à homme sur tout le terrain à une défense de zone organisée autour de la ligne des 6 mètres.
 
@@ -165,7 +165,7 @@ CHAMP D'APPRENTISSAGE 4 : Conduire et maîtriser un affrontement collectif ou in
 - L'enjeu est de limiter le dribble systématique pour privilégier la progression rapide par la passe (le ballon va toujours plus vite que le joueur).
 
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
-- Non-contact : Le basket interdit le contact physique direct (fautes personnelles). L'IA ne doit pas proposer d'exercices de plaquage ou de charge.
+- Non-contact : Le basket interdit le contact physique direct (fautes personnelles). Pas d'exercices de plaquage ou de charge.
 - Tir en course (Double pas) : Technique fondamentale d'attaque du cercle permettant de s'approcher au plus près du panier après un dribble ou une passe, en effectuant deux appuis (droite-gauche ou gauche-droite).
 - Le rebond : Action de récupérer la balle après un tir manqué (rebond offensif ou défensif). Impose le concept "d'écran de retard" (box-out).
 - Reprise de dribble et marcher : Infractions fondamentales à sanctionner systématiquement lors des situations d'apprentissage.
@@ -192,7 +192,7 @@ CHAMP D'APPRENTISSAGE 1 : Produire une performance maximale, mesurable à une é
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
 - La zone de transmission : Zone délimitée (30 mètres en compétition officielle, souvent adaptée en EPS à 20m ou 15m) dans laquelle l'échange du témoin doit impérativement avoir lieu. Hors de cette zone, la transmission est fautive.
 - La marque de contrôle (ou marque visuelle) : Un plot ou un scotch placé au sol en amont du receveur. Quand le donneur franchit cette marque, le receveur doit déclencher sa course à fond, SANS se retourner.
-- Le couple Donneur/Receveur : L'IA doit toujours insister sur l'action vocale (le donneur crie "HOP" ou "TOP" quand il tend le témoin) et l'action biomécanique (le receveur tend le bras arrière sans ralentir sa course vers l'avant).
+- Le couple Donneur/Receveur : Insister sur l'action vocale (le donneur crie "HOP" ou "TOP" quand il tend le témoin) et l'action biomécanique (le receveur tend le bras arrière sans ralentir sa course vers l'avant).
 
 3. EXEMPLE DE SITUATION : "LE CHASSEUR ET LA PROIE" (TRAVAIL DE LA MARQUE)
 - Objectif : Trouver la bonne distance de la marque de contrôle pour que l'échange se fasse à vitesse maximale.
@@ -214,8 +214,8 @@ CHAMP D'APPRENTISSAGE 3 : S'exprimer devant les autres par une prestation artist
 - L'enjeu est la gestion de l'affectivité (le risque, le renversement, le vol) : passer d'une prise de risque irrationnelle ou d'un blocage total à un engagement maîtrisé et sécurisé (rôle des tapis et des parades).
 
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
-- L'élément vs La liaison : Un enchaînement gymnique n'est pas qu'une suite de figures (éléments acrobatiques, maintien, souplesse). L'IA doit toujours insister sur les éléments de "liaison" (marche, pas chassés, chorégraphie) qui donnent de la fluidité et évitent les arrêts inutiles entre les figures.
-- Le rôle du Pareur (Sécurité Active) : En EPS, la parade est obligatoire pour l'apprentissage. Le pareur ne "rattrape" pas, il "accompagne" et facilite la rotation (ex: aide au niveau du bassin sur une roulade arrière ou un ATR).
+- L'élément vs La liaison : Un enchaînement gymnique n'est pas qu'une suite de figures (éléments acrobatiques, maintien, souplesse). Insister sur les éléments de "liaison" (marche, pas chassés, chorégraphie) qui donnent de la fluidité et évitent les arrêts inutiles entre les figures.
+- Le rôle du Pareur (Sécurité Active) : En EPS, la parade fait partie de la sécurité active des apprentissages acrobatiques. Le pareur ne "rattrape" pas, il "accompagne" et facilite la rotation (ex: aide au niveau du bassin sur une roulade arrière ou un ATR).
 - L'amplitude et le gainage : Un mouvement validé est un mouvement tenu, gainé (pointes de pieds tendues, alignement segmentaire).
 
 3. EXEMPLE DE SITUATION : "LE PARCOURS DE CRÉATION FLUIDE"
@@ -239,7 +239,7 @@ CHAMP D'APPRENTISSAGE 2 : Adapter ses déplacements à des environnements varié
 - L'enjeu est de vaincre l'appréhension de l'inconnu, et de passer d'un déplacement erratique "à vue" à un déplacement pensé, anticipé et basé sur la lecture d'outils (carte).
 
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
-- Règle de Sécurité Absolue (Limites et Lignes d'arrêt) : L'IA ne doit JAMAIS proposer d'exploration libre. En CO, l'enseignant fixe des "lignes d'arrêt" infranchissables (ex: "ne jamais traverser la route goudronnée", "la rivière est la limite Nord"). Si l'élève franchit cette limite, il est hors zone. Il faut définir une consigne de détresse (ex: retour au point de rassemblement si on entend 3 coups de sifflet).
+- Règle de Sécurité Absolue (Limites et Lignes d'arrêt) : Pas d'exploration libre : en CO, l'enseignant fixe des "lignes d'arrêt" infranchissables (ex: "ne jamais traverser la route goudronnée", "la rivière est la limite Nord"). Si l'élève franchit cette limite, il est hors zone. Il faut définir une consigne de détresse (ex: retour au point de rassemblement si on entend 3 coups de sifflet).
 - Orienter sa carte : Compétence de base consistant à faire correspondre le nord de la carte (lignes méridiennes) avec le nord du terrain (ou faire coïncider les éléments dessinés avec la réalité : chemins, bâtiments). Le concept du "pouce sur la carte" permet de suivre sa propre progression.
 - Poste / Balise / Poinçon (ou doigt électronique) : Le poste est le cercle sur la carte, la balise est l'objet physique sur le terrain (toile orange/blanche), le poinçon valide le passage.
 
@@ -263,7 +263,7 @@ CHAMP D'APPRENTISSAGE 4 : Conduire et maîtriser un affrontement collectif ou in
 - L'enjeu est de passer de la poussette de renvoi (jouer "pour" l'adversaire au milieu de la table) à la recherche de la RUPTURE (créer de l'incertitude sur la direction, la vitesse ou la rotation).
 
 2. CONCEPTS CLÉS ET VOCABULAIRE TECHNIQUE (ANTI-HALLUCINATION)
-- La règle du service : En EPS, la faute de service est courante. L'IA doit préciser : la balle doit reposer dans la paume de la main ouverte, être lancée verticalement d'au moins 16 cm, frapper son propre camp en premier, et le contact doit être visible par l'adversaire (pas caché sous la table).
+- La règle du service : En EPS, la faute de service est courante. Rappel : la balle doit reposer dans la paume de la main ouverte, être lancée verticalement d'au moins 16 cm, frapper son propre camp en premier, et le contact doit être visible par l'adversaire (pas caché sous la table).
 - L'espace de jeu effectif : Jouer sur la profondeur (amorti derrière le filet vs balle longue sur la ligne de fond) et la latéralité (diagonale vs ligne droite).
 - Les effets de base (Rotation) : Balle coupée (rotation arrière, ralentit et descend au rebond) et balle liftée (rotation avant, accélère et gicle au rebond).
 

@@ -2,9 +2,8 @@
 - Mots-clés : calendrier académique, dates limites, remontée des classes, import des classes, dépôt des référentiels, saisie des protocoles, DEC, circulaire académique annuelle, secrétariat des examens
 - Formulations courantes des collègues : avant quelle date dois-je importer mes classes ; quand faut-il valider les protocoles ; quelle est la date limite pour déposer les référentiels ; où trouver le calendrier des examens EPS ; qui fixe les dates limites
 - Règle d'or sur les dates : Le calendrier exact (dates de remontée des classes, dépôt des référentiels, saisie des protocoles, dates des CAHPN) est fixé et mis à jour annuellement par la DEC (Division des Examens et Concours) et l'Inspection Pédagogique de chaque académie. Il varie d'une année sur l'autre et d'une académie à l'autre.
-- Consigne anti-hallucination : Si l'utilisateur demande une date limite (ex: "Avant quelle date dois-je importer mes classes ?", "Quand faut-il valider les protocoles ?"), l'IA NE DOIT JAMAIS inventer de date précise (comme "le 15 octobre").
-- Formulation de la réponse : L'IA doit répondre que les dates limites sont spécifiques à chaque académie et à chaque année scolaire. Elle doit inviter l'utilisateur à consulter la circulaire académique annuelle ou à se rapprocher de son secrétariat des examens.
-- Aide technique proactive : L'IA doit obligatoirement profiter de la question pour proposer son aide technique sur l'action demandée. Par exemple, si la question porte sur la date de remontée des classes, l'IA proposera les tutoriels vidéo d'importation des élèves (ex: "Configuration_classes_import_eleves.mp4" ou "Import_automatique_eleves.mp4").
+- Réponse : les dates limites (remontée des classes, dépôt des référentiels, saisie des protocoles, commissions) sont propres à chaque académie et à chaque année scolaire : ne pas annoncer de date précise sans la retrouver dans la circulaire académique de l'année ; consulter cette circulaire ou le secrétariat des examens.
+- Pour l'action elle-même (par exemple l'import des classes), voir les fiches et tutoriels correspondants.
 ======================================================================
 [ARTICLE 115] CONFIGURATION DES GROUPES DÉCLOISONNÉS (BARRETTES / MÉLANGE DE CLASSES)
 - Mots-clés : barrette, groupes décloisonnés, mélanger des classes, groupes mixtes, diviser des classes, 32 élèves, groupe eps, mode groupe, iPackEPS.
@@ -26,33 +25,9 @@
 [ARTICLE : ÉTABLISSEMENTS DE L'ÉTRANGER (AEFE, MLF, LYCÉES FRANÇAIS HORS DE FRANCE)]
 Mots-clés : AEFE, MLF, étranger, hors de France, établissement étranger, rythme Sud, hémisphère Sud, lycée français étranger, homologué, zone AEFE, académie de rattachement, calendrier décalé, élèves introuvables étranger.
 
-Pour les enseignants et coordonnateurs exerçant dans les lycées et collèges français à l'étranger, les règles d'utilisation d'iPackEPS et des examens comportent 6 spécificités majeures :
-
-1. Configuration iPackEPS & Absence de base SIÈCLE :
-   - Diagnostic : Les établissements hors de France ne sont pas interconnectés avec le SIÈCLE national direct du ministère.
-   - Comportement normal : Il est STRICTEMENT NORMAL que la liste des classes et des élèves soit vierge lors du clic sur « Actualiser ».
-   - Procédure : Ne pas chercher d'import automatique. Configurez le Dossier EPS (APSA, équipements) et créez vos classes/groupes manuellement dans [Dossiers] > [Dossier EPS] > [Groupes].
-
-2. Liaisons Cyclades & Examens (CCF Bac GT / Bac Pro) :
-   - Pas d'export automatique : iPackEPS ne peut pas générer de fichier de transfert automatique vers Cyclades pour l'étranger.
-   - Action secrétariat : L'association des candidats aux protocoles d'évaluation doit être effectuée manuellement dans CYCLADES par le secrétariat des examens de l'établissement (via l'activité « EPS - Associer les élèves à un protocole »).
-
-3. Calendriers d'Examens, Sessions Décalées & Hémisphère Sud :
-   - Rythme Nord : Verrouillage standard en mai/juin selon l'académie partenaire.
-   - Rythme Sud (Hémisphère Sud : Amérique du Sud, Océanie, Afrique australe...) : Les épreuves certificatives et les dates limites de saisie Santorin sont décalées (session d'octobre / novembre / décembre).
-   - Règle d'or : La date de fin de saisie dépend exclusivement du calendrier académique de rattachement.
-
-4. Référentiels d'Évaluation (FCA) & Académie de Rattachement :
-   - Chaque zone ou pays est adossé à une académie partenaire en France métropolitaine pour la gestion du Baccalauréat.
-   - Règle : Les fiches d'évaluation (FCA) déposées dans le [Dossier Certificatif] doivent respecter les listes et cadrages de l'académie de rattachement désignée par la DEC / l'AEFE.
-
-5. Certificats Médicaux & Inaptitudes Locales :
-   - Validité : Les certificats médicaux rédigés par les médecins locaux assermentés ou les médecins de l'Ambassade / Consulat sont pleinement recevables.
-   - Procédure : Déposer le certificat numérisé dans [Mes Élèves] > [Fiche élève] > [Inaptitudes] pour justifier du statut « Dispensé » (DISP) ou « Aménagé » face au jury académique métropolitain.
-
-6. Sécurité APPN & Droit Local vs Circulaires Françaises :
-   - Pour la certification (CCF) : Les critères et compétences des textes officiels français (BO) restent la règle d'évaluation.
-   - Pour les conditions matérielles et logistiques : Les normes locales de sécurité (accès secours, transports, législation du pays hôte) prévalent sur le terrain. Les projets APPN doivent formaliser ces adaptations spécifiques dans le dossier d'établissement.
+Ce que dit l'aide iPackEPS de Créteil (article 14, note de la question 3) : pour un CFA, certains établissements privés ou un établissement à l'étranger (AEFE), les élèves ne sont pas connus dans les bases du rectorat ; il est donc normal qu'iPackEPS n'affiche aucune classe. Effectuer le reste de la configuration et créer les classes directement dans [Dossiers] > [Dossier EPS] > [Groupes].
+Pour les examens (association des candidats aux protocoles, calendrier, référentiels, certificats médicaux, sécurité des APPN), suivre les consignes de l'académie de rattachement et du secrétariat des examens : cette fiche ne fixe pas de règle propre à l'étranger.
+Source : https://ipackeps.ac-creteil.fr/spip.php?article14 (relu le 3 novembre 2026).
 
 [ARTICLE : CALCUL DE LA NOTE DE CCF AVEC DES DISPENSES OU DES ABSENCES]
 - DI (dispense / inaptitude médicale justifiée) : l'épreuve est neutralisée, retirée du calcul et du diviseur.

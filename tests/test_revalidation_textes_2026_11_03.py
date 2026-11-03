@@ -55,3 +55,25 @@ class Contenus(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class RevueIpack(unittest.TestCase):
+    def test_plus_de_consigne_interne_a_l_ia(self):
+        import re
+        for f in glob.glob('data/**/*.txt', recursive=True):
+            if '/archives/' in f or 'ia_usages' in f:
+                continue
+            self.assertIsNone(re.search(r"\bL'IA (?:ne )?doit|pour l'IA|anti-hallucination", open(f, encoding='utf-8').read()), f)
+
+    def test_une_seule_note_possible_bac_gt(self):
+        t = lire('data/ipack/fiches/ipack_161_*.txt')
+        self.assertNotIn('au moins DEUX notes', t)
+        self.assertIn('une seule épreuve', t)
+
+    def test_option_ponctuelle_candidat_individuel(self):
+        self.assertNotIn('exclusivement réservées aux candidats libres', lire('data/ipack/fiches/ipack_153_*.txt'))
+
+    def test_aucune_fiche_non_revalidee(self):
+        import json
+        c = json.load(open('config/catalogue_documents.json', encoding='utf-8'))
+        self.assertEqual([], [k for k, v in c.items() if 'non_revalid' in str(v.get('statut'))])

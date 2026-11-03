@@ -6681,6 +6681,16 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Association sportive : participation volontaire des élèves"
+  },
+  "data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)"
   }
  }
 }

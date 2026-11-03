@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-103 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+104 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -39,7 +39,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Professeur d’EPS : mutation, vérification du barème et recours](../data/textes/fiches/base_textes_officiels_049_situation_26e_section_mobilite_mutations_et_gestion_des_carrieres_siam_colibris.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: 25E SECTION : LISTES D'APTITUDE, RECLASSEMENT ET CHANGEMENT DE CORPS]](../data/textes/fiches/base_textes_officiels_052_situation_25e_section_listes_d_aptitude_reclassement_et_changement_de_corps.txt) | Non balisé | 0 | Relecture à poursuivre |
 
-## Responsabilité et protection des personnels (6)
+## Responsabilité et protection des personnels (7)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -49,6 +49,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Violences, discriminations et harcèlement envers les personnels](../data/textes/fiches/signalement_violences_personnels.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [Surveillance des élèves en EPS : continuité, élève laissé seul](../data/textes/fiches/surveillance_continue_eleve_seul.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 | [Droit de retrait d'un enseignant (danger grave et imminent)](../data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
+| [Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)](../data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt) | dnb, gt, pro, cap | 7 | Références présentes ; statut détaillé au catalogue |
 
 ## Vie scolaire, direction, laïcité et égalité (11)
 

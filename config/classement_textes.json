@@ -1601,6 +1601,30 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt",
+      "title": "Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)",
+      "domaine": "03_responsabilite",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006166719",
+        "https://www.legifrance.gouv.fr/juri/id/JURITEXT000028485842/",
+        "https://www.legifrance.gouv.fr/juri/id/JURITEXT000007070251/",
+        "https://www.legifrance.gouv.fr/juri/id/JURITEXT000007070846",
+        "https://www.legifrance.gouv.fr/ceta/id/CETATEXT000007720817",
+        "https://www.conseil-etat.fr/fr/arianeweb/CE/analyse/2021-02-12/429801",
+        "https://www.education.gouv.fr/sites/default/files/document/Fiche%2043%20-%20La%20r%C3%A9paration%20des%20dommages%20li%C3%A9s%20aux%20accidents%20des%20%C3%A9l%C3%A8ves-245844.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-03",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/sorties_encadrement_2024.txt",
       "title": "Sorties au second degré : autorisation et encadrement général",
       "domaine": "06_sorties_transports",

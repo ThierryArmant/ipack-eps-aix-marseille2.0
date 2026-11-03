@@ -1975,6 +1975,17 @@
      ]
     }
    ]
+  },
+  "data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt": {
+   "academie": "aix-marseille",
+   "sections": [
+    {
+     "section": "### Jurisprudence de référence : accident d'élève en EPS, responsabilité de l'enseignant, de l'État et de la collectivité",
+     "lignes": [
+      "Cas jugé — condamnation (voile, classe de sixième d'un établissement de Marseille) : un professeur d'éducation physique encadrait seul sur l'eau, avec une collègue non qualifiée, vingt et un élèves de sixième en première séance d'initiation (onze dériveurs) ; une élève a chaviré, s'est noyée et est décédée. La cour a retenu une faute caractérisée : surveillance insuffisante d'enfants sans expérience, exposés à des réactions de panique, qui ne lui a pas permis d'intervenir assez vite. La règle d'un encadrant qualifié pour dix dériveurs ne s'imposait pas à lui (elle visait les centres nautiques), mais elle répondait à « des exigences de sécurité évidentes que nul ne peut ignorer ». Huit mois d'emprisonnement avec sursis confirmés (Cass. crim., 4 octobre 2005, n° 04-84.199, sur un arrêt de la cour d'appel d'Aix-en-Provence)."
+     ]
+    }
+   ]
   }
  },
  "regle": "Ligne marquée si elle nomme explicitement l'académie d'Aix-Marseille (Aix, Marseille, DIEC, BA académique numéroté, ESTEREL, adresse ac-aix), hors simple glose « DIEC à Aix-Marseille » entre parenthèses. Toute ligne d'une section dont le titre nomme Aix est marquée, sauf les lignes de cadre national. Les règles nationales et le fonctionnement des logiciels ne sont pas marqués. Généré par portee_registre.py."

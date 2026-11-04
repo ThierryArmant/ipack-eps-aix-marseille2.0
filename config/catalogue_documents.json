@@ -9272,5 +9272,15 @@
       "(?=.*statistiques?)(?=.*santorin)",
       "(?=.*\\bcfa\\b|.*aefe)(?=.*(?:cyclades|santorin|imag.?in|ccf))"
     ]
+  },
+  "data/textes/greve_surveillance_eleves_second_degre.txt": {
+    "title": "Grève et surveillance des élèves en collège et lycée",
+    "statut": "a_relire_2026-11-04",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "date_verification": "2026-11-04",
+    "domaine_textes": "04_vie_etablissement"
   }
 }

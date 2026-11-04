@@ -3664,3 +3664,15 @@ Veille mensuelle : 0 textes nouveaux, voir docs/veille/2026-11.md (premier passa
   - interfacage_partie1_saisies_ipackeps.txt (article 61, PDF 2026-2027) : ordre des saisies, ce qui n'est pas transféré, protocole adapté sans référentiel, import Pronote → Cyclades « à proscrire ». Le PDF attribue encore l'actualisation au coordonnateur : écart signalé dans la fiche (version 2026.2).
   - interfacage_partie2_cyclades_santorin.txt (article 62, PDF 2026-2027 + procédure CFA/AEFE, articles 75 et 79) : ordre Cyclades / Imag'in / Santorin, protocole standard après validation (invalidation par la commission puis « soumettre les protocoles »), « Voir infos Candidats », verrouillage, statistiques, export Excel pour repérer les DI.
 - Tests ajoutés (classe Interfacage2026).
+
+## 2026-11-04 — Claude : visite d'iPackEPS en lecture avec le compte de Thierry (version 2026.2.1.1)
+- Version affichée 2026.2.1.1 (pied de page et message d'accueil), absente des release notes Créteil (dernière 2026.2.1).
+- Compte sans fonction de coordonnateur (collège : seule « Référent Génération 2030 » cochée ; lycée : aucune fonction) : [Actualiser] des classes fonctionne (« La liste des classes a été actualisée », action demandée par Thierry), [Importer] des élèves et [Actualiser] de l'équipe EPS accessibles, bouton [Légende] présent.
+- Dossier certificatif (lycée) : interrupteur « Dossier terminé, nous le soumettons pour validation » et [Enregistrer] actifs dans l'interface pour un compte sans fonction ; non testé (soumission réelle). Au collège, [Enregistrer] du dossier EPS était grisé : cause non établie.
+- [Élèves] : seul [<-- Enlever] (retrait d'un groupe) ; pas de suppression d'élève de l'établissement.
+- Groupes SSS : texte de l'application : une seule APSA par groupe SSS, créer une APSA composée (« Football-Musculation ») dans [Dossier EPS] / [APSA], circulaire du 15/12/2023, seules les SSS validées par le recteur ; sinon [Autres dispositifs].
+- Créer un groupe : en Terminale GT, question « Les élèves seront-ils en Contrôle Adapté ? » ; formulaire annulé sans enregistrement.
+- Vœux de formation : « Bassin » / « District » = filtres de statistiques vides pour Aix (fiche 208 corrigée).
+- Vidéos : 8 liens pole-examens.github.io en 404 (Actualisation_equipe_classes, Controle_dates_CM_CAHPN, Export_profs_externes_cyclades, Export_zip_documents_certificatifs, Gestion_dossier_APPN [doublon], Import_documents_glisser_deposer, Rapport_etat_serveurs, Signature_chef_etablissement_SSS) remplacés dans VIDEOS_TUTOS par les vidéos liées dans le PDF « iPackEPS Nouveautés 2026-2027 » (titres vérifiés par oEmbed) ; glisser-déposer : pas de vidéo officielle, entrée retirée.
+- Établissement 0840117W : message « L'Établissement n'a pas été trouvé dans la base de données. Merci de contacter le Support technique si vous avez des heures EPS dans cet établissement » (pas de bouton [Entrer]).
+- Fiche data/textes/greve_surveillance_eleves_second_degre.txt (PR #43, 04/11) inscrite dans les registres (catalogue non prioritaire, statut a_relire_2026-11-04, domaine 04) : elle cassait 4 tests ; contenu non relu par Claude.

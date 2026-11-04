@@ -154,6 +154,8 @@ except ImportError:
 # ======================================================================
 # 🚀 ZONE 1 : LE RÉPERTOIRE DES VIDÉOS (CONSTANTE GLOBALE)
 # ======================================================================
+# Liens vérifiés le 04/11/2026 (pole-examens : 404 remplacés par les vidéos liées dans « iPackEPS Nouveautés 2026-2027 »).
+# Pas de vidéo officielle pour le glisser-déposer ni pour l'import automatique des élèves.
 # NB : "Import_automatique_eleves.mp4" est cité dans certains textes ci-dessous
 # mais n'a pas encore d'URL dans ce dictionnaire. Ajoutez la ligne suivante
 # quand vous aurez le lien :
@@ -176,17 +178,15 @@ VIDEOS_TUTOS = {
     "Ajouter_evaluateur_lot_santorin.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Ajouter_evaluateur_lot_santorin.mp4",
     "Protocoles_adaptes_iPackEPS.mp4": "https://youtu.be/CUybrlkTtJ0",
     "Extraction_notes_Santorin.mp4": "https://youtu.be/KooSwcy4gAA",
-    "Import_documents_glisser_deposer.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Import_documents_glisser_deposer.mp4",
     "Configuration_classes_import_eleves.mp4": "https://www.youtube.com/watch?v=tu8J1RBUTwk",
-    "Actualisation_equipe_classes.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Actualisation_equipe_classes.mp4",
+    "Actualisation_equipe_classes.mp4": "https://www.youtube.com/watch?v=tu8J1RBUTwk",
     "Gestion_inventaire_EPI_photos.mp4": "https://www.youtube.com/watch?v=dpijdybbbWo",
-    "Controle_dates_CM_CAHPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Controle_dates_CM_CAHPN.mp4",
-    "Export_zip_documents_certificatifs.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Export_zip_documents_certificatifs.mp4",
+    "Controle_dates_CM_CAHPN.mp4": "https://www.youtube.com/watch?v=YjvU7KCuJpk",
+    "Export_zip_documents_certificatifs.mp4": "https://www.youtube.com/watch?v=JQn0PDEmzNY",
     "Evolution_et_fermeture_SSS.mp4": "https://youtu.be/7yr1bFlvlFg",
-    "Signature_chef_etablissement_SSS.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Signature_chef_etablissement_SSS.mp4",
-    "Export_profs_externes_cyclades.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Export_profs_externes_cyclades.mp4",
-    "Rapport_etat_serveurs.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Rapport_etat_serveurs.mp4",
-    "Gestion_dossier_APPN.mp4": "https://pole-examens.github.io/tutoriels-examens/res/Gestion_dossier_APPN.mp4",
+    "Signature_chef_etablissement_SSS.mp4": "https://youtu.be/7yr1bFlvlFg",
+    "Export_profs_externes_cyclades.mp4": "https://youtu.be/dMtoZtJIjDM",
+    "Rapport_etat_serveurs.mp4": "https://www.youtube.com/watch?v=RDcV8wbe5ng",
     "Configuration_modules_SSS.mp4": "https://youtu.be/1EothsjU1Kc",
     "Depot_referentiels_iPackEPS.mp4": "https://youtu.be/T_-j01ovoA4",
     "Supprimer_apsas_non_certificatives.mp4": "https://youtu.be/ksCcLEe2lP8",

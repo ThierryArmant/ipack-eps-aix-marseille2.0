@@ -1457,6 +1457,23 @@
       "controle_a_poursuivre": false
     },
     {
+      "path": "data/textes/greve_surveillance_eleves_second_degre.txt",
+      "title": "Grève et surveillance des élèves en collège et lycée",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [],
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051840194/",
+        "https://pedagogie.ac-strasbourg.fr/fileadmin/pedagogie/eps/Textes/txt_generaux/enseignants/Surveillance_des_eleves.C._no_96-248_du_25-10-96.BO_no_39_du_31_octobre_1996.RLR_551-0c__552-0c__560-1.pdf",
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F21766",
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000018377430/",
+        "https://www.education.gouv.fr/l-accueil-des-eleves-en-cas-d-absence-ou-de-greve-450102"
+      ],
+      "statut": "a_relire_2026-11-04",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
       "path": "data/textes/partenariats_defense_citoyennete.txt",
       "title": "partenariats defense citoyennete",
       "domaine": "12_reperes",

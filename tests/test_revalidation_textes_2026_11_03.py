@@ -93,3 +93,17 @@ class Interfacage2026(unittest.TestCase):
         self.assertIn('à proscrire', t)
         self.assertIn('2026.2', t)
         self.assertIn('Seul le chef établissement peut déverrouiller', lire('data/ipack/creteil_2026_2027/interfacage_partie2_cyclades_santorin.txt'))
+
+
+class ReleveEcran20261104(unittest.TestCase):
+    def test_liens_videos_morts_retires(self):
+        app = open('app.py', encoding='utf-8').read()
+        for mort in ('Actualisation_equipe_classes', 'Controle_dates_CM_CAHPN', 'Export_profs_externes_cyclades',
+                     'Export_zip_documents_certificatifs', 'Gestion_dossier_APPN', 'Import_documents_glisser_deposer',
+                     'Rapport_etat_serveurs', 'Signature_chef_etablissement_SSS'):
+            self.assertNotIn('tutoriels-examens/res/' + mort + '.mp4', app, mort)
+
+    def test_bassin_district_facultatifs(self):
+        t = lire('data/ipack/fiches/ipack_208_*.txt')
+        self.assertNotIn('exige de filtrer', t)
+        self.assertIn('listes sont vides', t)

@@ -6731,6 +6731,16 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Examens : saisies dans Cyclades et Santorin après iPackEPS (document officiel 2026-2027)"
+  },
+  "data/textes/greve_surveillance_eleves_second_degre.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Grève et surveillance des élèves en collège et lycée"
   }
  }
 }

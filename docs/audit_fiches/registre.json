@@ -5353,7 +5353,7 @@
     },
     {
       "path": "data/ipack/complement_reponses_validees.txt",
-      "sha256": "bf99d3503e0d4ee97c7c5d566f2fcc8c6f036846b2bed8d26b867b22b3442883",
+      "sha256": "1c8e20ff82025fccd1a1cb5b876e57478bc930d0231c7025a6610931c329229d",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -10036,7 +10036,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_208_article_110_v_ux_de_formation_renseigner_son_bassin_et_son_district.txt",
-      "sha256": "ac6ace83844f2ecf351148c9aa0a474aba5030b783d0491d3c563d3944903bef",
+      "sha256": "b6564401200abb7bd0449d969040fa65ba15c746b2b3309624c488771b3090cd",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -13527,7 +13527,7 @@
     },
     {
       "path": "data/ipack/creteil_2026_2027/interfacage_partie1_saisies_ipackeps.txt",
-      "sha256": "8dc602617928d9ee8432c682166b728b7e182b549832b48c7bc4ab2b3fa591f7",
+      "sha256": "d438811889bcc49dbbdd1ebed291f76965e08f6918e1be7c9c01b8f041db55c2",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_officielle_logiciel_2026-11-03",
@@ -13539,6 +13539,14 @@
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_officielle_logiciel_2026-11-03",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/greve_surveillance_eleves_second_degre.txt",
+      "sha256": "dfe99fac60dcbc7c256ed384e51d1eb63cc7029709edf6cead5e610ecf9ceb6b",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "a_relire_2026-11-04",
       "signaux": []
     }
   ],

@@ -58,7 +58,7 @@
 ### [SITUATION: ÉLÈVES INACTIFS (PRONOTE) QUI RESTENT « SANS GROUPE » DANS iPackEPS — SOLUTION VALIDÉE SUR LE TERRAIN]
 - Mots-clés : élèves inactifs, inactif Pronote, sortir des élèves des listes, retirer des élèves, élèves sans groupe, classe inactif, groupe inactif, pratique de l'EPS, classe sans professeur d'EPS.
 - Formulations courantes des collègues : j'ai besoin de sortir des élèves des listes car ils sont inactifs sur Pronote ; mes élèves inactifs sont marqués sans groupe ; comment retirer un élève inactif ; il n'y a pas de bouton pour retirer les élèves.
-- Il n'existe aucune fonction pour retirer un élève à la main dans iPackEPS : ne pas en chercher.
+- Il n'existe aucune fonction pour supprimer un élève de l'établissement dans iPackEPS : la liste vient des bases du rectorat (actualisation automatique à la connexion depuis la version 2026). Le bouton [<-- Enlever] de [Dossiers] > [Dossier EPS] > [Élèves] retire seulement un élève d'un groupe (relevé à l'écran le 4 novembre 2026).
 - Solution appliquée avec succès par un établissement de l'académie :
 - [Étape 1] À l'importation des élèves, un groupe « inactif » apparaît comme une classe. Le repérer dans [Dossiers] > [Dossier EPS] > [Classes].
 - [Étape 2] Entrer dans cette classe et lui retirer la pratique de l'EPS (organisation des classes : mode « classe sans professeur d'EPS », prévu pour les classes qui n'ont pas d'EPS).

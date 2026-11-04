@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-106 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+107 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -51,7 +51,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Droit de retrait d'un enseignant (danger grave et imminent)](../data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 | [Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)](../data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt) | dnb, gt, pro, cap | 7 | Références présentes ; statut détaillé au catalogue |
 
-## Vie scolaire, direction, laïcité et égalité (11)
+## Vie scolaire, direction, laïcité et égalité (12)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -64,6 +64,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Direction d’école : autorité fonctionnelle et consignes](../data/textes/fiches/direction_ecole_autorite_fonctionnelle.txt) | primaire | 1 | Références présentes ; statut détaillé au catalogue |
 | [Absence à une évaluation de classe (6e à 4e) : pas de zéro automatique](../data/textes/fiches/evaluation_classe_absence_zero.txt) | dnb | 1 | Références présentes ; statut détaillé au catalogue |
 | [Fournitures et équipements demandés aux familles : neutralité commerciale](../data/textes/fiches/fournitures_neutralite_commerciale.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
+| [Grève et surveillance des élèves en collège et lycée](../data/textes/greve_surveillance_eleves_second_degre.txt) | Non balisé | 5 | Références présentes ; statut détaillé au catalogue |
 | [Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement](../data/textes/situations_2026_10_26/laicite_fetes_noel.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Association sportive : participation volontaire des élèves](../data/textes/situations_2026_11_02/as_participation_eleves.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 

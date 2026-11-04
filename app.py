@@ -223,7 +223,7 @@ VIDEOS_TUTOS = {
 # 1. CONFIGURATION DE L'APPLICATION
 # ======================================================================
 st.set_page_config(
-    page_title="Hub IA - EPS",
+    page_title="HUB IA EPS | iPackEPS, Examens et Réglementation",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -1268,7 +1268,7 @@ st.markdown(
                 <h1>HUB IA - EPS</h1>
                 <span class="badge-visiteur">👁️ {nb_visites_reel}</span>
             </div>
-            <p>ESPACE RESSOURCES &amp; ASSISTANCE NUMÉRIQUE</p>
+            <p>ASSISTANCE iPackEPS · EXAMENS EPS · TEXTES OFFICIELS</p>
         </div>
         <div style="display: flex; justify-content: flex-end; align-items: center; flex: 0 0 22%; gap: 15px;">
             <img src="data:image/jpeg;base64,{img_droite}" class="img-zoomable" height="55">

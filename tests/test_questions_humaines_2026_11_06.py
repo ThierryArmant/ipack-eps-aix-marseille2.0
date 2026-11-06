@@ -79,3 +79,19 @@ class ConsigneProtocoleTropDApsa(unittest.TestCase):
     def test_fiche_apsa_sans_lien_video_de_retrait(self):
         texte = open('data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt', encoding='utf-8').read()
         self.assertNotIn('ksCcLEe2lP8', texte)
+
+
+class ReponseQuatreApsa(unittest.TestCase):
+    Q = "J’ai 4 APSA certificatives, ce qui ne convient pas à iPackEPS qui m’indique “Le protocole n’est pas complet : Il faut exactement 3 APSA certificatives"
+    F = 'data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt'
+
+    def test_supprimer_dans_apsa_refuse(self):
+        import short_answer as sa
+        src = open(self.F, encoding='utf-8').read()
+        ph = "[Dossiers] > [Dossier EPS] > [APSA] : réduire le nombre d'APSA certificatives à trois en désélectionnant ou supprimant l'excédent."
+        self.assertIn('portee:certification_etablissement_au_lieu_du_groupe', sa.unsupported(ph, src, self.Q, 'x'))
+
+    def test_fiche_apsa_porte_les_deux_solutions(self):
+        src = open(self.F, encoding='utf-8').read()
+        self.assertIn('créez autant de groupes que de protocoles possibles', src)
+        self.assertIn('2 pour les CAP', src)

@@ -219,7 +219,7 @@ def unsupported(phrase, cited_text, question='', titles=''):
     if (_protocole_apsa_en_trop(question)
             and re.search(r"\b(?:dossier eps|etablissement)\b", p)
             and not re.search(r"\b(?:groupes?|gerer les s\.a\.)\b", p)
-            and re.search(r"(?:^|:\s*|\ben\s+)(?:decoch\w*|desactiv\w*|declar\w*\s+(?:comme\s+)?certificatives?\s+uniquement)\b", p)):
+            and re.search(r"(?:^|:\s*|\ben\s+)(?:decoch\w*|desactiv\w*|deselection\w*|supprim\w*|retir\w*|enlev\w*|redui\w*|declar\w*\s+(?:comme\s+)?certificatives?\s+uniquement)\b", p)):
         reasons.append('portee:certification_etablissement_au_lieu_du_groupe')
     for menu in re.findall(r'\[[^\]]{1,80}\]', p):
         if menu in source:

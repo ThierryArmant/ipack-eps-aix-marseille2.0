@@ -1500,7 +1500,7 @@ def _consigne(texte, couleur="amber"):
 
 prompt = None
 _contexte_ok = bool(st.session_state.get("contexte_valide"))
-_academie_requise = module_actif == "examens"
+_academie_requise = module_actif in ("ipack", "examens")
 _replay_question = bool(st.session_state.get("is_admin", False) and _admin_replay.is_replay_question(st.session_state))
 if _academie_requise and not _replay_question and not st.session_state.get("academie_utilisateur") and st.session_state.get("academie_memorisee"):
     st.session_state.academie_utilisateur = st.session_state.academie_memorisee

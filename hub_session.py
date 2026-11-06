@@ -31,7 +31,7 @@ def new_question(state):
 def ready_for_question(state):
     return bool(state.get('contexte_valide') and state.get('niveau_actif_form')
                 and state.get('active_module') in allowed_modules(state.get('niveau_actif_form'))
-                and (state.get('active_module') != 'examens' or state.get('academie_utilisateur')))
+                and (state.get('active_module') not in ('ipack', 'examens') or state.get('academie_utilisateur')))
 
 
 def public_label(public):

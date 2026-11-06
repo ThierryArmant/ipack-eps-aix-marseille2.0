@@ -53,3 +53,15 @@ class SelectionDocumentaire(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class QuestionsGsSuite(unittest.TestCase):
+    def test_trop_d_apsa_bac_pro_et_cap(self):
+        for q in ("J'ai 4 APSA certificatives, ce qui ne convient pas à iPackEPS qui m'indique \"Le protocole n'est pas complet : Il faut exactement 3 APSA certificatives\"",
+                  "iPackEPS m'indique que j'ai moins de 2 APSAs déclarées certificatives en CAP, alors que ce n'est pas le cas. Que puis-je faire ?"):
+            t = kc.priority_titles(q, PRO, 'ipack')
+            self.assertTrue(t[0].startswith('[ARTICLE 17]'), (q, t))
+
+    def test_greve_surveillance(self):
+        t = kc.priority_titles("Mes AED sont en grève, puis-je surveiller seul cinq classes devant un film ?", GT, 'textes')
+        self.assertIn('Grève et surveillance des élèves en collège et lycée', t)

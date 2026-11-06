@@ -1484,7 +1484,17 @@
     "statut": "revue_2026-11-03_affirmations_controlees",
     "examens": [],
     "origine": "data/archives/compilations/ipack.txt",
-    "date_verification": "2026-11-03"
+    "date_verification": "2026-11-03",
+    "modes": [
+      "ipack",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 315,
+    "motifs": [
+      "(?=.*apsa)(?=.*(?:exactement (?:3|trois|2|deux)|(?:4|5|6|quatre|cinq|six) apsa|plus de (?:3|trois|2|deux) apsa|trop d.apsa|meilleures notes|choix (?:des|de l.)eleves?))",
+      "(?=.*(?:cap|bac ?pro))(?=.*apsa)(?=.*(?:moins de (?:2|deux)|pas (?:2|deux)|certifiab|certificativ))"
+    ]
   },
   "data/ipack/fiches/ipack_064_article_93_dossiers_dossiereps_groupes_gestion_specifique_de_l_enseignement_de_specialite_.txt": {
     "title": "[ARTICLE 93] [Dossiers]/[DossierEPS]/[Groupes] Gestion Spécifique de l’Enseignement de Spécialité (groupes EPPCS)",
@@ -9294,13 +9304,21 @@
   },
   "data/textes/greve_surveillance_eleves_second_degre.txt": {
     "title": "Grève et surveillance des élèves en collège et lycée",
-    "statut": "a_relire_2026-11-04",
+    "statut": "revu_2026-11-06_R421-10_verifie",
     "examens": [],
     "modes": [
       "textes"
     ],
-    "date_verification": "2026-11-04",
-    "domaine_textes": "04_vie_etablissement"
+    "date_verification": "2026-11-06",
+    "domaine_textes": "04_vie_etablissement",
+    "prioritaire": true,
+    "priorite": 320,
+    "motifs": [
+      "(?=.*(?:greve|grevistes?|\\baed\\b|surveillants?|vie scolaire))(?=.*(?:surveill\\w*|eleves?|classes?|permanence|accueil|film|regroup\\w*|renvoy\\w*|fermer))"
+    ],
+    "exclure_motifs": [
+      "retenue|trentieme|salaire|declar\\w* (?:mon|ma|son|sa)? ?(?:intention|greve)|(?:je|on) (?:fais|fait|vais faire) greve"
+    ]
   },
   "data/ipack/situations_2026_11_06/classes_post_bac_sans_eps.txt": {
     "title": "iPackEPS : classes post-bac sans EPS signalées « non configurées »",

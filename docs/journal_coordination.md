@@ -3687,3 +3687,8 @@ Causes établies par rejeu de la sélection documentaire (knowledge_catalog.prio
 - Non fait : rejeu complet avec appels d'IA (latence, tokens, nombre d'appels) — à lancer par Thierry sur le hub déployé. iPackEPS non revisité (session expirée, pas de saisie d'identifiants).
 - Branches : correction-fiches-questions-humaines-20261106 = contenu de la PR #45 (déjà dans main) ; fiches-rgpd-diplomes-import-20261106 = contenu repris et corrigé dans main ; les deux peuvent être supprimées.
 - Tests : tests/test_questions_humaines_2026_11_06.py (APSA, note/certificat, post-bac, CSV enseignants, dispenses, RGPD, cas à préserver, absence de doublon).
+
+## 2026-11-06 (suite) — Questions du tableau « questions hub » retraitées
+- Article 17 (ipack_063) rendu prioritaire pour les groupes ayant plus d'APSA que le protocole n'en admet (bac pro : exactement 3 ; CAP : 2) : réponse NON à « Les élèves seront évalués sur cette APSA pour l'examen » pour l'APSA en trop, ou un groupe par protocole possible.
+- Fiche grève et surveillance des élèves rendue prioritaire (R.421-10 relu sur Légifrance, version du 4 juillet 2025) ; exclusion des questions de retenue sur salaire.
+- Tests : tests/test_questions_humaines_2026_11_06.py (classe QuestionsGsSuite).

@@ -369,7 +369,11 @@ def build_prompt(question, passages, context=None):
         "composition de l’ensemble certificatif du groupe concerné dans Groupes > Gérer les S.A. "
         "Distingue cette affectation de la déclaration des APSA au niveau de l’établissement. "
         "Ne conseille pas de décocher une APSA pour l’ensemble de l’établissement. "
-        "Limite la réponse au contrôle du nombre d’APSA du groupe.\n"
+        "Si les passages donnent deux solutions, donne les deux comme alternatives : "
+        "les APSA certificatives sont déjà connues (NON pour les autres dans Gérer les S.A.) ; "
+        "ou le protocole ne sera connu qu’en fin d’année (un groupe par protocole possible). "
+        "N’applique pas à un bac professionnel ou à un CAP la règle de composition du bac général "
+        "et technologique (champs d’apprentissage, liste nationale).\n"
         if _protocole_apsa_en_trop(question) else ""
     )
     return '''Un collègue professeur d'EPS pose une question. Réponds-lui en le vouvoyant, comme un collègue expérimenté.

@@ -16,9 +16,9 @@ class HubNavigationTests(unittest.TestCase):
         self.assertEqual(state['academie_utilisateur'],'Créteil')
         self.assertEqual(state['messages_hub'],[])
         self.assertNotIn('current_prompt',state)
-    def test_only_exams_requires_an_academy(self):
+    def test_ipack_and_exams_require_an_academy(self):
         state=dict(niveau_actif_form='Collège (DNB)',contexte_valide=True)
-        for mode,ready in [('ipack',True),('textes',True),('examens',False)]:
+        for mode,ready in [('ipack',False),('textes',True),('examens',False)]:  # PR #46 : académie obligatoire en iPack
             select_module(state,mode)
             self.assertEqual(ready_for_question(state),ready)
         state['academie_utilisateur']='Créteil'

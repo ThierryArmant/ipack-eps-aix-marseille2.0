@@ -65,3 +65,17 @@ class QuestionsGsSuite(unittest.TestCase):
     def test_greve_surveillance(self):
         t = kc.priority_titles("Mes AED sont en grève, puis-je surveiller seul cinq classes devant un film ?", GT, 'textes')
         self.assertIn('Grève et surveillance des élèves en collège et lycée', t)
+
+
+class ConsigneProtocoleTropDApsa(unittest.TestCase):
+    Q = "J'ai 4 APSA certificatives, ce qui ne convient pas à iPackEPS qui m'indique \"Le protocole n'est pas complet : Il faut exactement 3 APSA certificatives\""
+
+    def test_deux_solutions_article_17_et_portee_bac_pro(self):
+        import short_answer
+        p = short_answer.build_prompt(self.Q, [('Article 17', 'R4 : 2 solutions.')])
+        self.assertIn('un groupe par protocole possible', p)
+        self.assertIn('N’applique pas à un bac professionnel', p)
+
+    def test_fiche_apsa_sans_lien_video_de_retrait(self):
+        texte = open('data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt', encoding='utf-8').read()
+        self.assertNotIn('ksCcLEe2lP8', texte)

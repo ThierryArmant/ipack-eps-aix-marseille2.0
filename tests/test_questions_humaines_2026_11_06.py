@@ -94,4 +94,6 @@ class ReponseQuatreApsa(unittest.TestCase):
     def test_fiche_apsa_porte_les_deux_solutions(self):
         src = open(self.F, encoding='utf-8').read()
         self.assertIn('créez autant de groupes que de protocoles possibles', src)
+        self.assertIn('combinaison différente de 3 APSA', src)
+        self.assertNotIn('mêmes APSA', src.split('trop d')[1].split('Réponse directe')[0])
         self.assertIn('2 pour les CAP', src)

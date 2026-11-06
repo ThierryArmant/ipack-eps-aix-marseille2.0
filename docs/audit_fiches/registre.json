@@ -11215,7 +11215,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-      "sha256": "9afa51b1c0a82d85c300de255a7d759f3392fe0b39ed6560c5f340b6d6b9dd73",
+      "sha256": "cbbf2e53e82fb6f1eca3046fd8331564672b55b96f0938c3890caffd00c46c78",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",

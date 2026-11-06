@@ -5676,7 +5676,7 @@
     },
     {
       "path": "data/ipack/fiches/correspondant_03_apsa_referentiels_fca.txt",
-      "sha256": "45fe0a4d171666a3452ead57bf9e5e390f2f9e7170e9f00f0ebd97a9fd8acc12",
+      "sha256": "5b1c4819d59f6dc0e70aa65e683eb3506293ac8f2330257cdbe3a05107ee4f7b",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_correspondant_academique_2025-2026",
@@ -11215,7 +11215,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-      "sha256": "01160fdad1cb6cf18b57d9652b47026e9f0db92cc4bec43a7b9c4330b13d68a5",
+      "sha256": "35df88ad3b410061333f619ab7a05df76bb8e3346ff883adcd84a1856c7dcffd",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",
@@ -13543,7 +13543,7 @@
     },
     {
       "path": "data/textes/greve_surveillance_eleves_second_degre.txt",
-      "sha256": "dfe99fac60dcbc7c256ed384e51d1eb63cc7029709edf6cead5e610ecf9ceb6b",
+      "sha256": "e1ea969bfe2f3888f9e72d6547174fac9608b98b1028dd3414a2c0af9e560ba1",
       "famille": "textes",
       "statut_audit": "a_relire",
       "statut_catalogue": "revu_2026-11-06_R421-10_verifie",

@@ -9,6 +9,10 @@ from pathlib import Path
 from albert_adapter import AlbertServiceError
 
 
+# Sélecteur gpt-4o-mini (128 k jetons) : 80 000 caractères laissent passer dix fiches longues
+# (article 17 + fiche APSA lycée, question du 6 novembre 2026) sans tronquer.
+SELECTION_MAX_PROMPT_CHARS = 80000
+
 def complete_selection_contracts(candidates, selected, focus, question, report):
     """Contrats documentaires bornés : sélection de preuves, jamais de texte ajouté."""
     def norm(value):
@@ -474,7 +478,8 @@ DONNEES :
 ''' + json.dumps(dict(question=question, public=public, mode=mode, academy=academy,
                      scopes=scopes, sections=sections, documents=sources), ensure_ascii=False)
     report.update(prompt_chars=len(prompt), prompt_sha256=hashlib.sha256(prompt.encode()).hexdigest())
-    if len(prompt) > 40000:
+    report['prompt_budget'] = SELECTION_MAX_PROMPT_CHARS
+    if len(prompt) > SELECTION_MAX_PROMPT_CHARS:
         report['status'] = 'budget_exceeded_no_call'
         return '<p>Contexte trop volumineux pour sélectionner les sources sans les tronquer. Aucun appel lancé.</p>'
     try:

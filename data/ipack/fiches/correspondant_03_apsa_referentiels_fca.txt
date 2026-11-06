@@ -4,6 +4,7 @@ Origine : réponses écrites du correspondant iPackEPS / chargé de mission exam
 ### [SITUATION: UNE APSA DÉCLARÉE N'APPARAÎT PAS DANS LE DÉPÔT DES RÉFÉRENTIELS]
 - Formulations courantes des collègues : je ne peux pas déposer la FCA de mon APSA ; mes APSA certificatives adaptées ne figurent pas dans la liste ; les activités courses longues et relais n'apparaissent pas dans le dossier ; ma FCA a disparu.
 - Réponse : pour qu'une APSA déclarée dans [Dossier EPS] > [APSA] apparaisse dans le Dossier Certificatif, le bouton « Certificative » doit être sur OUI (et, pour une épreuve adaptée, la case « Adaptée » cochée). Vérifier dans [Dossiers et Projets] > [Dossier EPS] > [APSA] que l'activité est toujours déclarée et certificative.
+- Cas inverse : pour retirer du tableau des référentiels une APSA qui n'est plus certificative, on fait l'opération contraire : décocher « Certificative » dans [Dossiers et Projets] > [Dossier EPS] > [APSA], puis [Enregistrer] (voir la situation « Une APSA n'est plus certificative »).
 
 ### [SITUATION: ÉPREUVE DE LA LISTE ACADÉMIQUE : PAS DE FCA À DÉPOSER]
 - Formulations courantes des collègues : je ne peux pas télécharger la FCA d'une APSA de la liste académique (exemple : ultimate) ; il reste une fiche à déposer (97 %) alors que toutes les lignes sont validées ; message « référentiels non envoyés » sur une APSA académique.

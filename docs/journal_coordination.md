@@ -3692,3 +3692,8 @@ Causes établies par rejeu de la sélection documentaire (knowledge_catalog.prio
 - Article 17 (ipack_063) rendu prioritaire pour les groupes ayant plus d'APSA que le protocole n'en admet (bac pro : exactement 3 ; CAP : 2) : réponse NON à « Les élèves seront évalués sur cette APSA pour l'examen » pour l'APSA en trop, ou un groupe par protocole possible.
 - Fiche grève et surveillance des élèves rendue prioritaire (R.421-10 relu sur Légifrance, version du 4 juillet 2025) ; exclusion des questions de retenue sur salaire.
 - Tests : tests/test_questions_humaines_2026_11_06.py (classe QuestionsGsSuite).
+
+## 2026-11-06 (soir) — Relecture des 15 réponses reposées
+- « 4 APSA certificatives… exactement 3 » : aucun appel lancé (contexte de sélection > 40 000 caractères depuis que l'article 17 est prioritaire). Budget du sélecteur porté à 80 000 caractères (SELECTION_MAX_PROMPT_CHARS) ; tests SelectionBudgetTests.
+- Grève, chef d'établissement seul avec 5 classes : la bonne fiche était trouvée mais aucune phrase n'avait été retenue. Ajout de trois paragraphes « Réponse directe » adressés au chef d'établissement.
+- « Retirer une APSA non certificative » : la réponse mélangeait « vérifier Certificative = OUI » et « décocher ». Ajout de la procédure de retrait dans la fiche APSA lycée et du « cas inverse » dans la fiche correspondant 03.

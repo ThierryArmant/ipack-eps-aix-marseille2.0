@@ -91,3 +91,28 @@ class ExactSourceTests(unittest.TestCase):
         self.assertEqual(result['branches']['A']['usage']['calls'],0)
         self.assertEqual(result['branches']['A']['state'],'baseline_not_generated')
 
+
+
+class SelectionBudgetTests(unittest.TestCase):
+    """Question du 6 novembre 2026 (4 APSA en bac pro) : dix fiches longues dépassaient 40 000 caractères."""
+    def run_size(self, n):
+        dr = ac._runtime.documentary_review
+        texts = [('Paragraphe métier %d sur les groupes et protocoles. ' % i) * 40 for i in range(n)]
+        docs = '\n\n'.join(dr.mark_excerpt(t, path='data/b%d.txt' % i, title='Source %d' % i) for i, t in enumerate(texts))
+        llm = SimpleNamespace(model='fake', temperature=0,
+            complete=Mock(return_value=SimpleNamespace(text=json.dumps({'principal': 'D1', 'complements': []}))))
+        audit = {}
+        exact_answer(llm, reviewer=dr, tracer=ac.TracedLLM, documents=docs, question='Q ?', public='p',
+                     mode='ipack', academy='Aix-Marseille', audit=audit)
+        return audit['exact_extracts'], llm
+
+    def test_contexte_de_60000_caracteres_lance_la_selection(self):
+        rep, llm = self.run_size(28)
+        self.assertGreater(rep['prompt_chars'], 45000)
+        self.assertNotEqual(rep['status'], 'budget_exceeded_no_call')
+        self.assertTrue(llm.complete.called)
+
+    def test_contexte_demesure_reste_refuse(self):
+        rep, llm = self.run_size(60)
+        self.assertEqual(rep['status'], 'budget_exceeded_no_call')
+        llm.complete.assert_not_called()

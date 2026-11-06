@@ -31,7 +31,11 @@ class HorsPerimetreTests(unittest.TestCase):
                   "Faut-il obligatoirement trois heures d’accompagnement personnalisé en sixième cette année ?",
                   "Dans quel délai le rectorat répond-il à une demande d'aménagement d'examen, et peut-on contester ?",
                   "Pour les fiches individuelles, c'est un format particulier ou feuille libre ?",
-                  "Comment remplir mes listes de non nageurs"):
+                  "Comment remplir mes listes de non nageurs",
+                  "Demande d'exercice des droits RGPD",
+                  "Que répondre à une demande d'exercice des droits ?",
+                  "RGPD et EPS",
+                  "Un parent demande la rectification de ses données personnelles"):
             self.assertFalse(self.hors_sujet(q), q)
 
     def test_questions_etrangeres_restent_rejetees(self):

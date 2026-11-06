@@ -6781,7 +6781,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_059_article_13_dossiers_dossiereps_equipe_eps_gestion_de_l_equipe_eps.txt",
-      "sha256": "54742550e1d8f75ca555cb92bb9eca05a1b2d9b520554ead4ff4408c45b34770",
+      "sha256": "1f905a7ef3b375164c9cd3be3ddd5523cf6bea6d655392e136ccbdc2f9bd3c8e",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -11215,7 +11215,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-      "sha256": "ee5c5609a2c27bf7b59b13e888bc0541a24c138af95b774dfcbadf97c8c2c3e2",
+      "sha256": "01160fdad1cb6cf18b57d9652b47026e9f0db92cc4bec43a7b9c4330b13d68a5",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",
@@ -13547,6 +13547,30 @@
       "famille": "textes",
       "statut_audit": "a_relire",
       "statut_catalogue": "a_relire_2026-11-04",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/situations_2026_11_06/classes_post_bac_sans_eps.txt",
+      "sha256": "c6adb53f57e99aba869c77455c57a05ea230decba2b367c08c0aa9e2634e8e2c",
+      "famille": "ipack",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "revue_2026-11-06_ecran_et_visite",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/situations_2026_11_06/exercice_droits_rgpd_eleves.txt",
+      "sha256": "a4f7306193a409d770fa54d28bd5767ad905338002c4b238603b11b0daa98ab5",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-06",
+      "signaux": []
+    },
+    {
+      "path": "data/textes/situations_2026_11_06/dispenses_eps_preciser_diplome.txt",
+      "sha256": "a4dea36e2ff1aa549e830f4b4d6255a1f5c5990b0bea24cb03b9daa35b111fe9",
+      "famille": "textes",
+      "statut_audit": "a_relire",
+      "statut_catalogue": "sources_officielles_consultees_2026-11-06",
       "signaux": []
     }
   ],

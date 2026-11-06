@@ -1434,7 +1434,16 @@
     "statut": "revue_2026-11-03_affirmations_controlees",
     "examens": [],
     "origine": "data/archives/compilations/ipack.txt",
-    "date_verification": "2026-11-03"
+    "date_verification": "2026-11-03",
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 290,
+    "motifs": [
+      "(?=.*(?:csv|import\\w*|fichier))(?=.*(?:enseignants?|professeurs?|profs?|collegues?|equipe eps))(?!.*\\beleves?\\b)",
+      "(?=.*(?:enseignant|professeur|collegue|prof)\\w*)(?=.*(?:n.apparait pas|absent|manque|pas dans la liste|liste incomplete))(?=.*equipe)"
+    ]
   },
   "data/ipack/fiches/ipack_060_article_14_dossiers_dossiereps_classes_configuration_des_classes_et_import_des_eleves.txt": {
     "title": "[ARTICLE 14] [Dossiers]/[DossierEPS]/[Classes] Configuration des Classes et Import des Élèves",
@@ -1511,7 +1520,8 @@
       "^(?=.*(?:pronote|ecole.?directe|fichier csv|\\bcsv\\b))(?=.*(?:import\\w*|recuper\\w*|export\\w* (?:les |mes |des )?(?:eleves|groupes)|fichier))"
     ],
     "exclure_motifs": [
-      "\\bnotes?\\b|moyenne|bulletin|resultat|appreciation"
+      "\\bnotes?\\b|moyenne|bulletin|resultat|appreciation",
+      "(?=.*\\b(?:enseignants?|professeurs?|profs?|collegues?)\\b)(?!.*\\beleves?\\b)(?!.*pronote|.*ecole ?directe)"
     ],
     "tutoriels": [
       {
@@ -3886,7 +3896,8 @@
     "exclure_motifs": [
       "pronote.*(?:erreur|message|fonctionne pas|marche pas)",
       "(?:erreur|message|fonctionne pas|marche pas).*pronote",
-      "^(?=.*(?:import\\w*|recuper\\w*))(?=.*(?:eleves|groupes))(?!.*\\bnotes?\\b)"
+      "^(?=.*(?:import\\w*|recuper\\w*))(?=.*(?:eleves|groupes))(?!.*\\bnotes?\\b)",
+      "^(?!.*\\bnotes\\b)(?!.*\\b(?:la|une|ma|sa|leur|des|les|de) note\\b).*\\b(?:c.est|il est|est|bien|deja|j.ai|on a|a) note\\b"
     ],
     "url": "https://ipackeps.ac-creteil.fr/spip.php?article104",
     "date_verification": "2026-10-11",
@@ -3945,7 +3956,7 @@
     ],
     "prioritaire": true,
     "motifs": [
-      "inapt|certificat"
+      "inapt|certificat(?!i)"
     ],
     "exclure_motifs": [
       "dossier certificatif"
@@ -4132,7 +4143,8 @@
     ],
     "date_verification": "2026-10-11",
     "exclure_motifs": [
-      "^(?=.*(?:import\\w*|recuper\\w*))(?=.*(?:eleves|groupes))(?!.*\\bnotes?\\b)"
+      "^(?=.*(?:import\\w*|recuper\\w*))(?=.*(?:eleves|groupes))(?!.*\\bnotes?\\b)",
+      "^(?!.*\\bnotes\\b)(?!.*\\b(?:la|une|ma|sa|leur|des|les|de) note\\b).*\\b(?:c.est|il est|est|bien|deja|j.ai|on a|a) note\\b"
     ]
   },
   "data/ipack/fiches/ipack_301_situation_videos_photos_eleves_droit_image_rgpd.txt": {
@@ -4151,7 +4163,10 @@
     "reponse_directe_motifs": [
       "filmer|photograph|associer.*video|video.*evaluation"
     ],
-    "reponse_directe": "iPackEPS n'est pas un outil de captation, de stockage vidéo ni de saisie des notes : aucune fonction documentée ne permet d'y associer une vidéo à l'évaluation d'un élève. Utiliser l'outil et le stockage validés par l'établissement, informer les élèves et suivre le circuit d'autorisation d'image, avec finalité, destinataires, accès et durée de conservation définis. Observer la prestation avec la grille pédagogique puis saisir la note dans le logiciel de notes de classe, par exemple Pronote ; pour le CCF de lycée, saisir la note certificative dans Santorin. Ne pas importer de vidéo nominative dans le HUB. En cas de doute sur les usages, consulter le chef d'établissement ou le DPD académique. Ne pas inventer un menu vidéo iPackEPS."
+    "reponse_directe": "iPackEPS n'est pas un outil de captation, de stockage vidéo ni de saisie des notes : aucune fonction documentée ne permet d'y associer une vidéo à l'évaluation d'un élève. Utiliser l'outil et le stockage validés par l'établissement, informer les élèves et suivre le circuit d'autorisation d'image, avec finalité, destinataires, accès et durée de conservation définis. Observer la prestation avec la grille pédagogique puis saisir la note dans le logiciel de notes de classe, par exemple Pronote ; pour le CCF de lycée, saisir la note certificative dans Santorin. Ne pas importer de vidéo nominative dans le HUB. En cas de doute sur les usages, consulter le chef d'établissement ou le DPD académique. Ne pas inventer un menu vidéo iPackEPS.",
+    "exclure_motifs": [
+      "(?=.*\\bvideos?\\b)(?=.*(?:tuto\\w*|pour (?:importer|creer|configurer|saisir|actualiser|deposer)|explique|montre comment))(?!.*(?:filmer|photo|image|droit a l.image|eleves? film))"
+    ]
   },
   "data/commun/audit60/pro_cap_absences.txt": {
     "title": "Bac professionnel et CAP : ensemble certificatif et absences",
@@ -4186,7 +4201,10 @@
       "video|filmer|photograph"
     ],
     "url": "https://eduscol.education.fr/document/52590/download",
-    "date_verification": "2026-10-11"
+    "date_verification": "2026-10-11",
+    "exclure_motifs": [
+      "(?=.*\\bvideos?\\b)(?=.*(?:tuto\\w*|pour (?:importer|creer|configurer|saisir|actualiser|deposer)|explique|montre comment))(?!.*(?:filmer|photo|image|droit a l.image|eleves? film))"
+    ]
   },
   "data/commun/audit60/ipack_bareme_college.txt": {
     "title": "Barème et conversion des compétences : notes de classe et bon outil",
@@ -7771,10 +7789,11 @@
     "priorite": 305,
     "motifs": [
       "(?:declarer|indiquer|choisir|mettre).{0,40}(?:activites?|apsa).{0,60}(?:bac|examen|certificati|terminales?)|(?:passer|mettre|rendre|retirer|enlever).{0,40}(?:en |une |l.)?(?:activite |apsa )?certificati|certificati\\w*.{0,30}(?:bloque|reste|bouton)|protocoles?.{0,30}(?:cfa|mfr)|etapes? prealables?.{0,30}protocoles?|associer.{0,30}apsa.{0,40}groupes? d.examen",
-      "(?:fiche|apsa|activite|epreuve).{0,40}(?:n.est pas|pas|non) certificative|non certificative"
+      "(?:fiche|apsa|activite|epreuve).{0,40}(?:n.est pas|pas|non) certificative|non certificative",
+      "(?=.*apsa)(?=.*certificativ)(?=.*(?:coch\\w*|declar\\w*|moins de (?:3|trois)|pas (?:3|trois)|n.ai pas (?:3|trois)|alerte|message|indique))"
     ],
     "exclure_motifs": [
-      "\\bdnb\\b|brevet|absen|inapt|bless|fraude|note"
+      "\\bdnb\\b|brevet|absen|inapt|bless|fraude|(?<!c.est )(?<!il est )\\bnotes?\\b(?! que)"
     ]
   },
   "data/ipack/visite_lycee_2026_10_18/fiche_etablissement_professeur_inaptitudes_lycee.txt": {
@@ -9282,5 +9301,58 @@
     ],
     "date_verification": "2026-11-04",
     "domaine_textes": "04_vie_etablissement"
+  },
+  "data/ipack/situations_2026_11_06/classes_post_bac_sans_eps.txt": {
+    "title": "iPackEPS : classes post-bac sans EPS signalées « non configurées »",
+    "statut": "revue_2026-11-06_ecran_et_visite",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 295,
+    "date_verification": "2026-11-06",
+    "motifs": [
+      "(?=.*(?:post.?bac|bts|cpge|classes? prepa|\\bdcg\\b|\\bdn ?made\\b|superieur))(?=.*(?:configur|organis|eps|classe))",
+      "(?=.*(?:pas d.eps|sans eps|n.ont pas (?:d.)?eps|pas de cours d.eps))(?=.*classe)"
+    ]
+  },
+  "data/textes/situations_2026_11_06/exercice_droits_rgpd_eleves.txt": {
+    "title": "RGPD : répondre à une demande d'exercice des droits (données scolaires et EPS)",
+    "statut": "sources_officielles_consultees_2026-11-06",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 330,
+    "date_verification": "2026-11-06",
+    "motifs": [
+      "exercice des droits|droits? (?:d.acces|de rectification|d.effacement|d.opposition|a l.oubli)|(?=.*(?:rgpd|donnees personnelles|protection des donnees|cnil|\\bdpd\\b|\\bdpo\\b))(?=.*(?:demande|parent|famille|eleve|effac|suppr|acces|rectif|repondre|droit))"
+    ],
+    "domaine_textes": "04_vie_etablissement"
+  },
+  "data/textes/situations_2026_11_06/dispenses_eps_preciser_diplome.txt": {
+    "title": "Dispense d'EPS aux examens : règle selon le diplôme et le statut du candidat",
+    "statut": "sources_officielles_consultees_2026-11-06",
+    "examens": [
+      "gt",
+      "pro",
+      "cap"
+    ],
+    "modes": [
+      "textes",
+      "examens"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "date_verification": "2026-11-06",
+    "motifs": [
+      "(?=.*dispens\\w*)(?=.*(?:examens?|\\bbac\\b|baccalaureat|\\bcap\\b|\\bccf\\b|epreuve))(?=.*(?:gere|gerer|comment|procedure|qui peut|droit|regle|demande))"
+    ],
+    "domaine_textes": "10_examens",
+    "exclure_motifs": [
+      "\\bdnb\\b|brevet|santorin|cyclades|ipack|saisi"
+    ]
   }
 }

@@ -6741,6 +6741,36 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Grève et surveillance des élèves en collège et lycée"
+  },
+  "data/ipack/situations_2026_11_06/classes_post_bac_sans_eps.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "iPackEPS : classes post-bac sans EPS signalées « non configurées »"
+  },
+  "data/textes/situations_2026_11_06/exercice_droits_rgpd_eleves.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "RGPD : répondre à une demande d'exercice des droits (données scolaires et EPS)"
+  },
+  "data/textes/situations_2026_11_06/dispenses_eps_preciser_diplome.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": null,
+   "titre": "Dispense d'EPS aux examens : règle selon le diplôme et le statut du candidat"
   }
  }
 }

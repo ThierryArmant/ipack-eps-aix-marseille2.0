@@ -1851,6 +1851,9 @@ if prompt_a_traiter:
                 "emploi du temps", "heures", "section", "programmation", "nageur", "nageurs",
                 # ✅ AJOUT : matériel sportif (« un but mobile semble instable » était rejeté)
                 "but", "buts", "cage", "panier", "paniers", "poteau", "tapis", "filet", "agrée", "contrôle technique",
+                # ✅ AJOUT (06/11/2026) : protection des données (« Demande d'exercice des droits RGPD » était rejetée avant la recherche)
+                "rgpd", "données personnelles", "donnees personnelles", "protection des données", "cnil", "dpd", "dpo",
+                "délégué à la protection", "droit d'accès", "droit d'effacement", "rectification", "exercice des droits",
             ]
             
             # ✅ CORRECTION : les mots courts (ps, ms, cp, cap, bac, loi, eps...) sont cherchés

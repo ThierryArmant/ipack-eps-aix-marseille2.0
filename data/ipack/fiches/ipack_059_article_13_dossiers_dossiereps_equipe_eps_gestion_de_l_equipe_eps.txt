@@ -6,4 +6,6 @@
 - QUESTIONS / RÉPONSES :
   - Q2 : Nous avons créé par erreur un intervenant extérieur, comment le supprimer ?
   - R2 : Retournez dans Tableau de bord => Les Dossiers et Projets ==> Dossier EPS ==> Équipe EPS. Dans le tableau [intervenants extérieurs], cliquer sur l’icône [modifier] de cet intervenant. Dans la fenêtre qui s’ouvre, cliquez sur [Supprimer].
-
+  - Q3 : Comment importer un fichier CSV des enseignants ? Existe-t-il une vidéo d'import des enseignants ?
+  - R3 : Dans l'espace professeur ou chef d'établissement, il n'y a pas d'import CSV des enseignants : la liste de l'équipe EPS vient des bases du rectorat (EPP public, IPP privé) ; on la met à jour avec [Actualiser] dans [Dossier EPS] > [Équipe EPS] (accessible à tous les enseignants depuis la version 2026.2, vérifié à l'écran le 4 novembre 2026). Une personne extérieure (entraîneur de SSS, contrôleur EPI…) s'ajoute à la main avec [Nouvel Intervenant] dans le tableau « Les intervenants extérieurs ». L'import d'un fichier de « professeurs externes » existe seulement dans l'interface du correspondant académique ([Données Académiques] > [Professeurs Externes], avec un fichier modèle depuis la version 2026). Ne pas confondre avec l'import CSV des élèves depuis Pronote ou École Directe (article 88). Vidéos de l'article 13 : gestion des remplacements https://youtu.be/C3gSSacJxNo ; établissements à l'étranger https://youtu.be/x8DzrCRL_D8 .
+- Source : https://ipackeps.ac-creteil.fr/spip.php?article13 (relu le 6 novembre 2026) et document « iPackEPS Nouveautés 2026-2027 ».

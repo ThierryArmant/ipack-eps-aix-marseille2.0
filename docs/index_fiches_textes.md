@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-107 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+109 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -51,7 +51,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Droit de retrait d'un enseignant (danger grave et imminent)](../data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 | [Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)](../data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt) | dnb, gt, pro, cap | 7 | Références présentes ; statut détaillé au catalogue |
 
-## Vie scolaire, direction, laïcité et égalité (12)
+## Vie scolaire, direction, laïcité et égalité (13)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -67,6 +67,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Grève et surveillance des élèves en collège et lycée](../data/textes/greve_surveillance_eleves_second_degre.txt) | Non balisé | 5 | Références présentes ; statut détaillé au catalogue |
 | [Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement](../data/textes/situations_2026_10_26/laicite_fetes_noel.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Association sportive : participation volontaire des élèves](../data/textes/situations_2026_11_02/as_participation_eleves.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
+| [RGPD : répondre à une demande d'exercice des droits (données scolaires et EPS)](../data/textes/situations_2026_11_06/exercice_droits_rgpd_eleves.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 
 ## Santé, inaptitudes et inclusion (5)
 
@@ -141,7 +142,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Programme EPS sixième : application à la rentrée 2027-2028](../data/textes/fiches/programme_eps_sixieme_calendrier_2026.txt) | dnb | 2 | Références présentes ; statut détaillé au catalogue |
 | [Programme d'EPS en CAP et baccalauréat professionnel (2019)](../data/textes/fiches/programme_eps_voie_professionnelle_2019.txt) | pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 
-## Certification et aménagements des examens (6)
+## Certification et aménagements des examens (7)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -151,6 +152,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [[SITUATION: 16E SECTION : AMÉNAGEMENTS ET DOSSIERS EXAMENS CYCLADES (EBEP)]](../data/textes/fiches/base_textes_officiels_022_situation_16e_section_amenagements_et_dossiers_examens_cyclades_ebep.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
 | [[SITUATION: CERTIFICATION, CCF ET RÈGLES DE NOTES (EXAMENS NATIONAUX)]](../data/textes/fiches/base_textes_officiels_059_situation_certification_ccf_et_regles_de_notes_examens_nationaux.txt) | gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 | [Bac professionnel et CAP : répartition des points entre AFLP (12 + 8) en CCF](../data/textes/situations_2026_11_03/voie_pro_notation_aflp_ccf.txt) | pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
+| [Dispense d'EPS aux examens : règle selon le diplôme et le statut du candidat](../data/textes/situations_2026_11_06/dispenses_eps_preciser_diplome.txt) | gt, pro, cap | 4 | Références présentes ; statut détaillé au catalogue |
 
 ## Données personnelles, images et intelligence artificielle (4)
 

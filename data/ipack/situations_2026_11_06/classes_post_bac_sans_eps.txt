@@ -1,0 +1,7 @@
+### Classes post-bac sans EPS : alerte « classes non configurées »
+Question réelle (5 novembre 2026) — « Certaines classes ne sont pas configurées, ce sont des classes post bac qui n'ont pas d'EPS. »
+Réponse directe — ne pas conseiller de répondre OUI à « Les élèves de cette classe ont des cours EPS ou peuvent participer à l'UNSS » quand le demandeur précise que ces classes n'ont pas d'EPS. Ne pas attribuer artificiellement un professeur EPS ou importer des élèves uniquement pour obtenir une coche verte.
+Élément documentaire — [Dossier EPS] > [Classes] > [Organisation des Classes] propose un mode « Classe Sans Professeur d'EPS » pour une classe sans EPS ou dont l'EPS est gérée par une autre personne. Il faut distinguer la configuration de la classe et son organisation.
+Limite importante — les documents consultés ne démontrent pas que le mode « Classe Sans Professeur d'EPS » supprime automatiquement toutes les alertes de classes non configurées ni qu'il faut configurer systématiquement les classes post-bac sans EPS. Ne pas promettre cet effet. Vérifier le message exact et si la classe doit être prise en compte dans iPackEPS avant toute modification.
+Sources internes : visite guidée de l'espace professeur du 18 octobre 2026, data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt ; article 14 iPackEPS, data/ipack/fiches/ipack_060_article_14_dossiers_dossiereps_classes_configuration_des_classes_et_import_des_eleves.txt.
+Portée : configuration technique iPackEPS, non réglementation des enseignements post-bac.

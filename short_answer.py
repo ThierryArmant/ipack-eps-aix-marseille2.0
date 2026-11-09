@@ -200,14 +200,26 @@ def _date_reasons(p, source, question, today=None):
     return reasons
 
 
+_NB_APSA = r"(?:[4-9]|1[0-2]|quatre|cinq|six|sept|huit|neuf|dix|onze|douze)"
+_NB_MOTS = {'deux': '2', 'trois': '3', 'quatre': '4', 'cinq': '5', 'six': '6', 'sept': '7', 'huit': '8',
+            'neuf': '9', 'dix': '10', 'onze': '11', 'douze': '12'}
+
+
 def _protocole_apsa_en_trop(question):
     q = _compact(question)
-    return (
-        re.search(r"(?:\b(?:4|quatre)\s+apsas?\b|\btrop d[' ]apsas?\b|\bune apsa de trop\b)", q)
-        and re.search(r"\bapsas? certificatives?\b", q)
-        and re.search(r"\bprotocole\b", q)
-        and re.search(r"\bexactement (?:3|trois)\b", q)
+    if not re.search(r"\bapsas? certificatives?\b", q):
+        return False
+    return bool(
+        (re.search(r"(?:\b(?:4|quatre)\s+apsas?\b|\btrop d[' ]apsas?\b|\bune apsa de trop\b)", q)
+         and re.search(r"\bprotocole\b", q) and re.search(r"\bexactement (?:3|trois)\b", q))
+        # Question du 9 novembre 2026 : « 8 APSA certificatives… ne les reconnaît pas dans la vérification ».
+        or (re.search(r"\b" + _NB_APSA + r"\s+apsas?\b", q)
+            and re.search(r"reconnai\w*|verification|protocole|valid\w*|refus\w*", q))
     )
+
+
+def _nombres_apsa(text):
+    return {_NB_MOTS.get(n, n) for n in re.findall(r"\b(\d{1,2}|deux|trois|quatre|cinq|six|sept|huit|neuf|dix|onze|douze)\s+(?:\w+\s+)?(?:apsas?|activites)\b", text)}
 
 
 def unsupported(phrase, cited_text, question='', titles=''):
@@ -221,6 +233,17 @@ def unsupported(phrase, cited_text, question='', titles=''):
             and not re.search(r"\b(?:groupes?|gerer les s\.a\.)\b", p)
             and re.search(r"(?:^|:\s*|\ben\s+)(?:decoch\w*|desactiv\w*|deselection\w*|supprim\w*|retir\w*|enlev\w*|redui\w*|declar\w*\s+(?:comme\s+)?certificatives?\s+uniquement)\b", p)):
         reasons.append('portee:certification_etablissement_au_lieu_du_groupe')
+    if (_protocole_apsa_en_trop(question)
+            and re.search(r"\bcertificative\b.{0,60}\b(?:oui|non)\b", p)
+            and re.search(r"\[apsa\b|configuration d.une apsa", p)
+            and not re.search(r"evalues sur cette apsa|gerer les s\.a\.", p)):
+        # Régler « Certificative » OUI/NON dans [APSA] agit sur tout l'établissement, pas sur le protocole d'un groupe.
+        reasons.append('portee:certification_etablissement_au_lieu_du_groupe')
+    nq = _nombres_apsa(_compact(question))
+    if nq and _protocole_apsa_en_trop(question):
+        extra = _nombres_apsa(p) - nq - {'2', '3'}
+        if extra:
+            reasons.append('nombre:apsa_' + '_'.join(sorted(extra)))
     if (re.search(r"\bcourses\b", p) and re.search(r"\bapsa\b", context)
             and not re.search(r"cours\w*|demi.?fond|relais|vitesse|haies|apsa etablissement", _compact(question))):
         # La fiche APSA lycée interdit de proposer [Courses] sans indice dans la question (question du 8 novembre 2026).

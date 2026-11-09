@@ -115,3 +115,19 @@ class QuestionsHub2026_11_08(unittest.TestCase):
         r = sa.unsupported("Sélectionnez l'activité de la liste nationale (ex. [Courses]).", "(ex: [Courses])", q, 'APSA')
         self.assertIn('objet:courses_sans_indice', r)
         self.assertNotIn('objet:courses_sans_indice', sa.unsupported("Choisir [Courses].", "[Courses]", "mon demi-fond est une APSA établissement", 'APSA'))
+
+
+class HuitApsaGardeFous(unittest.TestCase):
+    Q = "Nous avons 8 APSA certificatives pour le bac mais Ipack ne les reconnait pas dans la véification"
+
+    def test_certificative_oui_non_dans_apsa_refuse(self):
+        import short_answer as sa
+        ph = "[Dossier EPS] > [APSA] > [APSA de Lycée Général ou Technologique] : réglez le champ « Certificative » sur OUI uniquement pour les trois APSA, les autres sur NON."
+        self.assertIn('portee:certification_etablissement_au_lieu_du_groupe', sa.unsupported(ph, ph, self.Q, 'x'))
+
+    def test_nombre_d_apsa_incoherent_refuse(self):
+        import short_answer as sa
+        ph = "Dans chaque groupe créé, laissez les cinq APSA initiales cochées."
+        self.assertIn('nombre:apsa_5', sa.unsupported(ph, ph + ' 5 APSAs', self.Q, 'x'))
+        ok = "Répondez NON pour garder trois APSA certificatives parmi les huit APSA."
+        self.assertEqual([r for r in sa.unsupported(ok, ok, self.Q, 'x') if r.startswith('nombre:apsa')], [])

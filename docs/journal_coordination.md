@@ -3698,3 +3698,9 @@ Causes établies par rejeu de la sélection documentaire (knowledge_catalog.prio
 - Grève, chef d'établissement seul avec 5 classes : la bonne fiche était trouvée mais aucune phrase n'avait été retenue. Ajout de trois paragraphes « Réponse directe » adressés au chef d'établissement.
 - « Retirer une APSA non certificative » : la réponse mélangeait « vérifier Certificative = OUI » et « décocher ». Ajout de la procédure de retrait dans la fiche APSA lycée et du « cas inverse » dans la fiche correspondant 03.
 - 21:49 : nouvel essai « 4 APSA » : le sélecteur n'a pas retenu l'article 17, et la réponse conseillait de supprimer l'APSA dans [APSA]. Les deux solutions de R4 sont recopiées dans la fiche APSA lycée (toujours retenue). Le contrôle des phrases refuse aussi « supprimer / désélectionner / réduire » dans [Dossier EPS] > [APSA] pour cette question.
+
+## 2026-11-09 — Relecture des réponses du 6 au 8 novembre
+- « 8 APSA certificatives… ne les reconnaît pas » (LGT) : la réponse proposait de remplacer une APSA par [Courses]. Article 17 et fiche APSA lycée rendus prioritaires pour 4 à 12 APSA ; une phrase qui propose [Courses] sans indice dans la question (course, demi-fond, relais, APSA établissement) est refusée.
+- « Moins de 2 APSA en CAP » posée dans l'onglet Textes : la réponse partait sur la création d'APSA et les groupes AS. Article 17, fiche APSA lycée et FAQ lycée ouverts aussi à l'onglet Textes. Nouveau paragraphe CAP / bac pro : tuile [APSA de Collège ou Voie Professionnelle], OUI dans [Gérer les S.A.], même APSA sur deux périodes (R1).
+- « RGPD et EPS » : la réponse ne traitait que l'exercice des droits. Ajout d'une réponse générale dans la fiche outils numériques (responsable de traitement en général le chef d'établissement selon la CNIL, DPD, données de santé article 9).
+- Escalade EPI, exercice des droits (21:32) : réponses justes.

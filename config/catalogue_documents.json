@@ -1487,13 +1487,15 @@
     "date_verification": "2026-11-03",
     "modes": [
       "ipack",
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "priorite": 315,
     "motifs": [
-      "(?=.*apsa)(?=.*(?:exactement (?:3|trois|2|deux)|(?:4|5|6|quatre|cinq|six) apsa|plus de (?:3|trois|2|deux) apsa|trop d.apsa|meilleures notes|choix (?:des|de l.)eleves?))",
-      "(?=.*(?:cap|bac ?pro))(?=.*apsa)(?=.*(?:moins de (?:2|deux)|pas (?:2|deux)|certifiab|certificativ))"
+      "(?=.*apsa)(?=.*(?:exactement (?:3|trois|2|deux)|(?:[4-9]|1[0-2]|quatre|cinq|six|sept|huit|neuf|dix|onze|douze) apsa|plus de (?:3|trois|2|deux) apsa|trop d.apsa|meilleures notes|choix (?:des|de l.)eleves?))",
+      "(?=.*(?:cap|bac ?pro))(?=.*apsa)(?=.*(?:moins de (?:2|deux)|pas (?:2|deux)|certifiab|certificativ))",
+      "(?=.*\\b(?:[4-9]|1[0-2]|quatre|cinq|six|sept|huit|neuf|dix|onze|douze) apsa)(?=.*certificativ)(?=.*(?:reconnai\\w*|verification|valid\\w*|protocole|refus\\w*))"
     ]
   },
   "data/ipack/fiches/ipack_064_article_93_dossiers_dossiereps_groupes_gestion_specifique_de_l_enseignement_de_specialite_.txt": {
@@ -7779,7 +7781,8 @@
     "examens": [],
     "modes": [
       "ipack",
-      "examens"
+      "examens",
+      "textes"
     ],
     "tutoriels": [
       {
@@ -7800,7 +7803,7 @@
     "motifs": [
       "(?:declarer|indiquer|choisir|mettre).{0,40}(?:activites?|apsa).{0,60}(?:bac|examen|certificati|terminales?)|(?:passer|mettre|rendre|retirer|enlever).{0,40}(?:en |une |l.)?(?:activite |apsa )?certificati|certificati\\w*.{0,30}(?:bloque|reste|bouton)|protocoles?.{0,30}(?:cfa|mfr)|etapes? prealables?.{0,30}protocoles?|associer.{0,30}apsa.{0,40}groupes? d.examen",
       "(?:fiche|apsa|activite|epreuve).{0,40}(?:n.est pas|pas|non) certificative|non certificative",
-      "(?=.*apsa)(?=.*certificativ)(?=.*(?:coch\\w*|declar\\w*|moins de (?:3|trois)|pas (?:3|trois)|n.ai pas (?:3|trois)|alerte|message|indique))"
+      "(?=.*apsa)(?=.*certificativ)(?=.*(?:coch\\w*|declar\\w*|moins de (?:3|trois)|pas (?:3|trois)|n.ai pas (?:3|trois)|alerte|message|indique|reconnai\\w*|verification))"
     ],
     "exclure_motifs": [
       "\\bdnb\\b|brevet|absen|inapt|bless|fraude|(?<!c.est )(?<!il est )\\bnotes?\\b(?! que)"
@@ -7856,7 +7859,8 @@
     ],
     "modes": [
       "ipack",
-      "examens"
+      "examens",
+      "textes"
     ],
     "prioritaire": true,
     "priorite": 310,

@@ -1,4 +1,5 @@
 ### Données des élèves : outils numériques, images et responsabilité
+Réponse directe — question générale « RGPD et EPS » : en collège et en lycée, le responsable des traitements de données des élèves est en général le chef d'établissement ; l'enseignant d'EPS utilise un outil ou une application sous sa responsabilité (CNIL). Avant tout outil numérique, application ou vidéo avec des données d'élèves, faire examiner le projet par le chef d'établissement et le délégué à la protection des données (DPD) académique. Un certificat médical ou une inaptitude relève des données de santé, catégorie particulière (RGPD, article 9) : ne le communiquer qu'aux personnes qui en ont besoin. Pour une demande d'accès, de rectification ou d'effacement, voir la fiche « exercice des droits ».
 Réponse directe — publier des photos d'élèves mineurs : l'accord des représentants légaux est demandé (CNIL), avec le formulaire institutionnel précisant la finalité, les supports et la durée.
 Réponse directe — outil ou application en ligne avec des données d'élèves : faire examiner le projet par le responsable de traitement et le délégué à la protection des données (DPD) avant usage ; l'accord des parents ne remplace pas ces obligations.
 Nature de la source : documentation officielle CNIL ; recommandations distinguées des règles légales.
@@ -6,6 +7,7 @@ Qualifier l'usage : analyse pédagogique d'une vidéo, publication d'une image, 
 Pour une publication de photographies d'élèves mineurs, la CNIL demande l'accord des représentants légaux. Décrire finalité, supports et durée avec le formulaire institutionnel adapté. Aucune règle générale imposant partout la signature des deux parents en début d'année ou un effacement en fin de chaque séance n'est établie par ces sources.
 Pour les outils collaboratifs, le responsable détermine la base légale, informe les personnes et fixe la conservation nécessaire ; il examine la sécurité et les transferts internationaux. L'accord parental ne remplace pas ces obligations. Faire examiner le projet par le responsable de traitement et le DPD avant usage de données d'élèves ; ne pas déclarer conforme un hébergement au seul motif qu'il est utilisé par un enseignant.
 
-Sources officielles — consultées le 16 octobre 2026 :
+Sources officielles — consultées le 16 octobre 2026 (responsable de traitement : 9 novembre 2026) :
+- CNIL, responsable de traitement dans l'éducation : https://cnil.fr/fr/education-mise-en-place-systeme-ia
 - CNIL, outils collaboratifs dans les premier et second degrés, rubriques base légale, information, AIPD et sécurité : https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs
 - CNIL, utilisation des photos des élèves : https://www.cnil.fr/fr/cnil-direct/question/utilisation-des-photos-des-eleves-faut-il-laccord-des-parents

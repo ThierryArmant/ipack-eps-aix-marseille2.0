@@ -97,3 +97,21 @@ class ReponseQuatreApsa(unittest.TestCase):
         self.assertIn('combinaison différente de 3 APSA', src)
         self.assertNotIn('mêmes APSA', src.split('trop d')[1].split('Réponse directe')[0])
         self.assertIn('2 pour les CAP', src)
+
+
+class QuestionsHub2026_11_08(unittest.TestCase):
+    def test_huit_apsa_vers_article_17(self):
+        t = kc.priority_titles("Nous avons 8 APSA certificatives pour le bac mais Ipack ne les reconnait pas dans la véification", GT, 'ipack')
+        self.assertTrue(any(x.startswith('[ARTICLE 17]') for x in t), t)
+
+    def test_cap_moins_de_deux_meme_en_onglet_textes(self):
+        q = "iPackEPS m’indique que j’ai moins de 2 APSAs déclarées certificatives en CAP, alors que ce n’est pas le cas. Que puis-je faire ?"
+        t = kc.priority_titles(q, PRO, 'textes')
+        self.assertTrue(any(x.startswith('[ARTICLE 17]') for x in t), t)
+
+    def test_courses_refuse_sans_indice(self):
+        import short_answer as sa
+        q = "Nous avons 8 APSA certificatives pour le bac mais Ipack ne les reconnait pas dans la véification"
+        r = sa.unsupported("Sélectionnez l'activité de la liste nationale (ex. [Courses]).", "(ex: [Courses])", q, 'APSA')
+        self.assertIn('objet:courses_sans_indice', r)
+        self.assertNotIn('objet:courses_sans_indice', sa.unsupported("Choisir [Courses].", "[Courses]", "mon demi-fond est une APSA établissement", 'APSA'))

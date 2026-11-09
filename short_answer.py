@@ -221,6 +221,10 @@ def unsupported(phrase, cited_text, question='', titles=''):
             and not re.search(r"\b(?:groupes?|gerer les s\.a\.)\b", p)
             and re.search(r"(?:^|:\s*|\ben\s+)(?:decoch\w*|desactiv\w*|deselection\w*|supprim\w*|retir\w*|enlev\w*|redui\w*|declar\w*\s+(?:comme\s+)?certificatives?\s+uniquement)\b", p)):
         reasons.append('portee:certification_etablissement_au_lieu_du_groupe')
+    if (re.search(r"\bcourses\b", p) and re.search(r"\bapsa\b", context)
+            and not re.search(r"cours\w*|demi.?fond|relais|vitesse|haies|apsa etablissement", _compact(question))):
+        # La fiche APSA lycée interdit de proposer [Courses] sans indice dans la question (question du 8 novembre 2026).
+        reasons.append('objet:courses_sans_indice')
     for menu in re.findall(r'\[[^\]]{1,80}\]', p):
         if menu in source:
             continue

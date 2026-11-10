@@ -51,6 +51,26 @@ def contient(txt, motifs):
     return any(re.search(m, txt) for m in motifs)
 
 
+def demande_contenu_didactique(p_norm):
+    """Demande de fiche didactique ou de contenu de séance, que le hub ne produit pas (10 novembre 2026)."""
+    return (
+        contient(p_norm, [
+            r"fiches? (?:didactiques?|pedagogiques?|de seances?|de cycles?)",
+            r"contenus? (?:de |d.)?(?:seances?|cycles?|didactiques?|pedagogiques?|d.enseignement)",
+            r"\bcontenus? (?:en|pour) (?!l.?ipack|ipack|cyclades|santorin)",
+            r"(?:fais|faire|propose|proposer|donne|donner|prepare|preparer|construi\w*|redige\w*|cree\w*|ecri\w*)(?:[ -]?moi)? (?:un|une|des|mes) (?:cycles?|seances?|situations? d.apprentissage|echauffements?|progressions?|sequences? d.enseignement|exercices?)",
+            r"\bquels? (?:exercices?|situations? d.apprentissage|echauffements?)\b",
+            r"\bcomment enseigner\b",
+            r"\bplan de seance\b|\bderoule\w* de seance\b",
+        ])
+        and not contient(p_norm, [
+            r"bless", r"accident", r"securit", r"responsab", r"surveill", r"assuranc", r"plainte", r"juridi",
+            r"inapt", r"dispens", r"certificat", r"\bpai\b", r"handicap", r"sortie", r"transport",
+            r"\bbac\b", r"\bcap\b", r"\bccf\b", r"examen", r"epreuve", r"protocole", r"referentiel",
+            r"ipack", r"santorin", r"cyclades", r"\bgroupes?\b", r"\bsaisi",
+        ])
+    )
+
 def contient_mot_cle(texte, mots):
     """
     Recherche de mots-clés sans faux positifs :
@@ -2027,6 +2047,11 @@ if prompt_a_traiter:
                 and not est_shn
                 and not contient(p_norm, [r"\bbac\b", r"baccalaur", r"\bcap\b", r"\bccf\b", r"\bexamens?\b", r"\bepreuves?\b", r"dispens", r"inapt"])
             )
+            # ✅ AJOUT (10 novembre 2026, demande de T. Armant) : le hub ne produit ni fiche didactique ni contenu de séance,
+            # dans aucun onglet (question réelle : « quel contenu en acrosport sur le site ? »). Les champs d'apprentissage,
+            # AFL / AFLP, programmes et toutes les questions de sécurité, de responsabilité ou d'examen restent traités.
+            demande_contenu_didactique_q = demande_contenu_didactique(p_norm)
+            est_question_pedagogique = est_question_pedagogique or demande_contenu_didactique_q
 
             # ✅ INTERRUPTEURS MIS EN VEILLE (revue du 6 octobre 2026, validée par T. Armant).
             # Ces réponses toutes faites étaient vagues ou donnaient un chemin de menu différent du tutoriel officiel,
@@ -2064,7 +2089,7 @@ if prompt_a_traiter:
                     or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_eleves_inactifs
                     or est_question_pedagogique
                 )
-            ) or est_tasa or est_unss or est_mauvais_onglet
+            ) or est_tasa or est_unss or est_mauvais_onglet or demande_contenu_didactique_q
 
             # ✅ AJOUT : question trop courte (3 mots ou moins) sans réponse directe connue.
             # Avant, ce filtre était confié à l'IA : un appel complet (consignes + 10 passages) pour répondre « reformulez ».
@@ -2471,10 +2496,10 @@ if prompt_a_traiter:
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             
             elif est_question_pedagogique:
-                texte_brut = """<h3>🛑 REDIRECTION REQUISE : QUESTION PÉDAGOGIQUE</h3>
-<p>Votre question relève de la pédagogie de terrain, de l'animation d'une séance ou de la didactique d'une APSA.</p>
-<p>L'onglet actuel est <strong>strictement réservé à la configuration technique et informatique</strong> des logiciels (iPackEPS, Santorin, Cyclades).</p>
-<p>👉 Veuillez reposer votre question dans l'onglet <strong>[Sécurité & Cadres Régl.]</strong> (Étape 1, en haut de la page). Cet espace est connecté à la base documentaire des programmes officiels et des ressources Éduscol.</p>"""
+                texte_brut = """<h3>🛑 CONTENU DIDACTIQUE OU DE SÉANCE</h3>
+<p>Je ne suis pas autorisé à produire des fiches didactiques ou des contenus de séance : je pourrais me tromper, et votre travail en serait impacté.</p>
+<p>Pour ces contenus, appuyez-vous sur les ressources de votre académie (site disciplinaire EPS, formations, inspection) et sur les ressources nationales d'Éduscol.</p>
+<p>Je peux en revanche vous répondre sur le cadre : champ d'apprentissage d'une activité, AFL / AFLP, programmes, sécurité, responsabilité, examens et iPackEPS.</p>"""
                 badge, color_card = "⚖️ HORS PÉRIMÈTRE TECHNIQUE", "securite-card"
 
             # ==================================================================
@@ -2547,7 +2572,7 @@ if prompt_a_traiter:
                     directive_onglet = """
                     3. ⚖️ SPÉCIFICITÉ ONGLET TEXTES, SÉCURITÉ ET PÉDAGOGIE :
                         - 🧠 ARBITRAGE D'INTENTION (TRÈS IMPORTANT) :
-                            * 📚 SI la question est PÉDAGOGIQUE (comment enseigner, barèmes, situations, programmes, gestion de classe) : Réponds EN TANT QU'EXPERT PÉDAGOGIQUE. Donne des conseils concrets de terrain, des repères didactiques, des exemples d'exercices ou d'AFL. Ne parle PAS de textes juridiques ou d'accidents si ce n'est pas le sujet.
+                            * 📚 SI la question porte sur le CADRE PÉDAGOGIQUE (programmes, champs d'apprentissage, AFL / AFLP) : réponds à partir des passages. Ne produis JAMAIS de fiche didactique, de contenu de séance, de cycle ni d'exercice : réponds alors « Je ne suis pas autorisé à produire des fiches didactiques ou des contenus de séance : je pourrais me tromper, et votre travail en serait impacté. »
                             * ⚖️ SI la question est JURIDIQUE ou SÉCURITAIRE (Accident, APPN, litige) : Traite d'abord la situation demandée. N'ajoute les régimes de responsabilité et l'art. L. 911-4 que si la question les appelle et si les passages transmis les étayent.
                             * 👔 SI la question concerne la CARRIÈRE (Inspection, note) : Applique le droit de la fonction publique, sans mentionner l'art. L. 911-4.
                         - OBLIGATIONS ET CONSEILS : respecter le caractère impératif ou recommandé des sources. Un enseignant requis ne devient pas une simple recommandation ; casque/gilet ont des conditions routières précises. Distinguer déplacement à vélo et pratique sportive de VTT avant d'appliquer un protocole APPN.

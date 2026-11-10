@@ -3705,3 +3705,8 @@ Causes établies par rejeu de la sélection documentaire (knowledge_catalog.prio
 - « RGPD et EPS » : la réponse ne traitait que l'exercice des droits. Ajout d'une réponse générale dans la fiche outils numériques (responsable de traitement en général le chef d'établissement selon la CNIL, DPD, données de santé article 9).
 - Escalade EPI, exercice des droits (21:32) : réponses justes.
 - 22:52 : « 8 APSA » reposée : la réponse réglait encore « Certificative » OUI/NON dans [APSA] et parlait de « cinq APSA ». La détection couvre maintenant 4 à 12 APSA avec « reconnaît / vérification » ; refus de « Certificative OUI/NON » dans [APSA] et des nombres d'APSA absents de la question. Fiche : plus de 3 APSA certificatives dans l'établissement n'est pas une erreur. « Moins de 2 APSA en CAP » reposée en onglet iPack : réponse juste.
+
+## 2026-11-10 — Refus des contenus didactiques
+- Question réelle « quel contenu en acrosport sur le site ? » : à la demande de T. Armant, le hub répond désormais, dans tous les onglets et sans appel IA : « Je ne suis pas autorisé à produire des fiches didactiques ou des contenus de séance : je pourrais me tromper, et votre travail en serait impacté. » Fonction demande_contenu_didactique (app.py). Restent traités : champs d'apprentissage, AFL / AFLP, programmes, sécurité, responsabilité, examens, iPackEPS.
+- La consigne de l'onglet Textes ne demande plus de répondre « en expert pédagogique » avec des exercices.
+- Tests : tests/test_refus_contenu_didactique.py.

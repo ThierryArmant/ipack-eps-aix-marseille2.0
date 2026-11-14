@@ -1,6 +1,6 @@
 ### Connexion depuis un ordinateur personnel : repérer l'étape qui bloque
 Un ordinateur personnel, Mac ou PC, permet d'utiliser iPackEPS dans un navigateur ; aucune installation ni mise à jour locale d'iPackEPS n'est nécessaire. Ouvrir l'application depuis le portail de son académie avec son compte professionnel.
-Si le lien iPackEPS est absent du portail, suivre le diagnostic « lien absent » ci-dessous. Si le lien ouvre une erreur 403, 400 ou « Not Found », suivre le diagnostic de cette erreur. Si l'application s'ouvre mais ne propose pas le bon établissement, suivre le diagnostic « établissement absent ». Le seul fait d'utiliser un ordinateur personnel ne permet pas de choisir entre ces causes.
+Trois blocages différents, chacun avec sa réponse. Si le lien iPackEPS est absent du portail : vérifier le portail utilisé, la discipline EPS dans l'annuaire et l'identifiant, puis contacter le correspondant académique iPackEPS. Si le lien existe mais ouvre une page d'erreur (403, 400, 404, « Not Found », « ressource non trouvée ») : essayer dans l'ordre un autre navigateur, le vidage du cache, puis la recréation du favori iPackEPS. Si l'application s'ouvre mais ne propose pas le bon établissement : écrire au correspondant académique iPackEPS en donnant l'identifiant utilisé et le RNE de l'établissement. Le seul fait d'utiliser un ordinateur personnel ne permet pas de choisir entre ces causes.
 
 === IMPOSSIBLE D'ACCÉDER À iPackEPS — DIAGNOSTIC OFFICIEL (site iPackEPS, article « En cas d'impossibilité d'accéder à iPackEPS ») ===
 Repère : Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Ailleurs, dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels ». Dans l'ancien portail, il était dans « Enquêtes et Pilotage » > « Pilotage académique ». Le correspondant académique iPackEPS de votre académie est l'interlocuteur à contacter.
@@ -25,14 +25,12 @@ Réponse directe — accès à certains modules ou menus seulement (dossier cert
 - R, piste 3 — enseignant inconnu d'iPackEPS : affectation pas encore remontée dans les bases en début d'année.
 - R, dans les trois cas : écrire au correspondant académique iPackEPS en donnant l'identifiant utilisé pour se connecter à ARENA et le RNE de l'établissement d'affectation, pour qu'il fasse vérifier par les services informatiques.
 
-### [SITUATION: ERREUR 403 FORBIDDEN, NOT FOUND OU 400 BAD REQUEST EN CLIQUANT SUR iPackEPS]
-- Mots-clés : Error 403, Forbidden, Not Found, Error 400, Bad Request, cache, changer de navigateur, gérer mes favoris, recréer le favori.
-- Formulations courantes des collègues : erreur 403 en ouvrant iPackEPS ; bad request ; page not found depuis ARENA ; ça marchait hier et plus aujourd'hui.
+### [SITUATION: ERREUR 403 FORBIDDEN, 404 NOT FOUND (« RESSOURCE NON TROUVÉE ») OU 400 BAD REQUEST EN CLIQUANT SUR iPackEPS]
+- Mots-clés : Error 403, Forbidden, Not Found, erreur 404, ressource non trouvée, page introuvable, Error 400, Bad Request, cache, changer de navigateur, gérer mes favoris, recréer le favori.
+- Formulations courantes des collègues : erreur 403 en ouvrant iPackEPS ; bad request ; page not found depuis ARENA ; une page « ressource non trouvée 404 » s'affiche quand je me connecte à iPackEPS ; ça marchait hier et plus aujourd'hui.
 - Q : En cliquant sur le lien d'accès, mon navigateur affiche « Error 403 – Forbidden », « NOT FOUND » ou « Error 400 Bad Request ».
-- R : des mises à jour d'ARENA ont rendu certains accès instables. Trois essais, dans l'ordre :
-- R1 : changer de navigateur.
-- R2 : vider le cache (raccourci Ctrl + Maj + Suppr, puis « supprimer les données de navigation »).
-- R3 : supprimer puis recréer le favori ARENA : cliquer sur [Gérer mes favoris], sélectionner iPackEPS professeur dans sa rubrique, valider, revenir à l'accueil ; iPackEPS apparaît dans [Mes favoris] et le clic sur ce lien rétablit l'accès.
+- Réponse directe — le lien iPackEPS existe mais ouvre une page d'erreur (« Error 403 – Forbidden », « NOT FOUND », c'est-à-dire l'erreur 404 parfois affichée « ressource non trouvée », ou « Error 400 Bad Request ») : des mises à jour d'ARENA ont rendu certains accès instables. Trois essais, dans l'ordre : 1) changer de navigateur ; 2) vider le cache (raccourci Ctrl + Maj + Suppr, puis « supprimer les données de navigation ») ; 3) supprimer puis recréer le favori ARENA : cliquer sur [Gérer mes favoris], sélectionner iPackEPS professeur dans sa rubrique, valider, revenir à l'accueil ; iPackEPS apparaît dans [Mes favoris] et le clic sur ce lien rétablit l'accès.
+- Ne pas confondre avec un lien iPackEPS absent du portail : ici le lien existe, c'est la page ouverte qui est en erreur.
 
 ### [SITUATION: iPackEPS FONCTIONNE-T-IL SUR MAC, TABLETTE OU PC ? FAUT-IL L'INSTALLER OU LE METTRE À JOUR ? QUELLE VERSION ?]
 - Mots-clés : Mac, Apple, Windows, PC, tablette, iPad, installer, installation, télécharger, mise à jour, version, version minimale, navigateur, application en ligne, double-clic, ne se lance pas.

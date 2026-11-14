@@ -3661,7 +3661,7 @@
     },
     {
       "path": "data/examens/eduscol_2026_10_17/gt_referentiel_ccf.txt",
-      "sha256": "29b82609f5ade28499aee3d2a0a8782dffb2553ed2457a7ccb8840ccf1eaff9e",
+      "sha256": "2c8e1e82c6af7921992ab8d8038ebe6ebad83b4eb41980479cfc8c7eacea97df",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_officielle_lue_2026_10_17",
@@ -3681,7 +3681,7 @@
     },
     {
       "path": "data/examens/eduscol_2026_10_17/gt_referentiel_ponctuel.txt",
-      "sha256": "3fb427cdc296f51c8482af95cb02fb63f6cf7e39ca4175aaf9f9aeb1ba170857",
+      "sha256": "584543b436a73ccb52dccf3abc605ade9bf973d505eebd5ed3c37e05ccab6a5c",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_officielle_lue_2026_10_17",
@@ -5268,7 +5268,7 @@
     },
     {
       "path": "data/ipack/acces_ipackeps_problemes.txt",
-      "sha256": "adea8f51fee35925c59eac3f05ae96bb8809f8ab77593bac279defa77cb53c35",
+      "sha256": "cd0238102c4bc5e840f8a68c68ab51c8f1128103aad2c0a525ce50e17493d4a5",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_corpus_2026-10-11",
@@ -7285,7 +7285,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_081_article_31_dossiers_dossier_sss_projet_saisie_du_projet_annuel_de_section_sportive_scolair.txt",
-      "sha256": "f3eeca64e03544223a35a1c652ac163950f5dfd04209e6bb4e0ffeff3d13ade1",
+      "sha256": "8ea5b24a5df6a2530acbf2f4931e40587a7fe8f4e6560b482a9804e118389fc3",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
@@ -7329,7 +7329,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
-      "sha256": "6bb2a457170ee1d1c7e2556165c1f3a2191adb6ab8990a2e78029a532eab4e2e",
+      "sha256": "599aeb1bbe004bd6ec9a3e2ae355892a90fc2f87d3e1f209b419cfe216e3c5ee",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",

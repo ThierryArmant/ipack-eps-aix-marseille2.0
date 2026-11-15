@@ -357,10 +357,19 @@ def unsupported(phrase, cited_text, question='', titles=''):
     return reasons
 
 
+# « [ARTICLE 94] » numérote une page d'aide : ce n'est pas un menu d'iPackEPS. Transmis dans l'intitulé de
+# situation, il était recopié en tête des étapes, puis refusé par le contrôle des menus (trace du 13 novembre 2026).
+_NUMERO_ARTICLE = re.compile(r'\[ARTICLE\s*\d+\]\s*', re.I)
+
+
+def _sans_numero_article(texte):
+    return _NUMERO_ARTICLE.sub('', str(texte or '')).strip()
+
+
 def build_prompt(question, passages, context=None):
     if passages and isinstance(passages[0], dict):
         # Pool commun : identifiants stables, situation, portée et proposition Mini transmis tels quels.
-        data = [dict(id=p['id'], situation=p.get('section', ''), portee=p.get('portee', {}),
+        data = [dict(id=p['id'], situation=_sans_numero_article(p.get('section', '')), portee=p.get('portee', {}),
                      propose_par_mini=bool(p.get('propose_par_mini')), texte=p['texte']) for p in passages]
         ref_rule = ('Chaque phrase indique dans « passages » les identifiants (ex. "D1P3") qui la justifient ; '
                     'ne les écris pas dans le texte. Les passages « propose_par_mini » sont une proposition, '
@@ -370,7 +379,7 @@ def build_prompt(question, passages, context=None):
                    '{"texte":"Ce qu\'il faut faire.","passages":["D1P3"]},'
                    '{"texte":"Condition ou limite.","passages":["D2P1"]}]}')
     else:
-        data = [dict(n=n, situation=section, texte=text) for n, (section, text) in enumerate(passages, 1)]
+        data = [dict(n=n, situation=_sans_numero_article(section), texte=text) for n, (section, text) in enumerate(passages, 1)]
         ref_rule = 'Chaque phrase indique dans « passages » les numéros n qui la justifient ; ne les écris pas dans le texte.'
         example = ('{"phrases":[{"texte":"[Menu] > [Sous-menu] : ce qu\'il faut faire, et à quoi cela sert.","passages":[1],"etape":true},'
                    '{"texte":"[Autre menu] : l\'étape suivante.","passages":[1],"etape":true},'
@@ -586,6 +595,7 @@ def short_answer(llm, *, tracer, audit, question, passages, public=None, academy
             return '' if cited <= set(refs) else match.group(0)
         text = re.sub(r'\s*[\(\[]\s*(?:(?:passages?|extraits?|sources?|n°)\s*)?\d+(?:\s*(?:,|;|et)\s*\d+)*\s*[\)\]]',
                       _renvoi, text, flags=re.I).strip()
+        text = _sans_numero_article(text)
         if pool:
             cited_ids = {ids[r - 1] for r in refs}
             text = re.sub(r'\s*[\(\[]\s*(D\d+P\d+(?:\s*[,;]\s*D\d+P\d+)*)\s*[\)\]]',

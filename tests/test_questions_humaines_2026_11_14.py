@@ -1,7 +1,10 @@
 """Questions réelles du 10 au 14 novembre 2026 : la réponse complète tient dans un seul passage."""
+import json
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 
+import short_answer as sa
 from knowledge_catalog import priority_titles
 
 ACCES = Path('data/ipack/acces_ipackeps_problemes.txt')
@@ -67,6 +70,40 @@ class PonctuelOuCcfTests(unittest.TestCase):
     def test_le_ponctuel_reste_ouvert_quand_il_est_demande(self):
         question = 'Quelles épreuves pour un candidat individuel au ponctuel du bac ?'
         self.assertTrue(any('ponctuel' in t for t in priority_titles(question, 'Lycée Général & Techno', 'examens')))
+
+
+class NumeroArticleTests(unittest.TestCase):
+    """Trace du 13 novembre : trois étapes justes refusées parce qu'elles commençaient par « [ARTICLE 94] »."""
+    TITRE = "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de Reconduction ou Fermeture d'une SSS"
+    PASSAGES = [(TITRE, "R1 : La reconduction se demande dans le module [Dossiers] / [Dossier SSS] / [Évolution] : vous y "
+                        "choisissez « reconduction » pour l'année suivante, puis le chef d'établissement signe "
+                        "électroniquement la demande (signature obligatoire).")]
+
+    def reponse(self, phrases):
+        vu = {}
+
+        class Redacteur:
+            def complete(self, prompt):
+                vu['prompt'] = prompt
+                return SimpleNamespace(text=json.dumps({'phrases': phrases}))
+        audit = {}
+        sa.short_answer(Redacteur(), tracer=lambda llm, a, stage: llm, audit=audit,
+                        question='Comment renouveler la section sportive ?', passages=self.PASSAGES)
+        return audit['short_answer'], vu['prompt']
+
+    def test_etape_gardee_sans_le_numero_d_article(self):
+        rapport, prompt = self.reponse([{
+            'texte': "[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] : faites signer électroniquement la demande "
+                     "par le chef d'établissement (signature obligatoire).", 'passages': [1], 'etape': True}])
+        self.assertEqual(rapport['rejected'], [])
+        self.assertEqual(len(rapport['kept']), 1)
+        self.assertNotIn('ARTICLE', rapport['kept'][0]['texte'])
+        self.assertNotIn('[ARTICLE 94]', prompt)
+
+    def test_un_menu_invente_reste_refuse(self):
+        rapport, _ = self.reponse([{'texte': "[Dossier SSS] > [Renouvellement] : cochez la case.", 'passages': [1], 'etape': True}])
+        self.assertEqual(rapport['kept'], [])
+        self.assertTrue(any(r.startswith('menu:') for r in rapport['rejected'][0]['raisons']))
 
 
 if __name__ == '__main__':

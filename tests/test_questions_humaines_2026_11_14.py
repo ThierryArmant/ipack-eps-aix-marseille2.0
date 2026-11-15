@@ -32,6 +32,16 @@ class Erreur404Tests(unittest.TestCase):
         for attendu in ('404', 'ressource non trouvée', 'changer de navigateur', 'vider le cache', '[Gérer mes favoris]'):
             self.assertIn(attendu, passage[0])
 
+    def test_synchro_manuelle_et_entree_par_role_avant_les_blocages(self):
+        texte = ACCES.read_text(encoding='utf-8')
+        synchro = texte.index("Réponse directe — première vérification pour tout problème d'accès")
+        role = texte.index("Réponse directe — entrée dans iPackEPS selon son rôle")
+        self.assertLess(synchro, role)
+        self.assertLess(role, texte.index("Trois blocages différents"))
+        self.assertIn('[Aide] > Infos Assistance > [Synchro manuelle]', texte)
+        self.assertIn('[Professeur EPS]', texte)
+        self.assertIn('[Chef établissement]', texte)
+
     def test_aucun_renvoi_sans_contenu(self):
         texte = ACCES.read_text(encoding='utf-8')
         self.assertNotIn('ci-dessous', texte)

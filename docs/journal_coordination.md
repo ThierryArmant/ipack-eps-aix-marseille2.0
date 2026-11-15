@@ -3730,3 +3730,9 @@ Constat : 3 réponses justes sur 10 (APSA CAP / voie pro, classe « inactive »,
 - Nouvelle page docs/etat_du_hub.md : règles du responsable, chemin réel d'une question, mesures, pistes déjà écartées, méthode, chantiers ouverts. Les deux notes de reprise d'octobre sont marquées historiques.
 - Non fait : rejeu avec appels d'IA. À faire par Thierry : reposer sur le hub les questions corrigées (404, projet et bilan, tennis de table au bac, reconduction par une principale).
 - Tests : 1 394 réussis (python3 -m unittest discover -s tests).
+
+## 2026-11-15 9 h 55 — Claude : rejeu réel par Thierry sur f45d8e2 (5 questions)
+- Tennis de table au bac : réponse CCF (référentiel par champ, épreuve spécifiée par l'équipe, protocole validé), juste, courte. Principale et reconduction : 7 étapes, signature du chef d'établissement comprise, juste. Projet et bilan : chemins [Projet Annuel SSS] et [Bilan Annuel SSS], juste ; une dernière ligne sur l'année précédente reste en trop (Q3 encore retenue en second passage).
+- Procès-verbal du CA et redirection vers le portail : encore insuffisant. Seul le paragraphe « Trois blocages » de la fiche d'accès est retenu ; l'article 94 est choisi comme source mais aucun de ses passages. Ajout dans l'article 94 d'une « Réponse directe » propre au dépôt du procès-verbal et des pièces complémentaires (contenu de R3 et du paragraphe Action, rien de nouveau). La redirection en boucle reste sans fiche.
+- Erreur 404 : la réponse directe de la fiche d'accès est seule retenue ; les trois essais (navigateur, cache, favori) sont donnés dans l'ordre, juste. Un tutoriel vidéo sans rapport (configuration des modules de section sportive) s'affiche encore sous la réponse.
+- Bilan du rejeu : 4 réponses justes sur 5 (contre 1 sur 5 avant corrections pour ces mêmes questions).

@@ -52,6 +52,12 @@ class ProjetBilanSectionTests(unittest.TestCase):
         for attendu in ('[Évolution SSS]', 'signe ensuite électroniquement', '[Projet Annuel SSS]'):
             self.assertIn(attendu, passage[0])
 
+    def test_proces_verbal_du_ca_dans_un_seul_passage(self):
+        passage = [l for l in lignes(RECONDUCTION) if l.startswith("- Réponse directe — déposer le procès-verbal")]
+        self.assertEqual(len(passage), 1)
+        for attendu in ('[Évolution SSS]', 'ne confirme pas', "auprès de l'inspection"):
+            self.assertIn(attendu, passage[0])
+
 
 class PonctuelOuCcfTests(unittest.TestCase):
     def test_chaque_epreuve_du_ponctuel_se_nomme(self):

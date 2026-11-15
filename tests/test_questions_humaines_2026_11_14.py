@@ -129,5 +129,20 @@ class NumeroArticleTests(unittest.TestCase):
         self.assertTrue(any(r.startswith('menu:') for r in rapport['rejected'][0]['raisons']))
 
 
+class LigneAccesTests(unittest.TestCase):
+    """Rejeu du 15 novembre : « [Évolution] » affiché en tête d'une réponse sur l'accès, pris dans une fiche non citée."""
+
+    def test_chemin_pris_seulement_dans_les_fiches_citees(self):
+        import exact_source_answer as esa
+        acces = dict(title="Accès iPackEPS et portail ESTEREL", passages=[dict(id='D1P1', text="Vérifier la synchronisation manuelle.")])
+        reconduction = dict(title="[ARTICLE 94] [Dossiers]/[Dossier SSS]/[Évolution] Demande de reconduction",
+                            passages=[dict(id='D2P1', text="- Texte: Accès à cette fonctionnalité : Tableau de bord => Dossier SSS => Évolution.")])
+        self.assertEqual(esa._ligne_acces([acces], 'ipack'), '')
+        self.assertIn('Évolution', esa._ligne_acces([reconduction], 'ipack'))
+        source = Path('exact_source_answer.py').read_text(encoding='utf-8')
+        self.assertIn('_ligne_acces(ordre, mode)', source)
+        self.assertNotIn('ordre + list(selected)', source)
+
+
 if __name__ == '__main__':
     unittest.main()

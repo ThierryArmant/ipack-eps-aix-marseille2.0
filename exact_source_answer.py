@@ -344,7 +344,7 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
     cites_ids = [pid for n, pid in enumerate(focus, 1) if n in cited] or focus
     lien = _textes_lus(selected, cites_ids)
     ordre = [p for pid in cites_ids for p in selected if any(sp['id'] == pid for sp in p.get('passages', []))]
-    return ('<h3>Réponse</h3>' + _ligne_acces(ordre + list(selected), mode) + lead
+    return ('<h3>Réponse</h3>' + _ligne_acces(ordre, mode) + lead
             + '<p><small>Réponse rédigée à partir des fiches (numéros) : vérifiez votre cas.</small></p>'
             + lien
             + '<details><summary>Voir les extraits des fiches (' + str(shown) + ')</summary>'

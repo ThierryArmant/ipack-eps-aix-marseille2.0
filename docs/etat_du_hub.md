@@ -10,6 +10,7 @@ mesure, une décision ou un abandon change ce qu'elle dit.
 
 ## 1. Règles fixées par le responsable du hub
 
+- **Règle de fonctionnement, permanente :** une erreur se corrige en complétant et en ordonnant les fiches, pour que le hub retrouve seul la réponse à toute la famille de questions du même ordre. Jamais de réponse toute prête écrite pour une question, jamais de consigne adressée au modèle dans une fiche (« ne pas confondre », « répondre que… »), jamais de règle de routage ajoutée pour une seule question. Test avant d'écrire une ligne : servirait-elle à une autre question sur le même écran ou la même règle ? Sinon, elle n'entre pas.
 - Le hub répond seul à une question. Pas de conversation suivie, pas de parcours guidé à questions successives.
   Si la question ne précise pas sa situation : réponse au cas le plus courant, puis boutons pour l'autre cas.
 - La force attendue : un pas à pas avec les menus entre crochets et une phrase d'explication par étape. Les « autres

@@ -30,7 +30,6 @@ Réponse directe — accès à certains modules ou menus seulement (dossier cert
 - Formulations courantes des collègues : erreur 403 en ouvrant iPackEPS ; bad request ; page not found depuis ARENA ; une page « ressource non trouvée 404 » s'affiche quand je me connecte à iPackEPS ; ça marchait hier et plus aujourd'hui.
 - Q : En cliquant sur le lien d'accès, mon navigateur affiche « Error 403 – Forbidden », « NOT FOUND » ou « Error 400 Bad Request ».
 - Réponse directe — le lien iPackEPS existe mais ouvre une page d'erreur (« Error 403 – Forbidden », « NOT FOUND », c'est-à-dire l'erreur 404 parfois affichée « ressource non trouvée », ou « Error 400 Bad Request ») : des mises à jour d'ARENA ont rendu certains accès instables. Trois essais, dans l'ordre : 1) changer de navigateur ; 2) vider le cache (raccourci Ctrl + Maj + Suppr, puis « supprimer les données de navigation ») ; 3) supprimer puis recréer le favori ARENA : cliquer sur [Gérer mes favoris], sélectionner iPackEPS professeur dans sa rubrique, valider, revenir à l'accueil ; iPackEPS apparaît dans [Mes favoris] et le clic sur ce lien rétablit l'accès.
-- Ne pas confondre avec un lien iPackEPS absent du portail : ici le lien existe, c'est la page ouverte qui est en erreur.
 
 ### [SITUATION: iPackEPS FONCTIONNE-T-IL SUR MAC, TABLETTE OU PC ? FAUT-IL L'INSTALLER OU LE METTRE À JOUR ? QUELLE VERSION ?]
 - Mots-clés : Mac, Apple, Windows, PC, tablette, iPad, installer, installation, télécharger, mise à jour, version, version minimale, navigateur, application en ligne, double-clic, ne se lance pas.

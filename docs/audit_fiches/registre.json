@@ -3661,7 +3661,7 @@
     },
     {
       "path": "data/examens/eduscol_2026_10_17/gt_referentiel_ccf.txt",
-      "sha256": "2c8e1e82c6af7921992ab8d8038ebe6ebad83b4eb41980479cfc8c7eacea97df",
+      "sha256": "09090f9628125490e60292a5b9f625dca08853a2f00de414728713336a000aea",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "source_officielle_lue_2026_10_17",
@@ -5268,7 +5268,7 @@
     },
     {
       "path": "data/ipack/acces_ipackeps_problemes.txt",
-      "sha256": "cd0238102c4bc5e840f8a68c68ab51c8f1128103aad2c0a525ce50e17493d4a5",
+      "sha256": "6a79ed186dbf0912331912ec4382fa5da4f5d3859f3e3bd33a1f3c7bdff3b675",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_corpus_2026-10-11",
@@ -7285,7 +7285,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_081_article_31_dossiers_dossier_sss_projet_saisie_du_projet_annuel_de_section_sportive_scolair.txt",
-      "sha256": "8ea5b24a5df6a2530acbf2f4931e40587a7fe8f4e6560b482a9804e118389fc3",
+      "sha256": "a16dfdd219ff6123a53e95bbf83ac35353e2eabb5d8b00291414334a87aecb11",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
@@ -7308,7 +7308,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_082_article_39_dossiers_dossier_sss_bilan_saisie_du_bilan_annuel_de_section_sportive_scolaire.txt",
-      "sha256": "e43e437c2a17c2636e809291485c307b6b672796e4e18162330f36708a66f70d",
+      "sha256": "bde12aabb7e878138e766db2a3792ae0a3887e6fcd0222e609f2bf3744c92571",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
@@ -7329,7 +7329,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
-      "sha256": "7ae9bc65b654736ceddf6879faebe4b8a873a1de971cdf4bc84b9e2b553ddb7a",
+      "sha256": "79c15c02afec39ab5512b2bac0af73991b137a050d893aeac3288f233dc8d079",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",

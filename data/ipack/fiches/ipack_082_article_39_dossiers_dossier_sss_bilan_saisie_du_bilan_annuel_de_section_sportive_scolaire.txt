@@ -1,6 +1,7 @@
 ### [ARTICLE 39] [Dossiers]/[Dossier SSS]/[Bilan] Saisie du Bilan Annuel de Section Sportive Scolaire
 - Mots-clés : bilan annuel SSS, section sportive scolaire, saisie, réouverture, signature, brouillon, chef d’établissement
 - Formulations courantes des collègues : Où saisir le bilan de ma section sportive ? ; Comment modifier un bilan SSS déjà signé ? ; Comment le chef d’établissement peut-il rouvrir le bilan ?
+- Réponse directe — saisir le bilan annuel de la section sportive : [Les Dossiers et Projets] > [Dossier Section Sportive Scolaire] > [Bilan Annuel SSS], en fin d'année. Le bilan reprend toutes les données du projet annuel ; il n'y a qu'à compléter. À vérifier ou compléter : zone de présentation (si le contexte a changé depuis le début d'année) ; convention (à déposer si ce n'est pas fait) ; financement (chiffres à jour). Seule partie nouvelle : résultats à l'UNSS (nombre de licenciés de la section, nombre d'élèves ayant participé à une compétition, niveau atteint par catégorie) et tableau des jeunes officiels certifiés par niveau. Brouillon tant que c'est incomplet, puis [Proposer dossier complet], puis signature numérique du chef d'établissement (tutoriel vidéo officiel « Bilan annuel de section sportive »).
 - URL: spip.php?article39
 - Texte: Accès à cette fonctionnalité : Tableau de bord => Les Dossiers et Projets ==> Dossier Section Sportive Scolaire ==> Bilan. Toutes les questions de réouverture par le chef d'établissement suivent le protocole d'annulation de signature via l'enregistrement en brouillon.
 

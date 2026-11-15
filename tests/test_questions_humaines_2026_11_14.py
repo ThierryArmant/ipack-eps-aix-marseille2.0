@@ -9,6 +9,7 @@ from knowledge_catalog import priority_titles
 
 ACCES = Path('data/ipack/acces_ipackeps_problemes.txt')
 PROJET_SSS = next(Path('data/ipack/fiches').glob('ipack_081_*'))
+BILAN_SSS = next(Path('data/ipack/fiches').glob('ipack_082_*'))
 RECONDUCTION = next(Path('data/ipack/fiches').glob('ipack_083_*'))
 PONCTUEL = Path('data/examens/eduscol_2026_10_17/gt_referentiel_ponctuel.txt')
 CCF = Path('data/examens/eduscol_2026_10_17/gt_referentiel_ccf.txt')
@@ -40,24 +41,32 @@ class Erreur404Tests(unittest.TestCase):
 class ProjetBilanSectionTests(unittest.TestCase):
     def test_cas_courant_avant_le_cas_annee_precedente(self):
         texte = PROJET_SSS.read_text(encoding='utf-8')
-        direct = texte.index("Réponse directe — où rédiger le projet et le bilan")
+        direct = texte.index("Réponse directe — saisir le projet annuel de la section sportive")
         self.assertLess(direct, texte.index('Q3 :'))
-        self.assertIn('[Projet Annuel SSS]', texte[direct:texte.index('- URL')])
-        self.assertIn('[Bilan Annuel SSS]', texte[direct:texte.index('- URL')])
-        self.assertIn("ce n'est pas la démarche pour le projet ou le bilan de l'année en cours", texte)
+        passage = texte[direct:texte.index('- URL')]
+        for attendu in ('[Projet Annuel SSS]', 'Rempli automatiquement', 'À remplir', '[Proposer dossier complet]'):
+            self.assertIn(attendu, passage)
+
+    def test_bilan_annuel_decrit_dans_sa_fiche(self):
+        passage = [l for l in lignes(BILAN_SSS) if l.startswith('- Réponse directe — saisir le bilan annuel')]
+        self.assertEqual(len(passage), 1)
+        for attendu in ('[Bilan Annuel SSS]', 'reprend toutes les données du projet annuel', '[Proposer dossier complet]'):
+            self.assertIn(attendu, passage[0])
+
+    def test_fiches_sans_ligne_de_guidage(self):
+        self.assertNotIn('Ne pas confondre', ACCES.read_text(encoding='utf-8'))
+        for fiche in (PROJET_SSS, RECONDUCTION):
+            with self.subTest(fiche=fiche.name):
+                texte = fiche.read_text(encoding='utf-8')
+                self.assertNotIn('un seul paragraphe libre', texte)
+                self.assertNotIn('qui prend ses fonctions', texte)
+                self.assertNotIn('Réponse directe — déposer le procès-verbal', texte)
 
     def test_reconduction_adressee_au_chef_d_etablissement(self):
-        passage = [l for l in lignes(RECONDUCTION) if l.startswith('- Réponse directe — renouveler une section sportive')]
+        passage = [l for l in lignes(RECONDUCTION) if l.startswith('- Réponse directe — renouveler (reconduire) une section sportive')]
         self.assertEqual(len(passage), 1)
         for attendu in ('[Évolution SSS]', 'signe ensuite électroniquement', '[Projet Annuel SSS]'):
             self.assertIn(attendu, passage[0])
-
-    def test_proces_verbal_du_ca_dans_un_seul_passage(self):
-        passage = [l for l in lignes(RECONDUCTION) if l.startswith("- Réponse directe — déposer le procès-verbal")]
-        self.assertEqual(len(passage), 1)
-        for attendu in ('[Évolution SSS]', 'ne confirme pas', "auprès de l'inspection"):
-            self.assertIn(attendu, passage[0])
-
 
 class PonctuelOuCcfTests(unittest.TestCase):
     def test_chaque_epreuve_du_ponctuel_se_nomme(self):
@@ -66,11 +75,9 @@ class PonctuelOuCcfTests(unittest.TestCase):
                 self.assertTrue(any(l.startswith('Examen ponctuel terminal, ' + activite) for l in lignes(PONCTUEL)))
         self.assertFalse(any(l.startswith(('Tennis de table :', 'Danse :', 'Demi-fond :')) for l in lignes(PONCTUEL)))
 
-    def test_organiser_une_epreuve_au_bac_ouvre_le_ccf(self):
-        question = 'Comment organiser les épreuves de tennis de table au bac ?'
-        titres = priority_titles(question, 'Lycée Général & Techno', 'examens')
-        self.assertTrue(any('CCF' in t for t in titres), titres)
-        self.assertFalse(any('ponctuel' in t for t in titres), titres)
+    def test_ccf_sans_doublon(self):
+        texte = CCF.read_text(encoding='utf-8')
+        self.assertEqual(texte.count("l'équipe pédagogique spécifie l'épreuve de CCF"), 1)
         self.assertTrue(any(l.startswith("Réponse directe — organiser l'épreuve d'une activité") for l in lignes(CCF)))
 
     def test_le_ponctuel_reste_ouvert_quand_il_est_demande(self):

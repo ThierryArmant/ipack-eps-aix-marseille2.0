@@ -1,3 +1,5 @@
+> Document historique : il décrit le hub à sa date. Pour l'état actuel, lire d'abord `docs/etat_du_hub.md`.
+
 # Reprise du travail — état au 18 octobre 2026, 18 h 50 (à lire avant toute modification)
 
 Ce document permet de reprendre le travail sans contexte préalable. Le détail chronologique est dans `docs/journal_coordination.md` (entrées du 17 et du 18 octobre). La présentation générale du projet est dans `docs/reprise_projet.md`.

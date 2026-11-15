@@ -724,6 +724,7 @@ Tableau de liaison entre la **partie fiches** (fiches, catalogue, registres, tes
 - Après chaque commit poussé : ajouter une entrée **en haut** de la section « Entrées », au format ci-dessous.
 - Ne pas modifier les fichiers de l'autre partie sans l'avoir annoncé ici et obtenu son accord.
 - Dépôt public : aucun mot de passe, aucun secret, aucune question de la série de mesure ni corrigé, aucun nom de collègue ni d'établissement, aucun nom d'outil d'intelligence artificielle.
+- État actuel du hub, mesures et pistes déjà écartées : `docs/etat_du_hub.md` (à lire en premier).
 - Contexte général et règles du projet : `docs/reprise_projet.md`.
 
 ## Format d'une entrée
@@ -3721,3 +3722,11 @@ Constat : 3 réponses justes sur 10 (APSA CAP / voie pro, classe « inactive »,
 - Non traité, faute de réponse vérifiée : jauge « liste APSA à 0 % », redirection en boucle vers ESTEREL, baignade en sortie avec un AED titulaire du BNSSA, lieu de dépôt du procès-verbal du CA. Doublons « synchro manuelle » (ipack_013, correspondant_01, accès) laissés en place.
 - Non fait : rejeu avec appels d'IA sur le hub déployé.
 - Tests : tests/test_questions_humaines_2026_11_14.py ; empreintes de docs/audit_fiches/registre.json mises à jour pour les cinq fiches.
+
+## 2026-11-15 matin — Claude : lecture des 50 traces réelles, numéro d'article et page d'état
+- Traces JSON du 29 octobre au 14 novembre lues en entier (fournies en archive par Thierry, non publiées). 47 réponses passées par l'IA : 46 sélections valides, 41 réponses rédigées, aucune panne ; 27 phrases refusées sur 211 ; rédaction 16 s en médiane, sélection 1,6 s ; dans 20 réponses une même fiche occupe au moins 3 des 10 places.
+- Questions de la semaine situées par étape : erreur 404, projet et bilan, procès-verbal du CA = bon document mais mauvais passage retenu à la sélection (deux fois la phrase de renvoi « suivre le diagnostic ») ; tennis de table = fiche CCF absente des 10 documents ; jauge APSA à 0 % et BNSSA = fiche manquante (le contrôle a refusé à raison un « oui » non sourcé). Les corrections de fiches de la nuit visaient ces causes.
+- Nouvelle principale et reconduction de section : le rédacteur avait écrit les trois étapes (choisir « reconduction », signature du chef d'établissement, validation par l'IPR) en les commençant par « [ARTICLE 94] », recopié de l'intitulé de situation ; le contrôle des menus les refusait. short_answer.py : le numéro d'article n'est plus transmis au rédacteur et, s'il est recopié, il est retiré de la phrase au lieu de faire tomber l'étape. Rejeu hors IA de la sortie réelle de cette trace : 7 phrases gardées, aucune refusée. Un menu inventé reste refusé (test).
+- Nouvelle page docs/etat_du_hub.md : règles du responsable, chemin réel d'une question, mesures, pistes déjà écartées, méthode, chantiers ouverts. Les deux notes de reprise d'octobre sont marquées historiques.
+- Non fait : rejeu avec appels d'IA. À faire par Thierry : reposer sur le hub les questions corrigées (404, projet et bilan, tennis de table au bac, reconduction par une principale).
+- Tests : 1 394 réussis (python3 -m unittest discover -s tests).

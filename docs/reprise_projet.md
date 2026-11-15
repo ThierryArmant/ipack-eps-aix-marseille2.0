@@ -1,3 +1,5 @@
+> Document historique : il décrit le hub à sa date. Pour l'état actuel, lire d'abord `docs/etat_du_hub.md`.
+
 # Reprise du projet — Hub IA - EPS (état au 13 octobre 2026, fin de journée)
 
 À lire en premier par toute personne ou tout assistant qui reprend le travail. **État le plus récent (18 octobre 2026, guide pas à pas iPackEPS, visites collège et lycée) : `docs/reprise_pour_gpt_2026-10-18.md`.** Le suivi au jour le jour est dans `docs/journal_coordination.md`.

@@ -1745,7 +1745,14 @@
       "(?=.*sports?.etudes)(?=.*(?:dossier|projet|depos|depot|envoy|fichier|format|taille|groupe|configur|menu|acced|acces|affich|reconnu))"
     ],
     "url": "https://appli.ac-aix-marseille.fr/ipackeps/professeur/pages.php?page=dossierSportEtudes",
-    "limites": "Observation des écrans jusqu'à l'ouverture du dépôt ; aucun envoi achevé ou validation observé. Critère affiché par le logiciel distinct de la reconnaissance institutionnelle."
+    "limites": "Observation des écrans jusqu'à l'ouverture du dépôt ; aucun envoi achevé ou validation observé. Critère affiché par le logiciel distinct de la reconnaissance institutionnelle.",
+    "tutoriels": [
+      {
+        "url": "https://youtu.be/AEXIn3d6K6U",
+        "titre": "Configuration des classes Sports-Études",
+        "limites": "Tutoriel déjà référencé dans VIDEOS_TUTOS du HUB ; lecture vidéo non vérifiée le 16 novembre 2026. Ne pas présenter comme une vidéo spécifique au dépôt du projet."
+      }
+    ]
   },
   "data/ipack/fiches/ipack_085_article_48_mes_eleves_visualisation_visualisation_des_informations_eleves.txt": {
     "title": "[ARTICLE 48] [Mes Élèves]/[Visualisation] Visualisation des informations élèves",

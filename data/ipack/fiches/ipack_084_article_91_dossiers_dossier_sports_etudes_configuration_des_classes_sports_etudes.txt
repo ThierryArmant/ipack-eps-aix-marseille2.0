@@ -1,6 +1,28 @@
-### [ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études
-- Mots-clés : Sports-Études, classes Sports-Études, configuration, Dossier Sports-Études, Dossiers
-- Formulations courantes des collègues : Où configurer les classes Sports-Études ? ; Comment accéder au dossier Sports-Études ? ; Où est le menu Sports-Études ?
-- URL: spip.php?article91
-- Texte: Accès à la fonctionnalité : Dossiers => Dossier Sports-Études.
+### [ARTICLE 91] iPackEPS — Dossier Sport-Études : accès, dépôt du projet et groupes
+- Mots-clés : Sport-Études, Sports-Études, dossier, projet, dépôt, envoyer, fichier, groupe, configuration, 5000 Ko
+- Formulations courantes des collègues : Où déposer mon projet Sport-Études ? ; Comment envoyer le projet ? ; Où déclarer les groupes Sport-Études ? ; Pourquoi aucun groupe ne s'affiche ? ; Quelle taille et quels formats pour le projet ?
+- Source : observation directe des écrans iPackEPS Professeur EPS, académie Aix-Marseille, version 2026.2.1.1, année 2026-2027, le 16 novembre 2026. Constat logiciel, pas une règle nationale ni une décision de labellisation.
+- URL : https://appli.ac-aix-marseille.fr/ipackeps/professeur/pages.php?page=dossierSportEtudes
 
+ACCÈS AU DOSSIER
+Depuis le Tableau de bord, ouvrir « Les Dossiers et Projets », puis « Dossier Sport-Études ». Le titre court du fil de navigation est « Dossiers et Projets ».
+L'écran comporte deux parties : « Dépôt du Projet Sport-Études » et « Groupes de type Sport-Études ».
+
+DÉPÔT DU PROJET
+Dans « Dépôt du Projet Sport-Études », la ligne « [Nouveau Document] » affiche le bouton « Envoyer ». Cliquer sur « Envoyer » ouvre la fenêtre « Dépôt de Fichier », intitulée « Déposer votre Projet ».
+Cette fenêtre permet de sélectionner un fichier ou de le déposer directement dans la zone « Déposez votre fichier ici ».
+Formats autorisés affichés : doc, docx, pdf, odt, ods, odp, ppt, pptx, pps, ppsx, zip.
+Taille maximale affichée : 5000 Ko.
+L'état « en attente » a été observé sur la ligne du nouveau document avant dépôt. Il ne prouve ni un envoi réussi ni une validation.
+La démonstration observée s'arrête à l'ouverture de la fenêtre de dépôt : aucune sélection, transmission achevée, confirmation, validation du chef ou validation académique n'a été observée. Ne pas inventer de bouton ou d'étape après la sélection. Pour vérifier un dépôt terminé, demander ce que l'écran affiche après l'envoi.
+
+GROUPES SPORT-ÉTUDES
+La note de l'écran précise : « La déclaration des groupes de type [Sport-Études] se fait dans le module [Dossier EPS]/[Groupes] ».
+Pour déclarer un groupe, se rendre dans Dossier EPS > Groupes ; le dossier Sport-Études affiche la liste des groupes de ce type, avec les colonnes « libellé », « Garçons » et « Filles ».
+« Aucune donnée à afficher » indique que cette liste est vide à cet instant. Ne pas conclure à une panne ni à un refus académique.
+La création détaillée du groupe et l'affectation des élèves n'ont pas été observées dans cette démonstration ; ne pas inventer les commandes.
+
+PORTÉE DE L'INDICATION LOGICIELLE
+L'écran indique : « Un établissement est reconnu comme Sport-Études lorsque au moins un groupe de type Sport-Études a été créé et/ou qu'un projet Sport-Études a été déposé. »
+Présenter cela comme le critère d'identification affiché par iPackEPS. Ne pas le transformer en reconnaissance ou labellisation institutionnelle automatique.
+Ne pas confondre ce dossier avec une section sportive scolaire (SSS), ni avec le statut SHN ou les aménagements de certification aux examens.

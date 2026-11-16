@@ -1731,10 +1731,21 @@
     "date_verification": "2026-11-03"
   },
   "data/ipack/fiches/ipack_084_article_91_dossiers_dossier_sports_etudes_configuration_des_classes_sports_etudes.txt": {
-    "title": "[ARTICLE 91] [Dossiers]/[Dossier Sports-Études] Configuration des Classes Sports-Études",
-    "statut": "revue_2026-10-25_menus_et_contradictions",
+    "title": "iPackEPS : Dossier Sport-Études, dépôt du projet et déclaration des groupes",
+    "statut": "observation_directe_ipackeps_aix_2026_11_16",
     "examens": [],
-    "origine": "data/archives/compilations/ipack.txt"
+    "origine": "data/archives/compilations/ipack.txt",
+    "date_verification": "2026-11-16",
+    "prioritaire": true,
+    "priorite": 310,
+    "modes": [
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*sports?.etudes)(?=.*(?:dossier|projet|depos|depot|envoy|fichier|format|taille|groupe|configur|menu|acced|acces|affich|reconnu))"
+    ],
+    "url": "https://appli.ac-aix-marseille.fr/ipackeps/professeur/pages.php?page=dossierSportEtudes",
+    "limites": "Observation des écrans jusqu'à l'ouverture du dépôt ; aucun envoi achevé ou validation observé. Critère affiché par le logiciel distinct de la reconnaissance institutionnelle."
   },
   "data/ipack/fiches/ipack_085_article_48_mes_eleves_visualisation_visualisation_des_informations_eleves.txt": {
     "title": "[ARTICLE 48] [Mes Élèves]/[Visualisation] Visualisation des informations élèves",

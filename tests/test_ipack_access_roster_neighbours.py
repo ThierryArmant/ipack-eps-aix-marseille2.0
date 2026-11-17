@@ -70,3 +70,14 @@ class SssUploadNotEsterel(unittest.TestCase):
     def test_genuine_esterel_access_problem_keeps_its_reference(self):
         paths = [p for p, _ in kc.reference_notice(set(), "Je n'arrive pas à accéder à iPackEPS depuis ESTEREL", 'Collège (DNB)')]
         self.assertIn('data/ipack/acces_ipackeps_problemes.txt', paths)
+
+class ExamAbsenceNotDailyAttendance(unittest.TestCase):
+    def test_demissionnaire_absent_three_trimesters_not_pronote(self):
+        q = 'pour un élève démissionnaire il faudra remplir absent sur les 3 trimestres sur ipackeps ?'
+        paths = [p for p, _ in kc.reference_notice({'gt'}, q, 'Lycée Général & Techno')]
+        self.assertNotIn('data/commun/audit60/ipack_absences.txt', paths)
+
+    def test_daily_attendance_still_uses_life_school_source(self):
+        q = 'Comment faire l’appel et saisir les absences de cours en EPS ?'
+        paths = [p for p, _ in kc.reference_notice(set(), q, 'Collège (DNB)')]
+        self.assertIn('data/commun/audit60/ipack_absences.txt', paths)

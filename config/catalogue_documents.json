@@ -4553,7 +4553,9 @@
       "absen|appel"
     ],
     "exclure_motifs": [
-      "ccf|epreuv|santorin|examen|bac|cap|imprim|feuille|bordereau"
+      "ccf|epreuv|santorin|examen|bac|cap|imprim|feuille|bordereau",
+      "(?=.*(?:demission|desinscri|radiation|quitte l.etablissement|sorti de l.etablissement))(?=.*(?:absen|trimestr|periode|notation|evalu|ipack))",
+      "(?=.*(?:absen|absent))(?=.*(?:trois trimestres|3 trimestres|trois periodes|3 periodes|certificati))"
     ],
     "date_verification": "2026-10-11"
   },

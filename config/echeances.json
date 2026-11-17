@@ -7,14 +7,14 @@
       "academie": "Aix-Marseille",
       "texte": "Inscriptions bac professionnel, CAP et BMA, session 2027 : clôture.",
       "fiche": "data/commun/audit60/aix_inscriptions_2027_voie_pro.txt",
-      "fiche_revue": false
+      "fiche_revue": true
     },
     {
       "date": "2026-11-12",
       "academie": "Aix-Marseille",
       "texte": "Aménagements de terminale GT (AMEX), session 2027 : alerte de prudence, mention du 12 novembre dans le bulletin à vérifier ; la page académique des aménagements indique le 20 novembre. Ne pas confondre avec la clôture des inscriptions au bac.",
       "fiche": "data/commun/audit60/aix_inscriptions_2027_gt.txt",
-      "fiche_revue": false
+      "fiche_revue": true
     },
     {
       "date": "2026-11-20",

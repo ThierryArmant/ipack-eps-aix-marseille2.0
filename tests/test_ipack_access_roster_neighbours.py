@@ -52,3 +52,21 @@ class AccessRosterNeighbours(unittest.TestCase):
         text=Path('data/ipack/fiches/ipack_065_article_18_dossiers_dossiereps_eleves_placement_des_eleves_dans_les_groupes.txt').read_text()
         self.assertNotIn('menu [importation élèves] => [Actualiser]',text)
         self.assertIn('menu [Importation des Élèves] => [Importer]',text)
+
+class SssUploadNotEsterel(unittest.TestCase):
+    def test_sss_upload_error_keeps_sss_reference_without_esterel_priority(self):
+        questions = [
+            "J'ai le message problème de téléchargement à chaque tentative, je n'arrive pas à publier l'acte de reconduction de ma section sportive football",
+            "Impossible de déposer le fichier de reconduction SSS dans iPackEPS",
+            "Je ne peux pas envoyer le document de reconduction de ma section sportive",
+        ]
+        for question in questions:
+            with self.subTest(question=question):
+                paths = [p for p, _ in kc.reference_notice(set(), question, 'Collège (DNB)')]
+                self.assertNotIn('data/ipack/acces_ipackeps_problemes.txt', paths)
+                self.assertIn('data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt', paths)
+                self.assertEqual(kc.documented_response(question, 'Collège (DNB)', 'ipack')[0], '')
+
+    def test_genuine_esterel_access_problem_keeps_its_reference(self):
+        paths = [p for p, _ in kc.reference_notice(set(), "Je n'arrive pas à accéder à iPackEPS depuis ESTEREL", 'Collège (DNB)')]
+        self.assertIn('data/ipack/acces_ipackeps_problemes.txt', paths)

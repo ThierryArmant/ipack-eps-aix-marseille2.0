@@ -17,6 +17,9 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
     search_prompt = normalise_question(search_prompt if search_prompt is not None else prompt)["recherche"]
     _extraits, _sources, _diag, _erreur, _vus = [], [], [], "", set()
     _priorites_fiches = []
+    # En iPackEPS/Examens, une fiche exclusive ne doit pas priver mini des autres
+    # sources candidates : la sélection sémantique intervient après la recherche.
+    defer_exclusivity = defer_exclusivity or mode in ('ipack', 'examens')
     # Fiches prioritaires transmises en entier : leurs fragments indexés seraient des copies du même texte.
     _chemins_entiers = set()
 
@@ -145,7 +148,9 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
         for _path, _md in reference_notice(_cibles, search_prompt or prompt, niveau_actuel_form):
             if _md.get('modes') and mode not in _md['modes']:
                 continue
-            if len(_extraits) >= 10:
+            # Réserver au moins trois emplacements aux recherches complémentaires
+            # (vectorielle / mots), même en présence de nombreuses priorités.
+            if len(_extraits) >= (7 if mode in ('ipack', 'examens') else 10):
                 break
             with open(_path, encoding='utf-8') as _f:
                 _txt = _f.read()

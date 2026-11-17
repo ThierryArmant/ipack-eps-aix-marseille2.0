@@ -1,7 +1,7 @@
 ### [ARTICLE 95] [Dossiers]/[Dossier Certificatif] Candidats Individuels / Candidats Libres vs CCF
 Mots-clés : candidat libre, candidat individuel, CNED libre, ajouter candidat libre protocole, examen ponctuel terminal.
-- Règle d'or : Les candidats libres (inscrits au Baccalauréat sans scolarité en établissement) ne sont JAMAIS évalués en CCF et ne doivent JAMAIS être importés ou créés dans iPackEPS.
+- Règle d'or : Les candidats libres (inscrits au Baccalauréat sans scolarité en établissement) ne sont JAMAIS évalués en CCF et ne relèvent pas de la certification CCF de l'établissement : ne pas les intégrer volontairement à un protocole CCF. La conduite à tenir lorsqu'un candidat apparaît déjà dans iPackEPS doit être vérifiée dans la Q9 de l'article 14 ; ne pas déduire de sa seule présence une manipulation de suppression.
 - Procédure :
-  1. Les candidats individuels sont convoqués directement par la DEC sur un centre d'examen ponctuel terminal (2 épreuves sur une journée académique dédiée).
-  2. Si un candidat libre apparaît par erreur dans vos listes iPackEPS, ne lui attribuez aucun protocole et signalez l'anomalie au secrétariat des examens.
+  1. Les candidats individuels relèvent du circuit d'examen ponctuel et des convocations du service des examens compétent ; vérifier les modalités selon le diplôme et la session.
+  2. Si un candidat libre apparaît dans les listes iPackEPS, vérifier son statut dans les données administratives et consulter la Q9 de la FAQ iPackEPS (article 14) avant toute correction ; ne pas lui attribuer d'office un protocole CCF. Source : retour assistance du 17 novembre 2026, https://ipackeps.ac-creteil.fr/spip.php?article14 .
 

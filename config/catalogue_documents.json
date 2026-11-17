@@ -604,7 +604,7 @@
       "examens"
     ],
     "motifs": [
-      "install|telecharg|application.*(?:ordinateur|mac|windows)|esterel|portail|\\barena\\b",
+      "(?:install|telecharg).{0,35}(?:ipack|application|logiciel)|(?:ipack|application|logiciel).{0,35}(?:install|telecharg)|application.*(?:ordinateur|mac|windows)|esterel|portail|\\barena\\b",
       "(?:acced\\w*|\\bacces|connect\\w*|\\bouvrir|\\bentrer|\\blien).{0,40}(?:ipack|application|logiciel|portail)|ipack.{0,60}(?:n.apparai|introuvable|absent|ne s.ouvre|bloqu|plus acces|pas acces)",
       "\\b40[034]\\b|forbidden|bad request|not found|ressource non trouvee|page introuvable|page (?:blanche|vierge)|aucun etablissement|ancien etablissement",
       "(?:version|mettre a jour|mise a jour|nouvelle version).*ipack|ipack.*(?:version|mettre a jour|mise a jour)",
@@ -612,7 +612,7 @@
     ],
     "url": "https://ipackeps.ac-creteil.fr/",
     "reponse_directe_motifs": [
-      "^(?!.*(?:installations? (?:sportive|municipale)|installations\\b|installation (?:fermee|indisponible)|piscine|gymnase|fca|referentiel|fermeture)).*?(?:(?:install|telecharg|application.*(?:ordinateur|mac|windows)))"
+      "^(?!.*(?:installations? (?:sportive|municipale)|installations\\b|installation (?:fermee|indisponible)|piscine|gymnase|fca|referentiel|fermeture|reconduc|section sportive|\\bsss\\b|acte|piece jointe|depot|depos|publier|envoyer)).*?(?:install|telecharg).{0,35}(?:ipack|application|logiciel)"
     ],
     "reponse_directe": "iPackEPS est une application en ligne : rien à installer sur l'ordinateur. À Aix-Marseille, ouvrez le portail ESTEREL avec votre compte professionnel, puis le bloc [Enquête et pilotage]. Si le lien iPackEPS n'apparaît pas : [Aide] > [Synchro manuelle] > [Rafraîchir la page]. Si l'accès reste absent, contactez le correspondant académique iPackEPS. Les rubriques ARENA des autres académies ne doivent pas être présentées comme le chemin ESTEREL d'Aix-Marseille.",
     "reponses_directes": [
@@ -632,6 +632,7 @@
       "widget|pratic",
       "^(?!.*i ?pack).*(?:ordre de mission|convocation|imag.in|cyclades|santorin)",
       "(?=.*(?:telecharg|imprim|edit))(?=.*(?:fichier|document|certificat|convocation|releve|bordereau|fiche|protocole|liste))",
+    "(?=.*(?:telecharg|depos|depot|publier|joindre|envoyer|import|transmet))(?=.*(?:reconduc|section sportive|\\bsss\\b|acte|piece jointe|document|fichier|bilan|projet))",
       "installations? municipales?"
     ],
     "centrer_motifs": [

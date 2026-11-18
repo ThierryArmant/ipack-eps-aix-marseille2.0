@@ -19,6 +19,16 @@ jobs:
         run: python -m unittest tests/test_veille_sources.py -v
       - name: Contrôler les sources publiques
         run: python veille_sources.py
+      - name: Archiver le rapport même en cas d’échec
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-veille-eps
+          path: |
+            docs/veille/controle-*.md
+            docs/veille/surveillance.json
+          if-no-files-found: warn
+          retention-days: 30
       - name: Proposer un rapport sans modifier les fiches
         uses: peter-evans/create-pull-request@v8
         with:

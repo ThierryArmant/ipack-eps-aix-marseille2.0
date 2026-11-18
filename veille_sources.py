@@ -107,6 +107,8 @@ def main():
     args.state.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (args.state.parent / ("controle-" + args.date + ".md")).write_text(report, encoding="utf-8")
     print(report)
+    if len(state["sources"]) and not any(v.get("last_success") == args.date for v in state["sources"].values()):
+        raise SystemExit("ÉCHEC : aucune source officielle exploitable ; rapport enregistré.")
 
 if __name__ == "__main__":
     main()

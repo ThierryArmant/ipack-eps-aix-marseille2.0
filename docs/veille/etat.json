@@ -15,10 +15,13 @@
     },
     {
       "titre": "Épreuve terminale de l'enseignement de spécialité éducation physique, pratiques et culture sportives (EPPCS)",
-      "date": "à vérifier",
+      "date": "2026-09-17",
       "url": "https://www.education.gouv.fr/bo/2026/Hebdo4/MENE2622650N",
       "source": "BO",
-      "nor": "MENE2622650N"
+      "nor": "MENE2622650N",
+      "bo": "BO spécial n° 4",
+      "note_date": "2026-09-11",
+      "applicable_a_partir_de": "session 2027"
     },
     {
       "titre": "Bulletin académique spécial n° 549 — Épreuves certificatives d'EPS",
@@ -55,6 +58,22 @@
       "date": "à vérifier",
       "url": "https://eduscol.education.fr/3475/journee-nationale-du-sport-scolaire",
       "source": "Éduscol"
+    },
+    {
+      "titre": "BA spécial 565 — Inscriptions bac GT session 2027",
+      "date": "2026-10-09",
+      "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA565S/BASPE_565.pdf",
+      "source": "Académie Aix-Marseille",
+      "complement": "Repéré le 18 novembre 2026 ; déjà documenté dans les fiches du HUB"
+    },
+    {
+      "titre": "BA spécial 566 — Inscriptions voie professionnelle session 2027",
+      "date": "2026-10-09",
+      "url": "https://bulacad.ac-aix-marseille.fr/uploads/BA/BA566S/BASPE_566.pdf",
+      "source": "Académie Aix-Marseille",
+      "complement": "Repéré le 18 novembre 2026 ; déjà documenté dans les fiches du HUB"
     }
-  ]
+  ],
+  "complement_verification": "2026-11-18",
+  "limite": "État de référence non exhaustif ; ne pas interpréter 0 nouveau comme absence de changements"
 }

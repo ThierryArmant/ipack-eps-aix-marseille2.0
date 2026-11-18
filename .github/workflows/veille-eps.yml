@@ -17,7 +17,19 @@ jobs:
           python-version: '3.11'
       - name: Tests de la veille
         run: python -m unittest tests/test_veille_sources.py -v
+      - name: Reprendre le dernier état de veille
+        run: |
+          if git fetch origin veille/controle-hebdomadaire; then
+            if git cat-file -e FETCH_HEAD:docs/veille/surveillance.json 2>/dev/null; then
+              git show FETCH_HEAD:docs/veille/surveillance.json > docs/veille/surveillance.json
+              echo "État précédent restauré depuis la branche de rapport."
+            fi
+          else
+            echo "Aucun état distant : premier relevé."
+          fi
       - name: Contrôler les sources publiques
+        id: collecte
+        continue-on-error: true
         run: python veille_sources.py
       - name: Archiver le rapport même en cas d’échec
         if: always()
@@ -30,6 +42,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Proposer un rapport sans modifier les fiches
+        if: always() && steps.collecte.outcome != 'skipped'
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,3 +56,8 @@ jobs:
           add-paths: |
             docs/veille/surveillance.json
             docs/veille/controle-*.md
+      - name: Signaler une collecte entièrement indisponible
+        if: steps.collecte.outcome == 'failure'
+        run: |
+          echo "::error::Aucune source exploitable. Rapport archivé et soumis à vérification."
+          exit 1

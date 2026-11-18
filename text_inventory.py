@@ -25,7 +25,7 @@ NAMED = {
  'demifond_college':9,'deplacements_reguliers':6,'direction_ecole':4,
  'dispense_inaptitude':5,'escalade_relais':7,'fournitures_neutralite':4,'laicite_fetes':4,'grist_protection':11,'enseignant_obligations':1,'droit_de_retrait':3,'liberte_pedagogique':1,'expression_reserve':1,'autorisations_absence':1,'as_participation':4,'jurisprudence_accidents':3,'greve_surveillance':4,'exercice_droits_rgpd':4,'dispenses_eps_preciser':10,'equipements_sportifs':7,'voie_pro_notation':10,
  'ia_usages':11,'imp_attribution':1,'intervenants_eps':6,'obligations_service_premier':1,
- 'pai_pratique':5,'programme_eps_sixieme':9,'signalement_violences':3,
+ 'pai_pratique':5,'programme_eps_sixieme':9,'signalement_violences':3,'harcelement_entre_eleves':4,
  'sortie_musee':6,'sorties_mixte':6,'sorties_premier':6,'sorties_second':6,'texte_transport':6,
  'tzr_decret':1,'partenariats_defense':12,'premier_degré':12,'sorties_encadrement':6,
  'sortie_assurance':6,'sss_ouverture':12,'surveillance_continue':3,'remplacement_courte':1,'conge_maladie':1,

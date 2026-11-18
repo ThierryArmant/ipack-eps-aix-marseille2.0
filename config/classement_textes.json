@@ -371,6 +371,7 @@
       "domaine": "11_numerique",
       "publics_explicites": [],
       "sources": [
+        "https://cnil.fr/fr/education-mise-en-place-systeme-ia",
         "https://www.cnil.fr/fr/enseignement-premier-second-degres-bonnes-pratiques-outils-collaboratifs",
         "https://www.cnil.fr/fr/cnil-direct/question/utilisation-des-photos-des-eleves-faut-il-laccord-des-parents"
       ],
@@ -1468,7 +1469,7 @@
         "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000018377430/",
         "https://www.education.gouv.fr/l-accueil-des-eleves-en-cas-d-absence-ou-de-greve-450102"
       ],
-      "statut": "a_relire_2026-11-04",
+      "statut": "revu_2026-11-06_R421-10_verifie",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false
@@ -1770,6 +1771,26 @@
         "https://www.cnil.fr/fr/mes-demarches/les-droits-pour-maitriser-vos-donnees-personnelles"
       ],
       "statut": "sources_officielles_consultees_2026-11-06",
+      "recherche_active": true,
+      "remplace_par": null,
+      "controle_a_poursuivre": false
+    },
+    {
+      "path": "data/textes/situations_2026_11_19/harcelement_entre_eleves_reconnaitre_alerter.txt",
+      "title": "Harcèlement et mise à l'écart d'un élève par ses camarades : reconnaître et alerter",
+      "domaine": "04_vie_etablissement",
+      "publics_explicites": [
+        "dnb",
+        "gt",
+        "pro",
+        "cap"
+      ],
+      "sources": [
+        "https://www.education.gouv.fr/bo/2024/Hebdo6/MENE2403161C",
+        "https://www.education.gouv.fr/non-au-harcelement/qu-est-ce-que-le-harcelement-325361",
+        "https://www.education.gouv.fr/sites/default/files/document/protocole-de-prise-en-charge-d-une-situation-de-harc-lement-en-coll-ge-et-lyc-e-311073.pdf"
+      ],
+      "statut": "sources_officielles_consultees_2026-11-18",
       "recherche_active": true,
       "remplace_par": null,
       "controle_a_poursuivre": false

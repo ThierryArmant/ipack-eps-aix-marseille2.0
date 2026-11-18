@@ -632,7 +632,7 @@
       "widget|pratic",
       "^(?!.*i ?pack).*(?:ordre de mission|convocation|imag.in|cyclades|santorin)",
       "(?=.*(?:telecharg|imprim|edit))(?=.*(?:fichier|document|certificat|convocation|releve|bordereau|fiche|protocole|liste))",
-    "(?=.*(?:telecharg|depos|depot|publier|joindre|envoyer|import|transmet))(?=.*(?:reconduc|section sportive|\\bsss\\b|acte|piece jointe|document|fichier|bilan|projet))",
+      "(?=.*(?:telecharg|depos|depot|publier|joindre|envoyer|import|transmet))(?=.*(?:reconduc|section sportive|\\bsss\\b|acte|piece jointe|document|fichier|bilan|projet))",
       "installations? municipales?"
     ],
     "centrer_motifs": [
@@ -9396,6 +9396,26 @@
     "domaine_textes": "10_examens",
     "exclure_motifs": [
       "\\bdnb\\b|brevet|santorin|cyclades|ipack|saisi"
+    ]
+  },
+  "data/textes/situations_2026_11_19/harcelement_entre_eleves_reconnaitre_alerter.txt": {
+    "title": "Harcèlement et mise à l'écart d'un élève par ses camarades : reconnaître et alerter",
+    "statut": "sources_officielles_consultees_2026-11-18",
+    "examens": [],
+    "modes": [
+      "textes"
+    ],
+    "prioritaire": true,
+    "priorite": 340,
+    "date_verification": "2026-11-18",
+    "url": "https://www.education.gouv.fr/non-au-harcelement/qu-est-ce-que-le-harcelement-325361",
+    "motifs": [
+      "harcel|\\bphare\\b|\\b3018\\b|bouc emissaire|ostracis",
+      "(?=.*(?:rejete\\w*|mise? a l.ecart|exclue? (?:par|du groupe|des groupes)|moqu\\w*|insult\\w*|surnoms?\\b|embet\\w*|personne ne veut (?:se mettre|travailler|jouer|etre)|choisie? en dernier))(?=.*(?:camarades?|autres eleves|autres groupes|par (?:les |ses )?(?:autres|eleves|groupes?)|groupes?|equipes?|vestiaires?|classe))(?!.*(?:commission|referentiel|protocole|santorin|cyclades|ipack|candidat|\\blot\\b))"
+    ],
+    "domaine_textes": "04_vie_etablissement",
+    "exclure_motifs": [
+      "\\bm.?(?:a|ont)? ?harcel|\\bme harcel|harcel\\w* (?:par|de) (?:un |une |mon |ma |le |la |les )?(?:parents?|chef|principal\\w*|proviseur\\w*|collegues?|inspect\\w*|hierarchie|direction)|(?:collegue|enseignant|professeur|personnel)s? (?:est |sont )?harcel"
     ]
   }
 }

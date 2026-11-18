@@ -1,6 +1,6 @@
 # Index ordonné des fiches Textes
 
-109 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
+110 fiches classées. Les chemins restent stables pour conserver les liens et les tests. Le classement ne vaut pas revalidation juridique.
 
 Les anciennes synthèses peuvent rester incomplètes. Une source explicite et son applicabilité doivent être contrôlées avant toute affirmation. Les priorités sont détaillées dans audit_textes_2026_10_18.md.
 
@@ -51,7 +51,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Droit de retrait d'un enseignant (danger grave et imminent)](../data/textes/situations_2026_11_02/droit_de_retrait_enseignant.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 | [Jurisprudence de référence : accident d'élève en EPS (enseignant, État, collectivité)](../data/textes/situations_2026_11_03/jurisprudence_accidents_eleves_eps.txt) | dnb, gt, pro, cap | 7 | Références présentes ; statut détaillé au catalogue |
 
-## Vie scolaire, direction, laïcité et égalité (13)
+## Vie scolaire, direction, laïcité et égalité (14)
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
@@ -68,6 +68,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 | [Laïcité : sapin de Noël, crèche et fête de fin d'année dans l'établissement](../data/textes/situations_2026_10_26/laicite_fetes_noel.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Association sportive : participation volontaire des élèves](../data/textes/situations_2026_11_02/as_participation_eleves.txt) | dnb, gt, pro, cap | 1 | Références présentes ; statut détaillé au catalogue |
 | [RGPD : répondre à une demande d'exercice des droits (données scolaires et EPS)](../data/textes/situations_2026_11_06/exercice_droits_rgpd_eleves.txt) | dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
+| [Harcèlement et mise à l'écart d'un élève par ses camarades : reconnaître et alerter](../data/textes/situations_2026_11_19/harcelement_entre_eleves_reconnaitre_alerter.txt) | dnb, gt, pro, cap | 3 | Références présentes ; statut détaillé au catalogue |
 
 ## Santé, inaptitudes et inclusion (5)
 
@@ -158,7 +159,7 @@ Les anciennes synthèses peuvent rester incomplètes. Une source explicite et so
 
 | Fiche | Public explicite | Sources liées | Suivi |
 |---|---|---:|---|
-| [Données des élèves : outils numériques, images et responsabilité](../data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt) | Non balisé | 2 | Références présentes ; statut détaillé au catalogue |
+| [Données des élèves : outils numériques, images et responsabilité](../data/textes/fiches/base_textes_officiels_021_situation_15e_section_conformite_rgpd_drane_dane_et_applications_bas_code_no_code.txt) | Non balisé | 3 | Références présentes ; statut détaillé au catalogue |
 | [Photographier ou filmer des élèves : droit à l'image](../data/textes/fiches/droit_image_eleves_photos_videos.txt) | primaire, dnb, gt, pro, cap | 2 | Références présentes ; statut détaillé au catalogue |
 | [Usage pédagogique d’un système automatisé : données et évaluation](../data/textes/fiches/ia_usages_pedagogiques.txt) | Non balisé | 1 | Références présentes ; statut détaillé au catalogue |
 | [Grist : protection des données scolaires, textes et droits d’accès](../data/textes/situations_2026_10_28/grist_protection_donnees.txt) | dnb, gt, pro, cap | 12 | Références présentes ; statut détaillé au catalogue |

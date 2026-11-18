@@ -9,6 +9,30 @@ class VeilleSourcesTests(unittest.TestCase):
         links = v.candidates(html, "https://www.education.gouv.fr/bo")
         self.assertEqual(len(links), 1)
         self.assertIn("https://www.education.gouv.fr/bo/2026/Special4", links)
+    def test_recherche_rss_filtre_les_liens_non_officiels(self):
+        rss = """<rss><channel>
+        <item><title>EPPCS session 2027</title><link>https://www.education.gouv.fr/bo/2026/Special4</link></item>
+        <item><title>EPS examen 2027</title><link>https://example.org/faux</link></item>
+        </channel></rss>"""
+        found = v.rss_candidates(rss)
+        self.assertEqual(list(found), ["https://www.education.gouv.fr/bo/2026/Special4"])
+
+    def test_recherche_de_secours_apres_refus_http(self):
+        old = v.SOURCES
+        try:
+            v.SOURCES = {"BO national": "https://www.education.gouv.fr/bo"}
+            def fake(url):
+                if "bing.com" in url:
+                    return "<rss><channel><item><title>EPS 2027</title><link>https://www.education.gouv.fr/bo/2026/Special4</link></item></channel></rss>"
+                raise OSError("HTTP 403")
+            with tempfile.TemporaryDirectory() as d:
+                state, report, n, errors = v.run(Path(d) / "state.json", "2026-11-18", fake)
+                self.assertEqual((n, errors), (0, 0))
+                self.assertIn("recherche indirecte", report)
+                self.assertEqual(state["sources"]["BO national"]["mode"], "recherche indirecte (résultats non vérifiés)")
+        finally:
+            v.SOURCES = old
+
     def test_page_sans_liens_ne_devient_pas_reference_valide(self):
         old = v.SOURCES
         try:

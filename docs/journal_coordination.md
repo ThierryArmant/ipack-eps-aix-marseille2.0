@@ -3760,3 +3760,9 @@ Principe rappelé par Thierry : compléter et ordonner les fiches pour qu'elles 
 
 ## 2026-11-15 11 h 05 — Claude : ligne « Accès à la fonctionnalité »
 - Cause du « [Évolution] » en tête d'une réponse sur l'accès : exact_source_answer prenait le chemin dans les fiches citées puis, à défaut, dans toute fiche sélectionnée, même non citée (comportement présent depuis l'ajout de la ligne le 2 novembre). Le chemin n'est plus pris que dans les fiches citées ; sans chemin écrit dans l'une d'elles, pas de ligne. Accord de Thierry. Aucun changement de sélection, de rédaction ni de contrôle.
+
+## 2026-11-18 23 h — Claude : deux places au plus par fiche dans la recherche (eaa677d)
+- Chantier ouvert de la page d'état (« limiter le nombre de places qu'une même fiche peut occuper ») : document_retrieval.py, MAX_PLACES_PAR_FICHE = 2. Au-delà, les fragments d'une fiche sont mis en attente et ne reprennent que les places restées libres en fin de recherche ; ordre des deux premiers conservé. Aucun changement de fiche, de catalogue, de sélection, de rédaction ni de contrôle ; toujours deux appels par question.
+- Non mesuré : la recherche par le sens demande les plongements OpenAI, inaccessibles depuis l'environnement de Claude. Accord de Thierry pour pousser et juger sur rejeu réel ; à annuler (git revert eaa677d) si le rejeu est moins bon, en particulier si un bon passage situé dans le 3e fragment d'une fiche disparaît.
+- Tests : tests/test_places_par_fiche.py ; 1 413 réussis.
+- Constaté au passage : les travaux du 16 au 18 novembre (Sport-Études, SSS/ESTEREL, statut Absent, veille hebdomadaire Tavily PR #54 à #63) ne figurent pas dans ce journal. Veille : au plus 8 recherches Tavily « basic » par semaine, sans effet sur les réponses du hub.

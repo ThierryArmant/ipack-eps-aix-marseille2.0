@@ -5268,7 +5268,7 @@
     },
     {
       "path": "data/ipack/acces_ipackeps_problemes.txt",
-      "sha256": "809fdad1362221eb98cd39a3f1d1f4773c9f332f99284df71a887ad79994848a",
+      "sha256": "fe983d3320855139eaba7c4a3bc32e7c4cdcefa7b1c6bd30210e764ae86e0351",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_corpus_2026-10-11",
@@ -7329,7 +7329,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt",
-      "sha256": "704fb5bfbc62e92143a59650de9b199e08ce21ecd2d1db8c6fc90c834518cdef",
+      "sha256": "5167a78cb21f67b0e4312bb5211150749b2340a0f125af325250eae7095de128",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -7352,7 +7352,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_084_article_91_dossiers_dossier_sports_etudes_configuration_des_classes_sports_etudes.txt",
-      "sha256": "ea9aa9bd1d75a680d788fde53e5148cffdab29e456a4a1a3499d27fa3897d724",
+      "sha256": "8a9634d3587c0d0b760dc6147a6a23505344053ab641aec3c9451198285172cf",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",

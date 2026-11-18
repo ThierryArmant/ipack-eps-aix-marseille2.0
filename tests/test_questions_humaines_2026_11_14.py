@@ -34,7 +34,7 @@ class Erreur404Tests(unittest.TestCase):
 
     def test_synchro_manuelle_et_entree_par_role_avant_les_blocages(self):
         texte = ACCES.read_text(encoding='utf-8')
-        synchro = texte.index("Réponse directe — première vérification pour tout problème d'accès")
+        synchro = texte.index("Réponse directe — uniquement si l'utilisateur n'arrive pas")
         role = texte.index("Réponse directe — entrée dans iPackEPS selon sa fonction")
         self.assertLess(synchro, role)
         self.assertLess(role, texte.index("Trois blocages différents"))

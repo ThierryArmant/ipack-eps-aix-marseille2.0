@@ -103,7 +103,7 @@ questions jamais vues et sur les questions réelles.
 - Doublons sur la synchronisation manuelle du portail (trois fiches proches).
 - Recherche : une même fiche limitée à deux des dix places (18 novembre, eaa677d). En ligne, non mesuré : à juger sur rejeu réel de l'onglet iPackEPS, annulation par `git revert eaa677d` si moins bon.
 - Le hub ne sait pas dire « je n'ai pas d'information » quand aucune fiche ne traite du sujet : il recolle des fiches voisines (cas du 18 novembre, élève rejeté en acrosport). Fiche harcèlement entre élèves ajoutée ; le défaut général reste ouvert.
-- Capeps (épreuves, programme) : hors des bases depuis la neutralisation de `data/bibli_concours` ; réponse fixe à décider par le responsable.
+- Capeps, agrégation, CRPE (épreuves, programme, méthode) : réponse fixe sans appel IA depuis le 18 novembre (`demande_preparation_concours`, app.py), cohérente avec la neutralisation de `data/bibli_concours`. Les conditions d'accès restent traitées par les fiches.
 - `requirements.txt` ne fixe aucune version (proposé le 2 novembre, non fait).
 - Ménage du code (ancien moteur, essais administrateur, réponses en dur éteintes) : à faire seulement après une
   mesure stable, par petits commits.

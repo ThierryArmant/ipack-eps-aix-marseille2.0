@@ -3788,3 +3788,8 @@ Restent sans source recueillie (à ne pas traiter dans ce lot) : baignade en sor
 - Catalogue : deux motifs pour la famille de questions (vocabulaire du harcèlement ; rejet, mise à l'écart, moqueries, surnoms avec un contexte camarades, groupes, équipes, vestiaires, classe), exclusions examens/logiciels et harcèlement visant un personnel. Banque de 1 426 questions : aucun déclenchement. Tests : tests/test_harcelement_entre_eleves.py ; 1 417 réussis.
 - Page d'état mise à jour (chantiers : deux places par fiche non mesuré, absence de « je ne sais pas », Capeps).
 - À rejouer par Thierry, onglet Textes : la question de l'acrosport en 6e.
+
+## 2026-11-18 23 h 45 — Claude : réponse fixe sur la préparation des concours (accord de Thierry)
+- app.py : demande_preparation_concours (Capeps, Cafep, agrégation, CRPE, concours + préparer, réviser, connaître, programme, épreuves, sujets, oral, écrit, méthode…), réponse fixe « Préparation des concours » sans appel IA, branchée comme le refus des contenus didactiques. Exclus : conditions d'accès (peut-il, conditions, diplôme, licence, master, L3, inscription, contractuel), questions d'élèves, CCF et logiciels.
+- Banque de 1 426 questions : aucun déclenchement. Tests : tests/test_refus_preparation_concours.py.
+- Non fait : l'absence générale de « je n'ai pas d'information » quand aucune fiche ne traite du sujet (modification du moteur, à mesurer avant).

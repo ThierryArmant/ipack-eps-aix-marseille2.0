@@ -3781,3 +3781,10 @@ Sources officielles recueillies ce soir, lues directement dans le navigateur, co
 4. Pousser directement sur main par petits commits (fiches d'un côté, inscription/tests de l'autre), puis consigner ici.
 
 Restent sans source recueillie (à ne pas traiter dans ce lot) : baignade en sortie avec un AED titulaire du BNSSA ; notes contestées par les familles ; jauge « liste APSA à 0 % ». Capeps (épreuves, programme) : hors périmètre depuis la neutralisation de data/bibli_concours, décision de Thierry attendue sur une réponse fixe.
+
+## 2026-11-18 23 h 35 — Claude : fiche harcèlement entre élèves faite (Thierry : « fais-le »)
+- La demande à GPT ci-dessus est traitée par Claude ; GPT n'a rien à refaire sur ce lot.
+- data/textes/situations_2026_11_19/harcelement_entre_eleves_reconnaitre_alerter.txt (onglet Textes, priorité 340, domaine 04) : reconnaître (définition, ostracisme, trois caractéristiques, motifs de rejet), ce que fait l'enseignant (écouter, vigilance, transmettre au chef d'établissement, au coordonnateur harcèlement ou à l'équipe ressource pHARe ; 3018), suite du protocole collège-lycée, interlocuteurs, L. 111-6. Rien hors des deux copies du 18/11.
+- Catalogue : deux motifs pour la famille de questions (vocabulaire du harcèlement ; rejet, mise à l'écart, moqueries, surnoms avec un contexte camarades, groupes, équipes, vestiaires, classe), exclusions examens/logiciels et harcèlement visant un personnel. Banque de 1 426 questions : aucun déclenchement. Tests : tests/test_harcelement_entre_eleves.py ; 1 417 réussis.
+- Page d'état mise à jour (chantiers : deux places par fiche non mesuré, absence de « je ne sais pas », Capeps).
+- À rejouer par Thierry, onglet Textes : la question de l'acrosport en 6e.

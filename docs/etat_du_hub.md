@@ -1,6 +1,6 @@
 # État du hub : à lire avant toute intervention
 
-Mis à jour le 15 novembre 2026. Cette page résume ce qui est en place, ce qui a été mesuré et ce qui a déjà été
+Mis à jour le 18 novembre 2026. Cette page résume ce qui est en place, ce qui a été mesuré et ce qui a déjà été
 essayé puis écarté. Elle remplace, pour la reprise, `docs/reprise_projet.md` (13 octobre) et
 `docs/reprise_pour_gpt_2026-10-18.md`, qui décrivent l'ancien moteur. Le détail daté reste dans
 `docs/journal_coordination.md`.
@@ -101,7 +101,9 @@ questions jamais vues et sur les questions réelles.
   portail académique, baignade en sortie avec un assistant d'éducation titulaire du BNSSA, lieu de dépôt du
   procès-verbal du conseil d'administration pour une section sportive.
 - Doublons sur la synchronisation manuelle du portail (trois fiches proches).
-- Recherche : limiter le nombre de places qu'une même fiche peut occuper. Non essayé, à mesurer.
+- Recherche : une même fiche limitée à deux des dix places (18 novembre, eaa677d). En ligne, non mesuré : à juger sur rejeu réel de l'onglet iPackEPS, annulation par `git revert eaa677d` si moins bon.
+- Le hub ne sait pas dire « je n'ai pas d'information » quand aucune fiche ne traite du sujet : il recolle des fiches voisines (cas du 18 novembre, élève rejeté en acrosport). Fiche harcèlement entre élèves ajoutée ; le défaut général reste ouvert.
+- Capeps (épreuves, programme) : hors des bases depuis la neutralisation de `data/bibli_concours` ; réponse fixe à décider par le responsable.
 - `requirements.txt` ne fixe aucune version (proposé le 2 novembre, non fait).
 - Ménage du code (ancien moteur, essais administrateur, réponses en dur éteintes) : à faire seulement après une
   mesure stable, par petits commits.

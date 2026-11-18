@@ -1,0 +1,53 @@
+name: Réparer les index documentaires (branche dédiée)
+on:
+  push:
+    branches:
+      - fix/tests-hub-2026-11-18
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  regenerer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: fix/tests-hub-2026-11-18
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Synchroniser les trois empreintes sans modifier les fiches
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          p=Path('docs/audit_fiches/registre.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          wanted={
+            'data/ipack/acces_ipackeps_problemes.txt',
+            'data/ipack/fiches/ipack_083_article_94_dossiers_dossier_sss_evolution_demande_de_reconduction_ou_fermeture_d_une_sss.txt',
+            'data/ipack/fiches/ipack_084_article_91_dossiers_dossier_sports_etudes_configuration_des_classes_sports_etudes.txt',
+          }
+          matched=set()
+          for item in data['fiches']:
+            if item['path'] in wanted:
+              item['sha256']=hashlib.sha256(Path(item['path']).read_bytes()).hexdigest()
+              matched.add(item['path'])
+          if matched != wanted:
+            raise SystemExit(f'Fiches manquantes du registre : {wanted-matched}')
+          p.write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Reconstruire le registre académique depuis les sources
+        run: python portee_registre.py --write
+      - name: Vérifier les contrôles documentaires
+        run: |
+          python -m unittest tests.test_corpus_scope_preservation tests.test_source_scope tests.test_questions_humaines_2026_11_14 -v
+      - name: Enregistrer les métadonnées corrigées
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audit_fiches/registre.json config/portee_academique.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Synchroniser empreintes et portée académique depuis les fiches"
+            git push origin HEAD:fix/tests-hub-2026-11-18
+          fi

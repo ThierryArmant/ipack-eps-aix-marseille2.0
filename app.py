@@ -1403,6 +1403,10 @@ if st.session_state.get("is_admin", False):
             for t, u in _rapport_veille["titres"]) + "</ul>"
     _lien_veille = (f'<br><a href="{_rapport_veille["url"]}" target="_blank" style="color: #17365D !important; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px;">Lire le rapport complet</a>'
                     if _rapport_veille else "")
+    _lien_veille += (
+        '<br><a href="https://github.com/ThierryArmant/ipack-eps-aix-marseille2.0/tree/veille/controle-hebdomadaire/docs/veille" '
+        'target="_blank" rel="noopener noreferrer" style="color: #17365D !important;">Rapports hebdomadaires</a>'
+    )
     st.markdown(
         f"""
         <div style="background-color: #FFFFFF !important; backdrop-filter: blur(12px); border-left: 6px solid #FFB020; padding: 14px 18px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">

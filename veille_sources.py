@@ -5,7 +5,8 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, urlencode
+from xml.etree import ElementTree
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent
@@ -55,6 +56,35 @@ def candidates(html, base):
             found[url] = title[:180] or url
     return found
 
+SEARCH_QUERIES = {
+    "BO national": "site:education.gouv.fr/bo EPS examen 2027",
+    "BO EPS": "site:education.gouv.fr/bo EPS EPPCS baccalauréat",
+    "Aix-Marseille bulletins": "site:ac-aix-marseille.fr bulletin académique EPS 2027",
+    "Aix-Marseille examens": "site:ac-aix-marseille.fr DIEC EPS examens 2027",
+    "Aix-Marseille aménagements": "site:ac-aix-marseille.fr aménagement épreuves EPS 2027",
+    "Nice": "site:ac-nice.fr EPS examens 2027",
+    "Créteil iPackEPS": "site:ac-creteil.fr iPackEPS 2027",
+    "Éduscol EPS": "site:eduscol.education.gouv.fr EPS baccalauréat 2027",
+}
+
+def rss_candidates(xml_text):
+    """Résultats de moteur de recherche : pistes, jamais preuves de publication."""
+    root = ElementTree.fromstring(xml_text)
+    found = {}
+    for item in root.findall(".//item"):
+        url = (item.findtext("link") or "").strip().split("#")[0]
+        title = (item.findtext("title") or "").strip()
+        if allowed(url) and KEYWORDS.search(title + " " + url):
+            found[url] = title[:180] or url
+    return found
+
+def search_fallback(name, fetcher):
+    query = SEARCH_QUERIES.get(name)
+    if not query:
+        return {}
+    url = "https://www.bing.com/search?" + urlencode({"q": query, "format": "rss"})
+    return rss_candidates(fetcher(url))
+
 def fetch(url):
     req = Request(url, headers={"User-Agent": "HUB-IA-EPS-Veille/1.0 (public documentation)", "Accept": "text/html"})
     with urlopen(req, timeout=18) as res:
@@ -73,17 +103,27 @@ def run(state_path=STATE, today=None, fetcher=fetch):
     for name, url in SOURCES.items():
         previous = old.get("sources", {}).get(name, {})
         try:
-            found = candidates(fetcher(url), url)
-            if not found:
-                raise ValueError("Page accessible mais aucun lien EPS pertinent detecte : collecte non validee")
+            mode = "direct"
+            try:
+                found = candidates(fetcher(url), url)
+                if not found:
+                    raise ValueError("Page accessible mais aucun lien EPS pertinent détecté")
+            except Exception as direct_error:
+                try:
+                    found = search_fallback(name, fetcher)
+                except Exception as search_error:
+                    raise ValueError(f"Direct : {direct_error}; recherche de secours : {search_error}") from search_error
+                if not found:
+                    raise ValueError(f"Direct : {direct_error}; recherche de secours sans résultat exploitable")
+                mode = "recherche indirecte (résultats non vérifiés)"
             previous_links = previous.get("links", {})
             new = {u: t for u, t in found.items() if u not in previous_links}
             first = not previous.get("last_success")
             if first:
                 new = {}  # Premier relevé = état de référence, pas nouveauté.
             total_new += len(new)
-            result["sources"][name] = {"url": url, "last_success": today, "links": found}
-            lines += [f"## {name}", f"Source : {url}", f"Liens repérés : {len(found)} ; {'premier état de référence' if first else str(len(new)) + ' nouveaux liens à examiner'}.", ""]
+            result["sources"][name] = {"url": url, "last_success": today, "mode": mode, "links": found}
+            lines += [f"## {name}", f"Source : {url}", f"Mode : {mode}.", f"Liens repérés : {len(found)} ; {'premier état de référence' if first else str(len(new)) + ' nouveaux liens à examiner'}.", ""]
             for u, t in list(new.items())[:40]:
                 lines.append(f"- [{t.replace(']', '')}]({u}) — **à vérifier**")
             lines.append("")
@@ -92,6 +132,8 @@ def run(state_path=STATE, today=None, fetcher=fetch):
             result["sources"][name] = previous
             lines += [f"## {name}", f"**ÉCHEC DE CONSULTATION OU D’EXTRACTION : {type(exc).__name__} — {str(exc)[:180]}**. Aucune conclusion sur l'absence de nouveautés.", ""]
     lines.insert(3, f"**Résultat : {total_new} liens nouveaux à examiner ; {errors} sources non exploitables.** Le nombre de liens ne correspond pas au nombre de nouveaux textes.")
+    if any(v.get("mode", "").startswith("recherche indirecte") for v in result["sources"].values()):
+        lines.insert(4, "**ATTENTION : certains liens proviennent d’un moteur de recherche. Leur publication, leur date et leur portée doivent être vérifiées sur le site officiel.**")
     if errors:
         lines.insert(4, "**ALERTE QUALITÉ : veille incomplète. Ne pas conclure à l’absence de nouveaux textes.**")
     lines += ["## Contrôles humains obligatoires", "- Vérifier date, NOR, session, diplôme, académie et entrée en vigueur.", "- Comparer les fiches existantes avant toute modification ; ne pas remplacer une règle nationale par une consigne locale.", "- Vérifier explicitement les documents DIEC et les bulletins académiques de la session en cours.", ""]

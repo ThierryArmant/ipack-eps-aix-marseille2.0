@@ -86,11 +86,17 @@ def search_fallback(name, fetcher):
     return rss_candidates(fetcher(url))
 
 def fetch(url):
-    req = Request(url, headers={"User-Agent": "HUB-IA-EPS-Veille/1.0 (public documentation)", "Accept": "text/html"})
+    parsed = urlparse(url)
+    rss = parsed.hostname == "www.bing.com" and parsed.path == "/search"
+    accepted = ("application/rss+xml", "application/xml", "text/xml") if rss else ("text/html", "application/xhtml+xml")
+    req = Request(url, headers={
+        "User-Agent": "HUB-IA-EPS-Veille/1.0 (public documentation)",
+        "Accept": ", ".join(accepted),
+    })
     with urlopen(req, timeout=18) as res:
-        ctype = res.headers.get("Content-Type", "")
-        if "html" not in ctype:
-            raise ValueError("Format non HTML : " + ctype)
+        content_type = res.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+        if content_type not in accepted:
+            raise ValueError("Format inattendu : " + content_type)
         return res.read(1_000_000).decode("utf-8", "replace")
 
 def run(state_path=STATE, today=None, fetcher=fetch):
@@ -144,12 +150,12 @@ def main():
     p.add_argument("--date", default=date.today().isoformat())
     p.add_argument("--state", type=Path, default=STATE)
     args = p.parse_args()
-    state, report, _, _ = run(args.state, args.date)
+    state, report, _, errors = run(args.state, args.date)
     args.state.parent.mkdir(parents=True, exist_ok=True)
     args.state.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (args.state.parent / ("controle-" + args.date + ".md")).write_text(report, encoding="utf-8")
     print(report)
-    if len(state["sources"]) and not any(v.get("last_success") == args.date for v in state["sources"].values()):
+    if state["sources"] and errors == len(state["sources"]):
         raise SystemExit("ÉCHEC : aucune source officielle exploitable ; rapport enregistré.")
 
 if __name__ == "__main__":

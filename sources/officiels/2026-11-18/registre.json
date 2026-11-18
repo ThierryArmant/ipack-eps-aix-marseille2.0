@@ -1,0 +1,22 @@
+[
+  {
+    "nor": "MENE2403161C",
+    "url": "https://www.education.gouv.fr/bo/2024/Hebdo6/MENE2403161C",
+    "consultation": "2026-11-18",
+    "copie": "sources/officiels/2026-11-18/MENE2403161C.md",
+    "lecture": null,
+    "sha256_copie": "2ab3d3ccf1cc78fe7be2b4d4ec8cfc4b78076de9fad62a50bf36f12cda0d09dc",
+    "annexes_pdf_reproduites": false,
+    "indexe": false
+  },
+  {
+    "nor": "page_ministere_harcelement_325361",
+    "url": "https://www.education.gouv.fr/non-au-harcelement/qu-est-ce-que-le-harcelement-325361",
+    "consultation": "2026-11-18",
+    "copie": "sources/officiels/2026-11-18/harcelement_definition_protocole_second_degre.md",
+    "lecture": null,
+    "sha256_copie": "63fe167b08a9ac336edbef5466c272ec86c51eb2bf1ea3c11813d58a25e77588",
+    "annexes_pdf_reproduites": false,
+    "indexe": false
+  }
+]

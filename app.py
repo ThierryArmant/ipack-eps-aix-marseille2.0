@@ -71,6 +71,23 @@ def demande_contenu_didactique(p_norm):
         ])
     )
 
+def demande_preparation_concours(p_norm):
+    """Préparation d'un concours (épreuves, programme, sujets, méthode) : hors des bases du hub depuis la neutralisation
+    de data/bibli_concours à la demande des IPR (18 novembre 2026). Les conditions d'accès restent traitées."""
+    return (
+        contient(p_norm, [r"\bcapeps\b", r"\bcafep\b", r"agregation", r"\bcrpe\b", r"\bconcours\b(?! (?:post.?bac|d.entree|general))"])
+        and contient(p_norm, [
+            r"\bprepar\w*", r"\brevis\w*", r"\bconnaitre\b", r"\bconnaissances?\b", r"\breussir\b", r"\bprogramme\b",
+            r"\bepreuves?\b", r"\bsujets?\b", r"\boral\b", r"\becrit\b", r"\bmethod\w*", r"bibliograph\w*", r"\blectures?\b",
+            r"\bdissertation\b", r"\blecon\b", r"\bnotions?\b", r"\bquoi (?:apprendre|travailler)\b",
+        ])
+        and not contient(p_norm, [
+            r"peut.?(?:il|elle|on)", r"\bpuis.?je\b", r"conditions?", r"diplome", r"\blicence\b", r"\bmaster\b", r"bac ?\+",
+            r"inscri", r"\bacces\b", r"eligib", r"\bl3\b", r"\bm[12]\b", r"stagiaire", r"titularis", r"contractuel",
+            r"eleve", r"\bccf\b", r"santorin", r"cyclades", r"ipack",
+        ])
+    )
+
 def contient_mot_cle(texte, mots):
     """
     Recherche de mots-clés sans faux positifs :
@@ -2055,6 +2072,8 @@ if prompt_a_traiter:
             # dans aucun onglet (question réelle : « quel contenu en acrosport sur le site ? »). Les champs d'apprentissage,
             # AFL / AFLP, programmes et toutes les questions de sécurité, de responsabilité ou d'examen restent traités.
             demande_contenu_didactique_q = demande_contenu_didactique(p_norm)
+            # Préparation des concours (Capeps, agrégation, CRPE) : réponse fixe, sans appel IA (18 novembre 2026).
+            demande_concours_q = demande_preparation_concours(p_norm)
             est_question_pedagogique = est_question_pedagogique or demande_contenu_didactique_q
 
             # ✅ INTERRUPTEURS MIS EN VEILLE (revue du 6 octobre 2026, validée par T. Armant).
@@ -2093,7 +2112,7 @@ if prompt_a_traiter:
                     or est_dates_ccf or est_equipe_eps or est_doc_synthese or est_eleves_inactifs
                     or est_question_pedagogique
                 )
-            ) or est_tasa or est_unss or est_mauvais_onglet or demande_contenu_didactique_q
+            ) or est_tasa or est_unss or est_mauvais_onglet or demande_contenu_didactique_q or demande_concours_q
 
             # ✅ AJOUT : question trop courte (3 mots ou moins) sans réponse directe connue.
             # Avant, ce filtre était confié à l'IA : un appel complet (consignes + 10 passages) pour répondre « reformulez ».
@@ -2499,6 +2518,13 @@ if prompt_a_traiter:
 📺 Tutoriel associé : Configuration_classes_import_eleves.mp4"""
                 badge, color_card = "🛠️ ASSISTANCE iPACKEPS", "general-card"
             
+            elif demande_concours_q:
+                texte_brut = """<h3>🛑 PRÉPARATION DES CONCOURS</h3>
+<p>Le hub ne traite pas de la préparation des concours (Capeps, agrégation, CRPE) : programme, épreuves, sujets et méthode de travail ne figurent pas dans ses bases.</p>
+<p>Pour préparer un concours, appuyez-vous sur les pages officielles du concours (https://www.devenirenseignant.gouv.fr) et sur les rapports de jury publiés pour chaque session.</p>
+<p>Je peux en revanche vous répondre sur les conditions d'accès au concours (diplôme, session), le recrutement contractuel et le parcours de formation.</p>"""
+                badge, color_card = "⚖️ HORS PÉRIMÈTRE TECHNIQUE", "securite-card"
+
             elif est_question_pedagogique:
                 texte_brut = """<h3>🛑 CONTENU DIDACTIQUE OU DE SÉANCE</h3>
 <p>Je ne suis pas autorisé à produire des fiches didactiques ou des contenus de séance : je pourrais me tromper, et votre travail en serait impacté.</p>

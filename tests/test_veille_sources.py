@@ -33,6 +33,30 @@ class VeilleSourcesTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 v.fetch(v.SOURCES["BO national"])
 
+    def test_tavily_utilise_basic_et_filtre_les_domaines(self):
+        response = MagicMock()
+        response.read.return_value = b'{"results":[{"url":"https://www.education.gouv.fr/bo/2026/Special4","title":"EPS 2027"},{"url":"https://www.ac-nice.fr/examens","title":"EPS 2027"}]}'
+        with patch.object(v, "urlopen") as urlopen:
+            urlopen.return_value.__enter__.return_value = response
+            links = v.search_tavily("BO national", v.SOURCES["BO national"], "cle-test")
+        request = urlopen.call_args.args[0]
+        self.assertIn(b'"search_depth": "basic"', request.data)
+        self.assertIn(b'"auto_parameters": false', request.data)
+        self.assertEqual(list(links), ["https://www.education.gouv.fr/bo/2026/Special4"])
+
+    def test_veille_reutilise_historique_sur_resultats_tavily(self):
+        name = "BO national"
+        a, b = [f"https://www.education.gouv.fr/bo/2026/{suffix}" for suffix in ("Special4", "Hebdo45")]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "state.json"
+            path.write_text(v.json.dumps({"sources": {name: {"last_success": "2026-11-11", "links": {a: "EPS"}}}}))
+            with patch.dict(v.SOURCES, {name: v.SOURCES[name]}, clear=True):
+                with patch.object(v, "search_tavily", return_value={b: "Examens EPS"}):
+                    state, report, count, errors = v.run(path, "2026-11-18", lambda url: "", "cle-test")
+        self.assertEqual((count, errors), (1, 0))
+        self.assertEqual(set(state["sources"][name]["links"]), {a, b})
+        self.assertIn("Tavily, résultats non vérifiés", report)
+
     def test_recherche_de_secours_apres_refus_http(self):
         old = v.SOURCES
         try:

@@ -289,13 +289,20 @@ _CONTACTS_SANS_REPONSE = {
 }
 
 
-def without_short_answer(extracts_html, audit, mode=None):
+def without_short_answer(extracts_html, audit, mode=None, *, require_coverage=False):
     """Aucune réponse courte retenue : le dire honnêtement plutôt que présenter des extraits
     voisins comme une réponse. Les extraits restent consultables, repliés."""
     status = (audit.get('short_answer') or {}).get('status')
     body = extracts_html.replace('<h3>Réponse</h3>', '', 1)
     contact = _CONTACTS_SANS_REPONSE.get(mode, _CONTACTS_SANS_REPONSE['textes'])
     (audit.get('exact_extracts') or audit.setdefault('exact_extracts', {}))['no_short_answer_display'] = status or 'none'
+    if require_coverage:
+        report = audit['exact_extracts']
+        report.update(selected_ids=[], automatic_media_passage_ids=[])
+        if status == 'invalid_no_retry':
+            report['no_short_answer_display'] = 'technical_failure'
+            return '<h3>Réponse</h3><p>Je n’ai pas pu vérifier la réponse pour le moment.</p>'
+        return '<h3>Réponse</h3><p>Je n’ai pas trouvé de passage applicable qui permette de répondre à votre question.</p>'
     if status == 'invalid_no_retry':
         # Panne ou réponse illisible du rédacteur : les passages trouvés peuvent être les bons.
         return ('<h3>Réponse</h3><p>La réponse courte n’a pas pu être rédigée pour le moment. '
@@ -309,7 +316,7 @@ def without_short_answer(extracts_html, audit, mode=None):
 
 
 def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, report, extracts_html,
-                      public=None, academy=None, mode=None):
+                      public=None, academy=None, mode=None, *, require_coverage=False):
     """Réponse courte en tête, extraits fidèles numérotés repliés dessous ; sinon extraits seuls."""
     try:
         from .short_answer import short_answer
@@ -324,9 +331,10 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
     # academy aussi en paramètre : sans lui, une consigne d'Aix était refusée (« portée ») pour un collègue d'Aix.
     lead = short_answer(llm, tracer=tracer, audit=audit, question=question, passages=passages,
                         public=public, academy=academy,
-                        context=dict(public=public, academie=academy) if (public or academy) else None)
+                        context=dict(public=public, academie=academy) if (public or academy) else None,
+                        require_coverage=require_coverage)
     if not lead:
-        return without_short_answer(extracts_html, audit, mode)
+        return without_short_answer(extracts_html, audit, mode, require_coverage=require_coverage)
     numbered = render_focused_sources(selected, focus, reviewer, {}, numbered=True)
     report['display_version_lead'] = 'short-answer-v3'
     # Couverture : un extrait retenu que la réponse courte ne reprend pas reste visible, ouvert.
@@ -353,7 +361,7 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
 
 
 def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
-                     reviewer, report, fallback, public, mode, academy):
+                     reviewer, report, fallback, public, mode, academy, *, require_coverage=False):
     """Albert révise la proposition Mini sur le même contexte borné, sans nouvel appel Mini."""
     try:
         from .short_answer import short_answer, build_prompt
@@ -372,14 +380,17 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
                                          academie=scope.get('academy')),
                              propose_par_mini=span['id'] in focus))
     context = dict(public=public, mode=mode, academie=academy)
-    size = len(build_prompt(question, pool, context))
+    size = len(build_prompt(question, pool, context, require_coverage=require_coverage))
     report.update(pool_version='common-pool-v1', pool_passage_ids=[p['id'] for p in pool],
                   pool_prompt_chars=size, mini_proposed_passage_ids=focus[:])
     if size > 40000:
         report['pool_status'] = 'budget_exceeded_no_writer_call'
+        if require_coverage:
+            return without_short_answer(fallback, audit, mode, require_coverage=True)
         return fallback
     lead = short_answer(llm, tracer=tracer, audit=audit, question=question,
-                        passages=pool, public=public, academy=academy, context=context)
+                        passages=pool, public=public, academy=academy, context=context,
+                        require_coverage=require_coverage)
     kept = audit.get('short_answer', {}).get('kept', [])
     cited = list(dict.fromkeys(i for item in kept for i in item.get('ids', [])))
     report.update(albert_cited_passage_ids=cited,
@@ -387,7 +398,7 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
                   omitted_from_mini=[i for i in focus if i not in cited],
                   pool_status='rendered' if lead else 'no_short_answer_kept')
     if not lead:
-        return without_short_answer(fallback, audit, mode)
+        return without_short_answer(fallback, audit, mode, require_coverage=require_coverage)
     owners = [p for p in candidates if any(s['id'] in cited for s in p['passages'])]
     positions = {p['id']: n for n, p in enumerate(pool, 1)}
     extracts = render_focused_sources(owners, cited, reviewer, report, numbered=True, positions=positions)
@@ -405,7 +416,7 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
 
 
 def exact_answer(llm, *, reviewer, tracer, documents, question, public, mode, academy, audit, synthesis=False, selector_llm=None,
-                 common_pool=True):
+                 common_pool=True, require_coverage=False):
     packets = reviewer.source_packets(documents)
     audit.update(documents=packets, context_exact=documents,
                  context_sha256=hashlib.sha256(documents.encode()).hexdigest(),
@@ -470,7 +481,7 @@ N'ajoute pas de passage sur un cas particulier que la question n'évoque pas (ap
 Si un passage mélange des opérations, il reste entier ; ne fabrique pas une procédure combinée.
 Pour une question générale ou composée, conserve les sources nécessaires à tous les volets.
 Ne classe pas tous les documents : retourne seulement les identifiants retenus.
-Si aucune source ne répond, principal=null et complements=[].
+Le niveau explicite de la question prime sur le filtre du formulaire.\nSi aucune source ne traite l’action et la situation demandées, principal=null, complements=[] et passages=[].
 JSON uniquement : {"principal":"D1","complements":["D2"],"passages":["D1P2","D2P3"]}.
 passages contient seulement des identifiants des sources retenues, sans doublon.
 Si principal=null, complements=[] et passages=[].
@@ -546,7 +557,10 @@ DONNEES :
                       passage_chars=sum(len(s['text']) for p in selected for s in p['passages']))
         if focus is None:
             report['focus_status'] = 'legacy_full_sources_no_focus'
-            answer = render_exact_sources(selected, reviewer, report)
+            if require_coverage:
+                answer = without_short_answer('', audit, mode, require_coverage=True)
+            else:
+                answer = render_exact_sources(selected, reviewer, report)
         else:
             report['focus_status'] = 'selected_by_model_not_semantically_proven'
             answer = render_focused_sources(selected, focus, reviewer, report)
@@ -554,10 +568,12 @@ DONNEES :
                 # common_pool=False : un sélecteur distinct choisit, le rédacteur écrit la réponse courte sans pool.
                 if selector_llm is not None and common_pool:
                     answer = with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
-                                              reviewer, report, answer, public, mode, academy)
+                                              reviewer, report, answer, public, mode, academy,
+                                              require_coverage=require_coverage)
                 else:
                     answer = with_short_answer(llm, tracer, audit, question, selected, focus,
-                                               reviewer, report, answer, public, academy, mode)
+                                               reviewer, report, answer, public, academy, mode,
+                                               require_coverage=require_coverage)
         audit['rendered_answer'] = answer
         audit['model_document_ids'] = [p['id'] for p in candidates]
         audit['effective_selection_policy'] = 'exact_sources_only'

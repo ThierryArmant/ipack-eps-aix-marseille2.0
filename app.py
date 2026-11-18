@@ -2848,7 +2848,7 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                 selector_llm=OpenAI(model='gpt-4o-mini', temperature=0.0,
                                     api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20)
                                     if (_mixed_trial or _albert_redige_trial) else None,
-                                common_pool=not _albert_redige_trial)
+                                common_pool=not _albert_redige_trial, require_coverage=True)
                             usage_ia['calls'] = diagnostic_ia.get('calls', [])
                             _doc_utilises = set(diagnostic_ia.get('exact_extracts', {}).get('selected_ids', []))
                         else:
@@ -2888,10 +2888,13 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                     if mode in ("examens", "ipack", "textes"):
                         diagnostic_ia = diagnostic_ia if diagnostic_ia is not None else {}
                         diagnostic_ia['failure'] = type(e).__name__
-                        texte_brut = render_exam_fallback(
-                            diagnostic_ia, question=prompt, documents=contexte_complet_ia,
-                            academy=academie_reponse, mode=mode,
-                        )
+                        if _faithful_trial:
+                            texte_brut = '<p>Je n’ai pas pu vérifier la réponse pour le moment.</p>'
+                        else:
+                            texte_brut = render_exam_fallback(
+                                diagnostic_ia, question=prompt, documents=contexte_complet_ia,
+                                academy=academie_reponse, mode=mode,
+                            )
                         sources_consultees = [(p['title'] + (' — ' + p['url'] if p['url'] else ''), None)
                                              for p in diagnostic_ia.get('fallback_sources', [])]
                     else:

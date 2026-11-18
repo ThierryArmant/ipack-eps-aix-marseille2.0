@@ -9,6 +9,18 @@ class VeilleSourcesTests(unittest.TestCase):
         links = v.candidates(html, "https://www.education.gouv.fr/bo")
         self.assertEqual(len(links), 1)
         self.assertIn("https://www.education.gouv.fr/bo/2026/Special4", links)
+    def test_page_sans_liens_ne_devient_pas_reference_valide(self):
+        old = v.SOURCES
+        try:
+            v.SOURCES = {"BA Aix": "https://bulacad.ac-aix-marseille.fr/"}
+            with tempfile.TemporaryDirectory() as d:
+                state, report, n, errors = v.run(Path(d) / "state.json", "2026-11-18", lambda url: "<html><body>Accueil</body></html>")
+                self.assertEqual((n, errors), (0, 1))
+                self.assertEqual(state["sources"]["BA Aix"], {})
+                self.assertIn("ALERTE QUALITÉ", report)
+        finally:
+            v.SOURCES = old
+
     def test_reference_et_panne_conserve_etat(self):
         old = v.SOURCES
         try:

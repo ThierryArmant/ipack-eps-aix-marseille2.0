@@ -1,5 +1,6 @@
 import tempfile
 import unittest
+from unittest.mock import MagicMock, patch
 from pathlib import Path
 import veille_sources as v
 
@@ -16,6 +17,21 @@ class VeilleSourcesTests(unittest.TestCase):
         </channel></rss>"""
         found = v.rss_candidates(rss)
         self.assertEqual(list(found), ["https://www.education.gouv.fr/bo/2026/Special4"])
+
+    def test_collecte_rss_accepte_le_xml_du_moteur(self):
+        response = MagicMock()
+        response.headers = {"Content-Type": "text/xml; charset=utf-8"}
+        response.read.return_value = (
+            b"<rss><channel><item><title>EPS 2027</title>"
+            b"<link>https://www.education.gouv.fr/bo/2026/Special4</link>"
+            b"</item></channel></rss>"
+        )
+        with patch.object(v, "urlopen") as urlopen:
+            urlopen.return_value.__enter__.return_value = response
+            links = v.search_fallback("BO national", v.fetch)
+            self.assertIn("https://www.education.gouv.fr/bo/2026/Special4", links)
+            with self.assertRaises(ValueError):
+                v.fetch(v.SOURCES["BO national"])
 
     def test_recherche_de_secours_apres_refus_http(self):
         old = v.SOURCES

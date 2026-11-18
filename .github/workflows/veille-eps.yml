@@ -5,7 +5,11 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  pull-requests: write
+concurrency:
+  group: veille-eps
+  cancel-in-progress: false
+env:
+  REPORT_BRANCH: veille/controle-hebdomadaire
 jobs:
   veille:
     runs-on: ubuntu-latest
@@ -19,17 +23,24 @@ jobs:
         run: python -m unittest tests/test_veille_sources.py -v
       - name: Reprendre le dernier état de veille
         run: |
-          if git fetch origin veille/controle-hebdomadaire; then
-            if git cat-file -e FETCH_HEAD:docs/veille/surveillance.json 2>/dev/null; then
-              git show FETCH_HEAD:docs/veille/surveillance.json > docs/veille/surveillance.json
-              echo "État précédent restauré depuis la branche de rapport."
+          if git ls-remote --exit-code --heads origin "refs/heads/$REPORT_BRANCH" >/dev/null; then
+            git fetch origin "refs/heads/$REPORT_BRANCH"
+            git worktree add --detach "$RUNNER_TEMP/veille-rapports" FETCH_HEAD
+            if test -f "$RUNNER_TEMP/veille-rapports/docs/veille/surveillance.json"; then
+              cp "$RUNNER_TEMP/veille-rapports/docs/veille/surveillance.json" docs/veille/surveillance.json
             fi
           else
-            echo "Aucun état distant : premier relevé."
+            status=$?
+            if test "$status" -ne 2; then
+              exit "$status"
+            fi
+            git worktree add --detach "$RUNNER_TEMP/veille-rapports" HEAD
           fi
       - name: Contrôler les sources publiques
         id: collecte
         continue-on-error: true
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python veille_sources.py
       - name: Archiver le rapport même en cas d’échec
         if: always()
@@ -41,23 +52,20 @@ jobs:
             docs/veille/surveillance.json
           if-no-files-found: warn
           retention-days: 30
-      - name: Proposer un rapport sans modifier les fiches
-        if: always() && steps.collecte.outcome != 'skipped'
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Veille EPS : relevé hebdomadaire des sources officielles'
-          branch: 'veille/controle-hebdomadaire'
-          delete-branch: true
-          title: 'Veille EPS : nouvelles publications à vérifier'
-          body: |
-            Relevé automatisé des liens publics officiels. Vérification humaine requise.
-            Aucune fiche métier, règle réglementaire ou échéance n'est modifiée automatiquement.
-          add-paths: |
-            docs/veille/surveillance.json
-            docs/veille/controle-*.md
+      - name: Conserver les rapports sur la branche de veille
+        if: always() && (steps.collecte.outcome == 'success' || steps.collecte.outcome == 'failure')
+        run: |
+          report_dir="$RUNNER_TEMP/veille-rapports"
+          mkdir -p "$report_dir/docs/veille"
+          cp docs/veille/surveillance.json docs/veille/controle-*.md "$report_dir/docs/veille/"
+          git -C "$report_dir" add -- docs/veille
+          if ! git -C "$report_dir" diff --cached --quiet; then
+            git -C "$report_dir" -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Veille EPS : archiver le relevé des sources'
+            git -C "$report_dir" push origin "HEAD:refs/heads/$REPORT_BRANCH"
+          fi
+          echo "[Historique des rapports](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/tree/$REPORT_BRANCH/docs/veille)" >> "$GITHUB_STEP_SUMMARY"
       - name: Signaler une collecte entièrement indisponible
         if: steps.collecte.outcome == 'failure'
         run: |
-          echo "::error::Aucune source exploitable. Rapport archivé et soumis à vérification."
+          echo "::error::Aucune source exploitable. Consultez le rapport archivé et vérifiez les sources."
           exit 1

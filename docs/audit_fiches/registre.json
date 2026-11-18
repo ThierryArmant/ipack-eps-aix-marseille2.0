@@ -1054,7 +1054,7 @@
     },
     {
       "path": "data/commun/cap_session_2026.txt",
-      "sha256": "e623e14622dbd56edf1a860efd3792545f7e7c57c048ffbaeafd91febbe8019f",
+      "sha256": "906bd77ec242889aff9687c25b3d18d0ac1aec3a688ae3a6d34471b5379be4c2",
       "famille": "commun",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-10",

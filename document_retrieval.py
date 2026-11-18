@@ -10,6 +10,11 @@ from knowledge_catalog import incompatible, reference_notice, passage_key
 from response_controls import reference_url
 from documentary_review import mark_excerpt
 
+# Une même fiche découpée en plusieurs fragments occupait souvent 3 places ou plus sur les 10 (20 réponses sur 47
+# dans les traces réelles du 29/10 au 14/11), et la bonne fiche d'une autre base restait dehors. Au-delà de deux
+# places, les fragments d'une fiche sont mis en attente : ils ne reprennent une place que s'il en reste à la fin.
+MAX_PLACES_PAR_FICHE = 2
+
 def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_college, est_clairement_lycee, mots_cles_intention_peda, recherche_mots, chercher_par_mots, retriever_textes, retriever_peda, retriever_santorin, retriever_ipack, libelle_source, _url_source, search_prompt=None, reference_notice=reference_notice, defer_exclusivity=False):
     """Cherche les passages utiles dans les bases pour la question en cours.
     Renvoie (extraits pour l'IA, sources affichables, fiches pour le diagnostic admin, message d'erreur)."""
@@ -19,6 +24,16 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
     _priorites_fiches = []
     # Fiches prioritaires transmises en entier : leurs fragments indexés seraient des copies du même texte.
     _chemins_entiers = set()
+    # Places occupées par chaque fiche, et fragments en attente (ajoutés à la fin s'il reste de la place).
+    _places = {}
+    _en_attente = []
+
+    def _fiche_pleine(chemin):
+        return bool(chemin) and _places.get(chemin, 0) >= MAX_PLACES_PAR_FICHE
+
+    def _compter(chemin):
+        if chemin:
+            _places[chemin] = _places.get(chemin, 0) + 1
 
     # ✅ AJOUT : beaucoup de fiches de la FAQ donnent une réponse PAR EXAMEN (« Réponse Lycée GT Bac »,
     # « Réponse Lycée Pro Bac / Lycée Pro CAP », « Réponse Lycée Pro CAP », « Réponse Collège DNB »), chacune dans
@@ -89,6 +104,13 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
             if _college_hors_examen and re.search(r"cyclades|santorin|imag.?in", normaliser(_txt[:500])):
                 continue
             _vus.add(_cle)
+            _chemin_fiche = _chemin_mots.group(1) if _chemin_mots else ''
+            if _fiche_pleine(_chemin_fiche):
+                _en_attente.append(lambda _t=_txt, _e=etiquette: _ajouter_mots_passage(_t, _e))
+                continue
+            _ajouter_mots_passage(_txt, etiquette)
+
+    def _ajouter_mots_passage(_txt, etiquette):
             _bloc = (etiquette + " " if etiquette else "") + _txt
             _provenance_id = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
             _extraits.append(mark_excerpt(_bloc, path=_provenance_id.group(1) if _provenance_id else '',
@@ -97,6 +119,7 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
                             if line.strip() and not line.startswith(('[DOCUMENT:', '[PORTEE:'))), ''))
                              if mode in ("examens", "ipack", "textes") else _bloc)
             _provenance = re.search(r"\[DOCUMENT: ([^;]+);", _txt)
+            _compter(_provenance.group(1) if _provenance else '')
             if _provenance:
                 _sources.append((_provenance.group(1), None))
             _diag.append(("[mots] " + (etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:100], None))
@@ -129,6 +152,16 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
                 continue  # question de collège sans rapport avec les examens : pas de fiche Cyclades / Santorin
             _vus.add(_cle)
             _retenus += 1
+            _chemin_fiche = n.node.metadata.get('path', n.node.metadata.get('source', ''))
+            if _fiche_pleine(_chemin_fiche):
+                _en_attente.append(lambda _n=n, _t=_txt, _e=etiquette, _s=avec_sources, _d=avec_diag: _ajouter_noeud(_n, _t, _e, _s, _d))
+            else:
+                _ajouter_noeud(n, _txt, etiquette, avec_sources, avec_diag)
+            if maximum and _retenus >= maximum:
+                break
+
+    def _ajouter_noeud(n, _txt, etiquette, avec_sources, avec_diag):
+            _compter(n.node.metadata.get('path', n.node.metadata.get('source', '')))
             _bloc = (etiquette + " " if etiquette else "") + _txt
             _extraits.append(mark_excerpt(_bloc,
                 path=n.node.metadata.get('path', n.node.metadata.get('source', '')),
@@ -138,8 +171,6 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
                 _sources.append((libelle_source(n, prompt), getattr(n, "score", None)))
             if avec_diag:
                 _diag.append(((etiquette + " " if etiquette else "") + _txt.strip().split("\n")[0][:110], getattr(n, "score", None)))
-            if maximum and _retenus >= maximum:
-                break
 
     try:
         for _path, _md in reference_notice(_cibles, search_prompt or prompt, niveau_actuel_form):
@@ -200,6 +231,11 @@ def retrieve_documents(*, prompt, p_norm, p_low, niveau_actuel_form, mode, est_c
                 _ajouter(retriever_santorin, "[Base Examens & Santorin]", avec_sources=True, avec_diag=True, maximum=4)
         else:
             _ajouter(retriever_peda, "[Référentiel Pédagogique & Programmes]")
+        # Places restées libres : les fragments mis en attente les reprennent, dans l'ordre où ils sont arrivés.
+        for _reprendre in _en_attente:
+            if len(_extraits) >= 10:
+                break
+            _reprendre()
     except Exception as e_rag:
         # ✅ CORRECTION : l'erreur était avalée en silence ; l'IA recevait alors un contexte vide et répondait
         # « je ne dispose pas de la procédure ». Elle est maintenant notée (visible en mode admin et dans les journaux).

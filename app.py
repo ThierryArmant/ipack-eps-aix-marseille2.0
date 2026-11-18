@@ -2552,7 +2552,9 @@ if prompt_a_traiter:
             # par génération libre. Garder ce contrôle pour les anciens disjoncteurs seuls.
             # Les trois contextes documentaires : une réponse héritée va aux fiches,
             # sans payer un arbitre avant la rédaction et une éventuelle correction.
-            if mode in ("examens", "ipack", "textes") and not besoin_ia and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:
+            if (mode in ("examens", "ipack", "textes") and not besoin_ia and not reponse_documentee
+                    and texte_brut and openai_api_key and not est_question_trop_courte
+                    and not est_mauvais_onglet and not demande_precision and not demande_concours_q):
                 besoin_ia = True
                 texte_brut = ""
             if mode not in ("examens", "ipack", "textes") and (not besoin_ia) and not reponse_documentee and texte_brut and openai_api_key and not est_question_trop_courte and not est_mauvais_onglet and not demande_precision:

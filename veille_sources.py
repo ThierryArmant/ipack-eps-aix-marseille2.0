@@ -74,6 +74,8 @@ def run(state_path=STATE, today=None, fetcher=fetch):
         previous = old.get("sources", {}).get(name, {})
         try:
             found = candidates(fetcher(url), url)
+            if not found:
+                raise ValueError("Page accessible mais aucun lien EPS pertinent detecte : collecte non validee")
             previous_links = previous.get("links", {})
             new = {u: t for u, t in found.items() if u not in previous_links}
             first = not previous.get("last_success")
@@ -88,8 +90,10 @@ def run(state_path=STATE, today=None, fetcher=fetch):
         except Exception as exc:
             errors += 1
             result["sources"][name] = previous
-            lines += [f"## {name}", f"**ÉCHEC DE CONSULTATION : {type(exc).__name__}**. Aucune conclusion sur l'absence de nouveautés.", ""]
-    lines.insert(3, f"**Résultat : {total_new} liens nouveaux à examiner ; {errors} sources indisponibles.** Le nombre de liens ne correspond pas au nombre de nouveaux textes.")
+            lines += [f"## {name}", f"**ÉCHEC DE CONSULTATION OU D’EXTRACTION : {type(exc).__name__} — {str(exc)[:180]}**. Aucune conclusion sur l'absence de nouveautés.", ""]
+    lines.insert(3, f"**Résultat : {total_new} liens nouveaux à examiner ; {errors} sources non exploitables.** Le nombre de liens ne correspond pas au nombre de nouveaux textes.")
+    if errors:
+        lines.insert(4, "**ALERTE QUALITÉ : veille incomplète. Ne pas conclure à l’absence de nouveaux textes.**")
     lines += ["## Contrôles humains obligatoires", "- Vérifier date, NOR, session, diplôme, académie et entrée en vigueur.", "- Comparer les fiches existantes avant toute modification ; ne pas remplacer une règle nationale par une consigne locale.", "- Vérifier explicitement les documents DIEC et les bulletins académiques de la session en cours.", ""]
     return result, "\n".join(lines), total_new, errors
 

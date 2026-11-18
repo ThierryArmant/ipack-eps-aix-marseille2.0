@@ -3,6 +3,7 @@ import argparse
 from datetime import date
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import re
 from urllib.parse import urljoin, urlparse, urlencode
@@ -85,6 +86,37 @@ def search_fallback(name, fetcher):
     url = "https://www.bing.com/search?" + urlencode({"q": query, "format": "rss"})
     return rss_candidates(fetcher(url))
 
+def search_tavily(name, source_url, api_key):
+    host = urlparse(source_url).hostname.removeprefix("www.")
+    data = json.dumps({
+        "query": SEARCH_QUERIES[name],
+        "search_depth": "basic",
+        "auto_parameters": False,
+        "max_results": 10,
+        "include_domains": [host],
+        "include_answer": False,
+        "include_raw_content": False,
+    }).encode("utf-8")
+    request = Request("https://api.tavily.com/search", data=data, headers={
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    })
+    with urlopen(request, timeout=18) as response:
+        payload = json.loads(response.read(1_000_000))
+    found = {}
+    for item in payload["results"]:
+        url = (item.get("url") or "").strip().split("#")[0]
+        title = (item.get("title") or "").strip()
+        result_host = urlparse(url).hostname or ""
+        if (
+            allowed(url)
+            and (result_host == host or result_host.endswith("." + host))
+            and KEYWORDS.search(title + " " + url)
+        ):
+            found[url] = title[:180] or url
+    return found
+
+
 def fetch(url):
     parsed = urlparse(url)
     rss = parsed.hostname == "www.bing.com" and parsed.path == "/search"
@@ -99,11 +131,13 @@ def fetch(url):
             raise ValueError("Format inattendu : " + content_type)
         return res.read(1_000_000).decode("utf-8", "replace")
 
-def run(state_path=STATE, today=None, fetcher=fetch):
+def run(state_path=STATE, today=None, fetcher=fetch, tavily_api_key=None):
     today = today or date.today().isoformat()
     old = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {"sources": {}}
     result = {"date": today, "sources": {}}
     lines = [f"# Veille EPS — {today}", "", "Repérage automatique, **sans validation réglementaire**. Toute publication doit être lue et confrontée aux fiches avant intégration.", ""]
+    if not tavily_api_key:
+        lines.append("Tavily indisponible : le secret de la veille n’est pas configuré.")
     total_new = 0
     errors = 0
     for name, url in SOURCES.items():
@@ -115,20 +149,33 @@ def run(state_path=STATE, today=None, fetcher=fetch):
                 if not found:
                     raise ValueError("Page accessible mais aucun lien EPS pertinent détecté")
             except Exception as direct_error:
-                try:
-                    found = search_fallback(name, fetcher)
-                except Exception as search_error:
-                    raise ValueError(f"Direct : {direct_error}; recherche de secours : {search_error}") from search_error
-                if not found:
-                    raise ValueError(f"Direct : {direct_error}; recherche de secours sans résultat exploitable")
+                found = {}
+                tavily_note = "Tavily non configuré"
                 mode = "recherche indirecte (résultats non vérifiés)"
+                if tavily_api_key and name in SEARCH_QUERIES:
+                    try:
+                        found = search_tavily(name, url, tavily_api_key)
+                        tavily_note = "Tavily sans résultat officiel exploitable"
+                        if found:
+                            mode = "recherche indirecte (Tavily, résultats non vérifiés)"
+                    except Exception as exc:
+                        tavily_note = f"Tavily indisponible ({type(exc).__name__})"
+                        if getattr(exc, "code", None) is not None:
+                            tavily_note += f" HTTP {exc.code}"
+                if not found:
+                    try:
+                        found = search_fallback(name, fetcher)
+                    except Exception as search_error:
+                        raise ValueError(f"Direct : {direct_error}; {tavily_note}; RSS : {search_error}") from search_error
+                    if not found:
+                        raise ValueError(f"Direct : {direct_error}; {tavily_note}; RSS sans résultat exploitable")
             previous_links = previous.get("links", {})
             new = {u: t for u, t in found.items() if u not in previous_links}
             first = not previous.get("last_success")
             if first:
                 new = {}  # Premier relevé = état de référence, pas nouveauté.
             total_new += len(new)
-            result["sources"][name] = {"url": url, "last_success": today, "mode": mode, "links": found}
+            result["sources"][name] = {"url": url, "last_success": today, "mode": mode, "links": previous_links | found}
             lines += [f"## {name}", f"Source : {url}", f"Mode : {mode}.", f"Liens repérés : {len(found)} ; {'premier état de référence' if first else str(len(new)) + ' nouveaux liens à examiner'}.", ""]
             for u, t in list(new.items())[:40]:
                 lines.append(f"- [{t.replace(']', '')}]({u}) — **à vérifier**")
@@ -150,7 +197,7 @@ def main():
     p.add_argument("--date", default=date.today().isoformat())
     p.add_argument("--state", type=Path, default=STATE)
     args = p.parse_args()
-    state, report, _, errors = run(args.state, args.date)
+    state, report, _, errors = run(args.state, args.date, tavily_api_key=os.environ.get("TAVILY_API_KEY"))
     args.state.parent.mkdir(parents=True, exist_ok=True)
     args.state.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (args.state.parent / ("controle-" + args.date + ".md")).write_text(report, encoding="utf-8")

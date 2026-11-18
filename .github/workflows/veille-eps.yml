@@ -1,0 +1,35 @@
+name: Veille documentaire EPS — contrôle hebdomadaire
+on:
+  schedule:
+    - cron: '20 6 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Tests de la veille
+        run: python -m unittest tests/test_veille_sources.py -v
+      - name: Contrôler les sources publiques
+        run: python veille_sources.py
+      - name: Proposer un rapport sans modifier les fiches
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Veille EPS : relevé hebdomadaire des sources officielles'
+          branch: 'veille/controle-hebdomadaire'
+          delete-branch: true
+          title: 'Veille EPS : nouvelles publications à vérifier'
+          body: |
+            Relevé automatisé des liens publics officiels. Vérification humaine requise.
+            Aucune fiche métier, règle réglementaire ou échéance n'est modifiée automatiquement.
+          add-paths: |
+            docs/veille/surveillance.json
+            docs/veille/controle-*.md

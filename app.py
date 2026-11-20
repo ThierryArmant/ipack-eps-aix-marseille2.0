@@ -809,6 +809,31 @@ if openai_api_key:
     )
 
 
+def _donnees_nltk_disponibles():
+    """Vrai si le découpage en phrases habituel (NLTK : punkt_tab et mots vides) peut se charger."""
+    try:
+        nltk.data.find("tokenizers/punkt_tab")
+        nltk.data.find("corpora/stopwords")
+        return True
+    except LookupError:
+        return False
+
+
+def _decoupe_phrases_simple(texte):
+    """Découpage en phrases sans NLTK : après . ! ? ou …, espaces conservés (le texte est restitué à l'identique)."""
+    morceaux = re.findall(r"[^.!?…]+(?:[.!?…]+|$)\s*", texte or "")
+    return [m for m in morceaux if m] or [texte or ""]
+
+
+# 20/11/2026 : après un « Reboot app » (Python 3.14), les données NLTK ne se téléchargeaient plus et
+# l'indexation plantait au démarrage (« Resource stopwords not found »). Sans ces données, le découpage
+# des fiches en phrases passe par une règle simple ; quand elles sont présentes, rien ne change.
+if not _donnees_nltk_disponibles():
+    from llama_index.core.node_parser import SentenceSplitter
+    Settings.node_parser = SentenceSplitter(chunking_tokenizer_fn=_decoupe_phrases_simple)
+    print("NLTK indisponible : découpage des phrases par règle simple.")
+
+
 def retirer_phrase_absence_apres_reponse(texte):
     """La consigne interdit la phrase d'absence après une réponse ; le modèle l'ajoutait encore (U-016)."""
     debut = texte.find("Je ne dispose pas de la procédure exacte")

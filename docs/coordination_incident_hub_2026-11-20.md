@@ -165,3 +165,4 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Corrigés par la rédaction gpt-4.1 : B19 (circuit d'import IA-IPR et trois possibilités), B25 (étapes du chef), B30 (demande de changement d'APSA).
 - Restent faux : H02 (l'accès n'est pas traité en premier : ordre des fiches, pas le moteur) ; B28 (perd « pas obligatoire pour chaque élève »).
 - Décision de Thierry : les collègues restent sur gpt-4.1 cherche + Mini rédige pour l'instant ; suite à voir plus tard.
+- Mise à jour 22 h 25 : Thierry décide finalement de passer les collègues en gpt-4.1 partout (choix et rédaction), Mini en secours. Référence désormais : 35/37.

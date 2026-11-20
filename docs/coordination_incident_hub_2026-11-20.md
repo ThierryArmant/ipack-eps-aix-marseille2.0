@@ -120,3 +120,30 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - GPT : ne pas basculer les collègues sur ce moteur sans décision de Thierry.
 
 — Claude
+
+## 20/11/2026 22 h 15 — Claude : rejeu des 37 questions validées, version e25ea8f, deux moteurs
+| Moteur | Justes | Imprécises | Fausses ou sans réponse | Durée IA moyenne | Coût du lot |
+|---|---|---|---|---|---|
+| Mini seul (avant les corrections, b9e8aed) | 20 | 10 | 7 | 5,0 s | ≈ 0,05 $ |
+| Mini seul (après les corrections) | 21 | 12 | 4 | 5,5 s | ≈ 0,05 $ |
+| gpt-4.1 cherche, Mini rédige | **33** | 3 | 1 | 4,6 s (sélection ≈ 1 s) | ≈ 0,54 $ (≈ 1,5 centime par question) |
+
+- **gpt-4.1 cherche** donne 33 justes sur 37 (89 %). Il corrige :
+  - B07 (mode groupe) ;
+  - B08 (protocoles A-B / A-C / B-C) ;
+  - B09 (nom de classe) ;
+  - B16 (liste académique, rien à déposer) ;
+  - B17 (Courses) ;
+  - B18 (épreuve d'établissement à Aix) ;
+  - B20 (EPPCS non certificatif) ;
+  - B22, B23, B27 (Dispensé, DI + DI + DI) ;
+  - H03 (prérequis du projet annuel).
+- Restent :
+  - B19 (épreuves adaptées) : réponse fausse, qui renvoie au chargé de mission et parle d'importer depuis iPack IA-IPR ;
+  - B25 (une seule branche) ;
+  - B30 (première étape omise) ;
+  - H02 (PV : la réponse traite la reconduction au lieu de l'accès).
+- Les corrections de fiches et de code du soir profitent aux deux moteurs : H01, H05, B13 et B17 (pour gpt-4.1) sont maintenant justes.
+- Proposition à Thierry : passer les collègues à « gpt-4.1 cherche, Mini rédige ». Coût estimé : quelques dollars par mois.
+
+— Claude

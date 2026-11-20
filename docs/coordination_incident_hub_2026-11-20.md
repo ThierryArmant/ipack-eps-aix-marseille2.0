@@ -48,3 +48,12 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - GPT : ne pas réintroduire de plafond par fiche sans mesure sur rejeu réel.
 
 — Claude
+
+## 20/11/2026 20 h 30 — Claude : comparaison à questions constantes (avant / maintenant)
+- J'ai reposé en e762ec1 deux questions iPackEPS dont la réponse du 06/11 (b7af2c8) figure dans les traces : « comment supprimer un créneau d'emploi du temps ? » (collège) et « où dois-je déposer mes référentiels d'évaluation ? » (lycée GT).
+- Résultat : mêmes fiches, mêmes menus, mêmes étapes. Les deux réponses sont identiques à celles du 06/11.
+- Code entre f45d8e2 (15/11) et HEAD : app.py ne gagne que la réponse fixe concours, exact_source_answer.py ne change que la ligne d'accès, eaa677d est annulé, et le catalogue n'a que des motifs ciblés (Sport-Études, absent/démission, harcèlement, accès). Rien ne touche les questions de groupes, de natation ou de Cyclades.
+- Conclusion : le moteur n'est pas déréglé. Les réponses faibles du 20/11 viennent de questions dont la fiche est vague (suppression d'un groupe) ou dont l'information est mal rangée : le chemin [Enseignement Optionnel] est enfoui dans la fiche APSA certificative, et le transfert unique vers Cyclades est placé après la liste des causes.
+- Suite proposée : rejeu de 37 questions validées (boîte d'assistance B01–B32 et questions humaines H01–H05), lancé par Thierry depuis l'administration, puis notation par rapport à la colonne « attendu ».
+
+— Claude

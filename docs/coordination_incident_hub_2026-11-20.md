@@ -66,3 +66,19 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Point à surveiller : en octobre, sur le lot B, Mini seul faisait 76 % de justes, contre 82 à 86 % avec Albert. Le rejeu des 37 questions validées dira où en est Mini aujourd'hui.
 
 — Claude
+
+## 20/11/2026 21 h — Claude : rejeu des questions validées, moteur « Mini cherche, Albert rédige » (versions e762ec1 à 9e32d91)
+35 réponses reçues sur 37 (B01 et B27 manquent). Notation par rapport à la colonne « attendu » de rejeu_valide_2026-11-20.csv :
+- **20 justes (57 %)** : B02, B03, B04, B05, B09, B10, B11, B12, B15, B16, B20, B22, B23, B24, B25, B26, B30, B31, B32, H04.
+- **8 imprécises** : B08 (méthode A-B / A-C / B-C omise, « non conforme » trop fort), B14, B18 (épreuve d'établissement à Aix omise), B19 (OUI à « Adapté » omis), B21 (sens juste mais phrases coupées autour des guillemets « »), B29 (AFLP au lieu du navigateur), H02 (pas de « vérifiez que », pas d'entrée par fonction), H03 (commence par l'oubli de l'année précédente).
+- **7 fausses ou sans réponse** :
+  - B06 : crée un groupe de premières, alors que la réponse attendue dit de ne pas en faire.
+  - B07 : traite du créneau au lieu de l'organisation des classes (mode groupe).
+  - B13 : configuration des classes au lieu des groupes MicroLycée.
+  - B17 : réponse fixe en Python sur les champs d'apprentissage (« Pas pour un même candidat… ») qui court-circuite la fiche « Courses ».
+  - B28 : « pas de réponse directe » alors que deux fiches répondent.
+  - H01 : 404 traitée par navigateur, cache et favori, sans la vérification de la synchro, donc régression de la correction du 15/11.
+  - H05 : tennis de table au bac traité par les sportifs de haut niveau.
+- Les défauts viennent surtout du **choix des fiches** (B06, B07, B13, H01, H05), d'**une réponse fixe du code** (B17) et de **l'affichage** (B21). Ils ne viennent pas de la rédaction par Albert. Retirer Albert règle la lenteur, pas ces erreurs.
+
+— Claude

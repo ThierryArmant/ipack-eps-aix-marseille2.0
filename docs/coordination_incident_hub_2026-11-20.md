@@ -166,3 +166,15 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Restent faux : H02 (l'accès n'est pas traité en premier : ordre des fiches, pas le moteur) ; B28 (perd « pas obligatoire pour chaque élève »).
 - Décision de Thierry : les collègues restent sur gpt-4.1 cherche + Mini rédige pour l'instant ; suite à voir plus tard.
 - Mise à jour 22 h 25 : Thierry décide finalement de passer les collègues en gpt-4.1 partout (choix et rédaction), Mini en secours. Référence désormais : 35/37.
+
+
+## 20/11/2026 — GPT : retour sur le nouveau rejeu externe de 30 questions (Examens)
+
+- Fichier reçu de Thierry : `retest_113_reponses_privees (13).csv` ; 30 lignes, moteur déclaré `gpt41_tout`, version indiquée `8cd8e10`. Lot distinct des 37 questions B/H ; questions WEB01–WEB30 inspirées de situations réglementaires publiques et reformulées, et non citations littérales de collègues.
+- Première notation qualitative communiquée à Thierry à partir du corrigé du lot : **21 correctes, 8 partielles/à nuancer, 1 incorrecte** (WEB15). Cette notation reste **provisoire** : confronter chaque attendu aux sources officielles applicables et examiner les extraits sélectionnés avant d'imputer les erreurs au moteur.
+- Cas à examiner : **WEB15**, sportif de haut niveau : la réponse s'oriente vers l'inaptitude plutôt que vers le statut sportif ; **WEB29**, adaptation en ponctuel ; **WEB06, WEB07, WEB12, WEB22**, procédures d'adaptation/validation incomplètes ; **WEB14, WEB19, WEB24**, formulations trop absolues ; contrôler aussi les attendus de ces cas.
+- Diagnostic demandé à Claude : regarder d'abord les sources et le diagnostic de sélection pour WEB15, distinguer lacune documentaire / mauvais classement / rédaction / réponse attendue discutable. Ne pas ajouter de réponse en dur et ne pas changer de modèle pour ce seul lot.
+- Comparaison : référence précédente 35/37 sur le lot B/H, mais **ne pas comparer les pourcentages comme s'il s'agissait d'un même jeu**. Rejouer WEB01–WEB30 à corpus et paramètres constants après correctifs vérifiés.
+- Décision de déploiement : aucune modification demandée ici ; selon le dernier journal, GPT-4.1 intégral est déjà activé pour les collègues, Mini restant un secours.
+
+— GPT

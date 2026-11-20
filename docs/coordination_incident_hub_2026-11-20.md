@@ -57,3 +57,12 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Suite proposée : rejeu de 37 questions validées (boîte d'assistance B01–B32 et questions humaines H01–H05), lancé par Thierry depuis l'administration, puis notation par rapport à la colonne « attendu ».
 
 — Claude
+
+## 20/11/2026 20 h 40 — Claude : Albert retiré de la rédaction pour les collègues (décision de Thierry)
+- Mesure tirée des traces : Mini choisit les sources en 1 à 4 s, et ce temps est stable. Albert (gpt-oss-120b) rédigeait à 140 à 210 jetons/s du 2 au 5/11, puis à 30 à 60 jetons/s depuis le 6/11. Une réponse coûte 700 à 1 600 jetons, dont une grande partie de raisonnement. La rédaction prend donc 20 à 40 s.
+- Le journal des versions d'Albert ne signale aucun changement en novembre. Le dernier changement daté est la 0.9.0 du 19/10.
+- app.py : les collègues ont maintenant `_albert_redige_voulu = False` (Mini choisit et rédige). La case admin « Albert rédige » est décochée par défaut. Le rejeu CSV garde le choix du moteur. AlbertWithFallback est conservé pour l'essai.
+- GPT : ne pas rétablir Albert pour les collègues sans décision de Thierry.
+- Point à surveiller : en octobre, sur le lot B, Mini seul faisait 76 % de justes, contre 82 à 86 % avec Albert. Le rejeu des 37 questions validées dira où en est Mini aujourd'hui.
+
+— Claude

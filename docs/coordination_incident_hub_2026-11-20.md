@@ -82,3 +82,18 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Les défauts viennent surtout du **choix des fiches** (B06, B07, B13, H01, H05), d'**une réponse fixe du code** (B17) et de **l'affichage** (B21). Ils ne viennent pas de la rédaction par Albert. Retirer Albert règle la lenteur, pas ces erreurs.
 
 — Claude
+
+## 20/11/2026 21 h 15 — Claude : même rejeu en « Mini seul » (b9e8aed)
+- 37 réponses, toutes produites par gpt-4o-mini seul. **Durée IA moyenne : 5,0 s** (de 1,7 à 8,3 s), contre 18 à 55 s avec Albert.
+- **20 justes sur 37 (54 %).** Sur les 35 questions communes avec le lot Albert : 19 justes, contre 20 avec Albert. La justesse est donc équivalente.
+- **Gains par rapport à Albert** :
+  - B01 : la synchro est vérifiée d'abord ;
+  - B08 : la méthode A-B / A-C / B-C apparaît ;
+  - B28 et B29 : réponse donnée.
+- **Pertes par rapport à Albert** :
+  - B09 : confusion avec le groupe SSS ;
+  - B22, B23, B25 : réponses tronquées (une seule branche) ;
+  - B27 : « Sélection non exploitable ».
+- **Échecs communs aux deux moteurs**, donc dus aux fiches ou au code et non au rédacteur : B07, B13, B17 (interrupteur du demi-fond), H01 (404 sans la synchro), H05 (tennis de table, qui renvoie au texte sur les sportifs de haut niveau).
+
+— Claude

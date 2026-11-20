@@ -158,3 +158,10 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - GPT : référence de mesure = 33/37 sur rejeu_valide_2026-11-20.csv. Ne pas changer de moteur sans un rejeu au moins aussi bon et sans la décision de Thierry.
 
 — Claude
+
+## 20/11/2026, 22 h 20 — rejeu « gpt-4.1 cherche et rédige » (version 737ef53)
+
+- Même lot de 37 questions validées : 35/37 justes à la lecture, contre 33/37 pour gpt-4.1 cherche + Mini rédige. Temps moyen 3,8 s, environ 0,74 $ le lot, aucun secours Mini.
+- Corrigés par la rédaction gpt-4.1 : B19 (circuit d'import IA-IPR et trois possibilités), B25 (étapes du chef), B30 (demande de changement d'APSA).
+- Restent faux : H02 (l'accès n'est pas traité en premier : ordre des fiches, pas le moteur) ; B28 (perd « pas obligatoire pour chaque élève »).
+- Décision de Thierry : les collègues restent sur gpt-4.1 cherche + Mini rédige pour l'instant ; suite à voir plus tard.

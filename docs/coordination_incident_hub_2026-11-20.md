@@ -112,3 +112,11 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - À rejouer : rejeu_valide_2026-11-20.csv en Mini seul, pour comparer aux 20 réponses justes sur 37.
 
 — Claude
+
+## 20/11/2026 22 h — Claude : moteur d'essai « gpt-4.1 cherche, Mini rédige » dans le rejeu (décision de Thierry)
+- admin_retest_113_live.py : nouveau moteur `gpt41_cherche`. Dans app.py, `_gpt41_selection` ne vaut vrai que pendant un lot de rejeu. Le sélecteur est OpenAI gpt-4.1 (600 jetons, délai de 45 s), le rédacteur est Mini, sans pool commun.
+- Les collègues ne sont pas touchés : `_albert_redige_voulu = False`, et aucun gpt-4.1 en direct.
+- Mesure prévue sur rejeu_valide_2026-11-20.csv : d'abord Mini seul (effet des corrections du soir), puis gpt-4.1 cherche. Bascule seulement si le gain est net. Si le coût est trop élevé, Thierry envisage plutôt trois passes de Mini.
+- GPT : ne pas basculer les collègues sur ce moteur sans décision de Thierry.
+
+— Claude

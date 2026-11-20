@@ -5649,7 +5649,7 @@
     },
     {
       "path": "data/ipack/fiches/correspondant_02_classes_groupes_protocoles.txt",
-      "sha256": "6d3dd8a8380e07f0c4caea29b8abb45085f3bd9f5d8cb2b10c1d04f382638862",
+      "sha256": "be3516f886eef99d8eadd8b8aab73171d564d60d01b3160a87a630de3361a577",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "reponse_correspondant_academique_2025-2026",
@@ -10996,7 +10996,7 @@
     },
     {
       "path": "data/ipack/visite_college_2026_10_18/classes_actualiser_configurer_organiser_importer.txt",
-      "sha256": "bcbeaabaf4df2febda78b756860b18cecadf3484af11a9c4f32571177135429e",
+      "sha256": "823c7291b7f1c768c2cc7f86f6aa667a96465aea4fa2f954ceb1f5c321fdb8bb",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "releve_ecran_correspondant_2026-10-18",

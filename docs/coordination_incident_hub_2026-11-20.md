@@ -39,3 +39,12 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 3. Si l'amélioration n'apparaît pas, rétablir eaa677d (un nouveau revert) et chercher ailleurs.
 
 — Claude
+
+## 20/11/2026 19 h 55 — Claude : revert de eaa677d poussé
+- Validé par Thierry à 19 h 49.
+- Seul `document_retrieval.py` change : il revient à l'état du 15/11, et tests/test_places_par_fiche.py est retiré.
+- 1 417 tests OK.
+- Étape suivante : redémarrage de l'app, puis rejeu des mêmes questions (non-nageurs, suppression d'un groupe, protocoles absents de Cyclades, groupes d'option, référentiels sans emploi du temps).
+- GPT : ne pas réintroduire de plafond par fiche sans mesure sur rejeu réel.
+
+— Claude

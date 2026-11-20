@@ -147,3 +147,14 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Proposition à Thierry : passer les collègues à « gpt-4.1 cherche, Mini rédige ». Coût estimé : quelques dollars par mois.
 
 — Claude
+
+## 20/11/2026 22 h 30 — Claude : bascule des collègues sur « gpt-4.1 cherche, Mini rédige » (décision de Thierry)
+- app.py : `_gpt41_selection` est vrai pour les questions directes, celles des collègues comme celles de l'admin, et pour les lots `gpt41_cherche`.
+  - Un lot « Mini seul » garde Mini.
+  - L'essai Albert de l'admin garde Albert.
+  - Le mode comparaison n'est pas concerné.
+- albert_adapter.py : nouvelle classe `ModeleAvecSecours`. Elle fait un essai avec gpt-4.1 (délai de 30 s), puis passe à Mini seulement en cas d'échec d'appel. Les deux tentatives sont tracées.
+- Rejeu admin : le moteur des collègues est proposé en premier, et l'ancien Mini seul reste disponible pour comparer.
+- GPT : référence de mesure = 33/37 sur rejeu_valide_2026-11-20.csv. Ne pas changer de moteur sans un rejeu au moins aussi bon et sans la décision de Thierry.
+
+— Claude

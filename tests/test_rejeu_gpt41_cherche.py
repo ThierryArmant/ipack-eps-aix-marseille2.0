@@ -48,4 +48,4 @@ class RejeuGpt41Cherche(unittest.TestCase):
     def test_gpt41_redige_seulement_dans_son_lot(self):
         from pathlib import Path
         app = Path(__file__).resolve().parents[1].joinpath('app.py').read_text(encoding='utf-8')
-        self.assertIn('if _gpt41_selection and _lot_moteur == "gpt41_tout":', app)
+        self.assertIn('if _gpt41_selection and _lot_moteur in (None, "gpt41_tout"):', app)

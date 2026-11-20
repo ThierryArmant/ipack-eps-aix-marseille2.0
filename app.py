@@ -1401,7 +1401,7 @@ if st.session_state.get("is_admin", False):
             st.caption("Essai Albert (différent des collègues) : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte, "
                        "Mini rédige si Albert est indisponible. Le rejeu CSV garde son propre choix de moteur." + (" · version " + _sha if _sha else ""))
         else:
-            st.caption("Comme les collègues : gpt-4.1 choisit les passages (Mini en secours si gpt-4.1 ne répond pas), gpt-4o-mini rédige la réponse courte. Deux appels, extraits et contrôles conservés. Aucun appel à Albert."
+            st.caption("Comme les collègues : gpt-4.1 choisit les passages et rédige la réponse courte (Mini en secours si gpt-4.1 ne répond pas). Deux appels, extraits et contrôles conservés. Aucun appel à Albert."
                        + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
@@ -1849,8 +1849,10 @@ if prompt_a_traiter:
             # Rédacteur annoncé dans la trace (modèle de l'appel short_answer) : jamais de bascule silencieuse.
             _generation_llm = OpenAI(model='gpt-4o-mini', temperature=0.0, api_key=openai_api_key,
                                      max_tokens=900, max_retries=0, timeout=30)
-        if _gpt41_selection and _lot_moteur == "gpt41_tout":
-            # Essai du 20/11/2026, lot de rejeu seulement : gpt-4.1 rédige aussi (Mini en secours si gpt-4.1 ne répond pas).
+        if _gpt41_selection and _lot_moteur in (None, "gpt41_tout"):
+            # Depuis le 20/11/2026 (décision de Thierry après rejeu : 35/37 contre 33/37 avec Mini rédacteur) :
+            # gpt-4.1 rédige aussi pour les collègues ; Mini en secours si gpt-4.1 ne répond pas.
+            # Le lot « gpt-4.1 cherche, Mini rédige » garde Mini comme rédacteur, pour comparer.
             _generation_llm = _generation_runtime.albert_adapter.ModeleAvecSecours(
                 OpenAI(model='gpt-4.1', temperature=0.0, api_key=openai_api_key,
                        max_tokens=900, max_retries=0, timeout=40),

@@ -97,3 +97,18 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - **Échecs communs aux deux moteurs**, donc dus aux fiches ou au code et non au rédacteur : B07, B13, B17 (interrupteur du demi-fond), H01 (404 sans la synchro), H05 (tennis de table, qui renvoie au texte sur les sportifs de haut niveau).
 
 — Claude
+
+## 20/11/2026 21 h 45 — Claude : corrections des erreurs communes aux deux moteurs (fiches et code, commits séparés)
+- **2a8a83a** fiche d'accès :
+  - la synchro se vérifie d'abord aussi pour une page d'erreur 403/404/400 (la PR #48 l'avait réservée au lien absent) ;
+  - l'échec d'un dépôt dans un dossier déjà ouvert reste distinct, sans consigne au modèle.
+- **a6c5695** catalogue : « organiser l'épreuve / le CCF au bac » mène à la fiche du référentiel CCF, pour toutes les activités. Le motif du 15/11 avait été retiré à tort ; les épreuves ponctuelles restent exclues.
+- **8673607** app.py : « impossible » ne déclenche plus le verdict en dur des champs, et déclarer ou cocher une APSA certificative est laissé aux fiches (B17).
+- **9b0992f** fiches :
+  - classes en erreur dans l'emploi du temps : la réponse est le mode de la classe (réponse du correspondant reprise dans la fiche de visite des classes) ;
+  - micro-lycée et SEP sont nommés dans la section des groupes particuliers.
+- **ac7e922** correspondant_02 aligné sur Créteil (article 17 R7), décision de Thierry.
+- short_answer.py : une étape qui recopie l'exemple du format est retirée, sans appel supplémentaire.
+- À rejouer : rejeu_valide_2026-11-20.csv en Mini seul, pour comparer aux 20 réponses justes sur 37.
+
+— Claude

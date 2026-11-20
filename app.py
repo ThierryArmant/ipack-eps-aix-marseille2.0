@@ -1804,6 +1804,8 @@ if prompt_a_traiter:
             _albert_redige_voulu = False
         _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and _albert_redige_voulu
                                     and st.secrets.get("ALBERT_API_KEY"))
+        # Essai du 20/11/2026, rejeu administrateur seulement : gpt-4.1 choisit les passages, Mini rédige.
+        _gpt41_selection = bool(_faithful_trial and not _mixed_trial and _lot_moteur == "gpt41_cherche")
         if _albert_redige_trial:
             _albert_adapter = _generation_runtime.albert_adapter
             _albert_redacteur = _albert_adapter.AlbertLLM(
@@ -2850,10 +2852,13 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                 tracer=TracedLLM, question=prompt, public=niveau_actuel_form,
                                 documents=contexte_complet_ia, audit=diagnostic_ia,
                                 academy=academie_reponse, mode=mode, synthesis=True,
-                                selector_llm=OpenAI(model='gpt-4o-mini', temperature=0.0,
+                                selector_llm=(OpenAI(model='gpt-4.1', temperature=0.0,
+                                    api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=45)
+                                    if _gpt41_selection else
+                                    OpenAI(model='gpt-4o-mini', temperature=0.0,
                                     api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20)
-                                    if (_mixed_trial or _albert_redige_trial) else None,
-                                common_pool=not _albert_redige_trial)
+                                    if (_mixed_trial or _albert_redige_trial) else None),
+                                common_pool=not (_albert_redige_trial or _gpt41_selection))
                             usage_ia['calls'] = diagnostic_ia.get('calls', [])
                             _doc_utilises = set(diagnostic_ia.get('exact_extracts', {}).get('selected_ids', []))
                         else:

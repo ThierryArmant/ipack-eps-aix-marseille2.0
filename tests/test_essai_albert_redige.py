@@ -13,7 +13,7 @@ class EssaiAlbertRedige(unittest.TestCase):
         # Depuis le 20/11/2026 : Mini seul pour les collègues ; l'admin voit la même chose par défaut.
         app = Path('app.py').read_text(encoding='utf-8')
         self.assertIn('value=False,\n                    key="admin_albert_redige"', app)
-        self.assertIn('common_pool=not _albert_redige_trial', app)
+        self.assertIn('common_pool=not (_albert_redige_trial or _gpt41_selection))', app)
         self.assertIn("'albert_redige_trial': _albert_redige_trial", app)
 
     def test_collegues_mode_documente_mini_seul_albert_en_essai(self):

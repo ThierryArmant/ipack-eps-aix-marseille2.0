@@ -132,14 +132,18 @@ def compact_comparison_diagnostic(result):
 ENGINE_CHOICES = {
     "Mini seul — Mini cherche et rédige (moteur habituel du HUB)": "mini",
     "Mini cherche, Albert rédige": "albert_redige",
+    "gpt-4.1 cherche, Mini rédige (essai, environ 2 centimes par question)": "gpt41_cherche",
     "Comparer Mini et Albert — chacun cherche et rédige, mêmes documents": "comparaison",
 }
 ENGINE_SHORT = {"mini": "Mini seul", "albert_redige": "Mini cherche, Albert rédige",
+                "gpt41_cherche": "gpt-4.1 cherche, Mini rédige",
                 "comparaison": "comparaison Mini / Albert"}
 ENGINE_HELP = {
     "mini": "gpt-4o-mini choisit les passages puis rédige. Aucun appel à Albert. C'est ce que voient les collègues.",
     "albert_redige": "gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
                      "Un appel à chacun par question. N'agit que sur ce lot.",
+    "gpt41_cherche": "gpt-4.1 choisit les passages (un appel), gpt-4o-mini rédige la réponse courte (un appel). "
+                     "Aucun appel à Albert. N'agit que sur ce lot : les collègues gardent Mini seul.",
     "comparaison": "Deux réponses par question dans le CSV : Mini fait tout d'un côté, Albert fait tout de l'autre. "
                    "Au maximum 2 appels à chacun par question ; 50 questions par lot.",
 }
@@ -321,6 +325,9 @@ def render(st):
             albert_model = st.secrets.get("ALBERT_MODEL") or "gpt-oss-120b"
         if engine == "albert_redige" and not state.get("admin_faithful", True):
             st.error("Cochez « Mode documenté » dans les outils admin : Albert rédige la réponse courte de ce mode.")
+            return
+        if engine == "gpt41_cherche" and not state.get("admin_faithful", True):
+            st.error("Cochez « Mode documenté » dans les outils admin : l'essai gpt-4.1 porte sur le choix des passages de ce mode.")
             return
         st.markdown("**③ Quelles questions ?**")
         numbers = st.text_input("Numéros précis, séparés par des virgules (sinon laisser vide)",

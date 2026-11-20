@@ -70,6 +70,7 @@ _CONDITION = r"\b(?:si|s.il|s.ils|lorsque|lorsqu|quand|en cas|dans le cas|des qu
 # Outils et documents : une phrase ne peut pas appliquer la règle à un objet que ses passages ne citent pas.
 # Consignes adressées au rédacteur dans les fiches (« ne pas inventer… », « le corpus ») : jamais à recopier au collègue.
 _CONSIGNE_INTERNE = r"\binvent\w*|ne (?:pas|jamais) (?:promettre|annoncer|attribuer (?:a|au|aux)\b|presenter\b.{0,60}\bcomme\b)|\bcorpus\b|\bcette fiche\b|\bces fiches\b|\bce releve\b|\bil est important de ne pas\b"
+_GABARIT_RECOPIE = r"ce qu.il faut faire,? et a quoi cela sert|^\s*\[situation\s*:"
 _NOMBRES_EN_LETTRES = {'1': 'une?', '2': 'deux', '3': 'trois', '4': 'quatre', '5': 'cinq', '6': 'six', '7': 'sept',
                        '8': 'huit', '9': 'neuf', '10': 'dix', '12': 'douze', '15': 'quinze', '20': 'vingt', '30': 'trente'}
 _SIGLES_COURANTS = {'eps', 'as', 'unss', 'ccf', 'dnb', 'cap', 'shn', 'tzr', 'aed', 'sss', 'appn', 'ca', 'gt', 'lp',
@@ -324,6 +325,10 @@ def unsupported(phrase, cited_text, question='', titles=''):
         reasons.append('modalite:conclusion_ajoutee')
     if re.search(_CONSIGNE_INTERNE, p):
         reasons.append('forme:consigne_interne')
+    # Rejeu du 20/11/2026 (Mini seul) : l'exemple du format était recopié tel quel (« ce qu'il faut faire, et à quoi
+    # cela sert »), souvent derrière l'intitulé « [SITUATION: …] » pris pour un menu. Ce n'est pas une étape.
+    if re.search(_GABARIT_RECOPIE, p):
+        reasons.append('forme:gabarit_recopie')
     target = _words(phrase)
     pieces = []
     for x in re.split(r'(?<=[.;!?])\s+|\n', cited_text):

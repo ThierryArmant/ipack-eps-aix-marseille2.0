@@ -177,3 +177,14 @@ class Rejeu20NovembreTests(unittest.TestCase):
         self.assertIn('(?<!im)possible', app)
         self.assertIn('groupe|certificativ|coch|case|declar', app)
         self.assertIsNone(re.search(r"(?<!im)possible", "impossible de mettre le demi-fond comme apsa certificative"))
+
+
+class GabaritRecopieTests(unittest.TestCase):
+    def test_exemple_du_format_recopie_retire(self):
+        src = "[SITUATION: CHANGER L'ACTIVITÉ D'UNE SECTION SPORTIVE] - Réponse : saisir dans iPackEPS la demande de changement d'APSA."
+        self.assertIn('forme:gabarit_recopie', sa.unsupported(
+            "[SITUATION: CHANGER L'ACTIVITÉ D'UNE SECTION SPORTIVE] : ce qu'il faut faire, et à quoi cela sert.", src))
+        self.assertNotIn('forme:gabarit_recopie', sa.unsupported("Saisir dans iPackEPS la demande de changement d'APSA.", src))
+        self.assertNotIn('forme:gabarit_recopie', sa.unsupported(
+            "[Dossier EPS] > [Groupes] : créer le groupe, ce qui permet d'y placer les élèves.",
+            "Chemin : [Dossier EPS] > [Groupes] : créer le groupe."))

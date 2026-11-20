@@ -1366,7 +1366,7 @@ if st.session_state.get("is_admin", False):
         st.session_state["admin_mini_redige"] = True
         # Moteur des collègues : Mini choisit les passages, Albert rédige la réponse courte (Mini en secours).
         # Cochée par défaut pour que l'admin voie la même chose que les collègues ; décocher = Mini seul.
-        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=True,
+        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
                     key="admin_albert_redige",
                     help="Sans effet sur le rejeu CSV : le moteur du rejeu se choisit dans son propre bloc.")
         if st.session_state.get("admin_albert_redige"):
@@ -1798,9 +1798,10 @@ if prompt_a_traiter:
         if _lot_moteur:
             _albert_redige_voulu = _lot_moteur == "albert_redige"
         elif _is_admin:
-            _albert_redige_voulu = bool(st.session_state.get("admin_albert_redige", True))
+            _albert_redige_voulu = bool(st.session_state.get("admin_albert_redige", False))
         else:
-            _albert_redige_voulu = True
+            # Stabilisation : Mini seul pour les collègues, Albert uniquement en essai explicite.
+            _albert_redige_voulu = False
         _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and _albert_redige_voulu
                                     and st.secrets.get("ALBERT_API_KEY"))
         if _albert_redige_trial:

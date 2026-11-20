@@ -4,7 +4,7 @@ Origine : réponses écrites du correspondant iPackEPS / chargé de mission exam
 ### [SITUATION: UN GROUPE iPackEPS = UN PROTOCOLE CYCLADES]
 - Formulations courantes des collègues : comment constituer les groupes ; notre groupe mélange terminale pro, terminale générale et première ; le logiciel me demande un seul cycle scolaire pour le groupe ; « ce n'est pas possible car les élèves ne suivent pas la même scolarité ».
 - Réponse : dans iPackEPS, un groupe se comprend comme un protocole dans CYCLADES. Un groupe rassemble des candidats qui présentent le même examen, avec le même ensemble certificatif (mêmes APSA), aux mêmes dates d'épreuves, avec le même enseignant. Chaque élève ne peut être inscrit que dans un seul groupe.
-- Conséquence : si des élèves de diplômes différents travaillent ensemble (par exemple terminale professionnelle et terminale générale), créer un groupe distinct par examen, même s'ils ont cours ensemble. Inutile de créer un groupe pour des élèves qui ne passent pas d'examen cette année (premières, secondes).
+- Conséquence : si des élèves de diplômes différents travaillent ensemble (par exemple terminale professionnelle et terminale générale), créer un groupe distinct par examen, même s'ils ont cours ensemble. Les élèves d'un autre niveau (premières, secondes) vont dans leur propre groupe, un groupe par niveau, placés sur le même créneau d'emploi du temps (article 17 de l'assistance iPackEPS, réponse R7).
 - Les groupes sont distingués par leur nom, mais aussi par leur niveau de classe et l'examen correspondant : vérifier ces paramètres dans [Dossier EPS] > [Groupes].
 
 ### [SITUATION: MODE « SEUL OU MIXTE » OU MODE « GROUPE » (ORGANISATION DES CLASSES)]

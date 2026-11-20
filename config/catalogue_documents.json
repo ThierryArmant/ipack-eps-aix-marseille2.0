@@ -7076,7 +7076,8 @@
       "ipack"
     ],
     "motifs": [
-      "(?=.*(?:\\bafl ?[123]\\b|\\bafl\\b|bareme|12 points|8 points|repartition|\\b4.4\\b|\\b6.2\\b|\\b2.6\\b|seuil|referentiel national|role (?:choisi|evalue)|roles? de l.eleve|carnet d.entrainement|champs? d.apprentissage|combien de points))"
+      "(?=.*(?:\\bafl ?[123]\\b|\\bafl\\b|bareme|12 points|8 points|repartition|\\b4.4\\b|\\b6.2\\b|\\b2.6\\b|seuil|referentiel national|role (?:choisi|evalue)|roles? de l.eleve|carnet d.entrainement|champs? d.apprentissage|combien de points))",
+      "(?=.*organis)(?=.*(?:\\bccf\\b|epreuves?.*(?:\\bbac\\b|baccalaureat)|(?:\\bbac\\b|baccalaureat).*epreuves?))"
     ],
     "exclure_motifs": [
       "ponctuel|candidat (?:libre|individuel)|cned|\\bcap\\b|bac ?pro|\\bbcp\\b|aflp|absen|\\bsech|inapt|dispens|blesse|\\bshn\\b|haut niveau|option|eppcs|\\bdnb\\b|college|parametr|personnalis|sans pratiquer|uniquement|seulement"

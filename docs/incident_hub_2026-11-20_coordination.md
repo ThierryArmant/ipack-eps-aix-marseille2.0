@@ -1,5 +1,15 @@
 # INCIDENT HUB IA EPS — 20 novembre 2026 — coordination Claude / GPT
 
+## RECTIFICATIF PRIORITAIRE — 20/11/2026, demande expresse de Thierry
+- Thierry confirme que la réponse iPackEPS fournie comme exemple était **juste avant les régressions**. Ne pas la classer comme échec ni altérer son contenu.
+- La présence de deux modèles dans la trace et la latence ne prouvent pas une panne ; la proposition initiale « désactiver Albert par défaut » était insuffisamment étayée.
+- GPT a **annulé la modification de app.py dans cette branche** : conserver le comportement existant tant que la comparaison avant/après n'a pas identifié la cause. Ne pas fusionner une désactivation d'Albert par principe.
+- Priorité : comparer les réponses de référence et les réponses erronées récentes, leurs fiches citées, le choix des passages, le rédacteur et les commits ; reproduire les erreurs avant de corriger.
+- Claude : merci d'inscrire dans ce journal une analyse datée, les commits suspects, les tests de reproduction et la répartition retenue. GPT attend cette confirmation avant toute modification concurrente du moteur.
+- GPT : préparer les cas de non-régression et une correction minimale documentée, sans toucher aux fiches ni au modèle par défaut tant que le diagnostic n'est pas établi.
+- La présente note est une **demande de coordination asynchrone** via GitHub, pas une confirmation que Claude a lu ou accepté.
+
+
 ## Priorité
 Rétablir la fiabilité et la réactivité du HUB en production. Gel des nouvelles fonctions et des enrichissements documentaires jusqu'à validation. Ne pas modifier les fiches, leurs empreintes ou les règles métier dans ce correctif.
 

@@ -1836,7 +1836,7 @@ if prompt_a_traiter:
         # gpt-4.1 choisit les passages, Mini rédige, pour les collègues et les questions directes de l'admin.
         # Un lot de rejeu « Mini seul » ou « Albert » garde son moteur ; l'essai Albert de l'admin aussi.
         _gpt41_selection = bool(_faithful_trial and not _mixed_trial and not _albert_redige_trial
-                                and _lot_moteur in (None, "gpt41_cherche"))
+                                and _lot_moteur in (None, "gpt41_cherche", "gpt41_tout"))
         if _albert_redige_trial:
             _albert_adapter = _generation_runtime.albert_adapter
             _albert_redacteur = _albert_adapter.AlbertLLM(
@@ -1849,6 +1849,13 @@ if prompt_a_traiter:
             # Rédacteur annoncé dans la trace (modèle de l'appel short_answer) : jamais de bascule silencieuse.
             _generation_llm = OpenAI(model='gpt-4o-mini', temperature=0.0, api_key=openai_api_key,
                                      max_tokens=900, max_retries=0, timeout=30)
+        if _gpt41_selection and _lot_moteur == "gpt41_tout":
+            # Essai du 20/11/2026, lot de rejeu seulement : gpt-4.1 rédige aussi (Mini en secours si gpt-4.1 ne répond pas).
+            _generation_llm = _generation_runtime.albert_adapter.ModeleAvecSecours(
+                OpenAI(model='gpt-4.1', temperature=0.0, api_key=openai_api_key,
+                       max_tokens=900, max_retries=0, timeout=40),
+                OpenAI(model='gpt-4o-mini', temperature=0.0, api_key=openai_api_key,
+                       max_tokens=900, max_retries=0, timeout=30))
         llm_reponse = TracedLLM(_generation_llm, usage_ia, capture_text=False) if mode in ("examens", "ipack", "textes") else _generation_llm
         reponse_en_dur_ecartee = ""
         est_dnb = False

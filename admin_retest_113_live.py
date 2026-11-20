@@ -130,20 +130,20 @@ def compact_comparison_diagnostic(result):
 
 # Un seul endroit pour choisir qui répond pendant le rejeu (le choix vaut pour tout le lot).
 ENGINE_CHOICES = {
-    "Mini seul — Mini cherche et rédige (moteur habituel du HUB)": "mini",
+    "gpt-4.1 cherche, Mini rédige (moteur des collègues depuis le 20/11/2026)": "gpt41_cherche",
+    "Mini seul — Mini cherche et rédige (ancien moteur, avant le 20/11/2026)": "mini",
     "Mini cherche, Albert rédige": "albert_redige",
-    "gpt-4.1 cherche, Mini rédige (essai, environ 2 centimes par question)": "gpt41_cherche",
     "Comparer Mini et Albert — chacun cherche et rédige, mêmes documents": "comparaison",
 }
 ENGINE_SHORT = {"mini": "Mini seul", "albert_redige": "Mini cherche, Albert rédige",
                 "gpt41_cherche": "gpt-4.1 cherche, Mini rédige",
                 "comparaison": "comparaison Mini / Albert"}
 ENGINE_HELP = {
-    "mini": "gpt-4o-mini choisit les passages puis rédige. Aucun appel à Albert. C'est ce que voient les collègues.",
+    "mini": "gpt-4o-mini choisit les passages puis rédige. Aucun appel à Albert. Ancien moteur des collègues, gardé pour comparer.",
     "albert_redige": "gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte. "
                      "Un appel à chacun par question. N'agit que sur ce lot.",
     "gpt41_cherche": "gpt-4.1 choisit les passages (un appel), gpt-4o-mini rédige la réponse courte (un appel). "
-                     "Aucun appel à Albert. N'agit que sur ce lot : les collègues gardent Mini seul.",
+                     "Aucun appel à Albert. C'est ce que voient les collègues (environ 1,5 centime par question).",
     "comparaison": "Deux réponses par question dans le CSV : Mini fait tout d'un côté, Albert fait tout de l'autre. "
                    "Au maximum 2 appels à chacun par question ; 50 questions par lot.",
 }

@@ -1376,7 +1376,7 @@ if st.session_state.get("is_admin", False):
             st.caption("Essai Albert (différent des collègues) : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte, "
                        "Mini rédige si Albert est indisponible. Le rejeu CSV garde son propre choix de moteur." + (" · version " + _sha if _sha else ""))
         else:
-            st.caption("Comme les collègues, Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
+            st.caption("Comme les collègues : gpt-4.1 choisit les passages (Mini en secours si gpt-4.1 ne répond pas), gpt-4o-mini rédige la réponse courte. Deux appels, extraits et contrôles conservés. Aucun appel à Albert."
                        + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
@@ -1807,8 +1807,11 @@ if prompt_a_traiter:
             _albert_redige_voulu = False
         _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and _albert_redige_voulu
                                     and st.secrets.get("ALBERT_API_KEY"))
-        # Essai du 20/11/2026, rejeu administrateur seulement : gpt-4.1 choisit les passages, Mini rédige.
-        _gpt41_selection = bool(_faithful_trial and not _mixed_trial and _lot_moteur == "gpt41_cherche")
+        # Depuis le 20/11/2026 (décision de Thierry après rejeu : 33/37 contre 21/37 pour Mini seul) :
+        # gpt-4.1 choisit les passages, Mini rédige, pour les collègues et les questions directes de l'admin.
+        # Un lot de rejeu « Mini seul » ou « Albert » garde son moteur ; l'essai Albert de l'admin aussi.
+        _gpt41_selection = bool(_faithful_trial and not _mixed_trial and not _albert_redige_trial
+                                and _lot_moteur in (None, "gpt41_cherche"))
         if _albert_redige_trial:
             _albert_adapter = _generation_runtime.albert_adapter
             _albert_redacteur = _albert_adapter.AlbertLLM(
@@ -2855,8 +2858,11 @@ Les titres, priorités et exemples des fiches facilitent la recherche ; vérifie
                                 tracer=TracedLLM, question=prompt, public=niveau_actuel_form,
                                 documents=contexte_complet_ia, audit=diagnostic_ia,
                                 academy=academie_reponse, mode=mode, synthesis=True,
-                                selector_llm=(OpenAI(model='gpt-4.1', temperature=0.0,
-                                    api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=45)
+                                selector_llm=(_generation_runtime.albert_adapter.ModeleAvecSecours(
+                                    OpenAI(model='gpt-4.1', temperature=0.0,
+                                        api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=30),
+                                    OpenAI(model='gpt-4o-mini', temperature=0.0,
+                                        api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20))
                                     if _gpt41_selection else
                                     OpenAI(model='gpt-4o-mini', temperature=0.0,
                                     api_key=openai_api_key, max_tokens=600, max_retries=0, timeout=20)

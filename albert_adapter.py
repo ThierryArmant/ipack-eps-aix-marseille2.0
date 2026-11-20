@@ -169,6 +169,33 @@ class AlbertWithFallback:
         return self.complete_with_attempts(prompt, lambda target, text, **opts: target.complete(text, **opts), **kwargs)
 
 
+class ModeleAvecSecours:
+    """Un essai du modèle principal (gpt-4.1 pour le choix des passages), puis Mini en cas de panne réseau,
+    de délai ou de quota. Une réponse reçue n'est jamais refaite : seul un échec d'appel déclenche le secours.
+    Les deux tentatives restent traçables (complete_with_attempts)."""
+    def __init__(self, primary, fallback):
+        self.primary, self.fallback = primary, fallback
+        self.model = getattr(primary, 'model', '')
+        self.temperature = getattr(primary, 'temperature', 0.0)
+        self.resolved_model = None
+        self.fallback_reason = None
+
+    def complete_with_attempts(self, prompt, invoke, **kwargs):
+        if self.fallback_reason is None:
+            try:
+                result = invoke(self.primary, prompt, **kwargs)
+                self.resolved_model = getattr(self.primary, 'model', '')
+                return result
+            except Exception as exc:
+                self.fallback_reason = type(exc).__name__
+        result = invoke(self.fallback, prompt, **kwargs)
+        self.resolved_model = getattr(self.fallback, 'model', '')
+        return result
+
+    def complete(self, prompt, **kwargs):
+        return self.complete_with_attempts(prompt, lambda target, text, **opts: target.complete(text, **opts), **kwargs)
+
+
 def generation_llm(*, openai_llm, api_key=None, albert_model='', provider='albert'):
     """Objet neuf par question : aucun état de panne partagé entre collègues."""
     if ALBERT_PAUSED or provider == 'openai' or not api_key:

@@ -1364,16 +1364,16 @@ if st.session_state.get("is_admin", False):
         st.session_state["admin_mini_albert"] = False
         st.session_state["admin_albert_only"] = False
         st.session_state["admin_mini_redige"] = True
-        # Moteur des collègues : Mini choisit les passages, Albert rédige la réponse courte (Mini en secours).
-        # Cochée par défaut pour que l'admin voie la même chose que les collègues ; décocher = Mini seul.
-        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=True,
+        # Moteur des collègues depuis le 20 novembre 2026 : Mini seul (Albert retiré, rédaction devenue trop lente).
+        # Décochée par défaut pour que l'admin voie la même chose que les collègues ; cocher = essai Albert.
+        st.checkbox("Questions posées en direct : Albert rédige la réponse courte (Mini choisit les passages)", value=False,
                     key="admin_albert_redige",
                     help="Sans effet sur le rejeu CSV : le moteur du rejeu se choisit dans son propre bloc.")
         if st.session_state.get("admin_albert_redige"):
-            st.caption("Comme les collègues : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte, "
+            st.caption("Essai Albert (différent des collègues) : gpt-4o-mini choisit les passages, Albert (gpt-oss-120b) rédige la réponse courte, "
                        "Mini rédige si Albert est indisponible. Le rejeu CSV garde son propre choix de moteur." + (" · version " + _sha if _sha else ""))
         else:
-            st.caption("Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
+            st.caption("Comme les collègues, Mini seul : gpt-4o-mini choisit les passages puis rédige la réponse courte. Deux appels au maximum, extraits et contrôles conservés. Aucun appel à Albert."
                        + (" · version " + _sha if _sha else ""))
 
         from openai_test_adapter import TEST_MODELS
@@ -1798,9 +1798,10 @@ if prompt_a_traiter:
         if _lot_moteur:
             _albert_redige_voulu = _lot_moteur == "albert_redige"
         elif _is_admin:
-            _albert_redige_voulu = bool(st.session_state.get("admin_albert_redige", True))
+            _albert_redige_voulu = bool(st.session_state.get("admin_albert_redige", False))
         else:
-            _albert_redige_voulu = True
+            # Collègues : Mini rédige (décision de Thierry, 20 novembre 2026 : Albert 20 à 40 s par réponse).
+            _albert_redige_voulu = False
         _albert_redige_trial = bool(_faithful_trial and not _mixed_trial and _albert_redige_voulu
                                     and st.secrets.get("ALBERT_API_KEY"))
         if _albert_redige_trial:

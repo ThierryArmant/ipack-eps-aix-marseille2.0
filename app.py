@@ -172,6 +172,9 @@ try:
     os.makedirs(nltk_data_dir, exist_ok=True)
     nltk.data.path.append(nltk_data_dir)
     os.environ.setdefault("NLTK_DATA", nltk_data_dir)
+    # Secours joint au dépôt (20/11/2026) : sans réseau au démarrage, la liste des mots vides manquait
+    # et l'indexation plantait (« Resource stopwords not found »). Placé en dernier : un téléchargement réussi prime.
+    nltk.data.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "nltk_data_secours"))
     # Les versions récentes de NLTK cherchent « punkt_tab » (et non plus « punkt ») : sans lui,
     # erreur « Resource punkt_tab not found » au découpage des textes. Chaque ressource séparément :
     # un échec n'empêche pas les autres.

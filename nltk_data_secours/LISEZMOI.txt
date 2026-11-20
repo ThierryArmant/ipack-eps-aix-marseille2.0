@@ -1,0 +1,3 @@
+Données NLTK de secours (20 novembre 2026).
+Le hub télécharge les données NLTK à chaque démarrage. Le 20/11/2026, après un « Reboot app » (environnement reconstruit en Python 3.14), ce téléchargement a échoué et le hub ne démarrait plus (« Resource stopwords not found »).
+Ce dossier contient la liste des mots vides anglais (corpora/stopwords/english) utilisée par la bibliothèque d'indexation. Il est ajouté en dernier au chemin de recherche NLTK : s'il existe une version téléchargée, c'est elle qui sert.

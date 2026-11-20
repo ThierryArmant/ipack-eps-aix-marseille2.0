@@ -2743,8 +2743,10 @@ if prompt_a_traiter:
                         # ici et remplace la réponse de l'IA, qui se trompait encore de champ malgré les faits fournis.
                         # Message long ou portant sur une manipulation (liste des APSA, référentiel, groupes) : ce n'est pas une question
                         # « ces deux activités dans le même protocole ? ». Le verdict en dur répondait alors à côté (courses / relais, boîte d'assistance).
-                        if (len(_q_simple) <= 260 and not _remplacement and not re.search(r"fca|referentiel|depos|depot|liste|menu deroulant|apsa etablissement|niveau|groupe", _q_simple)
-                                and re.search(r"protocole|ensemble certificatif|meme |possible|valable|ca passe|compatible", _q_simple)):
+                        # « Impossible de mettre le demi-fond comme APSA certificative » (boîte d'assistance) : « impossible » contient
+                        # « possible », et déclarer ou cocher une APSA certificative est une manipulation, laissée aux fiches.
+                        if (len(_q_simple) <= 260 and not _remplacement and not re.search(r"fca|referentiel|depos|depot|liste|menu deroulant|apsa etablissement|niveau|groupe|certificativ|coch|case|declar", _q_simple)
+                                and re.search(r"protocole|ensemble certificatif|meme |(?<!im)possible|valable|ca passe|compatible", _q_simple)):
                             _detail = " ; ".join(f"{nom} (champ {ca})" for nom, ca in _trouvees)
                             if _memes:
                                 verdict_champs = ("<p><strong>Pas pour un même candidat :</strong> " + " ; ".join(_memes) + " relèvent du même champ d'apprentissage. "

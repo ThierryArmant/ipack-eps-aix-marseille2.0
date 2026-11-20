@@ -34,13 +34,23 @@ class Erreur404Tests(unittest.TestCase):
 
     def test_synchro_manuelle_et_entree_par_role_avant_les_blocages(self):
         texte = ACCES.read_text(encoding='utf-8')
-        synchro = texte.index("Réponse directe — uniquement si l'utilisateur n'arrive pas")
+        synchro = texte.index("Réponse directe — première vérification quand on n'arrive pas à entrer dans iPackEPS")
         role = texte.index("Réponse directe — entrée dans iPackEPS selon sa fonction")
         self.assertLess(synchro, role)
         self.assertLess(role, texte.index("Trois blocages différents"))
         self.assertIn('[Aide] > Infos Assistance > [Synchro manuelle]', texte)
         self.assertIn('[Professeur EPS]', texte)
         self.assertIn('[Chef établissement]', texte)
+
+    def test_erreur_404_commence_par_la_synchro(self):
+        # 20/11/2026 : la page d'erreur 403/404/400 est un problème d'entrée ; la synchro se vérifie d'abord,
+        # mais un échec de dépôt dans un dossier déjà ouvert reste distinct (PR #48).
+        texte = ACCES.read_text(encoding='utf-8')
+        ligne = next(l for l in texte.splitlines() if l.startswith("- Réponse directe — le lien iPackEPS existe mais ouvre une page d'erreur"))
+        self.assertLess(ligne.index('[Synchro manuelle]'), ligne.index('changer de navigateur'))
+        self.assertIn("404 « ressource non trouvée »", texte.splitlines()[2])
+        self.assertIn("relève d'une autre cause", texte)
+        self.assertNotIn("Ne pas proposer la synchronisation", texte)
 
     def test_aucun_renvoi_sans_contenu(self):
         texte = ACCES.read_text(encoding='utf-8')
@@ -146,3 +156,24 @@ class LigneAccesTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class Rejeu20NovembreTests(unittest.TestCase):
+    """Erreurs communes aux deux moteurs dans le rejeu des questions validées du 20/11/2026."""
+
+    def test_organiser_les_epreuves_au_bac_mene_a_la_fiche_ccf(self):
+        from knowledge_catalog import reference_notice
+        for question in ('Comment organiser les épreuves de tennis de table au bac ?',
+                         'Comment organiser le CCF de badminton ?',
+                         "Au bac, comment organiser l'épreuve de danse ?"):
+            chemins = [p for p, _ in reference_notice({'gt'}, question, 'Lycée Général & Techno')]
+            self.assertTrue(chemins and chemins[0].endswith('gt_referentiel_ccf.txt'), question)
+        ponctuel = [p for p, _ in reference_notice({'gt'}, 'Comment organiser les épreuves ponctuelles des candidats libres au bac ?', 'Lycée Général & Techno')]
+        self.assertFalse(any(p.endswith('gt_referentiel_ccf.txt') for p in ponctuel))
+
+    def test_impossible_de_declarer_certificative_laisse_aux_fiches(self):
+        import re
+        app = Path('app.py').read_text(encoding='utf-8')
+        self.assertIn('(?<!im)possible', app)
+        self.assertIn('groupe|certificativ|coch|case|declar', app)
+        self.assertIsNone(re.search(r"(?<!im)possible", "impossible de mettre le demi-fond comme apsa certificative"))

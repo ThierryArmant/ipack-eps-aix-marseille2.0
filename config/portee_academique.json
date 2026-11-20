@@ -1118,7 +1118,7 @@
     {
      "section": "### Connexion depuis un ordinateur personnel : repérer l'étape qui bloque",
      "lignes": [
-      "Réponse directe — uniquement si l'utilisateur n'arrive pas à accéder à iPackEPS depuis ESTEREL (lien absent ou portail bloqué), à Aix-Marseille : vérifier que la synchronisation manuelle a bien été faite dans ESTEREL depuis la mise à jour d'avril 2025, qui obligeait à refaire son mot de passe : [Aide] > Infos Assistance > [Synchro manuelle] ; le même panneau indique l'état de la connexion à ARENA (« Connecté ») et l'heure de la dernière et de la prochaine synchronisation. Seulement si elle n'a jamais été faite depuis avril 2025, la faire. Si elle a déjà été faite, il n'y a pas à la refaire ni à changer son mot de passe : passer aux vérifications suivantes.",
+      "Réponse directe — première vérification quand on n'arrive pas à entrer dans iPackEPS (lien absent, retour vers ESTEREL, page d'erreur 403, 404 « ressource non trouvée » ou 400), à Aix-Marseille : vérifier que la synchronisation manuelle a bien été faite dans ESTEREL depuis la mise à jour d'avril 2025, qui obligeait à refaire son mot de passe : [Aide] > Infos Assistance > [Synchro manuelle] ; le même panneau indique l'état de la connexion à ARENA (« Connecté ») et l'heure de la dernière et de la prochaine synchronisation. Seulement si elle n'a jamais été faite depuis avril 2025, la faire. Si elle a déjà été faite, il n'y a pas à la refaire ni à changer son mot de passe : passer aux vérifications suivantes.",
       "Réponse directe — entrée dans iPackEPS selon sa fonction, à Aix-Marseille : dans ESTEREL, l'application iPackEPS propose une entrée par fonction, et chacun ne voit que la sienne : [Professeur EPS] pour un professeur d'EPS, [Chef établissement] pour un chef d'établissement (le correspondant académique et les IA-IPR ont aussi la leur). Choisir l'entrée de sa fonction.",
       "- Formulations courantes des collègues : je clique sur iPackEPS et je suis renvoyé vers ESTEREL ; je retombe sur le portail ; je n'arrive pas à entrer dans iPackEPS ; je suis redirigée vers ESTEREL ; impossible d'accéder à iPackEPS depuis le portail.",
       "Repère : Dans l'académie d'Aix-Marseille, le portail est ESTEREL : iPackEPS se trouve dans le bloc « Enquête et pilotage » ; s'il n'apparaît pas, bouton « Aide » > « Synchro manuelle » > « Rafraîchir la page ». Ailleurs, dans le nouveau portail ARENA (2025), iPackEPS se trouve dans la rubrique « Structures et personnels ». Dans l'ancien portail, il était dans « Enquêtes et Pilotage » > « Pilotage académique ». Le correspondant académique iPackEPS de votre académie est l'interlocuteur à contacter.",
@@ -1126,9 +1126,15 @@
      ]
     },
     {
+     "section": "### [SITUATION: ERREUR 403 FORBIDDEN, 404 NOT FOUND (« RESSOURCE NON TROUVÉE ») OU 400 BAD REQUEST EN CLIQUANT SUR iPackEPS]",
+     "lignes": [
+      "- Réponse directe — le lien iPackEPS existe mais ouvre une page d'erreur (« Error 403 – Forbidden », « NOT FOUND », c'est-à-dire l'erreur 404 parfois affichée « ressource non trouvée », ou « Error 400 Bad Request ») : des mises à jour d'ARENA ont rendu certains accès instables. À Aix-Marseille, vérifier d'abord que la synchronisation manuelle a été faite dans ESTEREL depuis la mise à jour d'avril 2025 ([Aide] > Infos Assistance > [Synchro manuelle]), puis trois essais, dans l'ordre : 1) changer de navigateur ; 2) vider le cache (raccourci Ctrl + Maj + Suppr, puis « supprimer les données de navigation ») ; 3) supprimer puis recréer le favori ARENA : cliquer sur [Gérer mes favoris], sélectionner iPackEPS professeur dans sa rubrique, valider, revenir à l'accueil ; iPackEPS apparaît dans [Mes favoris] et le clic sur ce lien rétablit l'accès."
+     ]
+    },
+    {
      "section": "### [SITUATION: iPackEPS FONCTIONNE-T-IL SUR MAC, TABLETTE OU PC ? FAUT-IL L'INSTALLER OU LE METTRE À JOUR ? QUELLE VERSION ?]",
      "lignes": [
-      "Limite d'application : cette procédure de synchronisation ESTEREL ne résout pas un problème de dépôt, d'envoi ou de publication d'un fichier dans un dossier iPackEPS déjà ouvert (SSS, reconduction, bilan, acte, annexe). Ne pas proposer la synchronisation, la recréation des favoris ARENA ni le vidage du cache comme réponse automatique à ce cas. Diagnostiquer l'action précise et le message affiché."
+      "Limite d'application : la synchronisation ESTEREL, les favoris ARENA et le cache concernent l'entrée dans iPackEPS. Une fois dans iPackEPS, un échec de dépôt, d'envoi ou de publication d'un fichier dans un dossier (SSS, reconduction, bilan, acte, annexe) relève d'une autre cause : l'action précise et le message affiché la désignent."
      ]
     }
    ]

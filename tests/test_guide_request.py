@@ -5,6 +5,15 @@ class RequestTests(unittest.TestCase):
         for q in ['aide moi sui sperdu', 'aide moi je sui perdu', 'je suis perud', 'aid emoi', 'aide moi je suis perdu', 'Je suis perdue dans iPackEPS', 'Je ne sais pas par où commencer', 'aidez-moi svp', 'aide-moi']:
             for p in ['Collège','Lycée Général & Techno','Lycée Pro / CAP']:
                 self.assertTrue(requests_guide(q,'ipack',p),q)
+    def test_appel_a_l_aide_sans_sujet_21_novembre(self):
+        # Question réelle d'un collègue (21/11/2026) : la recherche lui avait renvoyé la fiche APPN.
+        for q in ["J'ai besoin du pas à pas guidé", 'pas à pas', 'Je veux être guidé', 'guidez-moi', 'aide',
+                  "je n'y arrive pas du tout", "je n'arrive pas à remplir iPackEPS", 'besoin d’aide étape par étape']:
+            self.assertTrue(requests_guide(q, 'ipack', 'Collège (DNB)'), q)
+        for q in ["J'ai besoin du pas à pas pour la section sportive", "je n'arrive pas à remplir le projet SSS",
+                  'aide pour créer mes groupes', 'guide des APSA certificatives']:
+            self.assertFalse(requests_guide(q, 'ipack', 'Collège (DNB)'), q)
+
     def test_concrete_or_other_context(self):
         for q in ['je suis perdu dans les groupes', 'aide moi pour les classes', 'J’ai perdu mes classes', 'je suis perdu comment importer mes élèves', 'Qui modifie la liste des enseignants ?', 'ma vidéo est perdue']:
             self.assertFalse(requests_guide(q,'ipack','Collège'),q)

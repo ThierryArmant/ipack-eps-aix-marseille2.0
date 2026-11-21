@@ -30,9 +30,14 @@ def requests_guide(question, mode, public):
         return True
 
     # Une demande générique seulement : une question précise reste dans son circuit habituel.
-    allowed = set('aide aidez aider moi nous pouvez vous peux tu svp s il te vous plait bonjour merci je j on suis est perdu perdue perdus perdues completement totalement un peu vraiment ici dans sur avec ipack ipackeps le hub ne n sais sait savons pas plus par ou quoi comment commencer faire me m y retrouver guide guider besoin d de et au secours rien comprends comprend comprendrais arrive utiliser'.split())
+    # 21/11/2026 : « J'ai besoin du pas à pas guidé », « guidez-moi », « aide », « je n'y arrive pas du tout »
+    # sont aussi des appels à l'aide sans sujet ; avant, ils partaient en recherche et recevaient une fiche au hasard.
+    allowed = set('aide aidez aider moi nous pouvez vous peux tu svp s il te vous plait bonjour merci je j on suis est perdu perdue perdus perdues completement totalement un peu vraiment ici dans sur avec ipack ipackeps le hub ne n sais sait savons pas plus par ou quoi comment commencer faire me m y retrouver guide guider besoin d de et au secours rien comprends comprend comprendrais arrive utiliser'
+                  ' ai a du la les l une etre guidee guides guidez guidage etape etapes accompagner accompagnez accompagnement'
+                  ' veux voudrais souhaite souhaiterais aimerais avoir tout mode procedure remplir renseigner saisir eps'.split())
     return (bool(words) and set(words) <= allowed and
-            bool(re.search(r'perdu|par ou commencer|(?:aide|aidez|guide|guidez)[ -]moi|au secours|(?:m.y|me) retrouver', q)))
+            bool(re.search(r'perdu|par ou commencer|\baide[rz]?\b|guid|pas a pas|etape par etape|accompagn|au secours'
+                           r'|arrive (?:pas|plus|rien)|(?:m.y|me) retrouver', q)))
 
 
 def vague_request_opens_guide(question, mode, public):

@@ -6781,6 +6781,46 @@
    "autres_academies_citees": [],
    "portee_texte": null,
    "titre": "Harcèlement et mise à l'écart d'un élève par ses camarades : reconnaître et alerter"
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_plan_des_menus_et_dossiers_attendus.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS (interface inspection), commun aux académies",
+   "titre": "iPackEPS côté inspection : plan des menus et dossiers attendus"
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_dossier_certificatif_validation_referentiels.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS (interface inspection), commun aux académies",
+   "titre": "iPackEPS côté inspection : Dossier Certificatif, validation des référentiels et réponse au lycée"
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_dossier_sss_validation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS (interface inspection), commun aux académies",
+   "titre": "iPackEPS côté inspection : Dossier SSS, validation et activation"
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_dossier_appn_validation.txt": {
+   "nature": [
+    "logiciel"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [],
+   "portee_texte": "fonctionnement du logiciel iPackEPS (interface inspection), commun aux académies",
+   "titre": "iPackEPS côté inspection : Dossier APPN, validation d'une demande"
   }
  }
 }

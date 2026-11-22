@@ -9418,5 +9418,75 @@
     "exclure_motifs": [
       "\\bm.?(?:a|ont)? ?harcel|\\bme harcel|harcel\\w* (?:par|de) (?:un |une |mon |ma |le |la |les )?(?:parents?|chef|principal\\w*|proviseur\\w*|collegues?|inspect\\w*|hierarchie|direction)|(?:collegue|enseignant|professeur|personnel)s? (?:est |sont )?harcel"
     ]
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_plan_des_menus_et_dossiers_attendus.txt": {
+    "title": "iPackEPS côté inspection : plan des menus et dossiers attendus",
+    "statut": "releve_ecran_ipr_2026-11-22_a_confirmer",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "dossiers? attendus?",
+      "(?=.*(?:je suis (?:ia.?)?ipr|je suis inspect|en tant qu.(?:ia.?)?ipr|en tant qu.inspect|en tant que (?:membre de la )?commission|en tant que correspondant|cote (?:inspection|academie|commission|ipr)|interface (?:ia.?)?ipr|^(?:ia.?)?ipr\\b|(?:valider|traiter|bloquer|debloquer|cocher|decocher|activer) (?:le |la |les )?(?:dossier|referentiel|demande|section|sss|appn)s?.{0,25}d.un (?:lycee|college|etablissement)))(?=.*(?:sous.?commission|gestion commissions?|tableau de bord|menus?|annuaire))",
+      "commission ?(?:pro)?eps.{0,40}(?:sous.?commission|sauvegarde|export)"
+    ],
+    "exclure_motifs": [
+      "\\bmon (?:dossier|etablissement|lycee|college|referentiel)\\b|\\bmes referentiels\\b|\\bma (?:section|demande)\\b|\\bnotre (?:dossier|section|etablissement|demande)\\b|\\bnos referentiels\\b|j.ai (?:depose|envoye|soumis)|par l.inspection|l.inspection (?:a|m.a|nous a)"
+    ]
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_dossier_certificatif_validation_referentiels.txt": {
+    "title": "iPackEPS côté inspection : Dossier Certificatif, validation des référentiels et réponse au lycée",
+    "statut": "releve_ecran_ipr_2026-11-22_a_confirmer",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:je suis (?:ia.?)?ipr|je suis inspect|en tant qu.(?:ia.?)?ipr|en tant qu.inspect|en tant que (?:membre de la )?commission|en tant que correspondant|cote (?:inspection|academie|commission|ipr)|interface (?:ia.?)?ipr|^(?:ia.?)?ipr\\b|(?:valider|traiter|bloquer|debloquer|cocher|decocher|activer) (?:le |la |les )?(?:dossier|referentiel|demande|section|sss|appn)s?.{0,25}d.un (?:lycee|college|etablissement)))(?=.*(?:referentiel|dossier certificatif|fiche de synthese|protocole))",
+      "repondre (?:a|au) (?:un |le )?(?:lycee|etablissement).{0,80}(?:commentaire|dossier|referentiel)",
+      "commentaire (?:d.un|du|de l.) ?(?:lycee|etablissement).{0,60}(?:repondre|lire)"
+    ],
+    "exclure_motifs": [
+      "\\bmon (?:dossier|etablissement|lycee|college|referentiel)\\b|\\bmes referentiels\\b|\\bma (?:section|demande)\\b|\\bnotre (?:dossier|section|etablissement|demande)\\b|\\bnos referentiels\\b|j.ai (?:depose|envoye|soumis)|par l.inspection|l.inspection (?:a|m.a|nous a)"
+    ]
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_dossier_sss_validation.txt": {
+    "title": "iPackEPS côté inspection : Dossier SSS, validation et activation",
+    "statut": "releve_ecran_ipr_2026-11-22_a_confirmer",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:je suis (?:ia.?)?ipr|je suis inspect|en tant qu.(?:ia.?)?ipr|en tant qu.inspect|en tant que (?:membre de la )?commission|en tant que correspondant|cote (?:inspection|academie|commission|ipr)|interface (?:ia.?)?ipr|^(?:ia.?)?ipr\\b|(?:valider|traiter|bloquer|debloquer|cocher|decocher|activer) (?:le |la |les )?(?:dossier|referentiel|demande|section|sss|appn)s?.{0,25}d.un (?:lycee|college|etablissement)))(?=.*(?:\\bsss\\b|section sportive))",
+      "(?:cocher|decocher|activer|desactiver).{0,40}(?:\\bsss\\b|section sportive).{0,60}(?:dossiers? attendus?|d.un etablissement)",
+      "un etablissement ne peut pas creer (?:de |un )?groupes? (?:de type )?sss"
+    ],
+    "exclure_motifs": [
+      "\\bmon (?:dossier|etablissement|lycee|college|referentiel)\\b|\\bmes referentiels\\b|\\bma (?:section|demande)\\b|\\bnotre (?:dossier|section|etablissement|demande)\\b|\\bnos referentiels\\b|j.ai (?:depose|envoye|soumis)|par l.inspection|l.inspection (?:a|m.a|nous a)"
+    ]
+  },
+  "data/ipack/visite_ipr_2026_11_22/ipr_dossier_appn_validation.txt": {
+    "title": "iPackEPS côté inspection : Dossier APPN, validation d'une demande",
+    "statut": "releve_ecran_ipr_2026-11-22_a_confirmer",
+    "examens": [],
+    "modes": [
+      "ipack"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "motifs": [
+      "(?=.*(?:je suis (?:ia.?)?ipr|je suis inspect|en tant qu.(?:ia.?)?ipr|en tant qu.inspect|en tant que (?:membre de la )?commission|en tant que correspondant|cote (?:inspection|academie|commission|ipr)|interface (?:ia.?)?ipr|^(?:ia.?)?ipr\\b|(?:valider|traiter|bloquer|debloquer|cocher|decocher|activer) (?:le |la |les )?(?:dossier|referentiel|demande|section|sss|appn)s?.{0,25}d.un (?:lycee|college|etablissement)))(?=.*\\bappn\\b)"
+    ],
+    "exclure_motifs": [
+      "\\bmon (?:dossier|etablissement|lycee|college|referentiel)\\b|\\bmes referentiels\\b|\\bma (?:section|demande)\\b|\\bnotre (?:dossier|section|etablissement|demande)\\b|\\bnos referentiels\\b|j.ai (?:depose|envoye|soumis)|par l.inspection|l.inspection (?:a|m.a|nous a)"
+    ]
   }
 }

@@ -5820,7 +5820,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt",
-      "sha256": "50abc13e287509c3c04eb95c31e589c12fde250f70b5fce5e276705e9f329159",
+      "sha256": "1ba457da49f03a369930c8388396f9f854e37513ff468f25e6053e43cd96a6a7",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
@@ -7157,7 +7157,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt",
-      "sha256": "2d78e6079885a2f4b7595b1203f8bae051953a33859a8173b45be9c52936e909",
+      "sha256": "fe2d4fc3cf43ac91b8becc15d38c62e8b2018dd9109b91eb527799da8e4cd515",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",
@@ -13579,6 +13579,38 @@
       "famille": "textes",
       "statut_audit": "a_relire",
       "statut_catalogue": "sources_officielles_consultees_2026-11-18",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/visite_ipr_2026_11_22/ipr_plan_des_menus_et_dossiers_attendus.txt",
+      "sha256": "8b49c28c8b2f49d7be929bbc222eccc04fdc409c7a01b7a5cdb8dc5f2bdf8373",
+      "famille": "ipack",
+      "statut_audit": "a_confirmer",
+      "statut_catalogue": "releve_ecran_ipr_2026-11-22_a_confirmer",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/visite_ipr_2026_11_22/ipr_dossier_certificatif_validation_referentiels.txt",
+      "sha256": "5b7a03bca4b9f5dd74ad7272180e3bd8c871349bf8559feb0ea80489c282447a",
+      "famille": "ipack",
+      "statut_audit": "a_confirmer",
+      "statut_catalogue": "releve_ecran_ipr_2026-11-22_a_confirmer",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/visite_ipr_2026_11_22/ipr_dossier_sss_validation.txt",
+      "sha256": "70d74e30bb1f21cb240c0c19dff9c338cae5c654411bce23128d53d8edbde56e",
+      "famille": "ipack",
+      "statut_audit": "a_confirmer",
+      "statut_catalogue": "releve_ecran_ipr_2026-11-22_a_confirmer",
+      "signaux": []
+    },
+    {
+      "path": "data/ipack/visite_ipr_2026_11_22/ipr_dossier_appn_validation.txt",
+      "sha256": "868375e15be5e52a8729cbda3228d274df457e3b6136a4b53317cafd129d850e",
+      "famille": "ipack",
+      "statut_audit": "a_confirmer",
+      "statut_catalogue": "releve_ecran_ipr_2026-11-22_a_confirmer",
       "signaux": []
     }
   ],

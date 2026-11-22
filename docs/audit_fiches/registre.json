@@ -5820,7 +5820,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_003_option_interactive_si_vous_etes_en_lycee_cliquer_ici_mode_certification.txt",
-      "sha256": "4724a57713886c4c33a91b20d23cfa7291d840e4b4fcd0c411ffc249114b7eee",
+      "sha256": "50abc13e287509c3c04eb95c31e589c12fde250f70b5fce5e276705e9f329159",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_tutoriels_correspondant",
@@ -7157,7 +7157,7 @@
     },
     {
       "path": "data/ipack/fiches/ipack_075_article_45_dossiers_proposer_le_dossier_eps_ou_dossier_certificatif_a_la_commission_academ.txt",
-      "sha256": "ae1f64a8ad79d21905f0cd36228148f4e27e3bc52e2f3e13f3574bb3f0ad89be",
+      "sha256": "2d78e6079885a2f4b7595b1203f8bae051953a33859a8173b45be9c52936e909",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-10-25_menus_et_contradictions",

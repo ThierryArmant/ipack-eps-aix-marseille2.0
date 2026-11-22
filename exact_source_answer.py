@@ -238,6 +238,20 @@ def _textes_lus(selected, passage_ids):
     return '<p>' + entete + ' ; '.join(items) + '</p>'
 
 
+_ETIQUETTE_FICHE_PRIORITAIRE = re.compile(r'^\s*\[FICHE PRIORITAIRE[^\]\n]*\]\s*')
+_LIGNE_PROVENANCE = re.compile(r'^\s*(?:\[[^\]\n]*\]\s*)*\[(?:DOCUMENT|PORTEE):[^\]\n]*\]\s*$')
+
+
+def texte_visible(text):
+    """Affichage seulement : retire l'étiquette technique « [FICHE PRIORITAIRE — statut …] » placée devant un passage."""
+    return _ETIQUETTE_FICHE_PRIORITAIRE.sub('', text, count=1)
+
+
+def ligne_provenance(text):
+    """Vrai pour une ligne unique de provenance (« [Catégorie] [DOCUMENT: chemin; statut: …] »), jamais une consigne métier."""
+    return len(text.strip().splitlines()) == 1 and bool(_LIGNE_PROVENANCE.match(text))
+
+
 def render_exact_sources(selected, reviewer, report):
     """Présentation seulement : texte métier intact, références regroupées."""
     blocks = []
@@ -248,7 +262,10 @@ def render_exact_sources(selected, reviewer, report):
         blocks.append('<h3>' + html.escape(display_title) + '</h3>')
         labels, references, paragraphs = [], {}, []
         for span in packet['passages']:
-            text = span['text']
+            text = texte_visible(span['text'])
+            if ligne_provenance(text):
+                hidden.append(dict(id=span['id'], reason='metadata'))
+                continue
             if (len(text.strip().splitlines()) == 1
                     and text.strip().startswith(('[DOCUMENT:', '[Base iPackEPS] [DOCUMENT:', '[PORTEE:'))):
                 hidden.append(dict(id=span['id'], reason='metadata'))
@@ -266,7 +283,7 @@ def render_exact_sources(selected, reviewer, report):
             paragraphs.append((span, references[label]))
         for span, label_number in paragraphs:
             ref = str(index) + ('.'+str(label_number) if len(labels)>1 else '')
-            blocks.append('<p style="white-space:pre-wrap;line-height:1.85;margin:0.8rem 0 1.4rem">' + html.escape(span['text'])
+            blocks.append('<p style="white-space:pre-wrap;line-height:1.85;margin:0.8rem 0 1.4rem">' + html.escape(texte_visible(span['text']))
                           + ' <sup>[' + ref + ']</sup></p>')
             rendered.append(span['id'])
         blocks.append('<details><summary>Référence et portée [' + str(index) + ']</summary>')

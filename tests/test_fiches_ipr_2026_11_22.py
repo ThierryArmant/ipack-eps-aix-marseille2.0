@@ -20,14 +20,29 @@ def fiches(question):
 
 class FichesInspection(unittest.TestCase):
     def test_questions_inspection(self):
+        # L'inspection ne dit pas « je suis IPR » : elle répond à un lycée, à un prof, valide le dossier d'un autre.
         cas = {
-            "en tant qu'IPR comment je réponds au commentaire d'un lycée sur son dossier certificatif ?": 'certif',
-            "comment répondre à un lycée qui a déposé un commentaire dans son dossier certificatif": 'certif',
+            "comment répondre à un lycée ?": 'certif',
+            "comment répondre à un prof ?": 'certif',
+            "comment je réponds à un prof qui a mis un commentaire sur son référentiel": 'certif',
+            "quelle réponse au lycée sur son référentiel": 'certif',
+            "comment répondre à l'équipe EPS d'un lycée sur son dossier certificatif": 'certif',
+            "comment valider le référentiel du lycée ?": 'certif',
+            "je veux refuser le référentiel de badminton d'un lycée": 'certif',
+            "comment demander des ajustements à un lycée sur son référentiel ?": 'certif',
+            "un lycée m'a écrit dans le dossier certificatif, où je lis son message ?": 'certif',
+            "où sont les référentiels à lire ?": 'certif',
+            "comment mettre un avis sur le référentiel": 'certif',
             "je suis IA-IPR, comment valider un référentiel à réajuster ?": 'certif',
-            "un établissement ne peut pas créer de groupe SSS, côté inspection que faut-il cocher ?": 'sss',
-            "comment valider le dossier SSS d'un établissement ?": 'sss',
-            "IPR : comment valider une demande APPN ?": 'appn',
+            "comment valider le projet SSS d'un collège ?": 'sss',
+            "comment répondre à un collège sur sa demande d'ouverture de section sportive ?": 'sss',
+            "comment débloquer le bilan SSS d'un établissement": 'sss',
+            "un établissement ne peut pas créer de groupe SSS": 'sss',
+            "comment valider la sortie APPN d'un collège ?": 'appn',
+            "comment répondre à un prof sur sa demande APPN ?": 'appn',
+            "comment refuser la demande APPN du lycée ?": 'appn',
             "où sont les dossiers attendus ?": 'menus',
+            "comment créer les sous-commissions ?": 'menus',
         }
         for question, attendu in cas.items():
             with self.subTest(question=question):
@@ -45,6 +60,17 @@ class FichesInspection(unittest.TestCase):
             "comment créer un groupe SSS ?",
             "comment remplir le bilan SSS ?",
             "comment déclarer mes groupes d'option ?",
+            "comment répondre à la commission qui a mis un commentaire ?",
+            "je réponds comment à la commission ?",
+            "la commission a demandé des ajustements sur notre référentiel",
+            "comment déposer le référentiel de l'établissement ?",
+            "comment valider les protocoles de mes élèves ?",
+            "comment ajouter un collègue dans l'équipe EPS ?",
+            "un prof est absent le jour du CCF, que faire ?",
+            "comment valider le dossier EPS ?",
+            "le chef d'établissement doit-il signer le dossier SSS ?",
+            "comment saisir les notes du CCF ?",
+            "où déposer les référentiels d'évaluation ?",
         ):
             with self.subTest(question=question):
                 self.assertEqual(fiches(question), set())

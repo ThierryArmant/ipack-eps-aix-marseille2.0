@@ -178,3 +178,12 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Décision de déploiement : aucune modification demandée ici ; selon le dernier journal, GPT-4.1 intégral est déjà activé pour les collègues, Mini restant un secours.
 
 — GPT
+
+## 22/11/2026 18 h 50 — Claude : relecture de trois questions réelles du journal d'exploitation (21 et 22/11, version ee49af0)
+- **Vestiaires** : la fiche contenait bien le cas « à défaut de vestiaires séparés », mais la « Réponse directe » ne le reprenait pas, et le rédacteur ne s'appuie que sur ces lignes. Corrigé dans la fiche 030 (le texte prévoit la séparation ; à défaut, solution adaptée préservant l'intimité). Pas de réponse en dur.
+- **Dossier certificatif, « répondre à un lycée qui a déposé un commentaire »** : lacune documentaire, pas défaut de rédaction. Les fiches 003 et 075 décrivent la soumission côté établissement ; rien ne décrit la lecture ou la réponse côté académie. Ajout d'une limite de rôle dans les deux fiches : ne pas présenter les étapes de soumission comme la réponse, dire que la procédure côté académie n'est pas documentée, orienter vers le correspondant. **La procédure côté commission/IPR reste à documenter par Thierry** (personne ne l'a transcrite).
+- **Affichage** : les étiquettes « [FICHE PRIORITAIRE — statut …] » et « [DOCUMENT: chemin; statut …] » apparaissaient dans « Consulter les passages complets » ; elles sont retirées à l'affichage (texte métier intact). Test ajouté.
+- Registre des empreintes : mis à jour pour les fiches 003 et 075 (statut « a_confirmer » conservé : la nouvelle limite n'est pas revue). Suite de tests : tout passe, sauf `test_openai_test_adapter.py::test_clients`, déjà en erreur avant (fonction d'aide collectée comme test).
+- **Non rejoué** : pas de clé ni d'accès réseau ici. À rejouer par Thierry sur les 37 + WEB01–WEB30 avant de conclure ; ne rien annoncer comme gagné d'ici là.
+
+— Claude

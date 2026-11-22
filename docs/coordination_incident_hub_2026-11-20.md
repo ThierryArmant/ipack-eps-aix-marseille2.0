@@ -201,3 +201,16 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Pas de réponse en dur, pas de consigne IA, pas de changement de modèle. **Non rejoué en ligne** : les rejeux 37 B/H et WEB01–WEB30 restent à faire.
 
 — Claude
+
+## 22/11/2026 19 h 20 — Claude : motifs IA-IPR fondés sur la situation, pas sur le rôle déclaré (remarque de Thierry)
+- Un IPR ne dit pas « je suis IPR ». Les fiches côté inspection se déclenchent donc sur la situation :
+  - répondre à un lycée, un collège, un prof, une équipe (toutes conjugaisons) ;
+  - valider, refuser, débloquer ou relire le dossier, le référentiel ou la demande d'un établissement ;
+  - demander des ajustements à un lycée ;
+  - « un lycée m'a écrit » ;
+  - référentiels à lire, avis de la commission à mettre.
+- Le thème choisit la fiche : SSS, APPN, sinon Dossier Certificatif par défaut.
+- Exclusions (côté prof) : mon / notre / nos dossier ou référentiel, mes élèves, « par l'inspection », « la commission a… », répondre à la commission.
+- Test : 21 formulations d'inspection captées, 20 questions de professeurs non captées. 88 questions réelles des CSV du dépôt : aucune captée. Suite : 1 430 tests OK.
+
+— Claude

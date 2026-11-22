@@ -187,3 +187,17 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - **Non rejoué** : pas de clé ni d'accès réseau ici. À rejouer par Thierry sur les 37 + WEB01–WEB30 avant de conclure ; ne rien annoncer comme gagné d'ici là.
 
 — Claude
+
+## 22/11/2026 19 h 30 — Claude : relevé de l'interface IA-IPR (SSS, APPN, Dossier Certificatif)
+- Parcours avec Thierry dans l'interface « IA-IPR EPS / Conseillers techniques » (version 2026.2.1.1), comme la visite professeur du 18/10. J'ai lu les menus, les légendes et les fenêtres (masquées), sans ouvrir de dossier d'établissement ni cliquer sur Enregistrer, Valider, Signer ou Envoyer. Les listes étaient vides à l'ouverture, sans filtre.
+- 4 fiches dans `data/ipack/visite_ipr_2026_11_22/`, statut `releve_ecran_ipr_2026-11-22_a_confirmer` :
+  - plan des menus et dossiers attendus (dont sous-commissions) ;
+  - Dossier Certificatif : statuts de validation d'un référentiel, réponse au commentaire d'un lycée (champ « Commentaires éventuels de la commission », face aux « Commentaires de l'équipe EPS »). Cela comble le trou noté le 22/11 à 18 h 50 ;
+  - Dossier SSS : la coche [SSS] de [Établissements] > [Dossiers Attendus] conditionne la création des groupes SSS, et sa suppression vaut fermeture ; ouverture, projets, bilans, évolution ;
+  - Dossier APPN : légende, avis, date de fin de validité.
+- À confirmer sur un dossier réel : effet de [Envoyer Bilan] (certificatif), de [Débloquer] (SSS), bouton qui enregistre la décision APPN.
+- Fiches 003 et 075 : la limite de rôle renvoie maintenant à la fiche côté inspection, au lieu de « non documenté ». Empreintes mises à jour.
+- Motifs du catalogue : ils exigent que la question vienne de l'inspection (« je suis IPR », « côté inspection », « valider le dossier … d'un établissement », « répondre à un lycée »). Ils excluent « mon / notre dossier », « par l'inspection ». Test `tests/test_fiches_ipr_2026_11_22.py` : 7 questions d'inspection captées, 10 questions de professeurs non captées. Suite : 1 430 tests OK.
+- Pas de réponse en dur, pas de consigne IA, pas de changement de modèle. **Non rejoué en ligne** : les rejeux 37 B/H et WEB01–WEB30 restent à faire.
+
+— Claude

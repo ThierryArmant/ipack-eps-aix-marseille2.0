@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-23",
+  "sources": {
+    "BO national": {},
+    "BO EPS": {},
+    "Aix-Marseille bulletins": {
+      "url": "https://bulacad.ac-aix-marseille.fr/",
+      "last_success": "2026-11-18",
+      "links": {}
+    },
+    "Aix-Marseille examens": {},
+    "Aix-Marseille aménagements": {},
+    "Nice": {},
+    "Créteil iPackEPS": {},
+    "Éduscol EPS": {}
+  }
+}

@@ -261,3 +261,33 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Reste : 48 fiches au statut « à confirmer » à passer en revue selon cette règle, ainsi que la fiche « sans consigne écrite ».
 
 — Claude
+
+## 26/11/2026 — Claude : « textes à l'appui », 1er lot de fiches Examens (à partir des copies du dépôt)
+- Les textes MENE2531948N, MENE2505383C et MENE2517122C étaient déjà dans `data/commun/textes_sources/`. Je les avais redemandés à tort ; ils sont identiques à ceux collés par Thierry le 26/11.
+- Ajouté `sources/officiels/2026-11-26/` : MENE2523745N et la page Éduscol 5655 (redoublement). Ce dossier n'est pas indexé par le hub.
+- Nouveau test `tests/test_textes_a_l_appui.py` : chaque citation « … » d'une ligne « Réponse directe — textes à l'appui » doit figurer mot pour mot dans une copie de texte officiel du dépôt. 61 citations vérifiées.
+- Fiches complétées :
+  - gt_inaptitude_demarche ;
+  - formalites_signatures_ccf ;
+  - f6 (protocoles adaptés) ;
+  - protocole_adapte_en_cours_annee ;
+  - memoire 004 (champs d'apprentissage) ;
+  - harmonisation_cloture_remontee ;
+  - complement_reponses_validees (CAP ; élève inapte toute l'année) ;
+  - memoire 012 (absences) ;
+  - complement_note_de_service_bac_gt_2026 (10 sections).
+- Corrections de fond relevées en lisant les textes :
+  1. Le protocole d'évaluation du bac GT est transmis « à la commission académique pour validation », et non « au recteur ».
+  2. En voie professionnelle, la co-évaluation « n'est pas prévue par les circulaires » (au lieu de « n'est pas réglementaire »).
+  3. Pour l'inaptitude temporaire, le bac GT transmet l'adaptation à la commission « pour information », alors qu'au bac pro et au CAP la commission est sollicitée pour « valider » : la fiche protocole_adapte confondait les deux.
+  4. Ajouté pour le bac pro et le CAP : un candidat absent sans justification à toutes les situations d'évaluation est déclaré « absent », ce qui entraîne la non-délivrance du diplôme (fiche « élève inapte toute l'année »).
+  5. La règle du BA 549 est marquée « Aix-Marseille uniquement » dans memoire 004.
+- Reste à faire :
+  - cas_concrets_lots_inaptes_coevaluation_etranger (37 ko) ;
+  - correspondant_04 ;
+  - complement_cyclades_protocoles_cas_enseignant ;
+  - guide_national_inaptes_partiels_temporaires : le guide n'est pas dans le dépôt ;
+  - dispense_inaptitude_presence_cours : l'arrêté du 13/09/1989 et l'article R. 312-2 ne sont pas dans le dépôt ;
+  - fiches purement logicielles (Santorin, Cyclades, vidéos) : rien à citer.
+
+— Claude

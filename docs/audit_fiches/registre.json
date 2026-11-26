@@ -482,7 +482,7 @@
     },
     {
       "path": "data/commun/audit60/gt_inaptitude_demarche.txt",
-      "sha256": "df15dadb3b1bdeb586709affc11f512698feed1f550d8f5c02d4fc95c87aba3c",
+      "sha256": "e339e15a969cf630002bead824e7ab061b24f077c5bd58617e7ffa41b2825302",
       "famille": "commun",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reprise_ciblee_2026-10-24_branches_medicales_et_selection_textes",
@@ -2004,7 +2004,7 @@
     },
     {
       "path": "data/examens/audit100_2026_10_20/formalites_signatures_ccf.txt",
-      "sha256": "0e552b8836f41b9765907864b0d1ca4ab4c93eab43eee06a3941c0ee0888f862",
+      "sha256": "e8cd811c56f9814763d13a80e2a79302cdefd84fdd959bd8e9f67ccea1cdc0c6",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "audit_100_sources_relues_2026_10_20",
@@ -2485,7 +2485,7 @@
     },
     {
       "path": "data/examens/audit_faq_2026_10_12/f6_procedure_verifiee.txt",
-      "sha256": "0940341eca141380f37c4082554d70f6e66588bc01978cd87fffa3bfd523fe7d",
+      "sha256": "5b0a04b760ec7051e69776e22ffec78a5fdd5772a98f5d6cbd6256bc3fa10ca5",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "reponse_relue_audit_en_ligne_2026_10_12 ; reponse_en_dur_convertie_en_fiche_2026-10-12",
@@ -3297,7 +3297,7 @@
     },
     {
       "path": "data/examens/audit_lot4_2026_10_13/harmonisation_cloture_remontee.txt",
-      "sha256": "f98e6b297666c78c09579ff95a9bea46ab0655fa6b1f1038c959b47d053ac74a",
+      "sha256": "dacaa47f0e54c21227980065a105d7072c7f31f264392050a35b292c0208a29a",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",
@@ -3531,7 +3531,7 @@
     },
     {
       "path": "data/examens/complement_note_de_service_bac_gt_2026.txt",
-      "sha256": "81f1a8753dd9f413272338a67d653b062b9a902a3e83f6a18125174f84c154dc",
+      "sha256": "26f4571e3c9cab8806d9f59b3c25eccc57e71db2952ea5abb1421df385dfca96",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -3557,7 +3557,7 @@
     },
     {
       "path": "data/examens/complement_reponses_validees.txt",
-      "sha256": "fda2f9753d87c6fb1612f4936ed9b370f8706a8451868addb91f282cb9fc9aef",
+      "sha256": "410bd8b935dea696327cfb04909daea9303411d5ec19e9fb40e98d1b59253d5c",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -3979,7 +3979,7 @@
     },
     {
       "path": "data/examens/fiches/memoire_examens_santorin_004_situation_regle_d_airain_des_champs_d_apprentissage_bac_pro_gt.txt",
-      "sha256": "74eb3654e691d303e967b3378cffd31471d3cbdcf71351b4b043b2cfc163cf3b",
+      "sha256": "50df7066b048b608102766fc52fe114442a53312bf3a57eb25595c06ad3bd27b",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -4144,7 +4144,7 @@
     },
     {
       "path": "data/examens/fiches/memoire_examens_santorin_012_4_reglementation_des_absences_et_epreuves_differees.txt",
-      "sha256": "9009b029aa60f8758f5b894cf77a09430dd97959972e90ebe1b828f560f251c4",
+      "sha256": "cc55d99cc3073c411c597f6315314e196d0ca16702584b864b87080c0bd85c2b",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revu_2026-10-10_recoupement_sources",
@@ -5015,7 +5015,7 @@
     },
     {
       "path": "data/examens/situations_2026_10_13/protocole_adapte_en_cours_annee.txt",
-      "sha256": "4da53664d33b20826ed6630e4365ba9c3d53305ea8d1d0449c019b1e70751bac",
+      "sha256": "5c48088df4a9ab4262dd90dfe2e54a91a67a9749c3c04908294d3b212f0b2ca2",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "verifie_2026-10-13",

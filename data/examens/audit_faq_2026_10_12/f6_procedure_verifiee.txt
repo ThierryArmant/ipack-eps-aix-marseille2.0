@@ -10,6 +10,7 @@ Le texte autorise l’épreuve unique ; il ne modifie pas le logiciel. Rien dans
 Conclusion : l’élève n’a pas à passer une deuxième APSA pour satisfaire le logiciel ; c’est l’obstacle technique qui se traite avec le service des examens et l’inspection de l’académie.
 
 Portée : Logiciel vs texte national.
+Réponse directe — textes à l'appui (à citer sous la réponse) : bac GT, note de service du 20 février 2026, NOR MENE2531948N, 2.e : « pour des cas très particuliers, on pourra proposer une seule épreuve adaptée, le candidat étant alors évalué sur la base d’une seule note. » Bac professionnel, circulaire du 2 avril 2025, NOR MENE2505383C, B.3.1 : « Dans le cadre du CCF, l'établissement peut proposer un CCF avec une, deux ou trois activités adaptées. »
 Sources datées : Note de service du 20 février 2026, MENE2531948N (BO n° 9 de 2026), 2.d et 2.e (2.e) ; FAQ Cyclades, académie de Grenoble, octobre 2024 ; Mémo national Cyclades « Associer des élèves à un protocole — EPS en CCF » v1.0 et mémo « Enseignant EPS » v1.2.
 Fiche de contrôle : data/examens/cas_concrets_lots_inaptes_coevaluation_etranger.txt.
 https://www.education.gouv.fr/bo/2026/Hebdo9/MENE2531948N

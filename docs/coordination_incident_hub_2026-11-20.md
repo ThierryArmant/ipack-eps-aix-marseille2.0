@@ -252,3 +252,12 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - À reposer en ligne : la question réelle du 23/11.
 
 — Claude
+
+## 26/11/2026 — Règle de Thierry : toute réponse douteuse est accompagnée des textes
+- « Chaque réponse douteuse doit être accompagnée des textes », juste sous la réponse.
+- Douteuse veut dire : réponse déduite de plusieurs textes, règle propre à une académie, contradiction entre sources (texte / tutoriel logiciel), ou fiche « à confirmer ».
+- Mise en œuvre (fiches, pas de consigne IA) : la fiche porte une ligne « Réponse directe — textes à l'appui » avec les citations exactes (référence + phrase entre guillemets), vérifiées mot pour mot contre le texte source.
+- Fait : fiche redoublant bac GT (Éduscol × 2, MENE2523745N IV.A × 2). Les 4 citations ont été vérifiées contre les textes fournis.
+- Reste : 48 fiches au statut « à confirmer » à passer en revue selon cette règle, ainsi que la fiche « sans consigne écrite ».
+
+— Claude

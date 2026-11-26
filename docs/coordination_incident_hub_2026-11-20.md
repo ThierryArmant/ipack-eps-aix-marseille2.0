@@ -214,3 +214,28 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Test : 21 formulations d'inspection captées, 20 questions de professeurs non captées. 88 questions réelles des CSV du dépôt : aucune captée. Suite : 1 430 tests OK.
 
 — Claude
+
+## 26/11/2026 — Claude : relecture de 7 questions réelles (21–25/11, gpt-4.1)
+- Version f56ecaa :
+  - APSA non certificative : juste.
+  - Lycée agricole : à nuancer, la réponse dit « dans l'académie de Normandie » alors que l'académie n'est pas précisée.
+  - Redoublant de terminale : prudente, mais lacune documentaire.
+  - Lycée pro « 2 meilleures notes » (Grenoble) : fausse en portée, la règle du BA 549 d'Aix est présentée comme générale.
+- Version ee49af0 :
+  - SSS : juste.
+  - Vestiaires : partielle, déjà corrigée le 22/11.
+  - Répondre à un lycée : fausse ; elle va maintenant à la fiche côté inspection (vérifié).
+- Corrections (fiches seulement) :
+  - CFA / lycée agricole (`complement_cyclades_cas_pratiques.txt`) : portée commune à toutes les académies ; les guides de Corse, Normandie et Besançon ne sont cités que comme sources, plus dans la marche à suivre.
+  - CAP / meilleures notes (`examens/complement_reponses_validees.txt`) :
+    - CAP 2 épreuves, bac pro 3 ;
+    - le choix (meilleures notes ou épreuves retenues en début d'année) dépend des consignes de l'académie ;
+    - ligne « Aix-Marseille uniquement » pour le BA 549 ;
+    - solution logicielle (un groupe par combinaison, article 17 R4) quand l'académie le permet.
+  - `portee_academique.json` régénéré.
+  - Fiche iPackEPS lycée : la solution « meilleures notes » est conditionnée à la consigne EPS de l'académie.
+  - Empreintes (registre, navigation_restore_pilot) mises à jour. Suite : 1 430 tests OK.
+- Reste à faire : fiche « redoublant de terminale et note d'EPS », à écrire après lecture de la note de service du 25/08/2025 (NOR MENE2523745N) et de la page Eduscol « Redoublement et conservation des notes au bac GT ». La fiche « sans consigne écrite » affirme à tort qu'aucun texte national n'existe.
+- Non rejoué : les deux questions (lycée agricole, lycée pro) arrivent par la recherche, pas par le catalogue. Il faut les reposer en ligne.
+
+— Claude

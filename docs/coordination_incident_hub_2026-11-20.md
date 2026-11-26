@@ -239,3 +239,16 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
 - Non rejoué : les deux questions (lycée agricole, lycée pro) arrivent par la recherche, pas par le catalogue. Il faut les reposer en ligne.
 
 — Claude
+
+## 26/11/2026 — Claude : fiche « redoublant de terminale et note d'EPS » (textes fournis par Thierry)
+- Lus : la note de service du 25/08/2025 (NOR MENE2523745N, partie IV.A) et la page Éduscol « Redoublement et conservation des notes au bac GT » (février 2026).
+- Nouvelle fiche `data/examens/textes_2026_11_26/bac_gt_redoublant_conservation_note_eps.txt` (bac GT uniquement) :
+  - un candidat scolaire qui redouble la terminale ne conserve pas sa note d'EPS : il est réévalué en CCF. L'EPS relève du contrôle continu, et les notes de contrôle continu de terminale ne sont pas conservées ;
+  - la conservation des notes ≥ 10 pendant 5 sessions ne vaut que pour les épreuves terminales du 1er groupe, dont l'EPS ne fait pas partie ;
+  - la règle est une déduction des textes (aucune phrase spécifique à l'EPS) : c'est indiqué dans la fiche.
+- Fiche « sans consigne écrite » : la ligne redoublant renvoie maintenant à la nouvelle fiche pour le bac GT ; pour le bac pro et le CAP, faire confirmer par le service des examens.
+- Tutoriel Cyclades de Créteil (R3, dispense automatique d'EPS) : ajout d'un avertissement, ce comportement ne vaut pas règle pour un redoublant scolaire du bac GT (texte prioritaire).
+- Catalogue : motifs redoublement / échec + EPS, CCF, note ; exclusion du redoublement en seconde, en première, au collège, en BTS. Suite : 1 430 tests OK.
+- À reposer en ligne : la question réelle du 23/11.
+
+— Claude

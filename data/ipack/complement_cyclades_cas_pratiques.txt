@@ -38,7 +38,9 @@ ATTENTION : iPackEPS et Cyclades sont des applications communes aux académies, 
 - Mots-clés : CFA, apprentis, lycée agricole, établissement à l'étranger, pas de base élèves, aucun élève, export impossible, groupes sans élèves.
 - Formulations courantes des collègues : nous sommes un CFA et nos apprentis n'apparaissent pas dans iPackEPS ; pas d'élèves à importer dans notre lycée agricole ; comment faire le CCF sans base élèves.
 - Certains établissements (CFA notamment, lycées agricoles, établissements à l'étranger) n'ont pas de base d'élèves connue du rectorat. iPackEPS ne contient alors aucun élève : c'est normal, et l'export des élèves vers Cyclades est impossible.
-- Marche à suivre pour ces établissements : ne pas chercher à importer les classes et les élèves ; dans iPackEPS, déposer les référentiels et créer les groupes et les protocoles SANS élèves ; les élèves sont ensuite inscrits manuellement dans leurs protocoles directement dans Cyclades, activité [EPS] / [Associer les élèves à un protocole]. (Sources : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.)
+- Marche à suivre pour ces établissements : ne pas chercher à importer les classes et les élèves ; dans iPackEPS, déposer les référentiels et créer les groupes et les protocoles SANS élèves ; les élèves sont ensuite inscrits manuellement dans leurs protocoles directement dans Cyclades, activité [EPS] / [Associer les élèves à un protocole].
+- Portée : c'est le fonctionnement des logiciels nationaux, commun à toutes les académies ; ne pas le présenter comme la consigne d'une académie particulière. Qui associe les élèves dans Cyclades, et à quelles dates, dépend de chaque académie.
+- Sources (guides concordants de plusieurs académies, cités seulement comme sources) : document Corse 2024-2025, guide Normandie 2025, support Besançon 2025.
 - L'ouverture des accès pour ces établissements dépend de chaque académie : s'adresser à l'assistance iPackEPS et à la DEC de votre académie.
 
 ### [SITUATION: UN ÉVALUATEUR A CHANGÉ (REMPLACEMENT, DÉPART) — RÉAFFECTER LE PROTOCOLE DANS CYCLADES]

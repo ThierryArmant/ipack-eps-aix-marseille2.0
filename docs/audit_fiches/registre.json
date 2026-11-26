@@ -3557,7 +3557,7 @@
     },
     {
       "path": "data/examens/complement_reponses_validees.txt",
-      "sha256": "bf4e8c285720d6247bc6d978e73490ccbafbe7c5369a6ec26c573c78937ee839",
+      "sha256": "fda2f9753d87c6fb1612f4936ed9b370f8706a8451868addb91f282cb9fc9aef",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -5296,7 +5296,7 @@
     },
     {
       "path": "data/ipack/complement_cyclades_cas_pratiques.txt",
-      "sha256": "04408c9c92b375f44f57ab3b5d6457b803e7f6cedeba25d21281c6aeeca47ed1",
+      "sha256": "4f8e9de9339cb62eac0ee07f826f977f995dabc3a9d556fb1cfa13853340fdbc",
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -11215,7 +11215,7 @@
     },
     {
       "path": "data/ipack/visite_lycee_2026_10_18/apsa_certificative_et_protocole_groupe_lycee_gt.txt",
-      "sha256": "74c62c59a21ad1324ccec77347b005392da52c6967bd95c3616287407746ea6e",
+      "sha256": "bfda4a3011be645d3c964bca2ef904ca70a269aefe76358ad69145594b169eae",
       "famille": "ipack",
       "statut_audit": "a_relire",
       "statut_catalogue": "releve_ecran_lecture_seule_2026-10-18",

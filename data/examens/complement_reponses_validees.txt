@@ -1,9 +1,10 @@
 === RÉPONSES VALIDÉES PAR LE RESPONSABLE DU HUB (mêmes règles que les réponses directes de l'application) ===
 
 ### [SITUATION: CAP : DEUX ÉPREUVES CERTIFICATIVES, CHOIX EN DÉBUT D’ANNÉE]
-- La note du CAP repose sur deux APSA de deux champs différents (circulaire MENE2517122C, session 2026 et suivantes).
-- Le BA spécial 549 d’Aix-Marseille, session 2026, prévoit que, si trois épreuves sont organisées, le candidat en retient deux en début d’année. Distinguer les activités organisées et les deux épreuves retenues pour la certification ; ce n’est pas un choix des deux meilleures notes après les résultats.
-- Un dispositif de quatre activités avec choix de deux en fin d’année n’est pas établi par ces textes. Refaire le protocole conformément aux exigences et le faire valider ; vérifier les instructions EPS de la session 2027.
+- La note du CAP repose sur deux APSA de deux champs différents (circulaire MENE2517122C, session 2026 et suivantes) ; le baccalauréat professionnel repose sur trois épreuves. Si la question dit seulement « lycée professionnel », vérifier s’il s’agit du CAP ou du bac pro.
+- Garder les meilleures notes, ou retenir les épreuves dès le début de l’année : la circulaire nationale citée ici ne tranche pas ce choix ; il est précisé par les consignes EPS de chaque académie (circulaire EPS, bulletin académique). Sans consigne connue de l’académie du collègue, ne pas répondre que c’est interdit : renvoyer à la circulaire EPS de son académie et à son inspection EPS.
+- Aix-Marseille uniquement : le BA spécial 549 d’Aix-Marseille, session 2026, prévoit que, si trois épreuves sont organisées, le candidat en retient deux en début d’année. Distinguer les activités organisées et les deux épreuves retenues pour la certification ; ce n’est pas un choix des deux meilleures notes après les résultats. À Aix-Marseille, un dispositif de quatre activités avec choix de deux en fin d’année n’est pas prévu : refaire le protocole conformément aux exigences et le faire valider ; vérifier les instructions EPS de la session 2027.
+- Côté logiciel : si la consigne de l’académie permet de ne connaître le protocole qu’en fin d’année, iPackEPS le gère en créant un groupe par combinaison possible d’épreuves (article 17 de l’assistance iPackEPS, réponse R4).
 - Sources : https://www.education.gouv.fr/bo/2025/Hebdo36/MENE2517122C ; https://bulacad.ac-aix-marseille.fr/uploads/BA/BA549S/BASPE_549.pdf
 
 ### [SITUATION: CADENAS ET DÉVERROUILLAGE DE LOT SUR SANTORIN]

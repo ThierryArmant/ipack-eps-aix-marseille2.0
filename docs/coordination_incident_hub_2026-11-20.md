@@ -291,3 +291,13 @@ Thierry indique que la réponse iPackEPS transmise le 20/11 était **juste aupar
   - fiches purement logicielles (Santorin, Cyclades, vidéos) : rien à citer.
 
 — Claude
+
+## 26/11/2026 — Claude : affichage « 📜 Textes à l'appui » sous la réponse (accord de Thierry)
+- `exact_source_answer.py` : nouvelle fonction `_textes_appui(packets)`, appelée dans `with_short_answer` (moteur des collègues) et `with_common_pool`, juste après la réponse courte et avant les liens et les extraits repliés.
+- Fonctionnement : elle reprend telles quelles les lignes « Réponse directe — textes à l'appui » des fiches réellement citées par la réponse, et seulement la section concernée quand une fiche contient plusieurs situations. Le bloc n'apparaît que si une fiche citée en contient une : sans ligne d'appui, l'affichage est inchangé.
+- Aucun appel IA supplémentaire et aucun texte rédigé par le programme : les citations sont celles des fiches, contrôlées mot pour mot par le test.
+- Les réponses relues du catalogue (réponses documentées sans IA) ne sont pas concernées.
+- Tests : 3 tests d'affichage ajoutés dans `tests/test_textes_a_l_appui.py`. Suite : 1 434 tests OK.
+- À vérifier en ligne : la question du redoublant (onglet Examens, lycée GT), et une question d'absence injustifiée au CCF.
+
+— Claude

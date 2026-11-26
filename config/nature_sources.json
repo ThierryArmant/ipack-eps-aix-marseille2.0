@@ -6821,6 +6821,18 @@
    "autres_academies_citees": [],
    "portee_texte": "fonctionnement du logiciel iPackEPS (interface inspection), commun aux académies",
    "titre": "iPackEPS côté inspection : Dossier APPN, validation d'une demande"
+  },
+  "data/examens/textes_2026_11_26/bac_gt_redoublant_conservation_note_eps.txt": {
+   "nature": [
+    "texte_national"
+   ],
+   "academie": null,
+   "sessions": [],
+   "autres_academies_citees": [
+    "Créteil"
+   ],
+   "portee_texte": "cadre national (code de l'éducation, note de service MENE2523745N, Éduscol)",
+   "titre": "Baccalauréat général et technologique : élève qui redouble la terminale, que devient sa note d'EPS"
   }
  }
 }

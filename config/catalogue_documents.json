@@ -9488,5 +9488,25 @@
     "exclure_motifs": [
       "\\bmon (?:dossier|etablissement|lycee|college|referentiel|protocole|projet|bilan)\\b|\\bmes (?:referentiels|protocoles|dossiers)\\b|\\bma (?:section|demande|sortie)\\b|\\bnotre (?:dossier|section|etablissement|demande|referentiel|projet|bilan|sortie)\\b|\\bnos (?:referentiels|protocoles|dossiers)\\b|j.ai (?:depose|envoye|soumis)|par l.inspection|par la commission|l.inspection (?:a|m.a|nous a)|la commission (?:a|m.a|nous a)|repon\\w* (?:a|au) (?:la |l.)?(?:commission|inspection|ipr|inspecteur)|mes eleves"
     ]
+  },
+  "data/examens/textes_2026_11_26/bac_gt_redoublant_conservation_note_eps.txt": {
+    "title": "Baccalauréat général et technologique : élève qui redouble la terminale, que devient sa note d'EPS",
+    "statut": "source_officielle_lue_2026_11_26",
+    "examens": [
+      "gt"
+    ],
+    "prioritaire": true,
+    "priorite": 300,
+    "modes": [
+      "examens",
+      "textes",
+      "ipack"
+    ],
+    "motifs": [
+      "(?=.*(?:redoubl|ajourne|echou|echec au bac|se represente|repasse[rz]? (?:le|son) bac|deuxieme (?:fois|passage)|seconde fois))(?=.*(?:\\beps\\b|\\bccf\\b|note|conserv|garde|benefice|dispens))"
+    ],
+    "exclure_motifs": [
+      "redoubl\\w* (?:sa |la |en |une )?(?:seconde|2nde|premiere|1re|sixieme|cinquieme|quatrieme|troisieme|[3456]e)\\b|\\bdnb\\b|brevet|\\bbts\\b"
+    ]
   }
 }

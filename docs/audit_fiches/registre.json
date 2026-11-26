@@ -3318,7 +3318,7 @@
     },
     {
       "path": "data/examens/audit_lot4_2026_10_13/points_sans_consigne_aix.txt",
-      "sha256": "7dc994bb32d6aa9b8ab17e507617a035255a7c1ffedf78c74fac2fa11ef53f3b",
+      "sha256": "33687cb9423119553342bd78b0dba1f1446f53788941c891acd2b9448b3212d8",
       "famille": "examens",
       "statut_audit": "a_relire",
       "statut_catalogue": "verifie_2026-10-13",
@@ -5145,7 +5145,7 @@
     },
     {
       "path": "data/examens/tutoriels_creteil_cyclades_santorin.txt",
-      "sha256": "6e1346524d5515ed4f9b716e788a1904f0ed6af8c5769fcdb614899b8dfc57e4",
+      "sha256": "e776a5ff67589dad09ddade162318972a9ab97905b0309e3d98117a0880b6c96",
       "famille": "examens",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "revue_2026-11-03_affirmations_controlees",
@@ -13611,6 +13611,14 @@
       "famille": "ipack",
       "statut_audit": "a_confirmer",
       "statut_catalogue": "releve_ecran_ipr_2026-11-22_a_confirmer",
+      "signaux": []
+    },
+    {
+      "path": "data/examens/textes_2026_11_26/bac_gt_redoublant_conservation_note_eps.txt",
+      "sha256": "bf256d04917c859d82fdb1a6c396b5e7cc681818493c445ccd8bbc12021b7922",
+      "famille": "examens",
+      "statut_audit": "a_confirmer",
+      "statut_catalogue": "source_officielle_lue_2026_11_26",
       "signaux": []
     }
   ],

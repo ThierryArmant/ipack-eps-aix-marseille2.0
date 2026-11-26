@@ -207,6 +207,49 @@ def libelle_lien(url):
     return '▶ voir la vidéo' if re.search(r'youtu\.?be|vimeo|\.mp4\b|/video', url or '', re.I) else 'lire le texte'
 
 
+
+APPUI_PREFIXE = "Réponse directe — textes à l'appui"
+
+
+def _section_de(texte, titre):
+    """Lignes de la section « ### … » qui porte ce titre ; toute la fiche si elle n'a qu'une section."""
+    lignes = texte.splitlines()
+    entetes = [i for i, l in enumerate(lignes) if l.startswith('### ')]
+    cle = re.sub(r'[^a-z0-9]', '', unicodedata.normalize('NFKD', titre or '').encode('ascii', 'ignore').decode().lower())
+    for n, i in enumerate(entetes):
+        tete = re.sub(r'[^a-z0-9]', '', unicodedata.normalize('NFKD', lignes[i]).encode('ascii', 'ignore').decode().lower())
+        if cle and (cle in tete or tete.endswith(cle) or (len(tete) > 12 and tete in cle)):
+            fin = entetes[n + 1] if n + 1 < len(entetes) else len(lignes)
+            return lignes[i:fin]
+    return lignes if len(entetes) <= 1 else []
+
+
+def _textes_appui(packets):
+    """Règle du 26/11/2026 : une réponse douteuse est accompagnée des textes, juste sous la réponse.
+    Les citations viennent telles quelles des lignes « Réponse directe — textes à l'appui » des fiches
+    utilisées (contrôlées mot pour mot par tests/test_textes_a_l_appui.py) ; rien n'est rédigé ici."""
+    vues, items = set(), []
+    for packet in packets:
+        lignes = [l for s in packet.get('passages', []) for l in s.get('text', '').splitlines()]
+        chemin = packet.get('path') or ''
+        if chemin:
+            try:
+                lignes += _section_de(Path(chemin).read_text(encoding='utf-8'), packet.get('title', ''))
+            except OSError:
+                pass
+        for ligne in lignes:
+            ligne = ligne.strip()
+            if not ligne.startswith(APPUI_PREFIXE):
+                continue
+            contenu = re.sub(r'^' + re.escape(APPUI_PREFIXE) + r'(?:\s*\([^)]*\))?\s*:\s*', '', ligne)
+            if contenu and contenu not in vues:
+                vues.add(contenu)
+                items.append('<li>' + html.escape(contenu) + '</li>')
+    if not items:
+        return ''
+    return ('<div class="textes-appui"><p><strong>📜 Textes à l\'appui</strong></p><ul>'
+            + ''.join(items) + '</ul></div>')
+
 def _textes_lus(selected, passage_ids):
     """Onglet Textes : les textes lus pour étayer la réponse, visibles juste après elle, avec leur lien."""
     owners = [p for p in selected if any(s['id'] in passage_ids for s in p.get('passages', []))]
@@ -363,6 +406,7 @@ def with_short_answer(llm, tracer, audit, question, selected, focus, reviewer, r
     ordre = [p for pid in cites_ids for p in selected if any(sp['id'] == pid for sp in p.get('passages', []))]
     return ('<h3>Réponse</h3>' + _ligne_acces(ordre, mode) + lead
             + '<p><small>Réponse rédigée à partir des fiches (numéros) : vérifiez votre cas.</small></p>'
+            + _textes_appui(ordre)
             + lien
             + '<details><summary>Voir les extraits des fiches (' + str(shown) + ')</summary>'
             + numbered + '</details>')
@@ -412,6 +456,7 @@ def with_common_pool(llm, tracer, audit, question, candidates, selected, focus,
                   display_version_lead='common-pool-v1', no_business_rewriting=False)
     # Les numéros sont les rangs stables du pool, jamais une réindexation des seuls cités.
     result = '<h3>Réponse</h3>' + _ligne_acces(owners, mode) + lead
+    result += _textes_appui(owners)
     result += _textes_lus(owners, cited)
     result += '<details><summary>Voir les extraits cités (' + str(len(cited)) + ')</summary>' + extracts + '</details>'
     missing = [i for i in focus if i not in cited]

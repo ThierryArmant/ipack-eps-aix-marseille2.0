@@ -1562,6 +1562,53 @@ def _bandeau_etape(numero, titre, sous_titre, couleur=""):
     )
 
 
+# Contrôle de la saisie publique avant le traitement RAG et le journal.
+_SEGMENT_NOM = r"(?:[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿœ]*(?:[-’'][A-ZÀ-ÖØ-Þa-zà-öø-ÿœ]+)*|[A-ZÀ-ÖØ-Þ]{2,})"
+_NOM_APRES_TITRE = re.compile(
+    rf"\b(?i:Mme|Mademoiselle|Madame|Monsieur|M\.)(?:\s+){_SEGMENT_NOM}\b"
+)
+_NOM_COMPLET = re.compile(
+    rf"\b{_SEGMENT_NOM}\s+{_SEGMENT_NOM}\b"
+)
+_COORDONNEE = re.compile(
+    r"\b[\w.+-]+@[\w.-]+\.[a-zA-Z]{2,}\b"
+    r"|(?<!\w)(?:(?:\+33|0033)[ .-]?[1-9]|0[1-9])(?:[ .-]?\d{2}){4}(?!\w)"
+)
+_TERMES_EPS = {
+    "EPS", "CCF", "DNB", "CAP", "BAC", "GT", "PRO", "AFL", "APSA", "AS", "UNSS",
+    "PPMS", "PAI", "PAP", "PPS", "SAE", "APPN", "LP", "BO", "STS", "ENT", "UAI",
+    "PRONOTE", "SANTORIN", "CYCLADES", "IPACKEPS", "PARCOURSUP",
+}
+
+
+def _alerte_donnees_question(question):
+    if _COORDONNEE.search(question):
+        return (
+            "Attention, votre question semble contenir une adresse électronique ou un numéro de téléphone. "
+            "Retirez cette information, puis validez à nouveau."
+        )
+    nom_probable = any(
+        not any(mot.upper() in _TERMES_EPS for mot in paire.split())
+        and any(not mot.isupper() for mot in paire.split())
+        for paire in _NOM_COMPLET.findall(question)
+    )
+    if _NOM_APRES_TITRE.search(question) or nom_probable:
+        return (
+            "Attention, votre question semble contenir un nom de personne. "
+            "Remplacez-le par « un élève », « une collègue » ou « un parent » et retirez tout détail "
+            "permettant d’identifier cette personne, puis validez à nouveau."
+        )
+    return ""
+
+
+def _valider_question_hub():
+    question = st.session_state.saisie_question_hub.strip()
+    st.session_state.alerte_question_hub = _alerte_donnees_question(question)
+    if question and not st.session_state.alerte_question_hub:
+        st.session_state.current_prompt = question
+        st.session_state.saisie_question_hub = ""
+
+
 def _consigne(texte, couleur="amber"):
     """Indication courte dans le panneau : texte seul, sans cadre supplémentaire."""
     st.markdown(f'<div class="hub-note">{texte}</div>', unsafe_allow_html=True)
@@ -1661,35 +1708,32 @@ with st.container(key="parcours"):
             st.markdown('<div class="hub-champ-verrou">🔒 Décrivez votre problème en une phrase complète…</div>',
                         unsafe_allow_html=True)
         else:
-            with st.form(key="form_question_hub", clear_on_submit=True):
+            with st.form(key="form_question_hub"):
                 col_input, col_submit = st.columns([5, 1])
                 with col_input:
-                    prompt_brut = st.text_input(
+                    st.text_input(
                         "Question :",
+                        key="saisie_question_hub",
                         placeholder=(
                             "🔺 Décrivez votre problème en une phrase complète : ce que vous faites, où ça bloque, le message affiché..."
                         ),
                         label_visibility="collapsed",
                     )
                 with col_submit:
-                    bouton_envoyer = st.form_submit_button(
-                        "🚀 Envoyer", use_container_width=True, type="primary"
+                    st.form_submit_button(
+                        "🚀 Envoyer", use_container_width=True, type="primary",
+                        on_click=_valider_question_hub,
                     )
                 # Rappel discret sous la barre (l'œil reste sur la question) ; libère la hauteur d'un cadre.
                 st.markdown(
                     '<div style="font-size:0.78rem;color:#CBD5E1;text-align:left;margin-top:-0.4rem;">'
-                    '<strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier un élève. '
+                    '<strong>Protection des données :</strong> ne saisissez aucun nom, prénom ni information permettant d’identifier une personne. '
                     'Vérifiez vos copier-coller avant l’envoi.</div>',
                     unsafe_allow_html=True,
                 )
 
-                if bouton_envoyer and prompt_brut.strip():
-                    prompt = prompt_brut.strip()
-
-                    # --- INJECTION DU SABLIER ICI ---
-                    with st.spinner("⏳ Recherche dans la base documentaire et analyse de la réponse en cours..."):
-                        # On stocke temporairement la question dans la session pour déclencher la suite
-                        st.session_state.current_prompt = prompt
+                if alerte_question := st.session_state.get("alerte_question_hub"):
+                    st.warning(alerte_question)
 
             _guide_mode = st.session_state.get("active_module")
             _guide_level = st.session_state.get("niveau_actif_form", "")
@@ -3283,7 +3327,7 @@ with st.container(key="notice_rgpd"), st.expander(
     <h3 style="color:#38BDF8;font-size:16px;">À quoi sert le HUB ?</h3>
     <p>Le HUB accompagne les professionnels de l’éducation dans leurs recherches pédagogiques, réglementaires et techniques, notamment concernant iPackEPS et les examens en EPS. Il s’appuie sur une base documentaire et sur l’intelligence artificielle. Ses réponses peuvent comporter des erreurs ou des informations incomplètes : vérifiez les textes officiels applicables et leur actualité avant toute décision. Le HUB ne remplace pas les autorités compétentes ni les procédures institutionnelles.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Protégez les élèves et les autres personnes</h3>
-    <p><strong>Ne saisissez aucun nom, prénom ni information permettant d’identifier un élève, une famille, un collègue ou toute autre personne.</strong> Vérifiez également les textes copiés-collés. Retirez les coordonnées, identifiants, numéros d’élève, photographies et signatures. Ne transmettez pas de certificats médicaux, de diagnostics individuels, de bulletins nominatifs ni de documents confidentiels. Décrivez uniquement les éléments nécessaires à votre question, par exemple « un élève de troisième ». Le retrait du nom ne suffit pas si les autres détails permettent de reconnaître la personne.</p>
+    <p><strong>Ne saisissez aucun nom, prénom ni information permettant d’identifier un élève, une famille, un collègue ou toute autre personne.</strong> Vérifiez également les textes copiés-collés. Retirez les coordonnées, identifiants, numéros d’élève, photographies et signatures. Ne transmettez pas de certificats médicaux, de diagnostics individuels, de bulletins nominatifs ni de documents confidentiels. Décrivez uniquement les éléments nécessaires à votre question, par exemple « un élève de troisième ». Le retrait du nom ne suffit pas si les autres détails permettent de reconnaître la personne. À la validation du formulaire, le HUB recherche certains noms et coordonnées. Si le contrôle déclenche une alerte, corrigez votre question avant de la valider à nouveau. Ce contrôle peut laisser passer des informations identifiantes.</p>
     <h3 style="color:#38BDF8;font-size:16px;">Utilisation des échanges</h3>
     <p>Les questions et les extraits copiés sont traités pour rechercher les informations pertinentes et produire une réponse. Un journal Google Sheets enregistre la date et l’heure, la question, la réponse, le mode, le niveau et le contexte sélectionnés, ainsi qu’un identifiant aléatoire d’essai et une trace technique (fiches et passages transmis, rédaction, contrôles et consommation IA lorsqu’ils sont disponibles). Ces échanges permettent aux gestionnaires d’analyser les réponses, de repérer les erreurs et d’améliorer la fiabilité du HUB. Cet enregistrement ne constitue pas, à lui seul, un entraînement automatique des modèles d’intelligence artificielle.</p>
     <p>Le code du HUB n’ajoute à ce journal aucun identifiant de connexion, adresse IP ou adresse électronique de l’utilisateur. Le compteur affiche un total de sessions, sans identifier les visiteurs uniques.</p>
